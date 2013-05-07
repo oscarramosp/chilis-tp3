@@ -1,0 +1,18 @@
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\ALM.ExceptionManagement\bin\Debug\ALM.ExceptionManagement.dll
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\ALM.ExceptionManagement\bin\Debug\ALM.ExceptionManagement.pdb
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\ALM.ExceptionManagement\obj\Debug\ResolveAssemblyReference.cache
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\ALM.ExceptionManagement\obj\Debug\ALM.ExceptionManagement.ExceptionManagerInstaller.resources
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\ALM.ExceptionManagement\obj\Debug\ALM.ExceptionManagement.ExceptionManagerText.resources
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\ALM.ExceptionManagement\obj\Debug\GenerateResource.read.1.tlog
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\ALM.ExceptionManagement\obj\Debug\GenerateResource.write.1.tlog
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\ALM.ExceptionManagement\obj\Debug\ALM.ExceptionManagement.dll
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\ALM.ExceptionManagement\obj\Debug\ALM.ExceptionManagement.pdb
+D:\SISTEMAS-UPC\AppAlmacen\ALM.ExceptionManagement\bin\Debug\ALM.ExceptionManagement.dll
+D:\SISTEMAS-UPC\AppAlmacen\ALM.ExceptionManagement\bin\Debug\ALM.ExceptionManagement.pdb
+D:\SISTEMAS-UPC\AppAlmacen\ALM.ExceptionManagement\obj\Debug\ResolveAssemblyReference.cache
+D:\SISTEMAS-UPC\AppAlmacen\ALM.ExceptionManagement\obj\Debug\ALM.ExceptionManagement.ExceptionManagerInstaller.resources
+D:\SISTEMAS-UPC\AppAlmacen\ALM.ExceptionManagement\obj\Debug\ALM.ExceptionManagement.ExceptionManagerText.resources
+D:\SISTEMAS-UPC\AppAlmacen\ALM.ExceptionManagement\obj\Debug\GenerateResource.read.1.tlog
+D:\SISTEMAS-UPC\AppAlmacen\ALM.ExceptionManagement\obj\Debug\GenerateResource.write.1.tlog
+D:\SISTEMAS-UPC\AppAlmacen\ALM.ExceptionManagement\obj\Debug\ALM.ExceptionManagement.dll
+D:\SISTEMAS-UPC\AppAlmacen\ALM.ExceptionManagement\obj\Debug\ALM.ExceptionManagement.pdb

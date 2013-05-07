@@ -1,0 +1,24 @@
+c:\VBNET\Labs\AppAlmacen\ALM.BE.Entities\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\VBNET\Labs\AppAlmacen\ALM.BE.Entities\obj\x86\Debug\ALM.BE.Entities.Properties.Resources.resources
+c:\VBNET\Labs\AppAlmacen\ALM.BE.Entities\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\VBNET\Labs\AppAlmacen\ALM.BE.Entities\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\ALM.BE.Entities\bin\Debug\ALM.BE.Entities.dll
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\ALM.BE.Entities\bin\Debug\ALM.BE.Entities.pdb
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\ALM.BE.Entities\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\ALM.BE.Entities\obj\x86\Debug\ALM.BE.Entities.dll
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\ALM.BE.Entities\obj\x86\Debug\ALM.BE.Entities.pdb
+D:\SISTEMAS-UPC\AppAlmacen\ALM.BE.Entities\bin\Debug\ALM.BE.Entities.dll
+D:\SISTEMAS-UPC\AppAlmacen\ALM.BE.Entities\bin\Debug\ALM.BE.Entities.pdb
+D:\SISTEMAS-UPC\AppAlmacen\ALM.BE.Entities\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\SISTEMAS-UPC\AppAlmacen\ALM.BE.Entities\obj\x86\Debug\ALM.BE.Entities.dll
+D:\SISTEMAS-UPC\AppAlmacen\ALM.BE.Entities\obj\x86\Debug\ALM.BE.Entities.pdb
+C:\anelt usb\tp2\AppAlmacen\ALM.BE.Entities\bin\Debug\ALM.BE.Entities.dll
+C:\anelt usb\tp2\AppAlmacen\ALM.BE.Entities\bin\Debug\ALM.BE.Entities.pdb
+C:\anelt usb\tp2\AppAlmacen\ALM.BE.Entities\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\anelt usb\tp2\AppAlmacen\ALM.BE.Entities\obj\x86\Debug\ALM.BE.Entities.dll
+C:\anelt usb\tp2\AppAlmacen\ALM.BE.Entities\obj\x86\Debug\ALM.BE.Entities.pdb
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\ALM.BE.Entities\bin\Debug\ALM.BE.Entities.dll
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\ALM.BE.Entities\bin\Debug\ALM.BE.Entities.pdb
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\ALM.BE.Entities\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\ALM.BE.Entities\obj\x86\Debug\ALM.BE.Entities.dll
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\ALM.BE.Entities\obj\x86\Debug\ALM.BE.Entities.pdb

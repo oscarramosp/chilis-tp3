@@ -1,0 +1,16 @@
+D:\SISTEMAS-UPC\AppAlmacen\ALM.DBUtility\bin\Debug\ALM.DBUtility.dll
+D:\SISTEMAS-UPC\AppAlmacen\ALM.DBUtility\bin\Debug\ALM.DBUtility.pdb
+D:\SISTEMAS-UPC\AppAlmacen\ALM.DBUtility\obj\Debug\ResolveAssemblyReference.cache
+D:\SISTEMAS-UPC\AppAlmacen\ALM.DBUtility\obj\Debug\ALM.DBUtility.dll
+D:\SISTEMAS-UPC\AppAlmacen\ALM.DBUtility\obj\Debug\ALM.DBUtility.pdb
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\ALM.DBUtility\bin\Debug\ALM.DBUtility.dll
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\ALM.DBUtility\bin\Debug\ALM.DBUtility.pdb
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\ALM.DBUtility\bin\Debug\AVT.Framework.DataAccess.dll
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\ALM.DBUtility\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\ALM.DBUtility\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\ALM.DBUtility\bin\Debug\Microsoft.Practices.Unity.dll
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\ALM.DBUtility\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\ALM.DBUtility\bin\Debug\Microsoft.Practices.Unity.Interception.dll
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\ALM.DBUtility\obj\Debug\ResolveAssemblyReference.cache
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\ALM.DBUtility\obj\Debug\ALM.DBUtility.dll
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\ALM.DBUtility\obj\Debug\ALM.DBUtility.pdb

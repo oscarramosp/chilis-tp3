@@ -1,0 +1,110 @@
+c:\VBNET\Labs\AppAlmacen\AppAlmacen\obj\Debug\ResolveAssemblyReference.cache
+c:\VBNET\Labs\AppAlmacen\AppAlmacen\bin\AppAlmacen.dll
+c:\VBNET\Labs\AppAlmacen\AppAlmacen\bin\AppAlmacen.pdb
+c:\VBNET\Labs\AppAlmacen\AppAlmacen\obj\Debug\AppAlmacen.dll
+c:\VBNET\Labs\AppAlmacen\AppAlmacen\obj\Debug\AppAlmacen.pdb
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\AppAlmacen\obj\Debug\ResolveAssemblyReference.cache
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\AppAlmacen\bin\AppAlmacen.dll
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\AppAlmacen\bin\AppAlmacen.pdb
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\AppAlmacen\bin\ALM.BE.Entities.dll
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\AppAlmacen\bin\ALM.BL.BusinessLogic.dll
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\AppAlmacen\bin\ALM.ExceptionManagement.dll
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\AppAlmacen\bin\ALM.DL.DataAccess.dll
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.Unity.dll
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.ServiceLocation.dll
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.Unity.Interception.dll
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\AppAlmacen\bin\ALM.DBUtility.dll
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\AppAlmacen\bin\AVT.Framework.DataAccess.dll
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\AppAlmacen\bin\ALM.BE.Entities.pdb
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\AppAlmacen\bin\ALM.BL.BusinessLogic.pdb
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\AppAlmacen\bin\ALM.ExceptionManagement.pdb
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\AppAlmacen\bin\ALM.DL.DataAccess.pdb
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\AppAlmacen\bin\ALM.DBUtility.pdb
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\AppAlmacen\obj\Debug\AppAlmacen.dll
+D:\Anelt\UPC 2013\tp2 ultimo\AppAlmacen\AppAlmacen\obj\Debug\AppAlmacen.pdb
+D:\SISTEMAS-UPC\AppAlmacen\AppAlmacen\obj\Debug\ResolveAssemblyReference.cache
+D:\SISTEMAS-UPC\AppAlmacen\AppAlmacen\bin\AppAlmacen.dll
+D:\SISTEMAS-UPC\AppAlmacen\AppAlmacen\bin\AppAlmacen.pdb
+D:\SISTEMAS-UPC\AppAlmacen\AppAlmacen\bin\ALM.BE.Entities.dll
+D:\SISTEMAS-UPC\AppAlmacen\AppAlmacen\bin\ALM.BL.BusinessLogic.dll
+D:\SISTEMAS-UPC\AppAlmacen\AppAlmacen\bin\ALM.ExceptionManagement.dll
+D:\SISTEMAS-UPC\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\SISTEMAS-UPC\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\SISTEMAS-UPC\AppAlmacen\AppAlmacen\bin\ALM.DL.DataAccess.dll
+D:\SISTEMAS-UPC\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.Unity.dll
+D:\SISTEMAS-UPC\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.ServiceLocation.dll
+D:\SISTEMAS-UPC\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.Unity.Interception.dll
+D:\SISTEMAS-UPC\AppAlmacen\AppAlmacen\bin\ALM.DBUtility.dll
+D:\SISTEMAS-UPC\AppAlmacen\AppAlmacen\bin\AVT.Framework.DataAccess.dll
+D:\SISTEMAS-UPC\AppAlmacen\AppAlmacen\bin\ALM.BE.Entities.pdb
+D:\SISTEMAS-UPC\AppAlmacen\AppAlmacen\bin\ALM.BL.BusinessLogic.pdb
+D:\SISTEMAS-UPC\AppAlmacen\AppAlmacen\bin\ALM.ExceptionManagement.pdb
+D:\SISTEMAS-UPC\AppAlmacen\AppAlmacen\bin\ALM.DL.DataAccess.pdb
+D:\SISTEMAS-UPC\AppAlmacen\AppAlmacen\bin\ALM.DBUtility.pdb
+D:\SISTEMAS-UPC\AppAlmacen\AppAlmacen\obj\Debug\AppAlmacen.dll
+D:\SISTEMAS-UPC\AppAlmacen\AppAlmacen\obj\Debug\AppAlmacen.pdb
+C:\anelt usb\tp2\AppAlmacen\AppAlmacen\bin\AppAlmacen.dll
+C:\anelt usb\tp2\AppAlmacen\AppAlmacen\bin\AppAlmacen.pdb
+C:\anelt usb\tp2\AppAlmacen\AppAlmacen\bin\ALM.BE.Entities.dll
+C:\anelt usb\tp2\AppAlmacen\AppAlmacen\bin\ALM.BL.BusinessLogic.dll
+C:\anelt usb\tp2\AppAlmacen\AppAlmacen\bin\ALM.ExceptionManagement.dll
+C:\anelt usb\tp2\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\anelt usb\tp2\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\anelt usb\tp2\AppAlmacen\AppAlmacen\bin\ALM.DL.DataAccess.dll
+C:\anelt usb\tp2\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.Unity.dll
+C:\anelt usb\tp2\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.ServiceLocation.dll
+C:\anelt usb\tp2\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.Unity.Interception.dll
+C:\anelt usb\tp2\AppAlmacen\AppAlmacen\bin\ALM.DBUtility.dll
+C:\anelt usb\tp2\AppAlmacen\AppAlmacen\bin\AVT.Framework.DataAccess.dll
+C:\anelt usb\tp2\AppAlmacen\AppAlmacen\bin\ALM.BE.Entities.pdb
+C:\anelt usb\tp2\AppAlmacen\AppAlmacen\bin\ALM.BL.BusinessLogic.pdb
+C:\anelt usb\tp2\AppAlmacen\AppAlmacen\bin\ALM.ExceptionManagement.pdb
+C:\anelt usb\tp2\AppAlmacen\AppAlmacen\bin\ALM.DL.DataAccess.pdb
+C:\anelt usb\tp2\AppAlmacen\AppAlmacen\bin\ALM.DBUtility.pdb
+C:\anelt usb\tp2\AppAlmacen\AppAlmacen\obj\Debug\ResolveAssemblyReference.cache
+C:\anelt usb\tp2\AppAlmacen\AppAlmacen\obj\Debug\AppAlmacen.dll
+C:\anelt usb\tp2\AppAlmacen\AppAlmacen\obj\Debug\AppAlmacen.pdb
+D:\SISTEMAS-UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\AppAlmacen.dll
+D:\SISTEMAS-UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\AppAlmacen.pdb
+D:\SISTEMAS-UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.BE.Entities.dll
+D:\SISTEMAS-UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.BL.BusinessLogic.dll
+D:\SISTEMAS-UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.ExceptionManagement.dll
+D:\SISTEMAS-UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\SISTEMAS-UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\SISTEMAS-UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.DL.DataAccess.dll
+D:\SISTEMAS-UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.Unity.dll
+D:\SISTEMAS-UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.ServiceLocation.dll
+D:\SISTEMAS-UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.Unity.Interception.dll
+D:\SISTEMAS-UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.DBUtility.dll
+D:\SISTEMAS-UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\AVT.Framework.DataAccess.dll
+D:\SISTEMAS-UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.BE.Entities.pdb
+D:\SISTEMAS-UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.BL.BusinessLogic.pdb
+D:\SISTEMAS-UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.ExceptionManagement.pdb
+D:\SISTEMAS-UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.DL.DataAccess.pdb
+D:\SISTEMAS-UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.DBUtility.pdb
+D:\SISTEMAS-UPC\AppAlmacen4\AppAlmacen\AppAlmacen\obj\Debug\ResolveAssemblyReference.cache
+D:\SISTEMAS-UPC\AppAlmacen4\AppAlmacen\AppAlmacen\obj\Debug\AppAlmacen.dll
+D:\SISTEMAS-UPC\AppAlmacen4\AppAlmacen\AppAlmacen\obj\Debug\AppAlmacen.pdb
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\AppAlmacen.dll
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\AppAlmacen.pdb
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.BE.Entities.dll
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.BL.BusinessLogic.dll
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.ExceptionManagement.dll
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.DL.DataAccess.dll
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.Unity.dll
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.ServiceLocation.dll
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.Unity.Interception.dll
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.DBUtility.dll
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\AVT.Framework.DataAccess.dll
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.BE.Entities.pdb
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.BL.BusinessLogic.pdb
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.ExceptionManagement.pdb
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.DL.DataAccess.pdb
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.DBUtility.pdb
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\obj\Debug\AppAlmacen.dll
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\obj\Debug\AppAlmacen.pdb
