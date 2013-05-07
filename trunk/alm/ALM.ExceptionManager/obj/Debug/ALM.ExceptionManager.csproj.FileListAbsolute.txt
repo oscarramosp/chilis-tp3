@@ -1,0 +1,5 @@
+D:\SISTEMAS-UPC\AppAlmacen\ALM.ExceptionManager\obj\Debug\ResolveAssemblyReference.cache
+D:\SISTEMAS-UPC\AppAlmacen\ALM.ExceptionManager\obj\Debug\ALM.ExceptionManagement.ExceptionManagerInstaller.resources
+D:\SISTEMAS-UPC\AppAlmacen\ALM.ExceptionManager\obj\Debug\ALM.ExceptionManager.ExceptionManagerText.resources
+D:\SISTEMAS-UPC\AppAlmacen\ALM.ExceptionManager\obj\Debug\GenerateResource.read.1.tlog
+D:\SISTEMAS-UPC\AppAlmacen\ALM.ExceptionManager\obj\Debug\GenerateResource.write.1.tlog

@@ -1,0 +1,577 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{68704543-A8FA-43D8-83C6-FE1EF5FFED76}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AppAlmacen</RootNamespace>
+    <AssemblyName>AppAlmacen</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=3.0.30512.20315, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="ALM.BE.Entities, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ALM.BE.Entities\bin\Debug\ALM.BE.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="ALM.BL.BusinessLogic">
+      <HintPath>..\ALM.BL.BusinessLogic\bin\Debug\ALM.BL.BusinessLogic.dll</HintPath>
+    </Reference>
+    <Reference Include="ALM.ExceptionManagement, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ALM.ExceptionManagement\bin\Debug\ALM.ExceptionManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="Flesk.Accelerator, Version=1.0.1.17057, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Flesk.Accelerator.dll</HintPath>
+    </Reference>
+    <Reference Include="Flesk.ViewState, Version=2.0.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Flesk.ViewState.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=bccc61496b0fc356, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\EnterpriseLibraries\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=bccc61496b0fc356, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\EnterpriseLibraries\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="App_Themes\Principal\estilos.css" />
+    <Content Include="bin\AVT.Framework\AVT.Framework.Cache.dll" />
+    <Content Include="bin\AVT.Framework\AVT.Framework.Common.dll" />
+    <Content Include="bin\AVT.Framework\AVT.Framework.DataAccess.dll" />
+    <Content Include="bin\AVT.Framework\AVT.Framework.Encrypt.dll" />
+    <Content Include="bin\AVT.Framework\AVT.Framework.Log.dll" />
+    <Content Include="bin\AVT.Framework\AVT.Framework.ServiceIoc.dll" />
+    <Content Include="bin\EnterpriseLibraries\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
+    <Content Include="bin\EnterpriseLibraries\Microsoft.Practices.EnterpriseLibrary.Data.dll" />
+    <Content Include="bin\EnterpriseLibraries\Microsoft.Practices.ServiceLocation.dll" />
+    <Content Include="bin\EnterpriseLibraries\Microsoft.Practices.Unity.Configuration.dll" />
+    <Content Include="bin\EnterpriseLibraries\Microsoft.Practices.Unity.dll" />
+    <Content Include="bin\EnterpriseLibraries\Microsoft.Practices.Unity.Interception.dll" />
+    <Content Include="Controles\ucwProductos.ascx" />
+    <Content Include="Controles\ucwDatetimePicker.ascx" />
+    <Content Include="Controles\ucwAceptarCerrar.ascx" />
+    <Content Include="Controles\ucwAsterisco.ascx" />
+    <Content Include="Controles\ucwBuscarLimpiar.ascx" />
+    <Content Include="Controles\ucwDatosDetalle.ascx" />
+    <Content Include="Controles\ucwFecha.ascx" />
+    <Content Include="Controles\ucwGrabarCerrar.ascx" />
+    <Content Include="Controles\ucwNuevoEditarEliminar.ascx" />
+    <Content Include="Controles\ucwRegistros.ascx" />
+    <Content Include="Controles\ucwTituloBandeja.ascx" />
+    <Content Include="Controles\ucwTituloPopup.ascx" />
+    <Content Include="Imagenes\Botones\boton_agregar_.gif" />
+    <Content Include="Imagenes\Botones\bot_aceptar_off.png" />
+    <Content Include="Imagenes\Botones\bot_aceptar_on.png" />
+    <Content Include="Imagenes\Botones\bot_aceptar_sintexto_off.png" />
+    <Content Include="Imagenes\Botones\bot_aceptar_sintexto_on.png" />
+    <Content Include="Imagenes\Botones\bot_adjuntar_off.png" />
+    <Content Include="Imagenes\Botones\bot_adjuntar_on.png" />
+    <Content Include="Imagenes\Botones\bot_agregarcontacto_on.png" />
+    <Content Include="Imagenes\Botones\bot_agregardocumento_off.gif" />
+    <Content Include="Imagenes\Botones\bot_agregardocumento_on.gif" />
+    <Content Include="Imagenes\Botones\bot_agregardoc_off.gif" />
+    <Content Include="Imagenes\Botones\bot_agregardoc_off.png" />
+    <Content Include="Imagenes\Botones\bot_agregardoc_on.gif" />
+    <Content Include="Imagenes\Botones\bot_agregardoc_on.png" />
+    <Content Include="Imagenes\Botones\bot_agregarhito_on.png" />
+    <Content Include="Imagenes\Botones\bot_agregarinvolucrado_on.png" />
+    <Content Include="Imagenes\Botones\bot_agregarsubtipo_on.png" />
+    <Content Include="Imagenes\Botones\bot_agregarusuario_off.gif" />
+    <Content Include="Imagenes\Botones\bot_agregarusuario_off.png" />
+    <Content Include="Imagenes\Botones\bot_agregarusuario_on.gif" />
+    <Content Include="Imagenes\Botones\bot_agregarusuario_on.png" />
+    <Content Include="Imagenes\Botones\bot_agregarusu_off.gif" />
+    <Content Include="Imagenes\Botones\bot_agregarusu_on.gif" />
+    <Content Include="Imagenes\Botones\bot_aprobarsustento_off.gif" />
+    <Content Include="Imagenes\Botones\bot_aprobarsustento_off.png" />
+    <Content Include="Imagenes\Botones\bot_aprobarsustento_on.gif" />
+    <Content Include="Imagenes\Botones\bot_aprobarsustento_on.png" />
+    <Content Include="Imagenes\Botones\bot_asignacion_off.gif" />
+    <Content Include="Imagenes\Botones\bot_asignacion_on.gif" />
+    <Content Include="Imagenes\Botones\bot_buscartexto_on.png" />
+    <Content Include="Imagenes\Botones\bot_buscar_off.gif" />
+    <Content Include="Imagenes\Botones\bot_buscar_off.png" />
+    <Content Include="Imagenes\Botones\bot_buscar_on.gif" />
+    <Content Include="Imagenes\Botones\bot_buscar_on.png" />
+    <Content Include="Imagenes\Botones\bot_buscar_sintexto_off.png" />
+    <Content Include="Imagenes\Botones\bot_buscar_sintexto_on.png" />
+    <Content Include="Imagenes\Botones\bot_calendario_off.gif" />
+    <Content Include="Imagenes\Botones\bot_calendario_on.gif" />
+    <Content Include="Imagenes\Botones\bot_cancelarsiniestro_off.gif" />
+    <Content Include="Imagenes\Botones\bot_cancelarsiniestro_off.png" />
+    <Content Include="Imagenes\Botones\bot_cancelarsiniestro_on.gif" />
+    <Content Include="Imagenes\Botones\bot_cancelarsiniestro_on.png" />
+    <Content Include="Imagenes\Botones\bot_cancelar_off.png" />
+    <Content Include="Imagenes\Botones\bot_cancelar_on.png" />
+    <Content Include="Imagenes\Botones\bot_cerrar_off.gif" />
+    <Content Include="Imagenes\Botones\bot_cerrar_off.png" />
+    <Content Include="Imagenes\Botones\bot_cerrar_on.gif" />
+    <Content Include="Imagenes\Botones\bot_cerrar_on.png" />
+    <Content Include="Imagenes\Botones\bot_cerrar_sintexto_off.png" />
+    <Content Include="Imagenes\Botones\bot_cerrar_sintexto_on.png" />
+    <Content Include="Imagenes\Botones\bot_cplanilla_off.gif" />
+    <Content Include="Imagenes\Botones\bot_cplanilla_on.gif" />
+    <Content Include="Imagenes\Botones\bot_editar_off.gif" />
+    <Content Include="Imagenes\Botones\bot_editar_off.png" />
+    <Content Include="Imagenes\Botones\bot_editar_on.gif" />
+    <Content Include="Imagenes\Botones\bot_editar_on.png" />
+    <Content Include="Imagenes\Botones\bot_eliminar_off.gif" />
+    <Content Include="Imagenes\Botones\bot_eliminar_off.png" />
+    <Content Include="Imagenes\Botones\bot_eliminar_on.gif" />
+    <Content Include="Imagenes\Botones\bot_eliminar_on.png" />
+    <Content Include="Imagenes\Botones\bot_enviar_off.png" />
+    <Content Include="Imagenes\Botones\bot_enviar_on.png" />
+    <Content Include="Imagenes\Botones\bot_enviar_sintexto_off.png" />
+    <Content Include="Imagenes\Botones\bot_enviar_sintexto_on.png" />
+    <Content Include="Imagenes\Botones\bot_examinar_off.png" />
+    <Content Include="Imagenes\Botones\bot_examinar_on.png" />
+    <Content Include="Imagenes\Botones\bot_exportar_off.gif" />
+    <Content Include="Imagenes\Botones\bot_exportar_off.png" />
+    <Content Include="Imagenes\Botones\bot_exportar_on.gif" />
+    <Content Include="Imagenes\Botones\bot_exportar_on.png" />
+    <Content Include="Imagenes\Botones\bot_guardar_enviar_off.png" />
+    <Content Include="Imagenes\Botones\bot_guardar_enviar_on.png" />
+    <Content Include="Imagenes\Botones\bot_guardar_liquidar_off.png" />
+    <Content Include="Imagenes\Botones\bot_guardar_liquidar_on.png" />
+    <Content Include="Imagenes\Botones\bot_guardar_off.gif" />
+    <Content Include="Imagenes\Botones\bot_guardar_off.png" />
+    <Content Include="Imagenes\Botones\bot_guardar_on.gif" />
+    <Content Include="Imagenes\Botones\bot_guardar_on.png" />
+    <Content Include="Imagenes\Botones\bot_guardar_sintexto_off.png" />
+    <Content Include="Imagenes\Botones\bot_guardar_sintexto_on.png" />
+    <Content Include="Imagenes\Botones\bot_importar_off.gif" />
+    <Content Include="Imagenes\Botones\bot_importar_on.gif" />
+    <Content Include="Imagenes\Botones\bot_limpiartexto_on.png" />
+    <Content Include="Imagenes\Botones\bot_limpiar_off.gif" />
+    <Content Include="Imagenes\Botones\bot_limpiar_off.png" />
+    <Content Include="Imagenes\Botones\bot_limpiar_on.gif" />
+    <Content Include="Imagenes\Botones\bot_limpiar_on.png" />
+    <Content Include="Imagenes\Botones\bot_limpiar_sintexto_off.png" />
+    <Content Include="Imagenes\Botones\bot_limpiar_sintexto_on.png" />
+    <Content Include="Imagenes\Botones\bot_Liquidar_off.png" />
+    <Content Include="Imagenes\Botones\bot_Liquidar_on.png" />
+    <Content Include="Imagenes\Botones\bot_nuevo_off.gif" />
+    <Content Include="Imagenes\Botones\bot_nuevo_off.png" />
+    <Content Include="Imagenes\Botones\bot_nuevo_on.gif" />
+    <Content Include="Imagenes\Botones\bot_nuevo_on.png" />
+    <Content Include="Imagenes\Botones\bot_observarsiniestro_off.gif" />
+    <Content Include="Imagenes\Botones\bot_observarsiniestro_off.png" />
+    <Content Include="Imagenes\Botones\bot_observarsiniestro_on.gif" />
+    <Content Include="Imagenes\Botones\bot_observarsiniestro_on.png" />
+    <Content Include="Imagenes\Botones\bot_procesar_off.GIF" />
+    <Content Include="Imagenes\Botones\bot_procesar_on.GIF" />
+    <Content Include="Imagenes\Botones\bot_regresar_off.gif" />
+    <Content Include="Imagenes\Botones\bot_regresar_off.png" />
+    <Content Include="Imagenes\Botones\bot_regresar_on.gif" />
+    <Content Include="Imagenes\Botones\bot_regresar_on.png" />
+    <Content Include="Imagenes\Botones\bot_varchivo_off.gif" />
+    <Content Include="Imagenes\Botones\bot_varchivo_on.gif" />
+    <Content Include="Imagenes\Botones\bot_xdocument_off.png" />
+    <Content Include="Imagenes\Botones\bot_xdocument_on.png" />
+    <Content Include="Imagenes\Botones\btn_exportar_off.gif" />
+    <Content Include="Imagenes\Botones\btn_exportar_on.gif" />
+    <Content Include="Imagenes\Error\calprev.png" />
+    <Content Include="Imagenes\Error\closeX.png" />
+    <Content Include="Imagenes\Error\errorIcon.png" />
+    <Content Include="Imagenes\Error\ListSet.gif" />
+    <Content Include="Imagenes\Iconos\adjuntar-documento.png" />
+    <Content Include="Imagenes\Iconos\asignar-usuario.png" />
+    <Content Include="Imagenes\Iconos\asignar_on.gif" />
+    <Content Include="Imagenes\Iconos\buscar_off.gif" />
+    <Content Include="Imagenes\Iconos\buscar_on.gif" />
+    <Content Include="Imagenes\Iconos\calprev.png" />
+    <Content Include="Imagenes\Iconos\crv_celeste_bott01.png" />
+    <Content Include="Imagenes\Iconos\crv_celeste_bott02.png" />
+    <Content Include="Imagenes\Iconos\crv_celeste_bott03.png" />
+    <Content Include="Imagenes\Iconos\crv_celeste_med01.png" />
+    <Content Include="Imagenes\Iconos\crv_celeste_med03.png" />
+    <Content Include="Imagenes\Iconos\crv_celeste_top01.png" />
+    <Content Include="Imagenes\Iconos\crv_celeste_top02.png" />
+    <Content Include="Imagenes\Iconos\crv_celeste_top03.png" />
+    <Content Include="Imagenes\Iconos\editar.png" />
+    <Content Include="Imagenes\Iconos\Error.gif" />
+    <Content Include="Imagenes\Iconos\ico_agregar_todos_on.gif" />
+    <Content Include="Imagenes\Iconos\ico_agregar_uno_on.gif" />
+    <Content Include="Imagenes\Iconos\ico_alerta.gif" />
+    <Content Include="Imagenes\Iconos\ico_amarillo.png" />
+    <Content Include="Imagenes\Iconos\ico_aprobado.png" />
+    <Content Include="Imagenes\Iconos\ico_aprobar.png" />
+    <Content Include="Imagenes\Iconos\ico_atiendesiniestro.png" />
+    <Content Include="Imagenes\Iconos\ico_buscar.png" />
+    <Content Include="Imagenes\Iconos\ico_calendario.png" />
+    <Content Include="Imagenes\Iconos\ico_cancelar.png" />
+    <Content Include="Imagenes\Iconos\ico_cerrarsesion.png" />
+    <Content Include="Imagenes\Iconos\ico_configurarcheck.png" />
+    <Content Include="Imagenes\Iconos\ico_configurarplazos.png" />
+    <Content Include="Imagenes\Iconos\ico_descarga.png" />
+    <Content Include="Imagenes\Iconos\ico_descargar.gif" />
+    <Content Include="Imagenes\Iconos\ico_editadetalleregistro.png" />
+    <Content Include="Imagenes\Iconos\ico_editar.png" />
+    <Content Include="Imagenes\Iconos\ico_eliminar.gif" />
+    <Content Include="Imagenes\Iconos\ico_eliminaregistro.png" />
+    <Content Include="Imagenes\Iconos\ico_error.gif" />
+    <Content Include="Imagenes\Iconos\ico_excel.gif" />
+    <Content Include="Imagenes\Iconos\ico_excel.png" />
+    <Content Include="Imagenes\Iconos\ico_finalizar.png" />
+    <Content Include="Imagenes\Iconos\ico_gestonsiniestro.png" />
+    <Content Include="Imagenes\Iconos\ico_indicator.gif" />
+    <Content Include="Imagenes\Iconos\ico_iniciar.png" />
+    <Content Include="Imagenes\Iconos\ico_justificar.png" />
+    <Content Include="Imagenes\Iconos\ico_limpiar.png" />
+    <Content Include="Imagenes\Iconos\ico_muestradetalleregistro.png" />
+    <Content Include="Imagenes\Iconos\ico_opciones.png" />
+    <Content Include="Imagenes\Iconos\ico_pagina_error.gif" />
+    <Content Include="Imagenes\Iconos\ico_pdf.gif" />
+    <Content Include="Imagenes\Iconos\ico_quitar_todos_on.gif" />
+    <Content Include="Imagenes\Iconos\ico_quitar_uno_on.gif" />
+    <Content Include="Imagenes\Iconos\ico_rechazar.png" />
+    <Content Include="Imagenes\Iconos\ico_reportes.png" />
+    <Content Include="Imagenes\Iconos\ico_rojo.gif" />
+    <Content Include="Imagenes\Iconos\ico_rojo.png" />
+    <Content Include="Imagenes\Iconos\ico_seguimiento.png" />
+    <Content Include="Imagenes\Iconos\ico_usuario.png" />
+    <Content Include="Imagenes\Iconos\ico_veracta.png" />
+    <Content Include="Imagenes\Iconos\ico_verde.gif" />
+    <Content Include="Imagenes\Iconos\ico_verde.png" />
+    <Content Include="Imagenes\Iconos\ico_verdetalle.png" />
+    <Content Include="Imagenes\Iconos\ico_verindicadores.png" />
+    <Content Include="Imagenes\Iconos\ico_vineta_subtitulo_01.jpg" />
+    <Content Include="Imagenes\Iconos\ico_vineta_titulo.jpg" />
+    <Content Include="Imagenes\Iconos\ico_word.png" />
+    <Content Include="Imagenes\Iconos\imprimir.png" />
+    <Content Include="Imagenes\Iconos\informacion.gif" />
+    <Content Include="Imagenes\Iconos\negativo.png" />
+    <Content Include="Imagenes\Iconos\positivo.png" />
+    <Content Include="Imagenes\logo1.png" />
+    <Content Include="Imagenes\Menu\bg_degrade_menu.gif" />
+    <Content Include="Imagenes\Menu\bg_menu.gif" />
+    <Content Include="Imagenes\Menu\FlechaMenu.png" />
+    <Content Include="Imagenes\Menu\menu_collapse_arrowon.png" />
+    <Content Include="Imagenes\Menu\menu_expand_arrowon.png" />
+    <Content Include="Imagenes\Menu\menu_headon _2.png" />
+    <Content Include="Imagenes\Menu\menu_headon.png" />
+    <Content Include="Imagenes\Menu\menu_headon_5.png" />
+    <Content Include="Imagenes\Menu\menu_headon_desplegado.png" />
+    <Content Include="Imagenes\Menu\menu_headon_desplegado_2.png" />
+    <Content Include="Imagenes\Menu\menu_headon_nodesplegado.png" />
+    <Content Include="Imagenes\Menu\menu_headon_nodesplegado_2.png" />
+    <Content Include="Imagenes\Menu\menu_headover_desplegado.png" />
+    <Content Include="Imagenes\Menu\menu_headover_desplegado_2.png" />
+    <Content Include="Imagenes\Menu\menu_headover_nodesplegado.png" />
+    <Content Include="Imagenes\Menu\menu_headover_nodesplegado_2.png" />
+    <Content Include="Imagenes\Menu\submenu01.gif" />
+    <Content Include="Imagenes\Menu\submenu02.gif" />
+    <Content Include="Imagenes\Menu\vineta01.gif" />
+    <Content Include="Imagenes\Paginacion\btn_anterior.gif" />
+    <Content Include="Imagenes\Paginacion\btn_primero.gif" />
+    <Content Include="Imagenes\Paginacion\btn_siguiente.gif" />
+    <Content Include="Imagenes\Paginacion\btn_ultimo.gif" />
+    <Content Include="Imagenes\Popup\emg_cerrar.png" />
+    <Content Include="Imagenes\Popup\emg_header.png" />
+    <Content Include="Imagenes\Popup\emg_header_bg.png" />
+    <Content Include="Imagenes\Popup\emg_header_left.png" />
+    <Content Include="Imagenes\Popup\emg_header_right.png" />
+    <Content Include="Imagenes\Principal\bg_degrade.gif" />
+    <Content Include="Imagenes\Principal\bot_cerrar_sintexto_off.png" />
+    <Content Include="Imagenes\Principal\bot_cerrar_sintexto_on.png" />
+    <Content Include="Imagenes\Principal\bot_guardar_sintexto_off.png" />
+    <Content Include="Imagenes\Principal\bot_guardar_sintexto_on.png" />
+    <Content Include="Imagenes\Principal\cabecera.jpg" />
+    <Content Include="Imagenes\Principal\cont_tipo01a.gif" />
+    <Content Include="Imagenes\Principal\cont_tipo01b.gif" />
+    <Content Include="Imagenes\Principal\cont_tipo01c.gif" />
+    <Content Include="Imagenes\Principal\cont_tipo01d.gif" />
+    <Content Include="Imagenes\Principal\cont_tipo01e.gif" />
+    <Content Include="Imagenes\Principal\cont_tipo01f.gif" />
+    <Content Include="Imagenes\Principal\cont_tipo01g.gif" />
+    <Content Include="Imagenes\Principal\cont_tipo01h.gif" />
+    <Content Include="Imagenes\Principal\crv_blanco_bott01.png" />
+    <Content Include="Imagenes\Principal\crv_blanco_bott02.png" />
+    <Content Include="Imagenes\Principal\crv_blanco_bott03.png" />
+    <Content Include="Imagenes\Principal\crv_blanco_med01.png" />
+    <Content Include="Imagenes\Principal\crv_blanco_med03.png" />
+    <Content Include="Imagenes\Principal\crv_blanco_top01.png" />
+    <Content Include="Imagenes\Principal\crv_blanco_top02.png" />
+    <Content Include="Imagenes\Principal\crv_blanco_top03.png" />
+    <Content Include="Imagenes\Principal\dot.gif" />
+    <Content Include="Imagenes\Principal\FondoAccesoDenegado.png" />
+    <Content Include="Imagenes\Principal\FondoCerrarSesion.png" />
+    <Content Include="Imagenes\Principal\ico_usuario.png" />
+    <Content Include="Imagenes\Principal\logo.jpg" />
+    <Content Include="Imagenes\Principal\logo.png" />
+    <Content Include="Imagenes\Principal\menu_head.png" />
+    <Content Include="Imagenes\Principal\usuario_center.gif" />
+    <Content Include="Imagenes\Principal\usuario_left.gif" />
+    <Content Include="Imagenes\Principal\usuario_right.gif" />
+    <Content Include="Imagenes\Principal\vineta_titulo.gif" />
+    <Content Include="Imagenes\Principal\vineta_titulo.jpg" />
+    <Content Include="Imagenes\Titulo\degradetabs.gif" />
+    <Content Include="Imagenes\Titulo\degrade_header.gif" />
+    <Content Include="Imagenes\Titulo\flecha_down2.png" />
+    <Content Include="Imagenes\Titulo\flecha_up2.png" />
+    <Content Include="Imagenes\Titulo\ItemForm.png" />
+    <Content Include="Imagenes\Titulo\subtit_ico.gif" />
+    <Content Include="Imagenes\Titulo\tit_arriba.gif" />
+    <Content Include="Imagenes\Titulo\tit_bg_bg.gif" />
+    <Content Include="Imagenes\Titulo\tit_bg_left.gif" />
+    <Content Include="Imagenes\Titulo\tit_bg_right.gif" />
+    <Content Include="Imagenes\Titulo\tit_ico.gif" />
+    <Content Include="Interfaces\Productos\frmConsultaProductos.aspx" />
+    <Content Include="Interfaces\Registros\frmConsultaNotaIO.aspx" />
+    <Content Include="Interfaces\Registros\frmInventarioFisico.aspx" />
+    <Content Include="Interfaces\Registros\frmInventarioFisicoDetalle.aspx" />
+    <Content Include="Interfaces\Registros\frmRegistroNotaIO.aspx" />
+    <Content Include="Interfaces\Registros\frmRegistroNotaIODetalle.aspx" />
+    <Content Include="Scripts\JScript.js" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\Enumeraciones.cs" />
+    <Compile Include="Controles\ucwProductos.ascx.cs">
+      <DependentUpon>ucwProductos.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\ucwProductos.ascx.designer.cs">
+      <DependentUpon>ucwProductos.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ucwDatetimePicker.ascx.cs">
+      <DependentUpon>ucwDatetimePicker.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\ucwDatetimePicker.ascx.designer.cs">
+      <DependentUpon>ucwDatetimePicker.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ucwAceptarCerrar.ascx.cs">
+      <DependentUpon>ucwAceptarCerrar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\ucwAceptarCerrar.ascx.designer.cs">
+      <DependentUpon>ucwAceptarCerrar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ucwAsterisco.ascx.cs">
+      <DependentUpon>ucwAsterisco.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\ucwAsterisco.ascx.designer.cs">
+      <DependentUpon>ucwAsterisco.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ucwBuscarLimpiar.ascx.cs">
+      <DependentUpon>ucwBuscarLimpiar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\ucwBuscarLimpiar.ascx.designer.cs">
+      <DependentUpon>ucwBuscarLimpiar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ucwDatosDetalle.ascx.cs">
+      <DependentUpon>ucwDatosDetalle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\ucwDatosDetalle.ascx.designer.cs">
+      <DependentUpon>ucwDatosDetalle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ucwFecha.ascx.cs">
+      <DependentUpon>ucwFecha.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\ucwFecha.ascx.designer.cs">
+      <DependentUpon>ucwFecha.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ucwGrabarCerrar.ascx.cs">
+      <DependentUpon>ucwGrabarCerrar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\ucwGrabarCerrar.ascx.designer.cs">
+      <DependentUpon>ucwGrabarCerrar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ucwNuevoEditarEliminar.ascx.cs">
+      <DependentUpon>ucwNuevoEditarEliminar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\ucwNuevoEditarEliminar.ascx.designer.cs">
+      <DependentUpon>ucwNuevoEditarEliminar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ucwRegistros.ascx.cs">
+      <DependentUpon>ucwRegistros.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\ucwRegistros.ascx.designer.cs">
+      <DependentUpon>ucwRegistros.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ucwTituloBandeja.ascx.cs">
+      <DependentUpon>ucwTituloBandeja.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\ucwTituloBandeja.ascx.designer.cs">
+      <DependentUpon>ucwTituloBandeja.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ucwTituloPopup.ascx.cs">
+      <DependentUpon>ucwTituloPopup.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\ucwTituloPopup.ascx.designer.cs">
+      <DependentUpon>ucwTituloPopup.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Productos\frmConsultaProductos.aspx.cs">
+      <DependentUpon>frmConsultaProductos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Productos\frmConsultaProductos.aspx.designer.cs">
+      <DependentUpon>frmConsultaProductos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Registros\frmConsultaNotaIO.aspx.cs">
+      <DependentUpon>frmConsultaNotaIO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Registros\frmConsultaNotaIO.aspx.designer.cs">
+      <DependentUpon>frmConsultaNotaIO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Registros\frmInventarioFisico.aspx.cs">
+      <DependentUpon>frmInventarioFisico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Registros\frmInventarioFisico.aspx.designer.cs">
+      <DependentUpon>frmInventarioFisico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Registros\frmInventarioFisicoDetalle.aspx.cs">
+      <DependentUpon>frmInventarioFisicoDetalle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Registros\frmInventarioFisicoDetalle.aspx.designer.cs">
+      <DependentUpon>frmInventarioFisicoDetalle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Registros\frmRegistroNotaIO.aspx.cs">
+      <DependentUpon>frmRegistroNotaIO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Registros\frmRegistroNotaIO.aspx.designer.cs">
+      <DependentUpon>frmRegistroNotaIO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Registros\frmRegistroNotaIODetalle.aspx.cs">
+      <DependentUpon>frmRegistroNotaIODetalle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Registros\frmRegistroNotaIODetalle.aspx.designer.cs">
+      <DependentUpon>frmRegistroNotaIODetalle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\Principal\controles.skin" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56427</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
