@@ -131,16 +131,16 @@ VALUES ('Registro Unico del Contribuyente','RUC')
 -- Clientes
 
 INSERT INTO TB_CLIENTE (VC_NOMBRES, VC_APELLIDO_PATERNO, VC_APELLIDO_MATERNO, VC_NUMERO_DOCUMENTO, IN_CODIGO_TIPO_DOCUMENTO, VC_EMAIL, CH_SEXO, VC_TELEFONO_PRINCIPAL, DT_FECHA_NACIMIENTO, CH_ESTADO_CLIENTE, CH_TIPO_CLIENTE)
-VALUES ('Juan', 'PÈrez', 'GÛmez', '25478585', 1, 'jperez@mail.com', 'M', '7458525', '1985-12-05', 'A', 'N')
+VALUES ('Juan', 'P√©rez', 'G√≥mez', '25478585', 1, 'jperez@mail.com', 'M', '7458525', '1985-12-05', 'A', 'N')
 
 INSERT INTO TB_CLIENTE (VC_NOMBRES, VC_APELLIDO_PATERNO, VC_APELLIDO_MATERNO, VC_NUMERO_DOCUMENTO, IN_CODIGO_TIPO_DOCUMENTO, VC_EMAIL, CH_SEXO, VC_TELEFONO_PRINCIPAL, DT_FECHA_NACIMIENTO, CH_ESTADO_CLIENTE, CH_TIPO_CLIENTE)
-VALUES ('MarÌa', 'Gonz·lez', 'RodrÌguez', '36521458', 1, 'mgonzalez@mail.com', 'F', '965874587', '1982-10-18', 'A', 'N')
+VALUES ('Mar√≠a', 'Gonz√°lez', 'Rodr√≠guez', '36521458', 1, 'mgonzalez@mail.com', 'F', '965874587', '1982-10-18', 'A', 'N')
 
 INSERT INTO TB_CLIENTE (VC_NOMBRES, VC_APELLIDO_PATERNO, VC_APELLIDO_MATERNO, VC_NUMERO_DOCUMENTO, IN_CODIGO_TIPO_DOCUMENTO, VC_EMAIL, CH_SEXO, VC_TELEFONO_PRINCIPAL, DT_FECHA_NACIMIENTO, CH_ESTADO_CLIENTE, CH_TIPO_CLIENTE)
-VALUES ('JosÈ', 'Quispe', 'GarcÌa', '24145878', 1, 'jquispe@mail.com', 'M', '95147858', '1981-07-21', 'A', 'N')
+VALUES ('Jos√©', 'Quispe', 'Garc√≠a', '24145878', 1, 'jquispe@mail.com', 'M', '95147858', '1981-07-21', 'A', 'N')
 
 INSERT INTO TB_CLIENTE (VC_NOMBRES, VC_APELLIDO_PATERNO, VC_APELLIDO_MATERNO, VC_NUMERO_DOCUMENTO, IN_CODIGO_TIPO_DOCUMENTO, VC_EMAIL, CH_SEXO, VC_TELEFONO_PRINCIPAL, DT_FECHA_NACIMIENTO, CH_ESTADO_CLIENTE, CH_TIPO_CLIENTE)
-VALUES ('Carlos', 'RamÌrez', 'Torres', '36974125', 1, 'cramirez@mail.com', 'M', '3697458', '1970-04-03', 'A', 'N')
+VALUES ('Carlos', 'Ram√≠rez', 'Torres', '36974125', 1, 'cramirez@mail.com', 'M', '3697458', '1970-04-03', 'A', 'N')
 
 INSERT INTO TB_CLIENTE (VC_NOMBRES, VC_APELLIDO_PATERNO, VC_APELLIDO_MATERNO, VC_NUMERO_DOCUMENTO, IN_CODIGO_TIPO_DOCUMENTO, VC_EMAIL, CH_SEXO, VC_TELEFONO_PRINCIPAL, DT_FECHA_NACIMIENTO, CH_ESTADO_CLIENTE, CH_TIPO_CLIENTE)
 VALUES ('Rosa', 'Casas', 'Rojas', '36501252', 1, 'rcasas@mail.com', 'F', '97854785', '1984-11-26', 'A', 'N')
@@ -149,7 +149,7 @@ INSERT INTO TB_CLIENTE (VC_NOMBRES, VC_APELLIDO_PATERNO, VC_APELLIDO_MATERNO, VC
 VALUES ('Ana Lisa', 'Cruzado', 'Guerrero', '01785412', 1, 'acruzado@mail.com', 'F', '3674140', '1975-06-10', 'A', 'N')
 
 INSERT INTO TB_CLIENTE (VC_NOMBRES, VC_APELLIDO_PATERNO, VC_APELLIDO_MATERNO, VC_NUMERO_DOCUMENTO, IN_CODIGO_TIPO_DOCUMENTO, VC_EMAIL, CH_SEXO, VC_TELEFONO_PRINCIPAL, DT_FECHA_NACIMIENTO, CH_ESTADO_CLIENTE, CH_TIPO_CLIENTE)
-VALUES ('Claudio', 'Paredes', 'GarcÌa', '12547858', 1, 'cparedes@mail.com', 'M', '910210214', '1989-07-12', 'A', 'N')
+VALUES ('Claudio', 'Paredes', 'Garc√≠a', '12547858', 1, 'cparedes@mail.com', 'M', '910210214', '1989-07-12', 'A', 'N')
 
 INSERT INTO TB_CLIENTE (VC_NOMBRES, VC_APELLIDO_PATERNO, VC_APELLIDO_MATERNO, VC_NUMERO_DOCUMENTO, IN_CODIGO_TIPO_DOCUMENTO, VC_EMAIL, CH_SEXO, VC_TELEFONO_PRINCIPAL, DT_FECHA_NACIMIENTO, CH_ESTADO_CLIENTE, CH_TIPO_CLIENTE)
 VALUES ('Vanessa', 'Peredo', 'Casas', '01236547', 1, 'vperedo@mail.com', 'F', '3698714', '1987-06-12', 'A', 'N')
@@ -478,3 +478,332 @@ END
 go
 
 --===============================FIN MODULO CLIENTES Y RESERVAS =========================================================
+
+--===============================INICIO MODULO GESTION GERENCIAL ========================================================
+
+/****** Object:  User [ge]    Script Date: 05/08/2013 18:32:35 ******/
+CREATE USER [ge] FOR LOGIN [ge] WITH DEFAULT_SCHEMA=[dbo]
+GO
+
+/****** Object:  Table [dbo].[Cargo]    Script Date: 05/08/2013 18:32:35 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Cargo](
+	[codigo_cargo] [int] IDENTITY(1,1) NOT NULL,
+	[nombre_cargo] [varchar](50) NULL,
+	[descripcion_cargo] [varchar](50) NULL,
+ CONSTRAINT [PK_Cargo] PRIMARY KEY CLUSTERED 
+(
+	[codigo_cargo] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[Cargo] ON
+INSERT [dbo].[Cargo] ([codigo_cargo], [nombre_cargo], [descripcion_cargo]) VALUES (1, N'responsableArea', N'Responsable de aprobaciones de un area')
+INSERT [dbo].[Cargo] ([codigo_cargo], [nombre_cargo], [descripcion_cargo]) VALUES (2, N'gerenteGeneral', N'Gerente General Chili`s Peru')
+SET IDENTITY_INSERT [dbo].[Cargo] OFF
+
+/****** Object:  Table [dbo].[Area]    Script Date: 05/08/2013 18:32:35 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Area](
+	[codigo_area] [int] IDENTITY(1,1) NOT NULL,
+	[nombre_area] [varchar](50) NULL,
+ CONSTRAINT [PK_Area] PRIMARY KEY CLUSTERED 
+(
+	[codigo_area] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[Area] ON
+INSERT [dbo].[Area] ([codigo_area], [nombre_area]) VALUES (1, N'ventas')
+INSERT [dbo].[Area] ([codigo_area], [nombre_area]) VALUES (2, N'finanzas')
+INSERT [dbo].[Area] ([codigo_area], [nombre_area]) VALUES (3, N'logistica')
+INSERT [dbo].[Area] ([codigo_area], [nombre_area]) VALUES (4, N'marketing')
+INSERT [dbo].[Area] ([codigo_area], [nombre_area]) VALUES (5, N'gerencia')
+SET IDENTITY_INSERT [dbo].[Area] OFF
+
+/****** Object:  Table [dbo].[Objetivo]    Script Date: 05/08/2013 18:32:35 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Objetivo](
+	[codigo_objetivo] [int] IDENTITY(1,1) NOT NULL,
+	[descripcion_objetivo] [varchar](100) NULL,
+	[fechaRegistro_objetivo] [datetime] NULL,
+	[comentarios_objetivo] [varchar](250) NULL,
+	[estado_objetivo] [varchar](15) NULL,
+	[tipo_objetivo] [varchar](15) NULL,
+ CONSTRAINT [PK_Objetivo] PRIMARY KEY CLUSTERED 
+(
+	[codigo_objetivo] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+
+/****** Object:  Table [dbo].[Mapa_Estrategico]    Script Date: 05/08/2013 18:32:35 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Mapa_Estrategico](
+	[codigo_mapa_estrategico] [int] IDENTITY(1,1) NOT NULL,
+	[descripcion_mapa_estrategico] [varchar](50) NULL,
+	[resumen_mapa_estrategico] [varchar](50) NULL,
+	[fecha_inicio_mapa_estrategico] [datetime] NULL,
+	[fecha_fin_mapa_estrategico] [datetime] NULL,
+	[fechaRegistro_mapa_estrategico] [datetime] NULL,
+	[estado_mapa_estrategico] [varchar](15) NULL,
+	[comentarios_mapa_estrategico] [varchar](250) NULL,
+	[tipo_genera_mapa_estrategico] [varchar](50) NULL,
+ CONSTRAINT [PK_Mapa_Estrategico] PRIMARY KEY CLUSTERED 
+(
+	[codigo_mapa_estrategico] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+
+/****** Object:  Table [dbo].[Indicador]    Script Date: 05/08/2013 18:32:35 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Indicador](
+	[codigo_Indicador] [int] IDENTITY(1,1) NOT NULL,
+	[nombre_Indicador] [varchar](50) NULL,
+	[descripcion_Indicador] [varchar](50) NULL,
+	[fechaRegistro_Indicador] [datetime] NULL,
+	[formula_Indicador] [varchar](50) NULL,
+	[meta_Indicador] [varchar](50) NULL,
+	[comentarios_Indicador] [varchar](250) NULL,
+	[estado_Indicador] [varchar](15) NULL,
+	[objetivo_Indicador] [int] NOT NULL,
+ CONSTRAINT [PK_Indicador] PRIMARY KEY CLUSTERED 
+(
+	[codigo_Indicador] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+
+/****** Object:  Table [dbo].[Empleado]    Script Date: 05/08/2013 18:32:35 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Empleado](
+	[codigo_empleado] [int] IDENTITY(1,1) NOT NULL,
+	[nombre_empleado] [varchar](50) NOT NULL,
+	[apellido_empleado] [varchar](50) NOT NULL,
+	[email_empleado] [varchar](50) NOT NULL,
+	[area_empleado] [int] NOT NULL,
+	[cargo_empleado] [int] NOT NULL,
+ CONSTRAINT [PK_Empleado] PRIMARY KEY CLUSTERED 
+(
+	[codigo_empleado] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[Empleado] ON
+INSERT [dbo].[Empleado] ([codigo_empleado], [nombre_empleado], [apellido_empleado], [email_empleado], [area_empleado], [cargo_empleado]) VALUES (1, N'Miguel', N'Merino', N'mmerinovega@gmail.com', 1, 1)
+INSERT [dbo].[Empleado] ([codigo_empleado], [nombre_empleado], [apellido_empleado], [email_empleado], [area_empleado], [cargo_empleado]) VALUES (4, N'Elena', N'Alva', N'elena.alva@gmail.com', 5, 2)
+INSERT [dbo].[Empleado] ([codigo_empleado], [nombre_empleado], [apellido_empleado], [email_empleado], [area_empleado], [cargo_empleado]) VALUES (5, N'Johnny', N'Rodriguez', N'jrodriguezm@gmail.com.pe', 2, 1)
+INSERT [dbo].[Empleado] ([codigo_empleado], [nombre_empleado], [apellido_empleado], [email_empleado], [area_empleado], [cargo_empleado]) VALUES (6, N'Franz', N'Westreicher', N'franzwf@gmail.com', 3, 1)
+SET IDENTITY_INSERT [dbo].[Empleado] OFF
+
+/****** Object:  Table [dbo].[Objetivo_General]    Script Date: 05/08/2013 18:32:35 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Objetivo_General](
+	[codigo_og] [int] NOT NULL,
+	[objetivo_efecto] [int] NULL,
+ CONSTRAINT [PK_Objetivo_General] PRIMARY KEY CLUSTERED 
+(
+	[codigo_og] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[Plan_Accion]    Script Date: 05/08/2013 18:32:35 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Plan_Accion](
+	[codigo_Plan_Accion] [int] IDENTITY(1,1) NOT NULL,
+	[nombre_Plan_Accion] [varchar](50) NULL,
+	[descripcion_Plan_Accion] [datetime] NULL,
+	[fechaRegistro_Plan_Accion] [datetime] NULL,
+	[comentarios_Plan_Accion] [varchar](250) NULL,
+	[estado_Plan_Accion] [varchar](15) NULL,
+	[indicador_Plan_Accion] [int] NOT NULL,
+ CONSTRAINT [PK_Plan_Accion] PRIMARY KEY CLUSTERED 
+(
+	[codigo_Plan_Accion] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+
+/****** Object:  Table [dbo].[Objetivo_Funcional]    Script Date: 05/08/2013 18:32:35 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Objetivo_Funcional](
+	[codigo_of] [int] NOT NULL,
+	[og_vinculado] [int] NOT NULL,
+	[objetivo_efecto] [int] NULL,
+	[area_of] [int] NOT NULL,
+ CONSTRAINT [PK_Objetivo_Funcional] PRIMARY KEY CLUSTERED 
+(
+	[codigo_of] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[Estrategia]    Script Date: 05/08/2013 18:32:35 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Estrategia](
+	[codigo_estrategia] [int] IDENTITY(1,1) NOT NULL,
+	[nombre_estrategia] [varchar](50) NOT NULL,
+	[descripcion_estrategia] [varchar](50) NULL,
+	[fechaRegistro_estrategia] [datetime] NULL,
+	[comentarios_estrategia] [varchar](50) NULL,
+	[estado_estrategia] [varchar](15) NULL,
+	[fecha_inicio_estrategia] [datetime] NULL,
+	[fecha_fin_estrategia] [datetime] NULL,
+	[responsable_estrategia] [int] NULL,
+	[objetivo_estrategia] [int] NOT NULL,
+ CONSTRAINT [PK_Estrategia] PRIMARY KEY CLUSTERED 
+(
+	[codigo_estrategia] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+
+/****** Object:  ForeignKey [fk_area_empleado]    Script Date: 05/08/2013 18:32:35 ******/
+ALTER TABLE [dbo].[Empleado]  WITH CHECK ADD  CONSTRAINT [fk_area_empleado] FOREIGN KEY([area_empleado])
+REFERENCES [dbo].[Area] ([codigo_area])
+GO
+ALTER TABLE [dbo].[Empleado] CHECK CONSTRAINT [fk_area_empleado]
+GO
+
+/****** Object:  ForeignKey [fk_cargo_empleado]    Script Date: 05/08/2013 18:32:35 ******/
+ALTER TABLE [dbo].[Empleado]  WITH CHECK ADD  CONSTRAINT [fk_cargo_empleado] FOREIGN KEY([cargo_empleado])
+REFERENCES [dbo].[Cargo] ([codigo_cargo])
+GO
+ALTER TABLE [dbo].[Empleado] CHECK CONSTRAINT [fk_cargo_empleado]
+GO
+
+/****** Object:  ForeignKey [fk_estrategia_empleado]    Script Date: 05/08/2013 18:32:35 ******/
+ALTER TABLE [dbo].[Estrategia]  WITH CHECK ADD  CONSTRAINT [fk_estrategia_empleado] FOREIGN KEY([responsable_estrategia])
+REFERENCES [dbo].[Empleado] ([codigo_empleado])
+GO
+ALTER TABLE [dbo].[Estrategia] CHECK CONSTRAINT [fk_estrategia_empleado]
+GO
+
+/****** Object:  ForeignKey [fk_estrategia_objetivo]    Script Date: 05/08/2013 18:32:35 ******/
+ALTER TABLE [dbo].[Estrategia]  WITH CHECK ADD  CONSTRAINT [fk_estrategia_objetivo] FOREIGN KEY([objetivo_estrategia])
+REFERENCES [dbo].[Objetivo] ([codigo_objetivo])
+GO
+ALTER TABLE [dbo].[Estrategia] CHECK CONSTRAINT [fk_estrategia_objetivo]
+GO
+
+/****** Object:  ForeignKey [fk_indicador_objetivo]    Script Date: 05/08/2013 18:32:35 ******/
+ALTER TABLE [dbo].[Indicador]  WITH CHECK ADD  CONSTRAINT [fk_indicador_objetivo] FOREIGN KEY([objetivo_Indicador])
+REFERENCES [dbo].[Objetivo] ([codigo_objetivo])
+GO
+ALTER TABLE [dbo].[Indicador] CHECK CONSTRAINT [fk_indicador_objetivo]
+GO
+
+/****** Object:  ForeignKey [FK_Objetivo_Funcional]    Script Date: 05/08/2013 18:32:35 ******/
+ALTER TABLE [dbo].[Objetivo_Funcional]  WITH CHECK ADD  CONSTRAINT [FK_Objetivo_Funcional] FOREIGN KEY([codigo_of])
+REFERENCES [dbo].[Objetivo] ([codigo_objetivo])
+GO
+ALTER TABLE [dbo].[Objetivo_Funcional] CHECK CONSTRAINT [FK_Objetivo_Funcional]
+GO
+
+/****** Object:  ForeignKey [fk_objetivo_funcional_area]    Script Date: 05/08/2013 18:32:35 ******/
+ALTER TABLE [dbo].[Objetivo_Funcional]  WITH CHECK ADD  CONSTRAINT [fk_objetivo_funcional_area] FOREIGN KEY([area_of])
+REFERENCES [dbo].[Area] ([codigo_area])
+GO
+ALTER TABLE [dbo].[Objetivo_Funcional] CHECK CONSTRAINT [fk_objetivo_funcional_area]
+GO
+
+/****** Object:  ForeignKey [fk_objetivo_funcional_efecto]    Script Date: 05/08/2013 18:32:35 ******/
+ALTER TABLE [dbo].[Objetivo_Funcional]  WITH CHECK ADD  CONSTRAINT [fk_objetivo_funcional_efecto] FOREIGN KEY([objetivo_efecto])
+REFERENCES [dbo].[Objetivo_Funcional] ([codigo_of])
+GO
+ALTER TABLE [dbo].[Objetivo_Funcional] CHECK CONSTRAINT [fk_objetivo_funcional_efecto]
+GO
+
+/****** Object:  ForeignKey [FK_Objetivo_General_Vinculado]    Script Date: 05/08/2013 18:32:35 ******/
+ALTER TABLE [dbo].[Objetivo_Funcional]  WITH CHECK ADD  CONSTRAINT [FK_Objetivo_General_Vinculado] FOREIGN KEY([og_vinculado])
+REFERENCES [dbo].[Objetivo_General] ([codigo_og])
+GO
+ALTER TABLE [dbo].[Objetivo_Funcional] CHECK CONSTRAINT [FK_Objetivo_General_Vinculado]
+GO
+
+/****** Object:  ForeignKey [FK_Objetivo_General]    Script Date: 05/08/2013 18:32:35 ******/
+ALTER TABLE [dbo].[Objetivo_General]  WITH CHECK ADD  CONSTRAINT [FK_Objetivo_General] FOREIGN KEY([codigo_og])
+REFERENCES [dbo].[Objetivo] ([codigo_objetivo])
+GO
+ALTER TABLE [dbo].[Objetivo_General] CHECK CONSTRAINT [FK_Objetivo_General]
+GO
+
+/****** Object:  ForeignKey [FK_OBJETIVO_general_EFECTO]    Script Date: 05/08/2013 18:32:35 ******/
+ALTER TABLE [dbo].[Objetivo_General]  WITH CHECK ADD  CONSTRAINT [FK_OBJETIVO_general_EFECTO] FOREIGN KEY([objetivo_efecto])
+REFERENCES [dbo].[Objetivo_General] ([codigo_og])
+GO
+ALTER TABLE [dbo].[Objetivo_General] CHECK CONSTRAINT [FK_OBJETIVO_general_EFECTO]
+GO
+
+/****** Object:  ForeignKey [fk_plan_accion_indicador]    Script Date: 05/08/2013 18:32:35 ******/
+ALTER TABLE [dbo].[Plan_Accion]  WITH CHECK ADD  CONSTRAINT [fk_plan_accion_indicador] FOREIGN KEY([indicador_Plan_Accion])
+REFERENCES [dbo].[Indicador] ([codigo_Indicador])
+GO
+ALTER TABLE [dbo].[Plan_Accion] CHECK CONSTRAINT [fk_plan_accion_indicador]
+GO
+
+--===============================FIN MODULO GESTION GERENCIAL ========================================================
