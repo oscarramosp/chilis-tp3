@@ -1,0 +1,274 @@
+/*  =========================
+		   Page Layout
+		-----------------
+		Table of Contents
+    ========================= 
+	01. Body
+	02. #wrap
+	03. #header
+	04. #nav-main
+	05. #content-main
+	06. #footer
+	07. Misc Classes
+
+================================================================== */
+	body {
+		background:#fff;
+		}
+	
+/* container --> layout
+================================================================== */
+	#container{
+		margin:0 auto;
+		width:960px;
+		background:#fff;	
+		border:3px solid #000;
+
+	}
+/* wrapper --> layout
+================================================================== */
+	#wrap{  /* when there isn't wrap container it keeps the web centered in ie */
+		margin:0 auto;
+		width:960px;
+		background:#fff;	
+		}
+/* header --> layout
+================================================================== */
+	header {
+		height:100px;
+		width:960px;
+		margin:0 auto;
+		background:#fff;
+		}
+/* header --> classes
+------------------------------------------------------------------ */
+
+
+/* nav --> layout
+================================================================== */
+/* 	nav {
+		width:960px;
+		margin: 0 0 20px 0;
+		} 
+		
+nav-main --> classes
+------------------------------------------------------------------ 
+		nav ul {
+		margin:0 auto;
+		background:#bf0b29;
+		height: 30px;
+		}
+	nav ul li a{
+		color:#fff;
+		padding: 5px 10px;
+		float:left;
+		font:16px/20px Helvetica;
+		text-decoration: none;
+		}
+	nav li a:hover{
+		background: #126b1c;
+		color:#fff;
+		text-decoration: none;
+		}
+	nav li a:visited {
+		color:#fff;
+		}
+	nav ul li .active{
+		background: #126b1c;
+		color:#fff;
+		}
+
+*/
+	#logo{
+		width:100px;
+		height:100px;
+		padding:10px;
+		
+	} 
+	
+#menu {
+  width: 960px;
+  height: 40px;
+  clear: both;
+}
+
+ul#nav {
+  float: left;
+  width: 960px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #dc0000 url(../img/menu-parent.png) repeat-x;
+  -moz-border-radius-topright: 10px;
+  -webkit-border-top-right-radius: 10px;
+  -moz-border-radius-topleft: 10px;
+  -webkit-border-top-left-radius: 10px;  
+}
+
+ul#nav li {
+  display: inline;
+}
+
+ul#nav li a {
+  float: left;
+  font: bold 1.1em arial;
+  line-height: 40px;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 1px 1px 1px #880000;
+  margin: 0;
+  padding: 0 30px;
+  background: #dc0000 url(../img/menu-parent.png) repeat-x;
+  -moz-border-radius-topright: 10px;
+  -webkit-border-top-right-radius: 10px;
+  -moz-border-radius-topleft: 10px;
+  -webkit-border-top-left-radius: 10px;     
+}
+
+/* APPLIES THE ACTIVE STATE */
+ul#nav .current a, ul#nav li:hover > a  {
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 1px 1px 1px #330000;
+  background: #126b1c;
+  -moz-border-radius-topright: 10px;
+  -webkit-border-top-right-radius: 10px;
+  -moz-border-radius-topleft: 10px;
+  -webkit-border-top-left-radius: 10px; 
+}
+
+/* THE SUBMENU LIST HIDDEN BY DEFAULT */
+ul#nav  ul {
+  display: none;
+}
+
+/* WHEN THE FIRST LEVEL MENU ITEM IS HOVERED, THE CHILD MENU APPEARS */
+ul#nav li:hover > ul {
+  position: absolute;
+  display: block;
+  width: 920px;
+  height: 45px;
+  position: absolute;
+  margin: 40px 0 0 0;
+  
+  background: #126b1c; /* url(../img/menu-child.png) repeat-x;   */
+  -moz-border-radius-bottomright: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  -webkit-border-bottom-left-radius: 10px; 
+}
+
+ul#nav li:hover > ul li a {
+  float: left;
+  font: bold 1.1em arial;
+  line-height: 45px;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 1px 1px 1px #110000;
+  margin: 0;
+  padding: 0 30px 0 0;
+  background: #126b1c;
+  
+}
+
+ul#nav li:hover > ul li a:hover {
+  color: #120000;
+  text-decoration: none;
+  text-shadow: none;
+}
+	
+
+fieldset {
+  padding: 1em;
+  font:80%/1 sans-serif;
+  }
+label {
+  float:left;
+  width:25%;
+  margin-right:0.5em;
+  padding-top:0.2em;
+  text-align:right;
+  font-weight:bold;
+  }
+  
+	
+	
+/* content-main --> classes / about.html
+------------------------------------------------------------------ */
+	.about_box {
+		}
+	.about_box img {
+		background:#eee;
+		float:left;
+		margin: 0 20px 10px 0;
+		border: 1px solid #ccc;
+		padding:5px;
+		}
+
+
+/* extra classes
+================================================================== */
+	.clear {
+		clear:both;
+	}
+
+/* Debug - for diagraming the structure of the web 
+================================================================== */
+	/* box for testing, bottom margin in footer should be removed in custom box */
+	.box {
+		font:30px/80px Helvetica;
+		color: #000;
+		background:#ff9;
+		text-align: center;
+		border: 1px solid #000;
+		margin: 0 0 20px 0;
+	}		
+	
+/* Debug - main structure divs (turn it on this while you are building the site)
+================================================================== */
+	
+	/* Just for testing */
+	.debug .row{
+		padding: 0 0 20px 0;
+	}
+	.debug .column{
+		padding: 0 0 20px 0;
+	}
+	.debug #header {
+		padding: 0 0 20px 0;
+		margin: 0 0 20px 0;
+		}
+	.debug #nav-main {
+		padding: 0 0 20px 0;
+		margin: 0 0 20px 0;
+		}
+	.debug #content-main {
+		padding: 0 0 20px 0;
+		margin: 0 0 20px 0;
+		}
+
+	.debug {
+		/* Grid Place Holder (repeat-y center top)*/
+		background: url(http://griddle.it/940-12-20)  repeat-y center top !important;
+	}
+	.debug div{ 
+		outline:1px solid yellow; /* wrap */
+	}
+	.debug div>div{
+		outline:1px solid green; /* ids */
+		background:#cf9;
+	}
+	.debug div>div>div{
+		outline:1px solid blue; /* row */
+		background:#9cf;
+	}
+	.debug div>div>div>div{
+		outline:1px solid orange; /* column and grid_n */
+		background:#fc9;
+	}
+	/* footer has one div less */
+	.debug div>div>div>div>div{
+		outline:1px solid red; /* box */
+		background:#fcc;
+	}
+	
