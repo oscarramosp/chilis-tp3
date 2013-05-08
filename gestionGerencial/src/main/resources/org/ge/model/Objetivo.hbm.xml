@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="org.ge.model.Objetivo" table="Objetivo" >
+		<id name="codigo" type="java.lang.Integer">
+			<column name="codigo_objetivo" />
+			<generator class="identity" />
+		</id>
+		
+		<property name="descripcion" type="string">
+			<column name="descripcion_objetivo" length="100" not-null="false" />
+		</property>
+		<property name="fechaRegistro" type="timestamp">
+			<column name="fechaRegistro_objetivo" not-null="false" />
+		</property>
+		<property name="comentarios" type="string">
+			<column name="comentarios_objetivo" length="250" not-null="false" />
+		</property>
+		<property name="estado" type="string">
+			<column name="estado_objetivo" length="15" not-null="false" />
+		</property>
+		
+		<property name="tipoObjetivo" type="string">
+			<column name="tipo_objetivo" length="15" not-null="false" />
+		</property>
+		
+		<joined-subclass name="org.ge.model.ObjetivoGeneral" table="Objetivo_General">
+            <key column="codigo_og"  />
+            <many-to-one name="objetivoEfecto"
+			class="org.ge.model.ObjetivoGeneral" fetch="select">
+			<column name="objetivo_efecto" not-null="false" />
+			</many-to-one>
+        </joined-subclass>
+        
+        <joined-subclass name="org.ge.model.ObjetivoFuncional" table="Objetivo_Funcional">
+            <key column="codigo_of"  />
+            <many-to-one name="area"
+				class="org.ge.model.Area" fetch="select">
+				<column name="area_of" not-null="true" />
+			</many-to-one>
+            <many-to-one name="objetivoEfecto"
+				class="org.ge.model.ObjetivoFuncional" fetch="select">
+				<column name="objetivo_efecto" not-null="false" />
+			</many-to-one>
+			<many-to-one name="objetivoVinculado"
+				class="org.ge.model.ObjetivoGeneral" fetch="select">
+				<column name="og_vinculado" not-null="true" />
+			</many-to-one>
+        </joined-subclass>
+				
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/02/2010 12:08:38 PM by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+	<class name="org.ge.model.Empleado" table="empleado">
+		<id name="codigo" type="java.lang.Integer">
+			<column name="codigo_empleado" />
+			<generator class="identity" />
+		</id>
+		<many-to-one name="area"
+			class="org.ge.model.Area" fetch="select" lazy="false">
+			<column name="area_empleado" not-null="true" />
+		</many-to-one>
+		<many-to-one name="cargo"
+			class="org.ge.model.Cargo" fetch="select" lazy="false">
+			<column name="cargo_empleado" not-null="true" />
+		</many-to-one>
+		<property name="nombre" type="string">
+			<column name="nombre_empleado" length="50" not-null="true" />
+		</property>
+		<property name="apellido" type="string">
+			<column name="apellido_empleado" length="50" not-null="true" />
+		</property>
+		<property name="email" type="string">
+			<column name="email_empleado" length="50" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

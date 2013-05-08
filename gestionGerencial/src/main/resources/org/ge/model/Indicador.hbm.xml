@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/02/2010 12:08:38 PM by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+	<class name="org.ge.model.Indicador" table="indicador">
+		<id name="codigo" type="java.lang.Integer">
+			<column name="codigo_indicador" />
+			<generator class="identity" />
+		</id>
+		<many-to-one name="objetivo"
+			class="org.ge.model.Objetivo" fetch="select">
+			<column name="objetivo_indicador" not-null="true" />
+		</many-to-one>
+		<property name="nombre" type="string">
+			<column name="nombre_indicador" length="50" not-null="false" />
+		</property>
+		<property name="estado" type="string">
+			<column name="estado_indicador" length="15" not-null="false" />
+		</property>
+		<property name="descripcion" type="string">
+			<column name="descripcion_indicador" length="50" not-null="false" />
+		</property>
+		<property name="comentarios" type="string">
+			<column name="comentarios_indicador" length="250" not-null="false" />
+		</property>
+		<property name="fechaRegistro" type="timestamp">
+			<column name="fechaRegistro_indicador" not-null="false" />
+		</property>
+		<property name="formula" type="string">
+			<column name="formula_indicador" not-null="false" />
+		</property>
+		<property name="meta" type="string">
+			<column name="meta_indicador" not-null="false" />
+		</property>
+	</class>
+</hibernate-mapping>

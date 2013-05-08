@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/02/2010 12:08:38 PM by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+	<class name="org.ge.model.MapaEstrategico" table="Mapa_Estrategico">
+		<id name="codigo" type="java.lang.Integer">
+			<column name="codigo_mapa_estrategico" />
+			<generator class="identity" />
+		</id>
+		<property name="estado" type="string">
+			<column name="estado_mapa_estrategico" length="15" not-null="false" />
+		</property>
+		<property name="resumen" type="string">
+			<column name="resumen_mapa_estrategico" length="50" not-null="false" />
+		</property>
+		<property name="tipoGenera" type="string">
+			<column name="tipo_genera_mapa_estrategico" length="50" not-null="false" />
+		</property>
+		<property name="descripcion" type="string">
+			<column name="descripcion_mapa_estrategico" length="50" not-null="false" />
+		</property>
+		<property name="comentarios" type="string">
+			<column name="comentarios_mapa_estrategico" length="250" not-null="false" />
+		</property>
+		<property name="fechaRegistro" type="timestamp">
+			<column name="fechaRegistro_mapa_estrategico" not-null="false" />
+		</property>
+		<property name="fechaInicio" type="timestamp">
+			<column name="fecha_inicio_mapa_estrategico" not-null="false" />
+		</property>
+		<property name="fechaFin" type="timestamp">
+			<column name="fecha_fin_mapa_estrategico" not-null="false" />
+		</property>
+	</class>
+</hibernate-mapping>

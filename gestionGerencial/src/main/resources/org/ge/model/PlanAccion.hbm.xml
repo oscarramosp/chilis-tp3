@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/02/2010 12:08:38 PM by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+	<class name="org.ge.model.PlanAccion" table="Plan_Accion">
+		<id name="codigo" type="java.lang.Integer">
+			<column name="codigo_plan_accion" />
+			<generator class="identity" />
+		</id>
+		<many-to-one name="indicador"
+			class="org.ge.model.Indicador" fetch="select">
+			<column name="indicador_plan_accion" not-null="true" />
+		</many-to-one>
+		<property name="nombre" type="string">
+			<column name="nombre_plan_accion" length="50" not-null="false" />
+		</property>
+		<property name="estado" type="string">
+			<column name="estado_plan_accion" length="15" not-null="false" />
+		</property>
+		<property name="descripcion" type="string">
+			<column name="descripcion_plan_accion" length="50" not-null="false" />
+		</property>
+		<property name="comentarios" type="string">
+			<column name="comentarios_plan_accion" length="250" not-null="false" />
+		</property>
+		<property name="fechaRegistro" type="timestamp">
+			<column name="fechaRegistro_plan_accion" not-null="false" />
+		</property>
+	</class>
+</hibernate-mapping>
