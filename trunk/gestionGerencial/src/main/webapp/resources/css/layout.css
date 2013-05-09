@@ -43,7 +43,6 @@
 /* header --> classes
 ------------------------------------------------------------------ */
 
-
 /* nav --> layout
 ================================================================== */
 /* 	nav {
@@ -111,7 +110,7 @@ ul#nav li {
 
 ul#nav li a {
   float: left;
-  font: bold 1.1em arial;
+  font: bold 0.9em arial;
   line-height: 40px;
   color: #fff;
   text-decoration: none;
@@ -160,7 +159,7 @@ ul#nav li:hover > ul {
 
 ul#nav li:hover > ul li a {
   float: left;
-  font: bold 1.1em arial;
+  font: bold 0.8em arial;
   line-height: 45px;
   color: #fff;
   text-decoration: none;

@@ -15,6 +15,7 @@
 	<link href="resources/css/grid.css" type="text/css" rel="stylesheet" media="screen"/>
 	<link href="resources/css/layout.css" type="text/css" rel="stylesheet" media="screen"/>
 	<link href="resources/css/format.css" type="text/css" rel="stylesheet" media="screen"/>
+	<link href="resources/css/tablas.css" type="text/css" rel="stylesheet" media="screen"/>
 	<script type="text/javascript" src="resources/js/horaactual.js"></script>	
 	
 	<title></title>
