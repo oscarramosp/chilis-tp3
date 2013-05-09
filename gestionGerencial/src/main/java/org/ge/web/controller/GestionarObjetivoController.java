@@ -85,7 +85,7 @@ public class GestionarObjetivoController {
 	}
 	
 	@RequestMapping(value = "/registroObjetivo.htm", method = RequestMethod.POST)
-	public String saveObjetivo(@ModelAttribute("objetivoNuevo") ObjetivoFuncional objetivoNuevo,
+	public String saveObjetivo(Model model, @ModelAttribute("objetivoNuevo") ObjetivoFuncional objetivoNuevo,
 			BindingResult result, SessionStatus status) {
 		try {
 			objetivoValidator.validate(objetivoNuevo, result);
@@ -103,6 +103,7 @@ public class GestionarObjetivoController {
 					mailService.mandarAlerta(organizacionManager.getResponsableArea(aux.getArea()), aux);
 					
 				}
+				model.addAttribute("mensajeConfirmacion", "Registro");
 			} else {				
 				if(objetivoNuevo.getTipoObjetivo().equals("General")){
 					objetivoNuevo.setFechaRegistro(objetivoManager.getObjetivoGeneralPorCodigo(objetivoNuevo.getCodigo()).getFechaRegistro());
@@ -123,16 +124,17 @@ public class GestionarObjetivoController {
 					objetivoManager.guardarObjetivoFuncional(aux);
 					mailService.mandarAlerta(organizacionManager.getResponsableArea(aux.getArea()), aux);
 				}
+				model.addAttribute("mensajeConfirmacion", "Actualizacion");
 				
-			}	
-			return "redirect:consultaObjetivos.htm";
+			}
+			return "consultaObjetivos";
 		} catch (Exception e) {
 			return "registroObjetivo";
 		}
 	}
 	
 	@RequestMapping("/bajaObjetivo.htm")
-	public String darBajaObjetivo(
+	public String darBajaObjetivo(Model model,
 			@RequestParam(value = "codigoObjetivo", required = false) Integer codigoObjetivo) {
 		Objetivo objetivo = objetivoManager.getObjetivoPorCodigo(codigoObjetivo);		
 		if(objetivo.getTipoObjetivo().equals("General")){
@@ -144,7 +146,8 @@ public class GestionarObjetivoController {
 			aux.setEstado("pendBaja");
 			objetivoManager.guardarObjetivoFuncional(aux);
 		}
-		return "redirect:consultaObjetivos.htm";
+		model.addAttribute("mensajeConfirmacion", "Baja");
+		return "consultaObjetivos";
 	}
 	
 	@ModelAttribute("listaAreas")

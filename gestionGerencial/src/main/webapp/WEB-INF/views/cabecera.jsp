@@ -33,8 +33,21 @@
 			</div>
 		</div>
 	</nav>	
-<%-- <c:if test="${mensajeConfirmacion == 'Baja'}"> --%>
-<!-- 	<script language="javascript"> -->
-<!-- 		window.onload = alert("Objetivo dado de baja");-->
-<!-- 	</script> -->
-<%--  </c:if>  --%>
+<c:if test="${mensajeConfirmacion == 'Baja'}">
+	<script language="javascript">
+ 		window.onload = alert("Objetivo pendiente de baja");
+ 		self.location = "consultaObjetivos.htm";
+ 	</script> 
+ </c:if> 
+ <c:if test="${mensajeConfirmacion == 'Actualizacion'}">
+	<script language="javascript">
+ 		window.onload = alert("Objetivo pendiente de actualizacion");
+ 		self.location = "consultaObjetivos.htm";
+ 	</script> 
+</c:if> 
+<c:if test="${mensajeConfirmacion == 'Registro'}">
+	<script language="javascript">
+ 		window.onload = alert("Objetivo pendiente de registro");
+ 		self.location = "consultaObjetivos.htm";
+ 	</script> 
+</c:if> 

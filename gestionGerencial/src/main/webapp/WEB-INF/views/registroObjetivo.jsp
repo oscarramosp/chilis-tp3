@@ -19,20 +19,20 @@
 <!--  } -->
 <!-- </script> -->
 	
-<!-- <script> -->
-<!--   function alerta() -->
-<!--   { -->
-<%--   var operacion= "${tipoOperacion}"; --%>
-<!--   if (operacion=="Registrar") -->
-<!--  	 { -->
-<!--  	 alert("Objetivo Registrado"); -->
-<!-- 	 } -->
-<!--   else -->
-<!--  	 { -->
-<!--  	 alert("Objetivo Actualizado"); -->
-<!--  	 } -->
-<!--   } -->
-<!--  </script> -->
+<script>
+   function alerta() 
+  { 
+  var operacion= "${tipoOperacion}";
+   if (operacion=="Registrar") 
+  	 { 
+  	 alert("Objetivo Pendiente de Registro");
+ 	 } 
+   else 
+  	 { 
+  	 alert("Objetivo Pendiente de Actualización");
+  	 } 
+   }
+  </script> 
 		<div class="row">
 			<div class="column grid_12">
 				<fieldset>
