@@ -19,8 +19,6 @@ function setCheckedValue(tipoElemento, Estrategia) {
 }
 </script>
 
-
-
 	<h3>Pendientes de Aprobación</h3>
 				<form:form commandName="formUtil" method="POST">
 					<h1>Area: <c:out value="${usuario.area.nombre}" /></h1><br>
@@ -64,7 +62,7 @@ function setCheckedValue(tipoElemento, Estrategia) {
 				<br>
 				<br>
 				
-				<label>Comentarios</label>
+				<h6>Comentarios</h6>
 				<form:textarea path="comentarios"/>
 				<input type="submit" name="action" value="Aprobar" />
 				<input type="submit" name="action" value="Rechazar" />
