@@ -1,0 +1,76 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Chilis.master.cs" Inherits="cyr.Chilis" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">    
+    <title>Chilis</title>
+    <link rel="Stylesheet" href="css/chilis.css" type="text/css" />
+    <link rel="Stylesheet" href="css/jquery-ui-1.10.2.custom.min.css" type="text/css" />
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.10.2.custom.min.js"></script>
+    <script type="text/javascript" src="js/util.js"></script>
+    <script type="text/javascript" src="js/moog.custom.alert.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="divTop">
+        <div id="divPrincipal">
+            <div id="divMenu">
+                <asp:HyperLink ID="HyperLink2" CssClass="menu-link" runat="server" NavigateUrl="~/BusquedaClientes.aspx" >Clientes</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink3" CssClass="menu-link" runat="server" >Reservas</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" CssClass="menu-link" runat="server" NavigateUrl="~/GenerarReporteReclamos.aspx">Reporte de Reclamos</asp:HyperLink>
+            </div>
+            <div id="divLogo">
+                <img src="images/img_logo.png" alt="logo" />
+            </div>
+            <div id="divTopLetrero">
+            </div>
+            <div id="divCabecera">
+                <div id="divHerramienta">
+                    <span class="user">
+                    Bienvenido, <asp:Label ID="lblUsuario" runat="server" Text="Luis"></asp:Label>
+                    </span>
+                    <a href="#">Salir</a>
+                </div>
+            </div>
+            <div class="classClear">
+            </div>
+            <div id="divIzq">
+                <div id="divLetrero">
+                    AA
+                </div>
+                <div id="divLetreroCentro">
+                    BB
+                </div>
+                <div id="divLetreroInf">
+                </div>
+            </div>
+            <div id="divDer">
+                <div id="divContenido">
+                    <div>
+                        <img src="images/top-verde.png" alt="" />
+                    </div>
+                    <div id="divCuerpo">
+                        <asp:ContentPlaceHolder ID="cphContent" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    <div>
+                        <img src="images/bot-verde.png" alt="" />
+                    </div>
+                </div>
+            </div>
+            <div class="classClear">
+            </div>
+            <div class="classClear">
+            </div>
+            <div id="divPie">
+                &nbsp;
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

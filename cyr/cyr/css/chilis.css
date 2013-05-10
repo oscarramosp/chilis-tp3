@@ -1,0 +1,628 @@
+﻿body
+{
+    background: #f1e3c4 url(../images/fondo.jpg) center top repeat;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #000;
+}
+/***************** generales  **************/
+h1, h2, h3, h4, p, form, input, ul, li
+{
+    margin: 0;
+    padding: 0;
+}
+a, a img
+{
+    border: none;
+    outline: none;
+}
+
+a
+{
+    color: #663300;
+}
+h2
+{
+    font-size: 14px;
+    color: #336633;
+    padding: 0 0 5px 0;
+    text-transform: uppercase;
+}
+h3
+{
+    font-size: 28px;
+    color: #336633;
+    padding: 0 0 5px 0;
+    background: none;
+}
+h4
+{
+    font-size: 20px;
+    color: #bb2821;
+    padding: 0 0 10px 0;
+}
+
+.txtrojo
+{
+    color: #bb2821;
+}
+.txt14
+{
+    font-size: 14px;
+}
+
+p
+{
+    padding-bottom: 10px;
+}
+
+
+/***************** fin generales  **************/
+
+#divPrincipal
+{
+    width: 995px;
+    text-align: left;
+    padding-top: 10px;
+    margin: auto;
+    position: relative;
+}
+#divTop
+{
+    background: url(../images/bg-superior.png) repeat-x;
+}
+#divCabecera
+{
+    height: 150px;
+    font-size: 11px;
+}
+#divHerramienta, #divBuscador
+{
+    float: right;
+    text-align: right;
+}
+#divHerramienta a
+{
+    color: #FFFFFF;
+    margin-left: 22px;
+    color: #FFFFFF;
+}
+#divBuscador
+{
+    float: right;
+    margin-left: 22px;
+}
+#divBuscador input
+{
+    border: 1px solid #a8bba6;
+    background: #6d3320;
+    color: #FFFFFF;
+    font-size: 11px;
+    padding: 2px 5px;
+    margin-top: -2px;
+}
+#divLogo
+{
+    position: absolute;
+    left: 5px;
+    top: 4px;
+    z-index: 10;
+}
+
+#divTopLetrero
+{
+    background: url(../images/letrero-top.png) center no-repeat;
+    height: 60px;
+    width: 235px;
+    position: absolute;
+    left: 15px;
+    top: 116px;
+    z-index: 1;
+}
+#divLetrero
+{
+    margin-top: 28px;
+    background: url(../images/bg-letrero-top.png) 15px 0 no-repeat;
+    height: 105px;
+    padding: 15px 29px 0 44px;
+    text-align: center;
+}
+#divLetreroCentro
+{
+    background: url(../images/bg-letrero-center.png) 15px top repeat-y;
+    padding: 15px 29px 10px 44px;
+    min-height: 200px; /* set here min height  */
+    height: auto !important; /* overwrite the height */
+    height: 200px; /* this is also the min height for IE */
+    text-align: center;
+}
+
+#divLetreroCentro #divFotoInferior
+{
+    margin: 88px 0 -15px -30px;
+}
+
+#divLetreroInf
+{
+    background: url(../images/bg-letrero-bot.png) 15px bottom no-repeat;
+    height: 16px;
+}
+#divLetrero.letreroHome
+{
+    background: url(../images/letrero-home.png) 5px top no-repeat;
+    height: 394px;
+    padding: 15px 20px 0 20px;
+    text-align: center;
+}
+#divMenu
+{
+    background: url(../images/menu_back.png) top no-repeat;
+    height: 78px;
+    position: absolute;
+    right: -28px;
+    top: 49px;
+    left: 236px;
+    padding-top: 40px;
+}
+
+#divMenu img
+{
+    margin-top: 20px;
+}
+#divIzq, #divDer
+{
+    float: left;
+}
+#divIzq
+{
+    width: 250px;
+    margin-top: -15px;
+}
+#divDer
+{
+    width: 745px;
+}
+#divIconos
+{
+    position: absolute;
+    bottom: -25px;
+    right: 20px;
+}
+#divPie
+{
+    background: url(../images/fondo-subpie.png) center no-repeat;
+    margin: -25px 0 30px 0;
+    color: #FFF;
+    font-size: 11px;
+    line-height: 6em;
+}
+#divPie a
+{
+    color: #fff;
+}
+#divPie span
+{
+    margin: 0 10px;
+}
+
+#FotoSeccion
+{
+    margin-bottom: 20px;
+}
+#divContenido
+{
+    width: 733px;
+    margin-top: 13px;
+    margin-left: 18px;
+    position: relative;
+}
+#divContenido h1
+{
+}
+
+#divContenido .txtDescriptivo
+{
+    width: 310px;
+    position: absolute;
+    left: 390px;
+    font-size: 9px;
+    color: #FFFFFF;
+}
+#divCuerpo
+{
+    background: url(../images/centro-verde.png) left top repeat-y;
+    
+    padding: 0px 16px 0px 9px;
+}
+.cajitas
+{
+    width: 214px;
+    float: left;
+    margin-right: 10px;
+    padding-bottom: 10px;
+}
+
+#divMapaGoogle
+{
+    width: 693px;
+    height: 370px;
+    margin: 0 0 0 -25px;
+    position: relative;
+}
+#divMapaGoogle #map_canvas
+{
+    width: 680px;
+    height: 353px;
+    top: 5px;
+    left: 5px;
+}
+
+#divMapaGoogle .bordeMapa
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 685px;
+    height: 359px;
+    border: solid 3px #f8941a;
+}
+
+#divCarta
+{
+    text-align: right;
+}
+
+#divPromocion
+{
+    position: relative;
+    margin-top: -20px;
+    text-align: right;
+}
+
+#divPromocion .vermas
+{
+    position: absolute;
+    right: -13px;
+    top: 280px;
+}
+
+.vermasb
+{
+    /*novedad: regresar del detalle*/
+    position: absolute;
+    right: -8px;
+    top: 77px;
+}
+
+.imprimirCupon
+{
+    /*novedad: imprimir cupón*/
+    margin-top: 10px;
+}
+
+.divClubChilis
+{
+    background: url(../images/bg-form.jpg) repeat;
+    
+    /*margin: -20px 0 -11px -35px;*/
+    padding: 10px 28px 10px 33px;
+    
+    min-height: 400px;
+}
+
+.divClubChilis .TablaIzquierda tr td
+{
+    height: 23px;
+}
+
+.divClubChilis table tr td
+{
+    height: 22px;
+}
+
+.divClubChilis .classInput
+{
+    background: url(../images/bg-input.png) left center no-repeat;
+    padding: 8px;
+    border: none;
+}
+.divClubChilis .classTextArea
+{
+    background: url(../images/bg-input.png) left center no-repeat;
+    padding: 8px;
+    border: none;
+}
+#divGiftCard
+{
+    margin: 0 0 0 40px;
+    color: #663300;
+    font-size: 14px;
+}
+/************ clases ***************/
+.classClear
+{
+    clear: both;
+}
+.classHR
+{
+    clear: both;
+    height: 1px;
+    padding: 15px 0 0 0;
+    margin: 0 0 15px 0;
+    border-bottom: 1px solid #c4d3c4;
+}
+
+
+
+/***************** links **************/
+#divHerramienta a, #divPie a
+{
+    text-decoration: none;
+}
+#divHerramienta a:hover, #divPie a:hover
+{
+    text-decoration: underline;
+}
+
+
+
+/*************** adicionales **********************/
+h2.acc_trigger a
+{
+    color: #336633;
+    text-decoration: none;
+    display: block;
+    padding: 0;
+    outline: none;
+}
+#divLinea
+{
+    width: 655px;
+    height: 360px;
+    padding-top: 48px;
+    text-align: center;
+}
+
+
+/*************** patches **********************/
+.classClear
+{
+    clear: both;
+}
+
+#divCuerpoFull
+{
+    width: 959px;
+    background-color: #FFF;
+    border: #799839 12px solid;
+}
+#cuerpoFullText
+{
+    margin: 10px;
+    text-align: justify;
+}
+#mapa a
+{
+    color: #fff;
+    text-decoration: none;
+}
+#mapa a:hover
+{
+    text-decoration: underline;
+}
+
+#mapaPush
+{
+    height: 100px;
+}
+.mapaContent
+{
+    color: #fff;
+    margin-left: 86px;
+    -moz-column-width: 170px;
+    -webkit-column-width: 170px;
+    -moz-column-gap: 1em;
+    -webkit-column-gap: 1em;
+    -moz-column-count: 4;
+    -moz-column-gap: 1em;
+    -webkit-column-count: 4;
+    -webkit-column-gap: 1em;
+    /*column-count: 3;
+    column-gap: 20px;
+    */
+    height: 335px;
+    line-height: 16px;
+}
+.strong
+{
+    font-weight: bold;
+}
+
+.navigator
+{
+    position: relative;
+    float: left;
+}
+
+.user-info
+{
+    position: relative;
+    float: left;
+}
+
+.menu-item
+{
+    position: relative;
+    float: left;
+    width: 100px;
+}
+
+.left-menu
+{
+    position: relative;
+    width: 200px;
+    float: left;
+}
+
+.page-container
+{
+    position: relative;
+    width: 800px;
+    float: left;
+}
+
+.border-container
+{
+    position: relative;
+}
+
+.filter-row
+{
+    position: relative;
+}
+
+.filter-label
+{
+    padding-top: 8px;
+    width: 120px;
+    float: left;
+}
+
+.filter-data
+{
+    padding-top: 3px;
+    min-width: 100px;
+    float: left;
+    padding-bottom: 3px;
+}
+
+.clear
+{
+    clear: both;
+}
+
+.textfield
+{
+    font-family: Verdana;
+    font-size: 12px;
+}
+
+.select
+{
+    min-width: 50px;
+    max-width: 180px;
+}
+
+.button
+{
+    color: #FFFFFF;
+    background-color: #94A719;
+    font-weight: bold;
+    font-size: 12px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+.user 
+{
+    color: #FFFFFF;
+    margin-left: 22px;
+    color: #FFFFFF;     
+}
+
+.resultado-reporte
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.alt-button 
+{
+    color: #FFFFFF;
+    background-color: #CE8E15;
+    font-weight: bold;
+    font-size: 12px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.alertMainContainer
+{
+    position: relative;
+    width: 350px;
+    min-height: 120px;
+    border: 1px solid #000000;
+    background-color: #FFFFFF;
+}
+   
+.alertTextContainer
+{
+    position: relative;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+        
+.alertTitulo
+{
+    font-family: Arial;
+    padding-top: 10px;
+    font-size: 12px;
+    color: #000000;
+    font-weight: bold;
+}
+        
+.alertMensaje
+{
+    font-family: Arial;
+    text-align: left;
+    font-size: 12px;
+    color: #000000;
+    padding-left: 20px;
+    padding-top: 5px;
+}
+        
+.alertButtonContainer
+{
+    width: 100%;
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.menu-link
+{
+    color: #FFFFFF;
+    margin-top: 20px;
+    margin-left: 22px;
+    font-size: 14px;
+}
+
+@media print {
+  body * {
+    visibility:hidden;
+  }
+  #section_to_print, #section_to_print * {
+    visibility:visible;
+  }
+  #section_to_print {
+    position:absolute;
+    left:0;
+    top:0;
+  }
+}
+
+.mensaje 
+{
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
