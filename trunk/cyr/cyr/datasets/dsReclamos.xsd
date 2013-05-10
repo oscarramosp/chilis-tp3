@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsReclamos" targetNamespace="http://tempuri.org/dsReclamos.xsd" xmlns:mstns="http://tempuri.org/dsReclamos.xsd" xmlns="http://tempuri.org/dsReclamos.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsReclamos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsReclamos" msprop:Generator_DataSetName="dsReclamos" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtReclamos" msprop:Generator_UserTableName="dtReclamos" msprop:Generator_RowDeletedName="dtReclamosRowDeleted" msprop:Generator_RowChangedName="dtReclamosRowChanged" msprop:Generator_RowClassName="dtReclamosRow" msprop:Generator_RowChangingName="dtReclamosRowChanging" msprop:Generator_RowEvArgName="dtReclamosRowChangeEvent" msprop:Generator_RowEvHandlerName="dtReclamosRowChangeEventHandler" msprop:Generator_TableClassName="dtReclamosDataTable" msprop:Generator_TableVarName="tabledtReclamos" msprop:Generator_RowDeletingName="dtReclamosRowDeleting" msprop:Generator_TablePropName="dtReclamos">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IN_CODIGO_RECLAMO" msprop:Generator_UserColumnName="IN_CODIGO_RECLAMO" msprop:Generator_ColumnVarNameInTable="columnIN_CODIGO_RECLAMO" msprop:Generator_ColumnPropNameInRow="IN_CODIGO_RECLAMO" msprop:Generator_ColumnPropNameInTable="IN_CODIGO_RECLAMOColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="IN_CODIGO_CLIENTE" msprop:Generator_UserColumnName="IN_CODIGO_CLIENTE" msprop:Generator_ColumnVarNameInTable="columnIN_CODIGO_CLIENTE" msprop:Generator_ColumnPropNameInRow="IN_CODIGO_CLIENTE" msprop:Generator_ColumnPropNameInTable="IN_CODIGO_CLIENTEColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="DT_FECHA_CREACION" msprop:Generator_UserColumnName="DT_FECHA_CREACION" msprop:Generator_ColumnVarNameInTable="columnDT_FECHA_CREACION" msprop:Generator_ColumnPropNameInRow="DT_FECHA_CREACION" msprop:Generator_ColumnPropNameInTable="DT_FECHA_CREACIONColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DT_FECHA_CIERRE" msprop:Generator_UserColumnName="DT_FECHA_CIERRE" msprop:Generator_ColumnVarNameInTable="columnDT_FECHA_CIERRE" msprop:Generator_ColumnPropNameInRow="DT_FECHA_CIERRE" msprop:Generator_ColumnPropNameInTable="DT_FECHA_CIERREColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="VC_DETALLE" msprop:Generator_UserColumnName="VC_DETALLE" msprop:Generator_ColumnVarNameInTable="columnVC_DETALLE" msprop:Generator_ColumnPropNameInRow="VC_DETALLE" msprop:Generator_ColumnPropNameInTable="VC_DETALLEColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="CH_ESTADO" msprop:Generator_UserColumnName="CH_ESTADO" msprop:Generator_ColumnVarNameInTable="columnCH_ESTADO" msprop:Generator_ColumnPropNameInRow="CH_ESTADO" msprop:Generator_ColumnPropNameInTable="CH_ESTADOColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="VC_DESC_ESTADO" msprop:Generator_UserColumnName="VC_DESC_ESTADO" msprop:Generator_ColumnVarNameInTable="columnVC_DESC_ESTADO" msprop:Generator_ColumnPropNameInRow="VC_DESC_ESTADO" msprop:Generator_ColumnPropNameInTable="VC_DESC_ESTADOColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="VC_NOMBRES" msprop:Generator_UserColumnName="VC_NOMBRES" msprop:Generator_ColumnVarNameInTable="columnVC_NOMBRES" msprop:Generator_ColumnPropNameInRow="VC_NOMBRES" msprop:Generator_ColumnPropNameInTable="VC_NOMBRESColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="VC_APELLIDO_PATERNO" msprop:Generator_UserColumnName="VC_APELLIDO_PATERNO" msprop:Generator_ColumnVarNameInTable="columnVC_APELLIDO_PATERNO" msprop:Generator_ColumnPropNameInRow="VC_APELLIDO_PATERNO" msprop:Generator_ColumnPropNameInTable="VC_APELLIDO_PATERNOColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="VC_APELLIDO_MATERNO" msprop:Generator_UserColumnName="VC_APELLIDO_MATERNO" msprop:Generator_ColumnVarNameInTable="columnVC_APELLIDO_MATERNO" msprop:Generator_ColumnPropNameInRow="VC_APELLIDO_MATERNO" msprop:Generator_ColumnPropNameInTable="VC_APELLIDO_MATERNOColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="VC_NUMERO_DOCUMENTO" msprop:Generator_UserColumnName="VC_NUMERO_DOCUMENTO" msprop:Generator_ColumnVarNameInTable="columnVC_NUMERO_DOCUMENTO" msprop:Generator_ColumnPropNameInRow="VC_NUMERO_DOCUMENTO" msprop:Generator_ColumnPropNameInTable="VC_NUMERO_DOCUMENTOColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="VC_ACRONIMO" msprop:Generator_UserColumnName="VC_ACRONIMO" msprop:Generator_ColumnVarNameInTable="columnVC_ACRONIMO" msprop:Generator_ColumnPropNameInRow="VC_ACRONIMO" msprop:Generator_ColumnPropNameInTable="VC_ACRONIMOColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
