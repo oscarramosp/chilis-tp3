@@ -23,7 +23,7 @@
 							<li><a href="#">Gestionar Estrategias</a></li>
 							<li><a href="#">Gestionar Indicadores</a></li>
 							<li><a href="#">Gestionar Planes de Accion</a></li>
-							<li><a href="<c:url value="/consultaAprobaciones.htm"/>">Aprobar Objetivos</a></li>
+							<li><a href="<c:url value="/aprobaciones.htm"/>">Aprobaciones</a></li>
 						</ul>
 					</li>	
 					<li><a href="#">Ordenes</a></li>
