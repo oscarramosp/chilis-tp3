@@ -30,4 +30,10 @@ public interface ObjetivoManager {
 	public List<Objetivo> getListaObjetivosPendientes();
 	
 	public List<Objetivo> getListaObjetivosPendientesPorArea(Area area);
+	
+	public List<Objetivo> getListaObjetivosPendientesAprobacionPorArea(Area area);
+	
+	public List<Objetivo> getListaObjetivosPendientesActualizacionPorArea(Area area);
+	
+	public List<Objetivo> getListaObjetivosPendientesBajaPorArea(Area area);
 }

@@ -33,21 +33,45 @@
 			</div>
 		</div>
 	</nav>	
-<c:if test="${mensajeConfirmacion == 'Baja'}">
+<c:if test="${mensajeConfirmacion == 'PendBaja'}">
 	<script language="javascript">
  		window.onload = alert("Objetivo pendiente de baja");
  		self.location = "consultaObjetivos.htm";
  	</script> 
  </c:if> 
- <c:if test="${mensajeConfirmacion == 'Actualizacion'}">
+ <c:if test="${mensajeConfirmacion == 'PendActualizacion'}">
 	<script language="javascript">
  		window.onload = alert("Objetivo pendiente de actualizacion");
  		self.location = "consultaObjetivos.htm";
  	</script> 
 </c:if> 
-<c:if test="${mensajeConfirmacion == 'Registro'}">
+<c:if test="${mensajeConfirmacion == 'PendRegistro'}">
 	<script language="javascript">
  		window.onload = alert("Objetivo pendiente de registro");
  		self.location = "consultaObjetivos.htm";
+ 	</script> 
+</c:if> 
+<c:if test="${mensajeConfirmacion == 'Baja'}">
+	<script language="javascript">
+ 		window.onload = alert("Elemento Dado de Baja");
+ 		self.location = "aprobacionObjetivos.htm";
+ 	</script> 
+</c:if> 
+<c:if test="${mensajeConfirmacion == 'Registrado'}">
+	<script language="javascript">
+ 		window.onload = alert("Cambios Registrados");
+ 		self.location = "aprobacionObjetivos.htm";
+ 	</script> 
+</c:if> 
+<c:if test="${mensajeConfirmacion == 'Rechazado'}">
+	<script language="javascript">
+ 		window.onload = alert("Cambios rechazados");
+ 		self.location = "aprobacionObjetivos.htm";
+ 	</script> 
+</c:if> 
+<c:if test="${mensajeConfirmacion == 'Restaurado'}">
+	<script language="javascript">
+ 		window.onload = alert("Operación de Baja Rechazada. El elemento ha sido restaurado como Registrado");
+ 		self.location = "aprobacionObjetivos.htm";
  	</script> 
 </c:if> 
