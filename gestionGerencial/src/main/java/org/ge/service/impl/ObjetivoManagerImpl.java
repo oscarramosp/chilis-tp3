@@ -85,4 +85,64 @@ public class ObjetivoManagerImpl implements ObjetivoManager {
 			}
 		return aux;
 	}
+	
+	public List<Objetivo> getListaObjetivosPendientesAprobacionPorArea(Area area) {
+		List<Objetivo> lista = getListaObjetivos("pendAprobacion");
+		List<Objetivo> aux = new ArrayList<>();
+		if (area.getCodigo().equals(5)) {
+			for (Objetivo objetivo : lista) {
+				if (objetivo.getTipoObjetivo().equals("General")) {aux.add(objetivo);
+				}
+			}
+		}
+			for (Objetivo objetivo : lista) {
+				if (objetivo.getTipoObjetivo().equals("Funcional")) {
+					if (objetivo.getTipoObjetivo().equals("Funcional")&& (((ObjetivoFuncional) objetivo).getArea().getCodigo().equals(area.getCodigo()))) {
+						aux.add(objetivo);
+
+					}
+				}
+			}
+		return aux;
+	}
+	
+	public List<Objetivo> getListaObjetivosPendientesActualizacionPorArea(Area area) {
+		List<Objetivo> lista = getListaObjetivos("pendUpdate");
+		List<Objetivo> aux = new ArrayList<>();
+		if (area.getCodigo().equals(5)) {
+			for (Objetivo objetivo : lista) {
+				if (objetivo.getTipoObjetivo().equals("General")) {aux.add(objetivo);
+				}
+			}
+		}
+			for (Objetivo objetivo : lista) {
+				if (objetivo.getTipoObjetivo().equals("Funcional")) {
+					if (objetivo.getTipoObjetivo().equals("Funcional")&& (((ObjetivoFuncional) objetivo).getArea().getCodigo().equals(area.getCodigo()))) {
+						aux.add(objetivo);
+
+					}
+				}
+			}
+		return aux;
+	}
+	
+	public List<Objetivo> getListaObjetivosPendientesBajaPorArea(Area area) {
+		List<Objetivo> lista = getListaObjetivos("pendBaja");
+		List<Objetivo> aux = new ArrayList<>();
+		if (area.getCodigo().equals(5)) {
+			for (Objetivo objetivo : lista) {
+				if (objetivo.getTipoObjetivo().equals("General")) {aux.add(objetivo);
+				}
+			}
+		}
+			for (Objetivo objetivo : lista) {
+				if (objetivo.getTipoObjetivo().equals("Funcional")) {
+					if (objetivo.getTipoObjetivo().equals("Funcional")&& (((ObjetivoFuncional) objetivo).getArea().getCodigo().equals(area.getCodigo()))) {
+						aux.add(objetivo);
+
+					}
+				}
+			}
+		return aux;
+	}
 }

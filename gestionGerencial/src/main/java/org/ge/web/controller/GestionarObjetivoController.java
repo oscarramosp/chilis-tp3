@@ -103,7 +103,7 @@ public class GestionarObjetivoController {
 					mailService.mandarAlerta(organizacionManager.getResponsableArea(aux.getArea()), aux);
 					
 				}
-				model.addAttribute("mensajeConfirmacion", "Registro");
+				model.addAttribute("mensajeConfirmacion", "PendRegistro");
 			} else {				
 				if(objetivoNuevo.getTipoObjetivo().equals("General")){
 					objetivoNuevo.setFechaRegistro(objetivoManager.getObjetivoGeneralPorCodigo(objetivoNuevo.getCodigo()).getFechaRegistro());
@@ -124,7 +124,7 @@ public class GestionarObjetivoController {
 					objetivoManager.guardarObjetivoFuncional(aux);
 					mailService.mandarAlerta(organizacionManager.getResponsableArea(aux.getArea()), aux);
 				}
-				model.addAttribute("mensajeConfirmacion", "Actualizacion");
+				model.addAttribute("mensajeConfirmacion", "PendActualizacion");
 				
 			}
 			return "consultaObjetivos";
@@ -146,7 +146,7 @@ public class GestionarObjetivoController {
 			aux.setEstado("pendBaja");
 			objetivoManager.guardarObjetivoFuncional(aux);
 		}
-		model.addAttribute("mensajeConfirmacion", "Baja");
+		model.addAttribute("mensajeConfirmacion", "PendBaja");
 		return "consultaObjetivos";
 	}
 	
