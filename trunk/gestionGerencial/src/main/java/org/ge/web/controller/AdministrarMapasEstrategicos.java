@@ -1,8 +1,8 @@
 package org.ge.web.controller;
 
-import org.ge.mail.MailService;
 import org.ge.service.MapaEstrategicoManager;
 import org.ge.service.OrganizacionManager;
+import org.ge.service.mail.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
