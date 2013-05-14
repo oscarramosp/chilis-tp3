@@ -4,13 +4,13 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import org.ge.mail.MailService;
 import org.ge.model.Area;
 import org.ge.model.Objetivo;
 import org.ge.model.ObjetivoFuncional;
 import org.ge.model.ObjetivoGeneral;
 import org.ge.service.ObjetivoManager;
 import org.ge.service.OrganizacionManager;
+import org.ge.service.mail.MailService;
 import org.ge.web.validator.ObjetivoValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

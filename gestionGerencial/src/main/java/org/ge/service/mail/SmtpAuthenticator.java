@@ -1,4 +1,4 @@
-package org.ge.mail;
+package org.ge.service.mail;
 
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;

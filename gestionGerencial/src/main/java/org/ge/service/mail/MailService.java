@@ -1,4 +1,4 @@
-package org.ge.mail;
+package org.ge.service.mail;
 
 import java.io.File;
 
