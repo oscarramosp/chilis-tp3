@@ -87,6 +87,28 @@ D:\SISTEMAS-UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.DBUtility.pdb
 D:\SISTEMAS-UPC\AppAlmacen4\AppAlmacen\AppAlmacen\obj\Debug\ResolveAssemblyReference.cache
 D:\SISTEMAS-UPC\AppAlmacen4\AppAlmacen\AppAlmacen\obj\Debug\AppAlmacen.dll
 D:\SISTEMAS-UPC\AppAlmacen4\AppAlmacen\AppAlmacen\obj\Debug\AppAlmacen.pdb
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\AppAlmacen.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\AppAlmacen.pdb
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.BE.Entities.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.BL.BusinessLogic.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.ExceptionManagement.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.DL.DataAccess.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.Unity.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.ServiceLocation.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\Microsoft.Practices.Unity.Interception.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.DBUtility.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\AVT.Framework.DataAccess.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.BE.Entities.pdb
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.BL.BusinessLogic.pdb
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.ExceptionManagement.pdb
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.DL.DataAccess.pdb
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.DBUtility.pdb
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\obj\Debug\AppAlmacen.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\obj\Debug\AppAlmacen.pdb
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\AppAlmacen.dll
 C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\AppAlmacen.pdb
 C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.BE.Entities.dll
@@ -105,6 +127,5 @@ C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.BL.Busine
 C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.ExceptionManagement.pdb
 C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.DL.DataAccess.pdb
 C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\bin\ALM.DBUtility.pdb
-C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\obj\Debug\AppAlmacen.dll
 C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\AppAlmacen\obj\Debug\AppAlmacen.pdb

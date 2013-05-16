@@ -74,6 +74,15 @@ namespace ALM.BL.BusinessLogic.Almacen
             return da.ListarPorNotaIS(codNotaIS);
         }
 
+        public List<ENotaPedidoDetalle> ListarPorNotaP(int codNotaP)
+        {
+            if (codNotaP == null)
+            {
+                throw new ArgumentNullException("codNotaP");
+            }
+            return da.ListarPorNotaP(codNotaP);
+        }
+
         public ENotaIngresoSalidaDetalle ObtenerPorCorrelativo(int correlativo)
         {
             if (correlativo == null)

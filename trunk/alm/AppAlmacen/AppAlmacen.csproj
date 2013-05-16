@@ -13,6 +13,7 @@
     <RootNamespace>AppAlmacen</RootNamespace>
     <AssemblyName>AppAlmacen</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -366,10 +367,15 @@
     <Content Include="Imagenes\Titulo\tit_ico.gif" />
     <Content Include="Interfaces\Productos\frmConsultaProductos.aspx" />
     <Content Include="Interfaces\Registros\frmConsultaNotaIO.aspx" />
+    <Content Include="Interfaces\Registros\frmConsultaProducto.aspx" />
+    <Content Include="Interfaces\Registros\frmCosultaNotaP.aspx" />
+    <Content Include="Interfaces\Registros\frmFichaRegistroProducto.aspx" />
     <Content Include="Interfaces\Registros\frmInventarioFisico.aspx" />
     <Content Include="Interfaces\Registros\frmInventarioFisicoDetalle.aspx" />
+    <Content Include="Interfaces\Registros\frmNotaPedido.aspx" />
     <Content Include="Interfaces\Registros\frmRegistroNotaIO.aspx" />
     <Content Include="Interfaces\Registros\frmRegistroNotaIODetalle.aspx" />
+    <Content Include="Interfaces\Registros\frmReporteStock.aspx" />
     <Content Include="Scripts\JScript.js" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
@@ -502,6 +508,27 @@
     <Compile Include="Interfaces\Registros\frmConsultaNotaIO.aspx.designer.cs">
       <DependentUpon>frmConsultaNotaIO.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\Registros\frmConsultaProducto.aspx.cs">
+      <DependentUpon>frmConsultaProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Registros\frmConsultaProducto.aspx.designer.cs">
+      <DependentUpon>frmConsultaProducto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Registros\frmCosultaNotaP.aspx.cs">
+      <DependentUpon>frmCosultaNotaP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Registros\frmCosultaNotaP.aspx.designer.cs">
+      <DependentUpon>frmCosultaNotaP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Registros\frmFichaRegistroProducto.aspx.cs">
+      <DependentUpon>frmFichaRegistroProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Registros\frmFichaRegistroProducto.aspx.designer.cs">
+      <DependentUpon>frmFichaRegistroProducto.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\Registros\frmInventarioFisico.aspx.cs">
       <DependentUpon>frmInventarioFisico.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -516,6 +543,13 @@
     <Compile Include="Interfaces\Registros\frmInventarioFisicoDetalle.aspx.designer.cs">
       <DependentUpon>frmInventarioFisicoDetalle.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\Registros\frmNotaPedido.aspx.cs">
+      <DependentUpon>frmNotaPedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Registros\frmNotaPedido.aspx.designer.cs">
+      <DependentUpon>frmNotaPedido.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\Registros\frmRegistroNotaIO.aspx.cs">
       <DependentUpon>frmRegistroNotaIO.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -529,6 +563,13 @@
     </Compile>
     <Compile Include="Interfaces\Registros\frmRegistroNotaIODetalle.aspx.designer.cs">
       <DependentUpon>frmRegistroNotaIODetalle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Registros\frmReporteStock.aspx.cs">
+      <DependentUpon>frmReporteStock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Registros\frmReporteStock.aspx.designer.cs">
+      <DependentUpon>frmReporteStock.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
@@ -554,7 +595,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>56427</DevelopmentServerPort>
+          <DevelopmentServerPort>2655</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

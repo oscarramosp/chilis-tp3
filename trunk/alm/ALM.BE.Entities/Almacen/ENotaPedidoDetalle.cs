@@ -12,14 +12,17 @@ namespace AppAlmacen.Almacen
     public class ENotaPedidoDetalle : EAuditoria
     {
         public int CodigoDetalle { get; set; }
+        public int CodigoPedido { get; set; }
        
         public string CodigoDetalle2 { get; set; }
 
+        public string CodProducto { get; set; }
         public int CodItem { get; set; }
         public string CodItem2 { get; set; }
 
         public string descripcion { get; set; }
-        public int cantActual { get; set; }
+        public Decimal cantActual { get; set; }
+        public Decimal cantModif { get; set; }
         public string medida { get; set; }
         public string lote { get; set; }
         public string serie { get; set; }

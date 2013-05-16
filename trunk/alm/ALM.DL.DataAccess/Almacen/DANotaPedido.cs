@@ -74,6 +74,43 @@ namespace ALM.DL.DataAccess.Almacen
         #endregion 
 
 
+         #region listNotaPedidoP
+         public List<ENotaPedido> ListarPorNotaPedidoP()
+         {
+             List<ENotaPedido> lista = base.ExecuteGetList<ENotaPedido>(GetListarNotaPedidoP(db),
+                                                                        GetNotaPedidoP());
+
+
+             return lista;
+         }
+
+         public DbCommand GetListarNotaPedidoP(Database db)
+         {
+             DbCommand dbCommand = db.GetStoredProcCommand("[ALM.NotaPedido_Buscar]");
+             return dbCommand;
+         }
+
+         public DomainObjectFactoryBase<ENotaPedido> GetNotaPedidoP()
+         {
+             DomainObjectFactoryBase<ENotaPedido> domainFactory = new DomainObjectFactoryBase<ENotaPedido>(delegate(IDataReader myReader)
+             {
+                 MapHelper helper = new MapHelper(myReader);
+                 return new ENotaPedido()
+                 {
+
+                     Codigo = Convert.ToInt32(helper.GetValue<Int32>("codigoPedido")),
+                     fechaEmision = Convert.ToDateTime(helper.GetValue<DateTime>("fechaemision")),
+                     desalmacenOrigen = Convert.ToString(helper.GetValue<String>("desUn")),
+                     areaSoliciante = Convert.ToString(helper.GetValue<String>("areasolicitante")),
+                 };
+             });
+
+             return domainFactory;
+         }
+
+
+         #endregion 
+
          #region listNotaIS
          public List<ENotaIngresoSalida> ListarNotaIS(int codigo)
          {
@@ -165,7 +202,7 @@ namespace ALM.DL.DataAccess.Almacen
          }
 #endregion
 
-         #region insert cabecera
+         #region insert cabecera Ingreso Salida
 
          //registro cabecera 
 
@@ -213,7 +250,48 @@ namespace ALM.DL.DataAccess.Almacen
 
         #endregion 
 
-       
+         #region insert cabecera Pedido
+
+         //registro cabecera 
+
+         public ENotaPedido InsertarNotaP(ENotaPedido nota)
+         {
+             //CmdEdificio cmd = new CmdEdificio();
+             ENotaPedido result = new ENotaPedido();
+             base.ExecuteNonQueryOutput<ENotaPedido>(GetInsertarNotaP(db, nota),
+                                                         GetNotaInsertadaP(result));
+             return result;
+         }
+
+
+         public DbCommand GetInsertarNotaP(Database db, ENotaPedido identity)
+         {
+             DbCommand dbCommand = db.GetStoredProcCommand("[ALM.NotaPedido_Insertar]");
+
+             
+             db.AddInParameter(dbCommand, "@fechaEmision", DbType.Date, identity.fechaEmision);
+             db.AddInParameter(dbCommand, "@almacenOrigen", DbType.Int32, identity.almacenOrigen);
+             db.AddInParameter(dbCommand, "@almacenDestino", DbType.Int32, identity.almacenDestino);
+             db.AddInParameter(dbCommand, "@areaSolicitante", DbType.String, identity.areaSoliciante);
+
+             db.AddOutParameter(dbCommand, "@codigoPedido", DbType.String, 14);
+
+             return dbCommand;
+         }
+
+         public OutputObjectFactoryBase<ENotaPedido> GetNotaInsertadaP(ENotaPedido outputObject)
+         {
+             OutputObjectFactoryBase<ENotaPedido> outputObjectFactory = new OutputObjectFactoryBase<ENotaPedido>(delegate(Database db, DbCommand command)
+             {
+                 outputObject.Codigo = Convert.ToInt32(db.GetParameterValue(command, "@codigoPedido"));
+
+             });
+
+             return outputObjectFactory;
+         }
+
+
+         #endregion 
 
         #region Update cabecera
 

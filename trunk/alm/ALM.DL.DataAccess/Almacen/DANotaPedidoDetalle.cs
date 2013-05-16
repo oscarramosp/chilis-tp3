@@ -29,7 +29,7 @@ namespace ALM.DL.DataAccess.Almacen
                
 
 
-         #region Insert Methods
+         #region Insert NOTA IS
 
          public int Insertar(ENotaIngresoSalidaDetalle NotaISDetalle)
          {
@@ -66,6 +66,46 @@ namespace ALM.DL.DataAccess.Almacen
              OutputObjectFactoryBase<ENotaIngresoSalidaDetalle> outputObjectFactory = new OutputObjectFactoryBase<ENotaIngresoSalidaDetalle>(delegate(Database db, DbCommand command)
              {
                  outputObject.Correlativo = Convert.ToInt32(db.GetParameterValue(command, "@Correlativo"));
+             });
+
+             return outputObjectFactory;
+         }
+
+         #endregion
+
+         #region Insert NOTA PEDIDO
+
+         public int InsertarP(ENotaPedidoDetalle NotaPedidoDetalle)
+         {
+             //CmdEdificioAscensor cmd = new CmdEdificioAscensor();
+             ENotaPedidoDetalle result = new ENotaPedidoDetalle();
+             base.ExecuteNonQueryOutput<ENotaPedidoDetalle>(GetInsertarP(db, NotaPedidoDetalle),
+                                                        GetCorrelativoInsertadoP(result));
+             return result.Correlativo;
+         }
+
+         public DbCommand GetInsertarP(Database db, ENotaPedidoDetalle identity)
+         {
+             DbCommand dbCommand = db.GetStoredProcCommand("[ALM.NotaPedidoDetalle_Insertar]");
+
+             db.AddInParameter(dbCommand, "@codigoPedido", DbType.Int32, identity.CodigoPedido);
+             db.AddInParameter(dbCommand, "@codItem", DbType.Int32, identity.CodItem);
+             db.AddInParameter(dbCommand, "@descripcion", DbType.String, identity.descripcion);
+             db.AddInParameter(dbCommand, "@cantActual", DbType.Int32, identity.cantModif);
+             db.AddInParameter(dbCommand, "@medida", DbType.String, identity.medida);
+             db.AddInParameter(dbCommand, "@marca", DbType.Int32, identity.marca);
+             db.AddInParameter(dbCommand, "@fechaCaducidad", DbType.DateTime, identity.fechaCaducidad);
+             db.AddInParameter(dbCommand, "@precioUnitario", DbType.Decimal, identity.precioUnitario);
+             db.AddInParameter(dbCommand, "@precioTotal", DbType.Decimal, identity.precioTotal);
+
+            return dbCommand;
+         }
+
+         public OutputObjectFactoryBase<ENotaPedidoDetalle> GetCorrelativoInsertadoP(ENotaPedidoDetalle outputObject)
+         {
+             OutputObjectFactoryBase<ENotaPedidoDetalle> outputObjectFactory = new OutputObjectFactoryBase<ENotaPedidoDetalle>(delegate(Database db, DbCommand command)
+             {
+                 outputObject.Correlativo = 0;//Convert.ToInt32(db.GetParameterValue(command, "@Correlativo"));
              });
 
              return outputObjectFactory;
@@ -127,7 +167,7 @@ namespace ALM.DL.DataAccess.Almacen
         
          #endregion
 
-         #region List Methods
+         #region List Methods SI
 
          public DbCommand GetListarPorNotaIS(Database db, int codNotaIS)
          {
@@ -176,6 +216,55 @@ namespace ALM.DL.DataAccess.Almacen
 
          
          #endregion
+
+         #region List Methods Nota Pedido
+
+         public DbCommand GetListarPorNotaP(Database db, int codNotaP)
+         {
+             DbCommand dbCommand = db.GetStoredProcCommand("[ALM.NotaPedidoDetalle_Buscar]");
+
+             db.AddInParameter(dbCommand, "@codigopedido", DbType.Int32, codNotaP);
+
+             return dbCommand;
+         }
+
+
+         public List<ENotaPedidoDetalle> ListarPorNotaP(int codNotaP)
+         {
+             List<ENotaPedidoDetalle> lista = base.ExecuteGetList<ENotaPedidoDetalle>(GetListarPorNotaP(db, codNotaP),
+                                                                        GetNotaPDetalle());
+
+
+             return lista;
+         }
+
+         public DomainObjectFactoryBase<ENotaPedidoDetalle> GetNotaPDetalle()
+         {
+             DomainObjectFactoryBase<ENotaPedidoDetalle> domainFactory = new DomainObjectFactoryBase<ENotaPedidoDetalle>(delegate(IDataReader myReader)
+             {
+                 MapHelper helper = new MapHelper(myReader);
+                 return new ENotaPedidoDetalle()
+                 {
+
+                     CodItem = Convert.ToInt32(helper.GetValue<Int32>("codItem")),
+                     medida = helper.GetValue<String>("medida"),
+                     DesMarca = helper.GetValue<String>("marca"),
+                     descripcion = helper.GetValue<String>("descripcion"),
+                     fechaCaducidad = helper.GetValue<DateTime>("fechaCaducidad"),
+                     cantActual = Convert.ToInt32(helper.GetValue<Int32>("cantActual")),
+                     precioUnitario = helper.GetValue<Decimal>("precioUnitario"),
+                     precioTotal = helper.GetValue<Decimal>("PrecioTotal"),
+                     
+
+                 };
+             });
+
+             return domainFactory;
+         }
+
+
+         #endregion
+
 
          #region Get Methods
 

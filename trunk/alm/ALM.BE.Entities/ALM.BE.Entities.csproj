@@ -64,6 +64,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Almacen\EFichaProducto.cs" />
+    <Compile Include="Almacen\EMarca.cs" />
     <Compile Include="Almacen\EProductos.cs" />
     <Compile Include="Almacen\EEstadoINV.cs" />
     <Compile Include="Almacen\ENotaIngresoSalidaDetalle.cs" />

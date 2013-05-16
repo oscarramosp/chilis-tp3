@@ -26,6 +26,19 @@ namespace AppAlmacen.Interfaces.Registros
             }
 
         }
+
+        public void LlenarComboMarca(DropDownList ddl)
+        {
+
+            BLProductos objProducto = new BLProductos();
+
+            Bind(objProducto.ListarMarcas(), "codMarca", "Descripcion", ddl);
+            ddl.Items.Insert(0, new ListItem("--Seleccione--", "-1"));
+
+
+        }
+
+
         public void LlenarComboEstadosINV(DropDownList ddl)
         {
 

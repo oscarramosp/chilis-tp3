@@ -59,6 +59,25 @@ C:\anelt usb\tp2\AppAlmacen\ALM.BL.BusinessLogic\bin\Debug\ALM.DBUtility.pdb
 C:\anelt usb\tp2\AppAlmacen\ALM.BL.BusinessLogic\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\anelt usb\tp2\AppAlmacen\ALM.BL.BusinessLogic\obj\x86\Debug\ALM.BL.BusinessLogic.dll
 C:\anelt usb\tp2\AppAlmacen\ALM.BL.BusinessLogic\obj\x86\Debug\ALM.BL.BusinessLogic.pdb
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.BL.BusinessLogic\bin\Debug\ALM.BL.BusinessLogic.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.BL.BusinessLogic\bin\Debug\ALM.BL.BusinessLogic.pdb
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.BL.BusinessLogic\bin\Debug\ALM.BE.Entities.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.BL.BusinessLogic\bin\Debug\ALM.DBUtility.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.BL.BusinessLogic\bin\Debug\ALM.DL.DataAccess.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.BL.BusinessLogic\bin\Debug\ALM.ExceptionManagement.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.BL.BusinessLogic\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.BL.BusinessLogic\bin\Debug\AVT.Framework.DataAccess.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.BL.BusinessLogic\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.BL.BusinessLogic\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.BL.BusinessLogic\bin\Debug\Microsoft.Practices.Unity.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.BL.BusinessLogic\bin\Debug\Microsoft.Practices.Unity.Interception.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.BL.BusinessLogic\bin\Debug\ALM.BE.Entities.pdb
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.BL.BusinessLogic\bin\Debug\ALM.DL.DataAccess.pdb
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.BL.BusinessLogic\bin\Debug\ALM.ExceptionManagement.pdb
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.BL.BusinessLogic\bin\Debug\ALM.DBUtility.pdb
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.BL.BusinessLogic\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.BL.BusinessLogic\obj\x86\Debug\ALM.BL.BusinessLogic.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.BL.BusinessLogic\obj\x86\Debug\ALM.BL.BusinessLogic.pdb
 C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\ALM.BL.BusinessLogic\bin\Debug\ALM.BL.BusinessLogic.dll
 C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\ALM.BL.BusinessLogic\bin\Debug\ALM.BL.BusinessLogic.pdb
 C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\ALM.BL.BusinessLogic\bin\Debug\ALM.BE.Entities.dll

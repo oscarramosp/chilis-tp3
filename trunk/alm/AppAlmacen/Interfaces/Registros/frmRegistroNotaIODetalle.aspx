@@ -52,6 +52,7 @@
         </div>
 
         </div>
+
  <div class="cajaFormulario">
 
        <table style="width: 100%">
