@@ -51,7 +51,7 @@ namespace ALM.DL.DataAccess.Almacen
                 {
                     
                     Codigo = Convert.ToInt32(helper.GetValue<Int32>("codigo")),
-                    Fecha = helper.GetValue<String>("fecha").ToString(),
+                    Fecha = helper.GetValue<DateTime>("fecha"),
                     Referencia = helper.GetValue<String>("referencia").ToString(),
                     Responsable = helper.GetValue<String>("responsable").ToString(),
                     Estado = Convert.ToInt32(helper.GetValue<Int32>("estado"))
@@ -156,7 +156,7 @@ namespace ALM.DL.DataAccess.Almacen
 
                      codigoPr = helper.GetValue<String>("Correlativo"),
                      Codigo = Convert.ToInt32(helper.GetValue<Int32>("codigo")),
-                     Fecha = helper.GetValue<String>("fecha").ToString(),
+                     Fecha = helper.GetValue<DateTime>("fecha"),
                      Referencia = helper.GetValue<String>("referencia").ToString(),
                      Responsable = helper.GetValue<String>("responsable").ToString(),
                      NombreEstado = helper.GetValue<String>("estado").ToString()                    

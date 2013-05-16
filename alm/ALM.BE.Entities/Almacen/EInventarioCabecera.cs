@@ -13,7 +13,7 @@ namespace ALM.BE.Entities.Almacen
     {
         public Int32 Codigo { get; set; }
         public String Referencia { get; set; }
-        public String Fecha { get; set; }
+        public DateTime Fecha { get; set; }
         public String Responsable { get; set; }
         public String Aprobado { get; set; }
         public Int32 Estado { get; set; }

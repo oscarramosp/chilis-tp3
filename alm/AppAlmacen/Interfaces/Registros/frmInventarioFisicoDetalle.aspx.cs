@@ -77,7 +77,7 @@ namespace AppAlmacen.Interfaces.Registros
             this.listDetalle = objList;
             FillItemsInGrid();
             txtReferencia.Text = objBE.Referencia;
-            txtFecha.Text = objBE.Fecha;
+            txtFecha.Text = Convert.ToString(objBE.Fecha).Substring(0,10);
             txtResponsable.Text = objBE.Responsable;
             txtCodigo.Text = objBE.Codigo.ToString();
             chkTerminado.Checked = (objBE.Estado == 2);
@@ -114,7 +114,7 @@ namespace AppAlmacen.Interfaces.Registros
             {
                 EInventarioCabecera objBE = new EInventarioCabecera();
                 objBE.Referencia = txtReferencia.Text;
-                objBE.Fecha = txtFecha.Text;
+                objBE.Fecha = Convert.ToDateTime(txtFecha.Text);
                 objBE.FechaRegistro = DateTime.Today;
                 objBE.Responsable = txtResponsable.Text;
                 objBE.Estado = (chkTerminado.Checked?2:1);
