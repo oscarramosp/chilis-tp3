@@ -102,7 +102,8 @@
                         <asp:BoundField DataField="codigoPr" HeaderText="Codigo">
                             <HeaderStyle HorizontalAlign="Center" Width="100px"/>
                         </asp:BoundField>
-                        <asp:BoundField DataField="Fecha" HeaderText="Fecha">
+                        <asp:BoundField DataField="Fecha" HeaderText="Fecha" 
+                            DataFormatString="{0:d}">
                             <HeaderStyle HorizontalAlign="Center" Width="100px"/>
                         </asp:BoundField>
                         <asp:BoundField DataField="Referencia" HeaderText="Referencia">

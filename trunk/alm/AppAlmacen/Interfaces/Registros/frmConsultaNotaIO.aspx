@@ -76,8 +76,7 @@
      <div class="container" id="divGrillaNotaPedido" runat="server" visible="true">
 
                       <asp:GridView ID="gdvListado" runat="server" AutoGenerateColumns="False" 
-                          DataKeyNames="CodigoIS" 
-                          onselectedindexchanged="gdvListado_SelectedIndexChanged">
+                          DataKeyNames="CodigoIS" >
                     <Columns>
                          <asp:TemplateField>
                             <ItemTemplate>
