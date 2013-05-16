@@ -100,7 +100,7 @@ namespace ALM.DL.DataAccess.Almacen
 
                      Codigo = Convert.ToInt32(helper.GetValue<Int32>("codigoPedido")),
                      fechaEmision = Convert.ToDateTime(helper.GetValue<DateTime>("fechaemision")),
-                     desalmacenOrigen = Convert.ToString(helper.GetValue<String>("desUn")),
+                     //desalmacenOrigen = Convert.ToString(helper.GetValue<String>("desUn")),
                      areaSoliciante = Convert.ToString(helper.GetValue<String>("areasolicitante")),
                  };
              });

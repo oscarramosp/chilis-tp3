@@ -63,7 +63,7 @@
                                     </td>
                                     <td>Fecha</td>
                                     <td>
-                                       <uc4:ucwFecha ID="txtFecha" runat="server" /> <uc7:ucwasterisco ID="Ucwasterisco3" runat="server" /></td>
+                                       <asp:TextBox ID="txtFecha" runat="server" Width="70px" CssClass="textbox" MaxLength="10"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtFecha"></cc1:CalendarExtender><uc7:ucwasterisco ID="Ucwasterisco3" runat="server" /></td>
                                      
                                 </tr>
                                 <tr>

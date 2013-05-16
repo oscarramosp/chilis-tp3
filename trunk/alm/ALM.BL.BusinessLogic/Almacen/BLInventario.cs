@@ -17,7 +17,7 @@ namespace ALM.BL.BusinessLogic.Almacen
          private readonly DAInventarios da = null;
         #endregion
 
-         public List<EInventarioCabecera> ListarHojaInventarios(String fechaIni, String fechaFin, Int32 estado)
+         public List<EInventarioCabecera> ListarHojaInventarios(DateTime fechaIni, DateTime fechaFin, Int32 estado)
         {
             try
             {

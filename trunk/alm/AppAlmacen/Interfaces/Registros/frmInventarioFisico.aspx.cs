@@ -59,8 +59,16 @@ namespace AppAlmacen.Interfaces.Registros
         void CargarData(){
 
             BLInventario OBJbl = new BLInventario();
-            gdvListado.DataSource = OBJbl.ListarHojaInventarios(txtFechaInicio.Text, txtFechaFin.Text, Int32.Parse(cboEstado.SelectedValue));
-            gdvListado.DataBind();
+            if (txtFechaInicio.Text != "" && txtFechaFin.Text != "")
+            {
+                gdvListado.DataSource = OBJbl.ListarHojaInventarios(Convert.ToDateTime(txtFechaInicio.Text), Convert.ToDateTime(txtFechaFin.Text), Int32.Parse(cboEstado.SelectedValue));
+                gdvListado.DataBind();
+            }
+            else
+            {
+                gdvListado.DataSource = OBJbl.ListarHojaInventarios(Convert.ToDateTime("01/01/2000"), Convert.ToDateTime("01/01/2400"), Int32.Parse(cboEstado.SelectedValue));
+                gdvListado.DataBind();
+            }
         }
         protected void OnNuevo(Object sender, EventArgs e)
         {
@@ -72,7 +80,16 @@ namespace AppAlmacen.Interfaces.Registros
         {
             BLInventario OBJbl = new BLInventario();
             List<EInventarioCabecera> objList = new List<EInventarioCabecera>();
-            objList= OBJbl.ListarHojaInventarios(txtFechaInicio.Text, txtFechaFin.Text, Int32.Parse(cboEstado.SelectedValue));
+
+            if (txtFechaInicio.Text != "" && txtFechaFin.Text != "")
+            {
+                objList = OBJbl.ListarHojaInventarios(Convert.ToDateTime(txtFechaInicio.Text), Convert.ToDateTime(txtFechaFin.Text), Int32.Parse(cboEstado.SelectedValue));
+            }
+            else
+            {
+                objList = OBJbl.ListarHojaInventarios(Convert.ToDateTime("01/01/2000"), Convert.ToDateTime("01/01/2400"), Int32.Parse(cboEstado.SelectedValue));
+            }
+            
 
             try
             {

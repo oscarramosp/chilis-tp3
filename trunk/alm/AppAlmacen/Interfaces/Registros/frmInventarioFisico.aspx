@@ -58,11 +58,12 @@
             <tr>
                   <td>Fecha Inicio</td>
                     <td>
-        <uc4:ucwFecha ID="txtFechaInicio" runat="server" />   </td>
+        <asp:TextBox ID="txtFechaInicio" runat="server" Width="70px" CssClass="textbox" MaxLength="10"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtFechaInicio"></cc1:CalendarExtender>
+        </td>
          <td style="width:5px"></td>
                   <td>Fecha Fin</td>
                     <td>
-        <uc4:ucwFecha ID="txtFechaFin" runat="server" />    </td>
+        <asp:TextBox ID="txtFechaFin" runat="server" Width="70px" CssClass="textbox" MaxLength="10"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txtFechaFin"></cc1:CalendarExtender>  </td>
            <td style="width:5px"></td>
                   <td>Estado</td>
 
