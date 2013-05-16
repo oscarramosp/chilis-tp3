@@ -67,7 +67,10 @@
   <ItemGroup>
     <Compile Include="DABase.cs" />
     <Compile Include="DAClientes.cs" />
+    <Compile Include="DAFechasEspeciales.cs" />
+    <Compile Include="DAMesas.cs" />
     <Compile Include="DAReclamos.cs" />
+    <Compile Include="DAReservas.cs" />
     <Compile Include="DATiposDocumento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -42,8 +42,11 @@
     <Compile Include="BEClasificacionCliente.cs" />
     <Compile Include="BECliente.cs" />
     <Compile Include="BEDireccionCliente.cs" />
+    <Compile Include="BEFechaEspecial.cs" />
+    <Compile Include="BEMesa.cs" />
     <Compile Include="BEParametroClasificacion.cs" />
     <Compile Include="BEReclamo.cs" />
+    <Compile Include="BEReserva.cs" />
     <Compile Include="BETipoDocumento.cs" />
     <Compile Include="BEValorParametroClasificacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

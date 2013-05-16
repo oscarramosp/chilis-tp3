@@ -27,5 +27,22 @@ namespace BLLayer
             return dtReclamo;
         }
 
+        public List<BEReclamo> selectReclamos(BEReclamo oReclamo, String nombreRazon, DateTime fechaInicio, DateTime fechaFin)
+        {
+            List<BEReclamo> oListaReclamos = new List<BEReclamo>();
+
+            try
+            {
+                DAReclamos oDAReclamos = new DAReclamos();
+                oListaReclamos = oDAReclamos.selectReclamos(oReclamo,nombreRazon,fechaInicio,fechaFin);
+            }
+            catch (Exception ex)
+            {
+                ExceptionPolicy.HandleException(ex, "Exception Policy");
+            }
+
+            return oListaReclamos;
+        }
+
     }
 }

@@ -11,6 +11,7 @@ namespace BELayer
         public string Nombres { get; set; }
         public string ApellidoPaterno { get; set; }
         public string ApellidoMaterno { get; set; }
+        public string NombreCompleto { get; set; }
         public string RazonSocial { get; set; }
         public string NumeroDocumento { get; set; }
         public DateTime? FechaNacimiento { get; set; }
