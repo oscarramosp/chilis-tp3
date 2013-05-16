@@ -16,3 +16,21 @@ D:\SISTEMAS-UPC\AppAlmacen\ALM.ExceptionManagement\obj\Debug\GenerateResource.re
 D:\SISTEMAS-UPC\AppAlmacen\ALM.ExceptionManagement\obj\Debug\GenerateResource.write.1.tlog
 D:\SISTEMAS-UPC\AppAlmacen\ALM.ExceptionManagement\obj\Debug\ALM.ExceptionManagement.dll
 D:\SISTEMAS-UPC\AppAlmacen\ALM.ExceptionManagement\obj\Debug\ALM.ExceptionManagement.pdb
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.ExceptionManagement\bin\Debug\ALM.ExceptionManagement.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.ExceptionManagement\bin\Debug\ALM.ExceptionManagement.pdb
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.ExceptionManagement\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.ExceptionManagement\obj\Debug\ALM.ExceptionManagement.ExceptionManagerInstaller.resources
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.ExceptionManagement\obj\Debug\ALM.ExceptionManagement.ExceptionManagerText.resources
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.ExceptionManagement\obj\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.ExceptionManagement\obj\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.ExceptionManagement\obj\Debug\ALM.ExceptionManagement.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.ExceptionManagement\obj\Debug\ALM.ExceptionManagement.pdb
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\ALM.ExceptionManagement\bin\Debug\ALM.ExceptionManagement.dll
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\ALM.ExceptionManagement\bin\Debug\ALM.ExceptionManagement.pdb
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\ALM.ExceptionManagement\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\ALM.ExceptionManagement\obj\Debug\ALM.ExceptionManagement.ExceptionManagerInstaller.resources
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\ALM.ExceptionManagement\obj\Debug\ALM.ExceptionManagement.ExceptionManagerText.resources
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\ALM.ExceptionManagement\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\ALM.ExceptionManagement\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\ALM.ExceptionManagement\obj\Debug\ALM.ExceptionManagement.dll
+C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\ALM.ExceptionManagement\obj\Debug\ALM.ExceptionManagement.pdb

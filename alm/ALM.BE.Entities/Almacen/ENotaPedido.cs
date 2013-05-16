@@ -16,6 +16,7 @@ namespace AppAlmacen.Almacen
 
         public DateTime fechaEmision { get; set; }
         public int almacenOrigen { get; set; }
+        public string desalmacenOrigen { get; set; }
         public int almacenDestino { get; set; }
         public string areaSoliciante { get; set; }
         public string tipoOperacion { get; set; }
@@ -25,7 +26,7 @@ namespace AppAlmacen.Almacen
         public DateTime fechaEstadoNota { get; set; }
         public double precioPedido { get; set; }
 
-        public ENotaPedidoDetalle NotaPedido { get; set; }
+        public List<ENotaPedidoDetalle> NotaPedido { get; set; }
         
     }
 }

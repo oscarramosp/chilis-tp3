@@ -22,6 +22,12 @@ namespace ALM.BL.BusinessLogic.Almacen
             return da.ListarPorNotaPedido(codigo);
         }
 
+        public List<ENotaPedido> ListarPorNotaPedidoP()
+        {
+            DANotaPedido da = new DANotaPedido();
+            return da.ListarPorNotaPedidoP();
+        }
+
         public List<ENotaIngresoSalida> ListarPorNotaPedido_IS(int codigo)
         {
             DANotaPedido da = new DANotaPedido();
@@ -113,6 +119,35 @@ namespace ALM.BL.BusinessLogic.Almacen
                 }
                
                
+                xTrans.Complete();
+                return resultado;
+            }
+        }
+
+        public ENotaPedido InsertarP(ENotaPedido objENota)
+        {
+
+            if (objENota == null)
+            {
+                throw new ArgumentNullException("objENota");
+            }
+
+            ENotaPedido resultado = null;
+
+            using (TransactionScope xTrans = new TransactionScope())
+            {
+                resultado = da.InsertarNotaP(objENota);
+
+
+                List<ENotaPedidoDetalle> ListaInsertar_NotaDetalle = objENota.NotaPedido;
+
+                foreach (ENotaPedidoDetalle objENotaDetalle in ListaInsertar_NotaDetalle)
+                {
+                    objENotaDetalle.CodigoPedido = resultado.Codigo;
+                    int CorNota = DANotaDetalle.InsertarP(objENotaDetalle);
+                }
+
+             
                 xTrans.Complete();
                 return resultado;
             }

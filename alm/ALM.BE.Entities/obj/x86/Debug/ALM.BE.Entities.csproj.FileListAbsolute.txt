@@ -17,6 +17,11 @@ C:\anelt usb\tp2\AppAlmacen\ALM.BE.Entities\bin\Debug\ALM.BE.Entities.pdb
 C:\anelt usb\tp2\AppAlmacen\ALM.BE.Entities\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\anelt usb\tp2\AppAlmacen\ALM.BE.Entities\obj\x86\Debug\ALM.BE.Entities.dll
 C:\anelt usb\tp2\AppAlmacen\ALM.BE.Entities\obj\x86\Debug\ALM.BE.Entities.pdb
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.BE.Entities\bin\Debug\ALM.BE.Entities.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.BE.Entities\bin\Debug\ALM.BE.Entities.pdb
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.BE.Entities\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.BE.Entities\obj\x86\Debug\ALM.BE.Entities.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.BE.Entities\obj\x86\Debug\ALM.BE.Entities.pdb
 C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\ALM.BE.Entities\bin\Debug\ALM.BE.Entities.dll
 C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\ALM.BE.Entities\bin\Debug\ALM.BE.Entities.pdb
 C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\ALM.BE.Entities\obj\x86\Debug\ResolveAssemblyReference.cache

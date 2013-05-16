@@ -47,6 +47,21 @@ C:\anelt usb\tp2\AppAlmacen\ALM.DL.DataAccess\bin\Debug\ALM.DBUtility.pdb
 C:\anelt usb\tp2\AppAlmacen\ALM.DL.DataAccess\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\anelt usb\tp2\AppAlmacen\ALM.DL.DataAccess\obj\x86\Debug\ALM.DL.DataAccess.dll
 C:\anelt usb\tp2\AppAlmacen\ALM.DL.DataAccess\obj\x86\Debug\ALM.DL.DataAccess.pdb
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.DL.DataAccess\bin\Debug\ALM.DL.DataAccess.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.DL.DataAccess\bin\Debug\ALM.DL.DataAccess.pdb
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.DL.DataAccess\bin\Debug\ALM.BE.Entities.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.DL.DataAccess\bin\Debug\ALM.DBUtility.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.DL.DataAccess\bin\Debug\AVT.Framework.DataAccess.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.DL.DataAccess\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.DL.DataAccess\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.DL.DataAccess\bin\Debug\Microsoft.Practices.Unity.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.DL.DataAccess\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.DL.DataAccess\bin\Debug\Microsoft.Practices.Unity.Interception.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.DL.DataAccess\bin\Debug\ALM.BE.Entities.pdb
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.DL.DataAccess\bin\Debug\ALM.DBUtility.pdb
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.DL.DataAccess\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.DL.DataAccess\obj\x86\Debug\ALM.DL.DataAccess.dll
+C:\Documents and Settings\ilecca\Escritorio\UPC\AppAlmacen4\AppAlmacen\ALM.DL.DataAccess\obj\x86\Debug\ALM.DL.DataAccess.pdb
 C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\ALM.DL.DataAccess\bin\Debug\ALM.DL.DataAccess.dll
 C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\ALM.DL.DataAccess\bin\Debug\ALM.DL.DataAccess.pdb
 C:\Users\USUARIO\Desktop\UPC\AppAlmacen4\AppAlmacen\ALM.DL.DataAccess\bin\Debug\ALM.BE.Entities.dll
