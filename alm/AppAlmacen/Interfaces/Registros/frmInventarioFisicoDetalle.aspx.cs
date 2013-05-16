@@ -77,7 +77,7 @@ namespace AppAlmacen.Interfaces.Registros
             this.listDetalle = objList;
             FillItemsInGrid();
             txtReferencia.Text = objBE.Referencia;
-            txtFecha.Text = Convert.ToString(objBE.Fecha).Substring(0,10);
+            txtFecha.Text = objBE.Fecha.ToShortDateString();
             txtResponsable.Text = objBE.Responsable;
             txtCodigo.Text = objBE.Codigo.ToString();
             chkTerminado.Checked = (objBE.Estado == 2);
@@ -104,17 +104,15 @@ namespace AppAlmacen.Interfaces.Registros
             }
             else if (txtFecha.Text == "")
             {
-                MessageBox(this.Page, "Ingresar Fecha");
-            }
-            else if (DateTime.Parse(txtFecha.Text)>DateTime.Today)
-            {
-                MessageBox(this.Page, "Ingresar Fecha válida");
+                MessageBox(this.Page, "Ingresar Fecha :" + Convert.ToString(txtFecha.Text));
             }
             else
             {
+                
                 EInventarioCabecera objBE = new EInventarioCabecera();
                 objBE.Referencia = txtReferencia.Text;
                 objBE.Fecha = Convert.ToDateTime(txtFecha.Text);
+                //objBE.Fecha = Convert.ToDateTime(String.Format("{0:MM/dd/yyyy}", txtFecha.Text));
                 objBE.FechaRegistro = DateTime.Today;
                 objBE.Responsable = txtResponsable.Text;
                 objBE.Estado = (chkTerminado.Checked?2:1);

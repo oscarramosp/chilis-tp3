@@ -129,7 +129,7 @@ namespace ALM.DL.DataAccess.Almacen
         #endregion 
 
         #region Inventario
-        public List<EInventarioCabecera> ListarHojaInventarios(String fechaIni, String fechaFin, Int32 estado)
+        public List<EInventarioCabecera> ListarHojaInventarios(DateTime fechaIni, DateTime fechaFin, Int32 estado)
          {
              List<EInventarioCabecera> lista = base.ExecuteGetList<EInventarioCabecera>(getListarHojaInventarios(db, fechaIni, fechaFin,  estado),
                                                                         getListarHojaInventario());
@@ -138,11 +138,11 @@ namespace ALM.DL.DataAccess.Almacen
              return lista;
          }
         
-        public DbCommand getListarHojaInventarios(Database db, String fechaIni, String fechaFin, Int32 estado)
+        public DbCommand getListarHojaInventarios(Database db, DateTime fechaIni, DateTime fechaFin, Int32 estado)
          {
              DbCommand dbCommand = db.GetStoredProcCommand("[ALM.ListarHojaInventario]");
-             db.AddInParameter(dbCommand, "@fechaIni", DbType.String, fechaIni);
-             db.AddInParameter(dbCommand, "@fechaFin", DbType.String, fechaFin);
+             db.AddInParameter(dbCommand, "@fechaIni", DbType.DateTime, fechaIni);
+             db.AddInParameter(dbCommand, "@fechaFin", DbType.DateTime, fechaFin);
              db.AddInParameter(dbCommand, "@estado", DbType.Int32, estado);
              return dbCommand;
          }
