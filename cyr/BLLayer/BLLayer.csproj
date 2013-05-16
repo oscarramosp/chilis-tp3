@@ -70,9 +70,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLClientes.cs" />
+    <Compile Include="BLFechasEspeciales.cs" />
     <Compile Include="BLReclamos.cs" />
+    <Compile Include="BLReservas.cs" />
     <Compile Include="BLTiposDocumento.cs" />
     <Compile Include="Constantes.cs" />
+    <Compile Include="DTOResultado.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

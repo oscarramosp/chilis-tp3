@@ -20,8 +20,9 @@
         <div id="divPrincipal">
             <div id="divMenu">
                 <asp:HyperLink ID="HyperLink2" CssClass="menu-link" runat="server" NavigateUrl="~/BusquedaClientes.aspx" >Clientes</asp:HyperLink>
-                <asp:HyperLink ID="HyperLink3" CssClass="menu-link" runat="server" >Reservas</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink3" CssClass="menu-link" runat="server" NavigateUrl="~/BusquedaReservas.aspx" >Reservas</asp:HyperLink>
                 <asp:HyperLink ID="HyperLink1" CssClass="menu-link" runat="server" NavigateUrl="~/GenerarReporteReclamos.aspx">Reporte de Reclamos</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink4" CssClass="menu-link" runat="server" NavigateUrl="~/BusquedaFechasEspeciales.aspx">Fechas Especiales</asp:HyperLink>
             </div>
             <div id="divLogo">
                 <img src="images/img_logo.png" alt="logo" />
@@ -40,10 +41,10 @@
             </div>
             <div id="divIzq">
                 <div id="divLetrero">
-                    AA
+                    
                 </div>
                 <div id="divLetreroCentro">
-                    BB
+                    
                 </div>
                 <div id="divLetreroInf">
                 </div>

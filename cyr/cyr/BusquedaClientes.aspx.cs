@@ -157,6 +157,15 @@ namespace cyr
                     List<BECliente> lstClientes = (List<BECliente>)Session["lstBusquedaClientes"];
                     BECliente oCliente = lstClientes.Find(ById(codigoCliente));
                     Util.SessionHelper.setClienteEditar(oCliente);
+
+                    string referrer = Util.SessionHelper.getConsultaClienteReferrer();
+
+                    if (!string.IsNullOrEmpty(referrer))
+                    {
+                        Response.Redirect(referrer);
+                        return;
+                    }
+
                     Response.Redirect("RegistroClientes.aspx");
                 }
             }

@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphContent" runat="server">
 
-<asp:ScriptManager ID="smFiltrosCliente" runat="server">
+    <asp:ScriptManager ID="smFiltrosCliente" runat="server">
 </asp:ScriptManager>
 
     <div class="divClubChilis">

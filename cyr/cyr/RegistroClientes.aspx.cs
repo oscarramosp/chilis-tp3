@@ -21,7 +21,6 @@ namespace cyr
             {
                 setControles();
 
-                // Ugly coding it is.
                 // Cuando el objeto sesión "detalleClienteObjeto" es nulo, entonces es un registro nuevo.
                 // Se instancia un objeto Cliente y se trabaja sobre este para realizar el nuevo registro.
                 // Si el objeto cliente tiene un ID cero, es nuevo; caso contrario es para editar
@@ -166,7 +165,7 @@ namespace cyr
 
         protected void btnAgregarDireccion_Click(object sender, EventArgs e)
         {
-            // Can't be null at this point. If it is, you suck at programming.
+            // Can't be null at this point.
             bindearDirecciones();
 
             BECliente objCliente = Util.SessionHelper.getClienteEditar();
@@ -210,15 +209,13 @@ namespace cyr
 
         protected void btnGrabar_Click(object sender, EventArgs e)
         {
-            // Oh god why.
-
             BECliente objCliente = Util.SessionHelper.getClienteEditar();
 
             objCliente.TipoDocumento.CodigoTipoDocumento = Convert.ToInt32(ddlTipoDoc.SelectedValue);
             objCliente.Email = txtEmail.Text.Trim();
             objCliente.NumeroDocumento = txtNroDoc.Text.Trim();
             objCliente.TelefonoPrincipal = txtTelefono.Text.Trim();
-            objCliente.Estado = "A"; // CONSTANT, Y U NO?!!!!
+            objCliente.Estado = "A"; 
             objCliente.FechaNacimiento = null;
             objCliente.CodigoClasificacion = null;
 
@@ -227,7 +224,7 @@ namespace cyr
                 objCliente.ApellidoPaterno = txtApellidoPaterno.Text.Trim();
                 objCliente.ApellidoMaterno = txtApellidoMaterno.Text.Trim();
                 objCliente.Sexo = rbtMasculino.Checked ? "M" : "F";
-                objCliente.TipoCliente = "N"; // CONSTANT ME, BITCH!
+                objCliente.TipoCliente = "N";
             }
 
             if (rbtJuridico.Checked) {
@@ -236,8 +233,6 @@ namespace cyr
                 objCliente.TipoCliente = "J";
             }
 
-            // direcciones teraki.
-            // ugly and disgusting coding.
             List<BEDireccionCliente> lstDireccion = new List<BEDireccionCliente>();
 
             foreach (GridViewRow gvRow in dgvDirecciones.Rows)
@@ -288,7 +283,6 @@ namespace cyr
             {
                 int rowNumber = Convert.ToInt32(e.CommandArgument);
 
-                // can't be null. lol
                 BECliente oCliente = Util.SessionHelper.getClienteEditar();
                 oCliente.Direcciones.RemoveAt(rowNumber);
                 Util.SessionHelper.setClienteEditar(oCliente);
@@ -321,8 +315,6 @@ namespace cyr
 
         protected void dgvDirecciones_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            // Ugly coding.
-            // meanings:
             // L = lectura
             // E = Edición
             if (e.Row.RowType == DataControlRowType.DataRow)

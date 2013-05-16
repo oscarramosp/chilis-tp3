@@ -11,8 +11,10 @@
 /***************** generales  **************/
 h1, h2, h3, h4, p, form, input, ul, li
 {
-    margin: 0;
     padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
 }
 a, a img
 {
@@ -545,6 +547,19 @@ h2.acc_trigger a
 {
     color: #FFFFFF;
     background-color: #CE8E15;
+    font-weight: bold;
+    font-size: 12px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.red-button 
+{
+    color: #FFFFFF;
+    background-color: #FF0000;
     font-weight: bold;
     font-size: 12px;
     padding-top: 3px;

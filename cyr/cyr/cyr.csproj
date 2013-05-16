@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxPro, Version=9.2.17.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Recursos\AjaxPro.dll</HintPath>
+    </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
@@ -91,6 +95,27 @@
     <Compile Include="BusquedaClientes.aspx.designer.cs">
       <DependentUpon>BusquedaClientes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BusquedaReclamos.aspx.cs">
+      <DependentUpon>BusquedaReclamos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusquedaReclamos.aspx.designer.cs">
+      <DependentUpon>BusquedaReclamos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusquedaFechasEspeciales.aspx.cs">
+      <DependentUpon>BusquedaFechasEspeciales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusquedaFechasEspeciales.aspx.designer.cs">
+      <DependentUpon>BusquedaFechasEspeciales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusquedaReservas.aspx.cs">
+      <DependentUpon>BusquedaReservas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusquedaReservas.aspx.designer.cs">
+      <DependentUpon>BusquedaReservas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Chilis.Master.cs">
       <DependentUpon>Chilis.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -132,11 +157,32 @@
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistroFechaEspecial.aspx.cs">
+      <DependentUpon>RegistroFechaEspecial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroFechaEspecial.aspx.designer.cs">
+      <DependentUpon>RegistroFechaEspecial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroReserva.aspx.cs">
+      <DependentUpon>RegistroReserva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroReserva.aspx.designer.cs">
+      <DependentUpon>RegistroReserva.aspx</DependentUpon>
+    </Compile>
     <Compile Include="reports\rptReclamos.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptReclamos.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UC\ucBuscarCliente.ascx.cs">
+      <DependentUpon>ucBuscarCliente.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UC\ucBuscarCliente.ascx.designer.cs">
+      <DependentUpon>ucBuscarCliente.ascx</DependentUpon>
     </Compile>
     <Compile Include="Util\SessionHelper.cs" />
   </ItemGroup>
@@ -158,8 +204,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BusquedaClientes.aspx" />
+    <Content Include="BusquedaReclamos.aspx" />
+    <Content Include="BusquedaFechasEspeciales.aspx" />
+    <Content Include="BusquedaReservas.aspx" />
     <Content Include="Chilis.Master" />
     <Content Include="css\chilis.css" />
+    <Content Include="css\fullcalendar.css" />
     <Content Include="css\images\animated-overlay.gif" />
     <Content Include="css\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="css\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
@@ -176,6 +226,9 @@
     <Content Include="css\images\ui-icons_ffd27a_256x240.png" />
     <Content Include="css\images\ui-icons_ffffff_256x240.png" />
     <Content Include="css\jquery-ui-1.10.2.custom.min.css" />
+    <Content Include="js\fullcalendar.min.js" />
+    <Content Include="js\calendar-vista-dia.js" />
+    <Content Include="js\jquery.maskedinput.js" />
     <Content Include="RegistroClientes.aspx" />
     <Content Include="GenerarReporteReclamos.aspx" />
     <Content Include="Home.aspx" />
@@ -201,6 +254,9 @@
     <Content Include="js\jquery-ui-1.10.2.custom.min.js" />
     <Content Include="js\moog.custom.alert.js" />
     <Content Include="js\util.js" />
+    <Content Include="RegistroFechaEspecial.aspx" />
+    <Content Include="RegistroReserva.aspx" />
+    <Content Include="UC\ucBuscarCliente.ascx" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="reports\rptReclamos.rpt">

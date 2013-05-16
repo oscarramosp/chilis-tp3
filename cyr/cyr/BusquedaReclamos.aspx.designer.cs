@@ -11,79 +11,88 @@
 namespace cyr {
     
     
-    public partial class BusquedaClientes {
+    public partial class BusquedaReclamos {
         
         /// <summary>
-        /// smFiltrosCliente control.
+        /// smFiltrosReclamo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager smFiltrosCliente;
+        protected global::System.Web.UI.ScriptManager smFiltrosReclamo;
         
         /// <summary>
-        /// upFiltrosCliente control.
+        /// upFiltrosReclamo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upFiltrosCliente;
+        protected global::System.Web.UI.UpdatePanel upFiltrosReclamo;
         
         /// <summary>
-        /// rbtNatural control.
+        /// txtNroRec control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbtNatural;
+        protected global::System.Web.UI.WebControls.TextBox txtNroRec;
         
         /// <summary>
-        /// rbtJuridico control.
+        /// ddlEstado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbtJuridico;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
         
         /// <summary>
-        /// ddlTipoDoc control.
+        /// ddlTipoDocumento control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipoDoc;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoDocumento;
         
         /// <summary>
-        /// txtNroDoc control.
+        /// txtNumDoc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNroDoc;
+        protected global::System.Web.UI.WebControls.TextBox txtNumDoc;
         
         /// <summary>
-        /// divCampoNombre control.
+        /// txtNomRazSoc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCampoNombre;
+        protected global::System.Web.UI.WebControls.TextBox txtNomRazSoc;
         
         /// <summary>
-        /// txtNombre control.
+        /// txtFechaInicio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombre;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaInicio;
+        
+        /// <summary>
+        /// txtFechaFin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFechaFin;
         
         /// <summary>
         /// btnBuscar control.
@@ -93,42 +102,6 @@ namespace cyr {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBuscar;
-        
-        /// <summary>
-        /// divSexo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSexo;
-        
-        /// <summary>
-        /// rbtAmbos control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbtAmbos;
-        
-        /// <summary>
-        /// rbtMasculino control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbtMasculino;
-        
-        /// <summary>
-        /// rbtFemenino control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbtFemenino;
         
         /// <summary>
         /// lblSinResultados control.
@@ -149,13 +122,13 @@ namespace cyr {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divResultado;
         
         /// <summary>
-        /// dgvClientes control.
+        /// dgvReclamos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvClientes;
+        protected global::System.Web.UI.WebControls.GridView dgvReclamos;
         
         /// <summary>
         /// btnNuevo control.
