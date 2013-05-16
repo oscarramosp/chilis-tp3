@@ -30,7 +30,7 @@ namespace cyr
         {
             ddlEstado.Items.Add(new ListItem("--Todos--", "%"));
             ddlEstado.Items.Add(new ListItem("Atendido", "A"));
-            ddlEstado.Items.Add(new ListItem("Presentado", "P"));
+            ddlEstado.Items.Add(new ListItem("Pendiente", "P"));
         }
 
         #region Eventos
