@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="ApplicationServices-Web.config Connection String" description="ApplicationServices Connection String used in web.config by the application to access the database." defaultvalue="database=DBALMACEN; server=.\sql2008; Trusted_Connection=true; Min Pool Size=3; Max Pool Size=10;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\USUARIO\\Desktop\\UPC\\AppAlmacen4\\AppAlmacen\\AppAlmacen\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ApplicationServices']/@connectionString" />
+  </parameter>
+</parameters>
