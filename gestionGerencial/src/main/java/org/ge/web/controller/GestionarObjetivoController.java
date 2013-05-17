@@ -170,4 +170,5 @@ public class GestionarObjetivoController {
 		List<ObjetivoGeneral> listaObjetivos = objetivoManager.getListaObjetivosGenerales(null);
 		return listaObjetivos;
 	}
+
 }

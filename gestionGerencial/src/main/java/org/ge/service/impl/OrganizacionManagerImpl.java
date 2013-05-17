@@ -20,6 +20,10 @@ class OrganizacionManagerImpl implements OrganizacionManager {
 		return organizacionDao.getListaAreas();
 	}
 
+	public List<Empleado> getListaEmpleados(){
+		return organizacionDao.getListaEmpleados();
+	}
+	
 	public Area getAreaPorCodigo(Integer codigoArea) {
 		return organizacionDao.getAreaPorCodigo(codigoArea);
 	}

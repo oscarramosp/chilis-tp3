@@ -37,7 +37,7 @@
         <joined-subclass name="org.ge.model.ObjetivoFuncional" table="Objetivo_Funcional">
             <key column="codigo_of"  />
             <many-to-one name="area"
-				class="org.ge.model.Area" fetch="select">
+				class="org.ge.model.Area" fetch="select" lazy="false">
 				<column name="area_of" not-null="true" />
 			</many-to-one>
             <many-to-one name="objetivoEfecto"

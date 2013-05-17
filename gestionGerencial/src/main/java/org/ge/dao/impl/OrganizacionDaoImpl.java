@@ -35,6 +35,12 @@ public class OrganizacionDaoImpl implements OrganizacionDao {
 		List<Area> list = (List<Area>) hibernateTemplate.find(" from Area ");
 		return list;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Empleado> getListaEmpleados(){
+		List<Empleado> list = (List<Empleado>) hibernateTemplate.find(" from Empleado ");
+		return list;
+	}
 
 	public Area getAreaPorCodigo(Integer codigoArea) {
 		Area area = hibernateTemplate.get(Area.class,codigoArea);

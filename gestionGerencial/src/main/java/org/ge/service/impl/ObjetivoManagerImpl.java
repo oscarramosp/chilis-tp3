@@ -145,4 +145,39 @@ public class ObjetivoManagerImpl implements ObjetivoManager {
 			}
 		return aux;
 	}
+	
+	public List<Objetivo> getListaObjetivosHabilesPorArea(Area area) {
+		List<Objetivo> lista = getListaObjetivos("registrado");
+		lista.addAll(getListaObjetivos("pendUpdate"));
+		lista.addAll(getListaObjetivos("pendBaja"));
+		List<Objetivo> aux = new ArrayList<>();
+		if (area.getCodigo().equals(5)) {
+			for (Objetivo objetivo : lista) {
+				if (objetivo.getTipoObjetivo().equals("General")) {aux.add(objetivo);
+				}
+			}
+		}
+			for (Objetivo objetivo : lista) {
+				if (objetivo.getTipoObjetivo().equals("Funcional")) {
+					if (objetivo.getTipoObjetivo().equals("Funcional")&& (((ObjetivoFuncional) objetivo).getArea().getCodigo().equals(area.getCodigo()))) {
+						aux.add(objetivo);
+
+					}
+				}
+			}
+		return aux;
+	}
+	
+	public List<ObjetivoFuncional> getListaObjetivosFuncionalesHabiles() {
+		List<Objetivo> lista = getListaObjetivos("registrado");
+		lista.addAll(getListaObjetivos("pendUpdate"));
+		lista.addAll(getListaObjetivos("pendBaja"));
+		List<ObjetivoFuncional> aux = new ArrayList<>();
+		for (Objetivo objetivo : lista) {
+			if (objetivo.getTipoObjetivo().equals("Funcional")){
+				aux.add((ObjetivoFuncional) objetivo);
+			}
+		}
+		return aux;
+	}
 }

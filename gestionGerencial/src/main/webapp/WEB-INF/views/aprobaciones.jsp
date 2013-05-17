@@ -22,7 +22,7 @@
 		<h6 for="aprobarMapasEstrategicos">Aprobar Mapas Estratégicos</h6>
 		<br> <br>
 		<h6 for="aprobarEstrategias">
-			<a href="<c:url value="aprobarEstrategias"/>"> Aprobar
+			<a href="<c:url value="/aprobacionEstrategias.htm"/>"> Aprobar
 				Iniciativas Estratégicas </a>
 		</h6>
 	</div>

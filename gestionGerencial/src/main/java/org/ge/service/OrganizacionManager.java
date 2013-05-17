@@ -9,6 +9,8 @@ import org.ge.model.Empleado;
 public interface OrganizacionManager {
 
 	public List<Area> getListaAreas();
+	
+	public List<Empleado> getListaEmpleados();
 
 	public Area getAreaPorCodigo(Integer codigoArea);
 
