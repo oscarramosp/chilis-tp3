@@ -1902,6 +1902,460 @@ VALUES(1,2,'Jabon en Barra Bolivar',80,'1 barra',2,'03/03/2013',2.30,184);
 
 GO
 
+
+create TABLE [dbo].[tb_FichaProducto](
+	[codigo] [int] IDENTITY(1,1) NOT NULL,
+	[item] [int] NOT NULL,
+	[codProducto] [varchar](50) NOT NULL,
+	[lote] [varchar](50) NULL,
+	[serie] [varchar](50) NULL,
+	[tipo] [varchar](50) NULL,
+	[cantidad] [decimal](18, 2) NULL,
+	[precio] [decimal](18, 2) NULL,
+	[medida] [varchar](50) NULL,
+	[fecha_recepcion] [date] NULL,
+	[fecha_elaboracion] [date] NULL,
+	[fecha_vencimiento] [date] NULL,
+	[codUN] [int] NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+alter table tb_producto add marca int null
+go
+update tb_producto set marca = 1
+
+go
+
+create procedure [ALM.Buscar_Productos]
+@codigoPr varchar(100),
+@nombre varchar(100),
+@familia varchar(100),
+@subfamilia varchar(100),
+@marca int
+as
+select p.codigo, p.codigoPr, p.nombre, p.descripcion, p.familia, 
+p.subfamilia, m.desMed as Medida, k.descripcion as Marca
+from tb_producto p
+inner join  Tb_UnidadMedida m
+on m.codigo = p.medida
+inner join tb_Marca k
+on k.codmarca = p.marca
+where p.codigoPr like '%'+ @codigoPr +'%'
+and p.nombre like '%'+ @nombre +'%'
+and p.familia like '%'+ @familia +'%'
+and p.subfamilia like '%'+ @subfamilia +'%'
+and p.marca = case when @marca = -1 then p.marca else @marca end
+ 
+ 
+go
+
+
+CREATE procedure [dbo].[ALM.FichaProducto_Insertar]
+@item int,
+@codProducto varchar(50),
+@lote varchar(50),
+@serie varchar(50),
+@tipo varchar(50),
+@cantidad decimal(18,2),
+@precio decimal(18,2),
+@medida varchar(50),
+@fecha_recepcion date,
+@fecha_elaboracion date,
+@fecha_vencimiento date,
+@codUN int,
+@Codigo int output
+as
+insert tb_Fichaproducto (item,codProducto,
+lote,serie,tipo,cantidad,precio,medida,fecha_recepcion,fecha_elaboracion,fecha_vencimiento,codUN )
+values (@item,@codProducto,
+@lote,@serie,@tipo,@cantidad,@precio,@medida,@fecha_recepcion,@fecha_elaboracion,@fecha_vencimiento,@codUN )
+
+
+set @codigo= @@IDENTITY
+
+
+select @codigo
+
+go
+
+create procedure [ALM.Ficha_GetUltimoItem]
+as
+declare @penultimo int
+declare @ultimo int
+
+select top 1  @penultimo = isnull(substring(convert(varchar,item),7,2),0) 
+from tb_FichaProducto 
+where substring(convert(varchar,item),1,2) = substring(convert(varchar,year(getdate())),3,2) 
+and convert(int,substring(convert(varchar,item),3,2)) = month(getdate())
+and convert(int,substring(convert(varchar,item),5,2)) = day(getdate())
+order by item desc
+
+set @ultimo = substring(convert(varchar,year(getdate())),3,2) + 
+right('00'+ convert(varchar,month(getdate())),2) +
+right('00'+ convert(varchar,day(getdate())),2)+
+right('00' + convert(varchar,isnull(@penultimo,0) + 1),2)
+
+select @ultimo as ultimo
+
+
+
+go
+
+create procedure [ALM.Cargar_Marcas]
+as
+select codMarca, descripcion 
+from tb_marca
+order by descripcion asc
+
+go
+
+
+create procedure [dbo].[ALM.Buscar_Productos_UN]
+@codigoPr varchar(100),
+@nombre varchar(100),
+@UN int
+as
+select p.codigo, p.codigoPr, u.desUn as UN, p.nombre, p.descripcion, p.familia, 
+p.subfamilia, k.descripcion as Marca
+from tb_producto p
+inner join tb_FichaProducto f
+on f.codProducto = p.codigoPr
+inner join  tb_UnidadNegocio u
+on u.codigo = f.codUN
+inner join tb_Marca k
+on k.codmarca = p.marca
+where p.codigoPr like '%'+ @codigoPr +'%'
+and p.nombre like '%'+ @nombre +'%'
+and u.codigo = case when @UN = -1 then u.codigo else @UN end
+ 
+go
+
+create procedure [dbo].[ALM.Buscar_FichaProducto]
+@codigoPr varchar(100),
+@UN int
+as
+select f.item, f.medida, k.descripcion as Marca, f.fecha_vencimiento, f.cantidad, f.precio,  
+convert(decimal(18,2),f.cantidad * f.precio) as total
+from  
+tb_FichaProducto f
+inner join tb_Producto p
+on f.codProducto = p.codigoPr
+inner join tb_Marca k
+on k.codmarca = p.marca
+where p.codigoPr like '%'+ @codigoPr +'%'
+and f.codUN = case when @UN = -1 then f.codUN else @UN end
+
+go
+
+
+create proc [dbo].[ALM.NotaPedido_Insertar](
+@fechaEmision Date,
+@almacenOrigen int,
+@almacenDestino int,
+@areaSolicitante varchar(100),
+@codigoPedido int output
+  )
+as
+begin
+
+insert tb_NotaPedido
+(fechaEmision,almacenOrigen, almacenDestino,areaSolicitante,TipoOperacion,registrador,
+autorizador,estadoNota,fechaEstadoNota,PrecioPedido,correlativo)
+values (@fechaEmision,@almacenOrigen,@almacenDestino,@areaSolicitante,'','','','',getdate(),0,'')
+
+set @codigoPedido= @@IDENTITY
+
+
+select @codigoPedido as ultimo
+
+
+end
+
+go
+
+create proc [dbo].[ALM.NotaPedidoDetalle_Insertar](
+@codigoPedido int,
+@Coditem int,
+@descripcion varchar(200),
+@cantActual int,
+@medida varchar(200),
+@marca int,
+@fechaCaducidad date,
+@precioUnitario decimal(18,2),
+@precioTotal decimal(18,2)
+  )
+as
+begin
+
+insert tb_NotaPedidoDetalle
+(codigoPedido,CodItem,descripcion,cantActual,medida,marca,fechaCaducidad, preciounitario, preciototal)
+values (@codigoPedido,@CodItem,@descripcion,@cantActual,@medida,@marca,@fechaCaducidad, @preciounitario, @preciototal)
+
+end
+
+go
+
+
+ALTER procedure [dbo].[ALM.Buscar_Productos_UN]
+@codigoPr varchar(100),
+@nombre varchar(100),
+@UN int
+as
+select p.codigo, p.codigoPr, u.desUn as UN, p.nombre, p.descripcion, p.familia, 
+p.subfamilia, k.descripcion as Marca, u.codigo as CodUN
+from tb_producto p
+inner join tb_FichaProducto f
+on f.codProducto = p.codigoPr
+inner join  tb_UnidadNegocio u
+on u.codigo = f.codUN
+inner join tb_Marca k
+on k.codmarca = p.marca
+where p.codigoPr like '%'+ @codigoPr +'%'
+and p.nombre like '%'+ @nombre +'%'
+and u.codigo = case when @UN = -1 then u.codigo else @UN end
+
+go
+
+ALTER procedure [dbo].[ALM.Buscar_Productos_UN]
+@codigoPr varchar(100),
+@nombre varchar(100),
+@UN int
+as
+select p.codigo, p.codigoPr, u.desUn as UN, p.nombre, p.descripcion, p.familia, 
+p.subfamilia, k.descripcion as Marca, u.codigo as CodUN, k.codMarca as CodMarca
+from tb_producto p
+inner join tb_FichaProducto f
+on f.codProducto = p.codigoPr
+inner join  tb_UnidadNegocio u
+on u.codigo = f.codUN
+inner join tb_Marca k
+on k.codmarca = p.marca
+where p.codigoPr like '%'+ @codigoPr +'%'
+and p.nombre like '%'+ @nombre +'%'
+and u.codigo = case when @UN = -1 then u.codigo else @UN end
+
+go
+
+ALTER procedure [dbo].[ALM.Buscar_FichaProducto]
+@codigoPr varchar(100),
+@UN int
+as
+select f.item, f.medida, k.descripcion as Marca, f.fecha_vencimiento, f.cantidad, f.precio,  
+convert(decimal(18,2),f.cantidad * f.precio) as total, k.codMarca
+from  
+tb_FichaProducto f
+inner join tb_Producto p
+on f.codProducto = p.codigoPr
+inner join tb_Marca k
+on k.codmarca = p.marca
+where p.codigoPr like '%'+ @codigoPr +'%'
+and f.codUN = case when @UN = -1 then f.codUN else @UN end
+ 
+go
+
+ALTER proc [dbo].[ALM.NotaPedidoDetalle_Insertar](
+@codigoPedido int,
+@Coditem int,
+@descripcion varchar(200),
+@cantActual int,
+@medida varchar(200),
+@marca int,
+@fechaCaducidad date,
+@precioUnitario decimal(18,2),
+@precioTotal decimal(18,2)
+  )
+as
+begin
+
+insert tb_NotaPedidoDetalle
+(codigoPedido,CodItem,descripcion,cantActual,medida,marca,fechaCaducidad, preciounitario, preciototal)
+values (@codigoPedido,@CodItem,@descripcion,@cantActual,@medida,@marca,@fechaCaducidad, @preciounitario, convert(decimal(18,2),@preciounitario*@cantActual))
+
+end
+
+go
+
+create procedure [ALM.NotaPedido_Buscar]
+as
+select Codigopedido, fechaemision, u.desUn,
+areasolicitante
+from tb_notapedido p
+inner join tb_unidadnegocio u
+on u.codigo = p.almacenorigen
+order by codigopedido desc
+
+go
+
+create procedure [ALM.NotaPedidoDetalle_Buscar]
+@codigoPedido int
+as
+select codItem, medida,p.descripcion, m.descripcion as marca,fechacaducidad, cantactual,
+preciounitario, preciototal
+from tb_notapedidodetalle p
+inner join tb_marca m
+on m.codMarca = p.marca
+where codigopedido =@codigopedido
+order by codigopedidodet asc 
+
+go
+
+update tb_unidadnegocio set desun = direcun  
+
+go
+
+insert tb_unidadnegocio values ('Surco','Surco')
+insert tb_unidadnegocio values ('San Borja','San Borja')
+insert tb_unidadnegocio values ('Surquillo','Surquillo')
+insert tb_unidadnegocio values ('Jesus Maria','Jesus Maria')
+insert tb_unidadnegocio values ('Lince','Lince')
+insert tb_unidadnegocio values ('Pueblo Libre','Pueblo Libre')
+insert tb_unidadnegocio values ('La Molina','La Molina')
+
+go
+
+
+
+ALTER PROCEDURE [dbo].[ALM.Cargar_Unidad]
+AS    
+BEGIN  
+Select  codigo as codigo,
+	desUn as descripcion
+	from dbo.tb_UnidadNegocio
+	order by desUN asc
+END
+
+
+go
+
+
+
+insert tb_marca values ('San Fernando',1)
+insert tb_marca values ('Razzeto',1)
+insert tb_marca values ('Segoviana',1)
+insert tb_marca values ('Otto kunz',1)
+
+go
+
+
+
+update tb_producto set familia = 'Alimentos', subfamilia = 'Verduras' where codigo = 1
+update tb_producto set familia = 'Alimentos', subfamilia = 'Verduras' where codigo = 2
+update tb_producto set familia = 'Ingredientes', subfamilia = 'Condimentos' where codigo = 3
+update tb_producto set familia = 'Alimentos', subfamilia = 'Lacteos' where codigo = 4
+
+go
+
+
+ALTER procedure [dbo].[ALM.Buscar_Productos_UN]
+@codigoPr varchar(100),
+@nombre varchar(100),
+@UN int
+as
+select distinct p.codigo, p.codigoPr, u.desUn as UN, p.nombre, p.descripcion, p.familia, 
+p.subfamilia, k.descripcion as Marca, u.codigo as CodUN, k.codMarca as CodMarca
+from tb_producto p
+inner join tb_FichaProducto f
+on f.codProducto = p.codigoPr
+inner join  tb_UnidadNegocio u
+on u.codigo = f.codUN
+inner join tb_Marca k
+on k.codmarca = p.marca
+where p.codigoPr like '%'+ @codigoPr +'%'
+and p.nombre like '%'+ @nombre +'%'
+and u.codigo = case when @UN = -1 then u.codigo else @UN end
+
+
+
+go
+
+ALTER proc [dbo].[ALM.ListarHojaInventarioxCod] 
+@codCabecera int
+as
+begin
+select codigo ,fecha, cab.referencia, isnull(cab.responsable,'')responsable, estado
+from dbo.tb_InventarioCabecera cab
+where codigo = @codCabecera 
+end
+
+go
+
+ALTER proc [dbo].[ALM.ListarHojaInventario] 
+@fechaIni varchar(10) = null,
+@fechaFin varchar(10) = null,
+@estado int =null
+as
+begin
+select codigo ,fecha, cab.referencia, isnull(cab.responsable,'')responsable, ISNULL(descripcion,'')estado,correlativo,est.estado
+from dbo.tb_InventarioCabecera cab
+INNER JOIN dbo.tb_estadoInv EST ON est.codEstadoInv=cab.estado
+where  CAB.estado <> 3 and
+(isnull(@fechaIni,'')='' OR cab.fecha >= @fechaIni)   
+  AND (isnull(@fechaFin,'')='' OR cab.fecha <= @fechaFin)  
+  AND (isnull(@estado,-1)=-1 OR cab.estado = @estado)   
+end
+
+
+go
+
+
+alter procedure [ALM.NotaPedido_Buscar]
+as
+select Codigopedido, fechaemision, 
+areasolicitante
+from tb_notapedido p
+order by codigopedido desc
+
+go
+
+ALTER procedure [dbo].[ALM.Buscar_FichaProducto]
+@codigoPr varchar(100),
+@UN int
+as
+select f.item, f.medida, k.descripcion as Marca, f.fecha_vencimiento, 
+case when (f.cantidad - (select isnull(sum(d.cantActual),0) from tb_notapedidodetalle d where d.coditem = f.item)) < 0 
+then 0 else (f.cantidad - (select isnull(sum(d.cantActual),0) from tb_notapedidodetalle d where d.coditem = f.item)) end as cantidad, 
+f.precio,  
+convert(decimal(18,2),
+case when (f.cantidad - (select isnull(sum(d.cantActual),0) from tb_notapedidodetalle d where d.coditem = f.item)) < 0 
+then 0 else (f.cantidad - (select isnull(sum(d.cantActual),0) from tb_notapedidodetalle d where d.coditem = f.item)) end
+ * f.precio) as total, k.codMarca
+from  
+tb_FichaProducto f
+inner join tb_Producto p
+on f.codProducto = p.codigoPr
+inner join tb_Marca k
+on k.codmarca = p.marca
+where p.codigoPr like '%'+ @codigoPr +'%'
+and f.codUN = case when @UN = -1 then f.codUN else @UN end
+
+go
+
+ALTER proc [dbo].[ALM.ListarHojaInventario] 
+@fechaIni datetime = null,
+@fechaFin datetime = null,
+@estado int =null
+as
+begin
+select codigo ,fecha, cab.referencia, isnull(cab.responsable,'')responsable, ISNULL(descripcion,'')estado,correlativo,est.estado
+from dbo.tb_InventarioCabecera cab
+INNER JOIN dbo.tb_estadoInv EST ON est.codEstadoInv=cab.estado
+where  CAB.estado <> 3 and
+(isnull(@fechaIni,'01/01/2000')='01/01/2000' OR cab.fecha >= convert(datetime,@fechaIni))   
+  AND (isnull(@fechaFin,'01/01/2500')='01/01/2500' OR cab.fecha <= convert(datetime,@fechaFin))  
+  AND (isnull(@estado,-1)=-1 OR cab.estado = @estado)   
+end
+
+
+go
+
+
+
+
 --===============================FIN MODULO ALMACEN ========================================================
 
 --============== INICIO  MODULO TRABAJADORES =============================================================================
