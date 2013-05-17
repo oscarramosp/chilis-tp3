@@ -12,14 +12,14 @@ import org.springframework.orm.hibernate3.SessionFactoryUtils;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class MapaEstrategicoImpl implements MapaEstrategicoDao {
+public class MapaEstrategicoDaoImpl implements MapaEstrategicoDao {
 	
 	private HibernateTemplate hibernateTemplate;
 	@SuppressWarnings("unused")
 	private JdbcTemplate jdbcTemplate;
 	
 	@Autowired
-	public MapaEstrategicoImpl(SessionFactory sessionFactory) {
+	public MapaEstrategicoDaoImpl(SessionFactory sessionFactory) {
 		this.hibernateTemplate = new HibernateTemplate(sessionFactory);
 		this.jdbcTemplate = new JdbcTemplate(
 				SessionFactoryUtils.getDataSource(sessionFactory));

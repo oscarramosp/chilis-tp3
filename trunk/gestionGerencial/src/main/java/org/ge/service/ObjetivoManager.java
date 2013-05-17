@@ -36,4 +36,8 @@ public interface ObjetivoManager {
 	public List<Objetivo> getListaObjetivosPendientesActualizacionPorArea(Area area);
 	
 	public List<Objetivo> getListaObjetivosPendientesBajaPorArea(Area area);
+	
+	public List<Objetivo> getListaObjetivosHabilesPorArea(Area area);	
+
+	public List<ObjetivoFuncional> getListaObjetivosFuncionalesHabiles();
 }

@@ -9,11 +9,11 @@
 			<generator class="identity" />
 		</id>
 		<many-to-one name="responsableEstrategia"
-			class="org.ge.model.Empleado" fetch="select">
+			class="org.ge.model.Empleado" fetch="select" lazy="false">
 			<column name="responsable_estrategia" not-null="false" />
 		</many-to-one>
 		<many-to-one name="objetivoEstrategia"
-			class="org.ge.model.Objetivo" fetch="select">
+			class="org.ge.model.Objetivo" fetch="select" lazy="false">
 			<column name="objetivo_estrategia" not-null="true" />
 		</many-to-one>
 		<property name="nombre" type="string">

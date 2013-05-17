@@ -1,26 +1,29 @@
-<body background="resources/images/fondo-chilis.png"> 
-<div class="row">
-	<div class="column grid_7"><div id="logo"><img src="resources/images/logo.jpg" alt=""></div></div>
-	<div class="column grid_5"><p>Usuario: <c:out value="${usuario.nombre}" /> <c:out value="${usuario.apellido}" /></p>
-	<!--<p>Ingreso:</p>-->
-	<!-- Para que muestre la fecha -->
-	<p>Fecha: 
-	<script language="JavaScript" type="text/javascript">  
-		MostrarFecha();  
-	</script></p></div>
-</div>
-	<nav>
+<header>
 		<div class="row">
+			<div class="column grid_7"><div id="logo"><img src="resources/images/logo.jpg" alt=""></div></div>
+			<div class="column grid_5"><h5>Usuario:</h5> <c:out value="${usuario.nombre}" /> <c:out value="${usuario.apellido}" />
+			<h5>Ingreso:</h5>
+			<!-- Para que muestre la fecha -->
+			<h8>Fecha:</h8>
+			<script language="JavaScript" type="text/javascript">  
+			MostrarFecha();
+			</script></div>
+		</div>
+</header>
+
+<body>
+
+	<div class="row">
 			<div class="column grid_12">				
 				<div id="menu">
-					<ul id="nav">
+					<ul class="nav">
 					<li><a href="#">Almacen</a></li>
 					<li><a href="#">Clientes</a></li>
 					<li><a class="active" href="#">Gestion Gerencial</a>
 						<ul>							
 							<li><a href="<c:url value="/consultaObjetivos.htm"/>">Gestionar Objetivos Estrategicos</a></li>
 							<li><a href="#">Gestionar Mapas</a></li>
-							<li><a href="#">Gestionar Estrategias</a></li>
+							<li><a href="<c:url value="/consultaEstrategias.htm"/>">Gestionar Estrategias</a></li>
 							<li><a href="#">Gestionar Indicadores</a></li>
 							<li><a href="#">Gestionar Planes de Accion</a></li>
 							<li><a href="<c:url value="/aprobaciones.htm"/>">Aprobaciones</a></li>
@@ -32,7 +35,6 @@
 				</div>			
 			</div>
 		</div>
-	</nav>	
 <c:if test="${mensajeConfirmacion == 'PendBaja'}">
 	<script language="javascript">
  		window.onload = alert("Objetivo pendiente de baja");
@@ -73,5 +75,47 @@
 	<script language="javascript">
  		window.onload = alert("Operación de Baja Rechazada. El elemento ha sido restaurado como Registrado");
  		self.location = "aprobacionObjetivos.htm";
+ 	</script> 
+</c:if>
+<c:if test="${mensajeConfirmacion == 'PendBajaEstrategia'}">
+	<script language="javascript">
+ 		window.onload = alert("Estrategia pendiente de baja");
+ 		self.location = "consultaEstrategias.htm";
+ 	</script> 
+ </c:if> 
+ <c:if test="${mensajeConfirmacion == 'PendActualizacionEstrategia'}">
+	<script language="javascript">
+ 		window.onload = alert("Estrategia pendiente de actualizacion");
+ 		self.location = "consultaEstrategias.htm";
+ 	</script> 
+</c:if> 
+<c:if test="${mensajeConfirmacion == 'PendRegistroEstrategia'}">
+	<script language="javascript">
+ 		window.onload = alert("Estrategia pendiente de registro");
+ 		self.location = "consultaEstrategias.htm";
+ 	</script> 
+</c:if> 
+<c:if test="${mensajeConfirmacion == 'BajaEstrategia'}">
+	<script language="javascript">
+ 		window.onload = alert("Estrategia Dada de Baja");
+ 		self.location = "aprobacionEstrategias.htm";
+ 	</script> 
+</c:if> 
+<c:if test="${mensajeConfirmacion == 'RegistradoEstrategia'}">
+	<script language="javascript">
+ 		window.onload = alert("Cambios Registrados");
+ 		self.location = "aprobacionEstrategias.htm";
+ 	</script> 
+</c:if> 
+<c:if test="${mensajeConfirmacion == 'RechazadoEstrategia'}">
+	<script language="javascript">
+ 		window.onload = alert("Cambios rechazados");
+ 		self.location = "aprobacionEstrategias.htm";
+ 	</script> 
+</c:if> 
+<c:if test="${mensajeConfirmacion == 'RestauradoEstrategia'}">
+	<script language="javascript">
+ 		window.onload = alert("Operación de Baja Rechazada. El elemento ha sido restaurado como Registrado");
+ 		self.location = "aprobacionEstrategias.htm";
  	</script> 
 </c:if> 
