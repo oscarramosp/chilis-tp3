@@ -75,18 +75,19 @@ namespace ALM.DL.DataAccess.Almacen
 
 
          #region listNotaPedidoP
-         public List<ENotaPedido> ListarPorNotaPedidoP()
+         public List<ENotaPedido> ListarPorNotaPedidoP(int CodUN)
          {
-             List<ENotaPedido> lista = base.ExecuteGetList<ENotaPedido>(GetListarNotaPedidoP(db),
+             List<ENotaPedido> lista = base.ExecuteGetList<ENotaPedido>(GetListarNotaPedidoP(db,CodUN),
                                                                         GetNotaPedidoP());
 
 
              return lista;
          }
 
-         public DbCommand GetListarNotaPedidoP(Database db)
+         public DbCommand GetListarNotaPedidoP(Database db, int CodUN)
          {
              DbCommand dbCommand = db.GetStoredProcCommand("[ALM.NotaPedido_Buscar]");
+             db.AddInParameter(dbCommand, "@CodUN", DbType.String, CodUN);
              return dbCommand;
          }
 
@@ -99,9 +100,48 @@ namespace ALM.DL.DataAccess.Almacen
                  {
 
                      Codigo = Convert.ToInt32(helper.GetValue<Int32>("codigoPedido")),
+                     Correlativo = Convert.ToString(helper.GetValue<String>("correlativo")),
                      fechaEmision = Convert.ToDateTime(helper.GetValue<DateTime>("fechaemision")),
-                     //desalmacenOrigen = Convert.ToString(helper.GetValue<String>("desUn")),
+                     desalmacenOrigen = Convert.ToString(helper.GetValue<String>("AlmacenOrigen")),
+                     desalmacenDestino = Convert.ToString(helper.GetValue<String>("AlmacenDestino")),
                      areaSoliciante = Convert.ToString(helper.GetValue<String>("areasolicitante")),
+                     precioPedido = Convert.ToDecimal(helper.GetValue<Decimal>("PrecioPedido")),
+                 };
+             });
+
+             return domainFactory;
+         }
+
+
+         #endregion 
+
+         #region ActualizarNotaPedidoP
+         public List<ENotaPedido> ActualizarPorNotaPedidoP(int CodigoPedido, string estado)
+         {
+             List<ENotaPedido> lista = base.ExecuteGetList<ENotaPedido>(GetActualizarNotaPedidoP(db,CodigoPedido,estado),
+                                                                        GetActualizarPedidoP());
+
+
+             return lista;
+         }
+
+         public DbCommand GetActualizarNotaPedidoP(Database db, int CodigoPedido, string estado)
+         {
+             DbCommand dbCommand = db.GetStoredProcCommand("[ALM.NotaPedido_Actualizar]");
+             db.AddInParameter(dbCommand, "@CodigoPedido", DbType.Int32, CodigoPedido);
+             db.AddInParameter(dbCommand, "@estado", DbType.String, estado);
+             return dbCommand;
+         }
+
+         public DomainObjectFactoryBase<ENotaPedido> GetActualizarPedidoP()
+         {
+             DomainObjectFactoryBase<ENotaPedido> domainFactory = new DomainObjectFactoryBase<ENotaPedido>(delegate(IDataReader myReader)
+             {
+                 MapHelper helper = new MapHelper(myReader);
+                 return new ENotaPedido()
+                 {
+
+                     Codigo = 0,
                  };
              });
 
@@ -202,6 +242,43 @@ namespace ALM.DL.DataAccess.Almacen
          }
 #endregion
 
+
+         #region UnidadNegocioP
+         //obtener unidades..
+         public DbCommand GetListarUnidadP(Database db)
+         {
+             DbCommand dbCommand = db.GetStoredProcCommand("[ALM.Cargar_Unidad_Prov]");
+
+             return dbCommand;
+         }
+
+         public List<EUnidadNegocio> ListarUnidadNegocioP()
+         {
+             List<EUnidadNegocio> lista = base.ExecuteGetList<EUnidadNegocio>(GetListarUnidadP(db),
+                                                                            GetUnidadNegocioP());
+             return lista;
+         }
+
+         public DomainObjectFactoryBase<EUnidadNegocio> GetUnidadNegocioP()
+         {
+             DomainObjectFactoryBase<EUnidadNegocio> domainFactory = new DomainObjectFactoryBase<EUnidadNegocio>(delegate(IDataReader myReader)
+             {
+                 MapHelper helper = new MapHelper(myReader);
+                 return new EUnidadNegocio()
+                 {
+
+                     Codigo = helper.GetValue<Int32>("codigo"),
+                     Nombre = helper.GetValue<String>("descripcion"),
+
+
+                 };
+
+             });
+
+             return domainFactory;
+         }
+         #endregion
+
          #region insert cabecera Ingreso Salida
 
          //registro cabecera 
@@ -273,6 +350,7 @@ namespace ALM.DL.DataAccess.Almacen
              db.AddInParameter(dbCommand, "@almacenOrigen", DbType.Int32, identity.almacenOrigen);
              db.AddInParameter(dbCommand, "@almacenDestino", DbType.Int32, identity.almacenDestino);
              db.AddInParameter(dbCommand, "@areaSolicitante", DbType.String, identity.areaSoliciante);
+             db.AddInParameter(dbCommand, "@precioPedido", DbType.Decimal, identity.precioPedido);
 
              db.AddOutParameter(dbCommand, "@codigoPedido", DbType.String, 14);
 

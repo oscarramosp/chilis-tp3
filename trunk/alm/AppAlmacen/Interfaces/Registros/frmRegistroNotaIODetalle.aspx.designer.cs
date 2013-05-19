@@ -40,6 +40,15 @@ namespace AppAlmacen.Interfaces.Registros {
         protected global::System.Web.UI.WebControls.Label lblCodigoPedido;
         
         /// <summary>
+        /// lblCodigoNotaIS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCodigoNotaIS;
+        
+        /// <summary>
         /// ddlTipoDocumento control.
         /// </summary>
         /// <remarks>

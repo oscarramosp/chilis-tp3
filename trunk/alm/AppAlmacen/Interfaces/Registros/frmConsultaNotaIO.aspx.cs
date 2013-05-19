@@ -45,6 +45,7 @@ namespace AppAlmacen.Interfaces.Registros
             try
             {
                 var codigo = gdvListado.Rows[e.NewEditIndex].FindControl("lblCodEdit") as Label;
+                var codigo2 = gdvListado.Rows[e.NewEditIndex].FindControl("lblCod2") as Label;
                 var tipodoc = gdvListado.Rows[e.NewEditIndex].FindControl("lblTipDoc") as Label;
                 var UniOri = gdvListado.Rows[e.NewEditIndex].FindControl("lblUOriCod") as Label;
                 var UniDes = gdvListado.Rows[e.NewEditIndex].FindControl("lblUDestCod") as Label;
@@ -57,6 +58,7 @@ namespace AppAlmacen.Interfaces.Registros
                
                 
                string strCodigo = codigo.Text;
+               string strCodigo2 = codigo2.Text;
                string strtipodoc = tipodoc.Text;
                string strUniOri = UniOri.Text;
                string strUniDes = UniDes.Text;
@@ -70,8 +72,8 @@ namespace AppAlmacen.Interfaces.Registros
 
 
 
-               Response.Redirect(String.Format("~/Interfaces/Registros/frmRegistroNotaIODetalle.aspx?Operacion={0}&Correlativo={1}&codTipDoc={2}&codUniOri={3}&CodUniDes={4}&fecha={5}&periodo={6}&transTipo={7}&refTipo={8}&empleado={9}&CodPedido={10}",
-                    Enumeraciones.TipoOperacion.Modificacion.ToString(), strCodigo, strtipodoc, strUniOri, strUniDes, strfecha, strperiodo, strtranTipo, strRefTipo, strempleado,strcodPedido), false);
+               Response.Redirect(String.Format("~/Interfaces/Registros/frmRegistroNotaIODetalle.aspx?Operacion={0}&Correlativo={1}&codTipDoc={2}&codUniOri={3}&CodUniDes={4}&fecha={5}&periodo={6}&transTipo={7}&refTipo={8}&empleado={9}&CodPedido={10}&Codigo2={11}",
+                    Enumeraciones.TipoOperacion.Modificacion.ToString(), strCodigo, strtipodoc, strUniOri, strUniDes, strfecha, strperiodo, strtranTipo, strRefTipo, strempleado,strcodPedido,strCodigo2), false);
             }
             catch (ApplicationRulesException arex)
             {

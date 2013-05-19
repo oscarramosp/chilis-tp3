@@ -99,6 +99,10 @@ body
     float: left;
     margin: 20px 20px 20px 20px;
 }
+.invisible
+{
+    display:none;    
+}
 .lblTitulos
 {
     font-family: Arial, tahoma, verdana, helvetica;

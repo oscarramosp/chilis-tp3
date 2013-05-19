@@ -26,6 +26,21 @@
 
    }
 
+   function multiplica() {
+       
+           var cantidad = parseFloat($("#<%=txtCantActual.ClientID %>").val());
+           var precio = parseFloat($("#<%=txtPrecioUnit.ClientID %>").val());
+           var total = Math.round(precio * cantidad * 100) / 100;           
+           if (isNaN(total)) {
+               $("#<%=txtPrecioTotal.ClientID %>").val(0);
+           }
+           else {
+               $("#<%=txtPrecioTotal.ClientID %>").val(total);
+           }
+
+       
+   }
+
 </script>
 <style type="text/css">
     .Hide
@@ -80,6 +95,10 @@
                             <ItemTemplate>
                                 <asp:Label ID="lblDescripcion" runat="server" Text='<%# Bind("CodItem") %>'></asp:Label></ItemTemplate>
                         </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Descripcion">
+                            <ItemTemplate>
+                                <asp:Label ID="lblDescripcionx" runat="server" Text='<%# Bind("descripcion") %>'></asp:Label></ItemTemplate>
+                        </asp:TemplateField>
                         <asp:TemplateField HeaderText="Cantidad">
                             <ItemTemplate>
                                 <asp:Label ID="lblCantidad" runat="server" Text='<%# Bind("cantActual") %>'></asp:Label></ItemTemplate>
@@ -90,7 +109,7 @@
                             <ItemTemplate>
                                 <asp:Label ID="lblMedida" runat="server" Text='<%# Bind("medida") %>'></asp:Label></ItemTemplate>
                             <HeaderStyle HorizontalAlign="Center" />
-                            <ItemStyle Width="40%" />
+                            <ItemStyle Width="10%" />
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Precio Unit.">
                             <ItemTemplate>
@@ -285,7 +304,7 @@
                                                             </td>
                                                             <td style="width: 250px">
                                                             
-                                                            <asp:TextBox ID="txtPrecioTotal" runat="server"></asp:TextBox>
+                                                            <asp:TextBox ID="txtPrecioTotal" runat="server" ReadOnly="True"></asp:TextBox>
                                                              <asp:RequiredFieldValidator ID="rfvPrecioTotal" runat="server" Display="None" ValidationGroup="GrupoNotaISDetalle"
                                             ControlToValidate="txtPrecioTotal" SetFocusOnError="True" />
                                              <uc4:ucwAsterisco ID="UcwAsterisco7" runat="server" />

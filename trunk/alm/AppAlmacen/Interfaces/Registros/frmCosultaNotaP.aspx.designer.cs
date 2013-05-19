@@ -31,6 +31,33 @@ namespace AppAlmacen.Interfaces.Registros {
         protected global::ucwTituloBandeja ucwTituloBandeja;
         
         /// <summary>
+        /// txtAutorizador control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAutorizador;
+        
+        /// <summary>
+        /// cboUN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cboUN;
+        
+        /// <summary>
+        /// btnBuscar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBuscar;
+        
+        /// <summary>
         /// divGrillaPedido control.
         /// </summary>
         /// <remarks>
@@ -74,6 +101,15 @@ namespace AppAlmacen.Interfaces.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gdvDetalle;
+        
+        /// <summary>
+        /// txtPrecioPedido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPrecioPedido;
         
         /// <summary>
         /// btnSalirTodo control.

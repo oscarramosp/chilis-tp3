@@ -22,10 +22,16 @@ namespace ALM.BL.BusinessLogic.Almacen
             return da.ListarPorNotaPedido(codigo);
         }
 
-        public List<ENotaPedido> ListarPorNotaPedidoP()
+        public List<ENotaPedido> ListarPorNotaPedidoP(int CodUN)
         {
             DANotaPedido da = new DANotaPedido();
-            return da.ListarPorNotaPedidoP();
+            return da.ListarPorNotaPedidoP(CodUN);
+        }
+
+        public List<ENotaPedido> ActualizarNotaPedidoP(int CodigoPedido, string estado)
+        {
+            DANotaPedido da = new DANotaPedido();
+            return da.ActualizarPorNotaPedidoP(CodigoPedido, estado);
         }
 
         public List<ENotaIngresoSalida> ListarPorNotaPedido_IS(int codigo)
@@ -39,6 +45,12 @@ namespace ALM.BL.BusinessLogic.Almacen
         {
             DANotaPedido da = new DANotaPedido();  
             return da.ListarUnidadNegocio();
+        }
+
+        public List<EUnidadNegocio> ListarUnidadNegocioP()
+        {
+            DANotaPedido da = new DANotaPedido();
+            return da.ListarUnidadNegocioP();
         }
 
          public BLNotaPedido(DANotaPedido daNota)

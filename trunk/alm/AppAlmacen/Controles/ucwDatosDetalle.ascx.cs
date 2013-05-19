@@ -130,9 +130,12 @@ public partial class ucwDatosDetalle : System.Web.UI.UserControl
     {
        this.txtLote.Attributes.Add("onkeypress", "return FP_SoloLetrasyNumeros(event);");
        this.txtCodItem.Attributes.Add("onkeypress", "return FP_SoloNumeros(event);");
-       this.txtPrecioTotal.Attributes.Add("onkeypress", "return FP_SoloLetrasyNumerosLimitadoConGuionyPunto(event);");
-       this.txtPrecioUnit.Attributes.Add("onkeypress", "return FP_SoloLetrasyNumerosLimitadoConGuionyPunto(event);");
+       //this.txtPrecioTotal.Attributes.Add("onkeypress", "return FP_SoloLetrasyNumerosLimitadoConGuionyPunto(event);");
+       this.txtPrecioUnit.Attributes.Add("onkeypress", "return FP_SoloNumerosyPuntos(event);");
        this.txtCantActual.Attributes.Add("onkeypress", "return FP_SoloNumeros(event);");
+
+       this.txtPrecioUnit.Attributes.Add("onkeyup", "multiplica();");
+       this.txtCantActual.Attributes.Add("onkeyup", "multiplica();");
       
         
     }

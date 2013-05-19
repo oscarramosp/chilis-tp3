@@ -295,6 +295,7 @@ namespace ALM.DL.DataAccess.Almacen
                      Precio=helper.GetValue<Decimal>("Precio"),
                      Total =helper.GetValue<Decimal>("Total"),
                      CodMarca = helper.GetValue<Int32>("CodMarca"),
+                     CodUN = helper.GetValue<Int32>("CodUN"),
                  };
 
              });

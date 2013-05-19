@@ -49,6 +49,15 @@ namespace AppAlmacen.Interfaces.Registros {
         protected global::System.Web.UI.WebControls.HiddenField txtFechaElabora3;
         
         /// <summary>
+        /// txtCodUNOculto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField txtCodUNOculto;
+        
+        /// <summary>
         /// txtAreaSolicitante control.
         /// </summary>
         /// <remarks>
@@ -92,15 +101,6 @@ namespace AppAlmacen.Interfaces.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cboUN;
-        
-        /// <summary>
-        /// btnActualiza control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnActualiza;
         
         /// <summary>
         /// txtNomProducto control.
@@ -173,6 +173,15 @@ namespace AppAlmacen.Interfaces.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gdvFichas;
+        
+        /// <summary>
+        /// btnActualiza control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton btnActualiza;
         
         /// <summary>
         /// Label1 control.
