@@ -43,6 +43,7 @@
                                         <div class="EstiloTitulo">
                                             <div class="EstiloTituloBandeja" style="width: 100%">
                                                 <uc2:ucwTituloBandeja ID="ucwTituloBandeja" runat="server" />
+
                                             </div>
                                             <div class="ContenedorBotones">
     
@@ -63,6 +64,7 @@
            <td>
                <asp:TextBox ID="txtFechaElabora2" runat="server" ReadOnly="true"></asp:TextBox>
                <asp:HiddenField ID="txtFechaElabora3" runat="server" />
+               <asp:HiddenField ID="txtCodUNOculto" runat="server" />
            </td>
                <td>
                    &nbsp;</td>
@@ -94,9 +96,7 @@
                         </asp:DropDownList>
                     </td>
                     <td>
-                        <asp:Button ID="btnActualiza" runat="server" onclick="btnActualiza_Click" 
-                            Text="Actualiza"  Visible="false"/>
-                    </td>
+                        &nbsp;</td>
                     <td>
                         &nbsp;</td>
                 </tr>
@@ -199,6 +199,7 @@
                                 <asp:ImageButton ID="imbEditRow" runat="server" CommandName="Edit" 
                                     ImageUrl="~/Imagenes/Iconos/asignar_on.gif" ToolTip="Agregar" />
                                     <asp:Label visible="false" ID="lblItem2" runat="server" Text='<%# Bind("Item") %>' />
+                                    <asp:Label visible="false" ID="lblCodUN" runat="server" Text='<%# Bind("CodUN") %>' />
                                    
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" Width="20px" />
@@ -265,7 +266,10 @@
          
 
         <div>
-    <asp:Label ID="Label1" runat="server" Text="Detalle de la Nota"></asp:Label>
+                            
+                    
+                    <asp:ImageButton ID="btnActualiza" onclick="btnActualiza_Click"  runat="server" ImageUrl="~/Imagenes/Iconos/ico_verde.gif" />
+                    &nbsp;<asp:Label ID="Label1" runat="server" Text="Detalle de la Nota"></asp:Label>
 </div>
 
 <br />
@@ -332,7 +336,7 @@
 
                           <asp:TemplateField HeaderText="Cantidad">
                         <ItemTemplate>
-                            <asp:TextBox Width="50px" ID="txtCantidad" runat="server" Text='<%# Bind("cantActual","{0:0}") %>' ></asp:TextBox>
+                            <asp:TextBox Width="50px" ID="txtCantidad" runat="server" Text='<%# Bind("cantModif","{0:0}") %>' ></asp:TextBox>
                             <asp:Label ID="lblCantidadx" runat="server" Text='Max : '/>
                             <asp:Label ID="lblCantidad" runat="server" Text='<%# Bind("cantActual","{0:0}") %>'/>
                           </ItemTemplate>

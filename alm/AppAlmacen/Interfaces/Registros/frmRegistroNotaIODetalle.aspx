@@ -62,8 +62,16 @@
                             Código Nota Pedido:
                         </td>
                         <td style="width: 25%">
-                            <asp:Label ID="lblCodigoPedido" runat="server" SkinID="SoloLectura"></asp:Label>
+                            <asp:Label ID="lblCodigoPedido" runat="server"></asp:Label>
                         </td>
+                       
+                    </tr>
+                    <tr>
+                        
+                        <td style="width: 15%">
+                            Codigo de Nota I/S :</td>
+                        <td style="width: 25%">
+                            <asp:Label ID="lblCodigoNotaIS" runat="server"></asp:Label></td>
                        
                     </tr>
                     <tr>

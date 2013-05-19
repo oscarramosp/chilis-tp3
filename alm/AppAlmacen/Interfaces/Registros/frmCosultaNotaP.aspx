@@ -10,6 +10,12 @@
     <%@ Register Src="~/Controles/ucwAsterisco.ascx" TagName="ucwAsterisco" TagPrefix="uc7" %>
     <%@ Register Src="~/Controles/ucwFecha.ascx" TagName="ucwFecha" TagPrefix="uc6" %>
 <asp:Content ID="HeaderContent" ContentPlaceHolderID="HeadContent" runat="server">
+    <style type="text/css">
+        .style1
+        {
+            width: 100%;
+        }
+    </style>
     </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 <script language="javascript" type="text/javascript">
@@ -51,6 +57,59 @@
                             </table>
 
    <div class="cajaFormulario">
+   <table class="TablaRegistros">
+            <tr>
+                <td>
+                    &nbsp;</td>
+                <td>
+                
+                    &nbsp;</td>
+               
+                <td>
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+               
+            </tr>
+          
+                <tr>
+                    <td>
+                        &nbsp;</td>
+                    <td>
+                        &nbsp;</td>
+                    <td>
+                        &nbsp;</td>
+                    <td>
+                        &nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    Usuario Autorizador:</td>
+                <td>
+                    <asp:TextBox ID="txtAutorizador" runat="server"></asp:TextBox>
+                </td>
+                <td>
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+          
+                <tr>
+                    <td>
+                        Unidad de Negocio:</td>
+                    <td>
+                        <asp:DropDownList ID="cboUN" runat="server">
+                        </asp:DropDownList>
+                    </td>
+                    <td>
+                        <asp:Button ID="btnBuscar" runat="server" onclick="btnBuscar_Click" 
+                            Text="Buscar" />
+                    </td>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+          
+        </table>
                  <br />
             
    <div class="container" id="divGrillaPedido" runat="server" visible="true">
@@ -66,10 +125,11 @@
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" Width="20px" />
                         </asp:TemplateField>
-                       
+
+                        
                         <asp:TemplateField HeaderText="Código">
                        <ItemTemplate>
-                                 <asp:Label ID="lblCod2" runat="server" Text='<%# Bind("Codigo") %>' Visible="true"/>                                
+                                 <asp:Label ID="lblCorrelativo" runat="server" Text='<%# Bind("Correlativo") %>' Visible="true"/>                                
                                 </ItemTemplate>
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" Width="30px" />
@@ -82,7 +142,20 @@
                           <HeaderStyle HorizontalAlign="Left" />
                         </asp:TemplateField>
 
+                        <asp:TemplateField HeaderText="Alm. Origen">
+                        <ItemTemplate>
+                         <asp:Label ID="lblAlmacenOrigen" runat="server" Text='<%# Bind("desalmacenOrigen") %>' />
+                          </ItemTemplate>
+                          <HeaderStyle HorizontalAlign="Left" />
+                        </asp:TemplateField>
                         
+                        <asp:TemplateField HeaderText="Alm. Destino">
+                        <ItemTemplate>
+                         <asp:Label ID="lblAlmacenDestino" runat="server" Text='<%# Bind("desalmacenDestino") %>' />
+                          </ItemTemplate>
+                          <HeaderStyle HorizontalAlign="Left" />
+                        </asp:TemplateField>
+
                         <asp:TemplateField HeaderText="Area Solicitante">
                         <ItemTemplate>
                          <asp:Label ID="lblDescripcion" runat="server" Text='<%# Bind("areaSoliciante") %>' />
@@ -90,6 +163,28 @@
                           <HeaderStyle HorizontalAlign="Left" />
                         </asp:TemplateField>
 
+                        <asp:TemplateField HeaderText="P.Pedido">
+                        <ItemTemplate>
+                         <asp:Label ID="lblPrecioPedido" runat="server" Text='<%# Bind("precioPedido") %>'  />
+                          </ItemTemplate>
+                          <HeaderStyle HorizontalAlign="Left" />
+                        </asp:TemplateField>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:ImageButton ID="BtnAprobar" runat="server" CommandName="Aprobar" OnClientClick="return confirm('Seguro desea aprobar esta Nota de Pedido?')"  
+                                    ImageUrl="~/Imagenes/Iconos/ico_aprobar.png" ToolTip="Aprobar" CommandArgument='<%# Container.DataItemIndex %>'/>
+                             </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" Width="20px" />
+                        </asp:TemplateField>
+
+                         <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:ImageButton ID="BtnRechazar" runat="server" CommandName="Rechazar" OnClientClick="return confirm('Seguro desea rechazar esta Nota de Pedido?')" 
+                                    ImageUrl="~/Imagenes/Iconos/ico_cancelar.png" ToolTip="Rechazar" CommandArgument='<%# Container.DataItemIndex %>' />
+                             </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" Width="20px" />
+                        </asp:TemplateField>
+                       
                         
                     </Columns>
                 </asp:GridView>
@@ -169,9 +264,21 @@
                     </Columns>
                 </asp:GridView>
 
+                      <br />
+                      <table cellpadding="0" cellspacing="0" class="style1">
+                          <tr>
+                              <td>
+                                  &nbsp;</td>
+                              <td style="text-align: right">
+                                  Precio Pedido : 
+                                  <asp:TextBox ID="txtPrecioPedido" runat="server" 
+                                      ReadOnly="True" Width="60px" ></asp:TextBox> </td>
+                          </tr>
+                      </table>
+
                     </div>
         <br />
-
+        
          <asp:Button ID="btnSalirTodo" runat="server" Text="Salir" 
         onclick="btnSalirTodo_Click" />
 

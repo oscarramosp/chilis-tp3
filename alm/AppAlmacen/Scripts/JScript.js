@@ -212,6 +212,10 @@ function FP_SoloNumeros(e) {
     var key = (e ? e.keyCode || e.which : window.event.keyCode);
     return (key <= 12 || (key >= 48 && key <= 57));
 }
+function FP_SoloNumerosyPuntos(e) {
+    var key = (e ? e.keyCode || e.which : window.event.keyCode);
+    return (key <= 12 || (key >= 48 && key <= 57) || key == 46);
+}
 function FP_SoloLetrasyNumerosConSaltos(e) {
     tecla = (document.all) ? e.keyCode : e.which; // 2
     if (tecla == 8) return true; // 3

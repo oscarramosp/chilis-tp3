@@ -29,6 +29,7 @@ namespace AppAlmacen.Interfaces.Registros
                 LlenarComboUnidadNegocio(ddlUnidadOrigen);
 
                 this.Inicio();
+
                 this.CargarNota();
             }
 
@@ -68,6 +69,7 @@ namespace AppAlmacen.Interfaces.Registros
         private void Inicio()
         {
             hddCodigo.Value = Request.QueryString["Correlativo"];
+            lblCodigoNotaIS.Text = Request.QueryString["Codigo2"];
             String operacion = Request.QueryString["Operacion"];
             Enumeraciones.TipoOperacion tipoOperacion = (Enumeraciones.TipoOperacion)Enum.Parse(typeof(Enumeraciones.TipoOperacion), operacion, true);
 
@@ -91,14 +93,23 @@ namespace AppAlmacen.Interfaces.Registros
                     ucwGrabarCerrar.VisibleGrabar = true;
                     hddCodigo.Value = "0";
                     LimpiarFormulario();
-                    ddlTipoDocumento.SelectedIndex = 1; 
-
-
+                    ddlTipoDocumento.SelectedIndex = 1;
+                    LlenarComboUnidadNegocioP(ddlUnidadOrigen);
+                    if (Convert.ToString(DateTime.Now.Month).Length < 2)
+                    {
+                        txtPeriodo.Text = Convert.ToString(DateTime.Now.Year) + '0' + Convert.ToString(DateTime.Now.Month);
+                    }
+                    else
+                    {
+                        txtPeriodo.Text = Convert.ToString(DateTime.Now.Year) + Convert.ToString(DateTime.Now.Month);
+                    }
+                    
                     break;
                 case Enumeraciones.TipoOperacion.Modificacion:
                     ucwGrabarCerrar.HabilitarGrabar = true;
                     ucwGrabarCerrar.VisibleGrabar = true;
-                    lblCodigoPedido.Text = "MI_NP_001";//CodPedido;
+                    lblCodigoPedido.Text = "";//CodPedido;
+                    //lblCodigoNotaIS.Text = "";
                     txtEmpleado.Text = empleado;
                     txtFecha.SetText = fecha;
                     txtNumRefDoc.Text = CodPedido;
@@ -106,8 +117,17 @@ namespace AppAlmacen.Interfaces.Registros
                     ddlRefencia.SelectedValue = refTipo;
                     ddlTransferencia.SelectedValue = transTipo;
                     ddlunidadDestino.SelectedValue = CodUniDes;
+                    ddlTipoDocumento.SelectedValue = codTipDoc;
+
+                    if (codTipDoc == "NI")
+                    {
+                        LlenarComboUnidadNegocioP(ddlUnidadOrigen);
+                    }
+                    else {
+                        LlenarComboUnidadNegocio(ddlUnidadOrigen);
+                    }
+
                     ddlUnidadOrigen.SelectedValue = codUniOri;
-                    ddlTipoDocumento.SelectedValue = codTipDoc; 
 
                     break;
 
@@ -118,9 +138,18 @@ namespace AppAlmacen.Interfaces.Registros
                     ucwGrabarCerrar.VisibleGrabar = true;
                     hddCodigo.Value = "0";
                     LimpiarFormulario();
-                     lblCodigoPedido.Text = "MI_NP_001";//codPedidoCon2;
+                     lblCodigoPedido.Text = "";//codPedidoCon2;
                      txtNumRefDoc.Text = codPedidoCon2;
-                     ddlTipoDocumento.SelectedIndex = 2; 
+                     ddlTipoDocumento.SelectedIndex = 2;
+
+                     if (Convert.ToString(DateTime.Now.Month).Length < 2)
+                     {
+                         txtPeriodo.Text = Convert.ToString(DateTime.Now.Year) + '0' + Convert.ToString(DateTime.Now.Month);
+                     }
+                     else
+                     {
+                         txtPeriodo.Text = Convert.ToString(DateTime.Now.Year) + Convert.ToString(DateTime.Now.Month);
+                     }
 
                     break;
                 default:
@@ -351,6 +380,17 @@ namespace AppAlmacen.Interfaces.Registros
             BLNotaPedido objNotaPedido = new BLNotaPedido();
 
             Bind(objNotaPedido.ListarUnidadNegocio(), "codigo", "Nombre", ddl);
+            ddl.Items.Insert(0, new ListItem("--Seleccione--", "-1"));
+
+
+        }
+
+        public void LlenarComboUnidadNegocioP(DropDownList ddl)
+        {
+
+            BLNotaPedido objNotaPedido = new BLNotaPedido();
+
+            Bind(objNotaPedido.ListarUnidadNegocioP(), "codigo", "Nombre", ddl);
             ddl.Items.Insert(0, new ListItem("--Seleccione--", "-1"));
 
 

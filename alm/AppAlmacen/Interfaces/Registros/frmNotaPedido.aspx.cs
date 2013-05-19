@@ -42,7 +42,7 @@ namespace AppAlmacen.Interfaces.Registros
                 txtFechaElabora2.Text = DateTime.Now.ToString("dd/MM/yyyy");
                 txtFechaElabora3.Value = DateTime.Now.ToShortDateString();
                 ListaENotaPedidoDetalle = null;
-
+                txtCodUNOculto.Value = "0";
             }
         }
         public void MessageBox(Page pPage, String strMensaje)
@@ -130,7 +130,7 @@ namespace AppAlmacen.Interfaces.Registros
             var cantActual = gdvFichas.Rows[e.NewEditIndex].FindControl("lblCantidad") as Label;
             var precioUnitario = gdvFichas.Rows[e.NewEditIndex].FindControl("lblPrecio") as Label;
             var precioTotal = gdvFichas.Rows[e.NewEditIndex].FindControl("lblTotal") as Label;
-            
+            var CodUN = gdvFichas.Rows[e.NewEditIndex].FindControl("lblCodUN") as Label;
 
             ENotaPedidoDetalle objBE = new ENotaPedidoDetalle();
             objBE.CodProducto = txtProductoSel.Value;
@@ -141,9 +141,11 @@ namespace AppAlmacen.Interfaces.Registros
             objBE.marca = Convert.ToInt32(Codmarca.Text);
             objBE.fechaCaducidad = Convert.ToDateTime(fechaCaducidad.Text);
             objBE.cantActual = Convert.ToDecimal(cantActual.Text);
+            objBE.cantModif = Convert.ToDecimal(cantActual.Text);
             objBE.precioUnitario = Convert.ToDecimal(precioUnitario.Text);
             objBE.precioTotal = Convert.ToDecimal(precioTotal.Text);
 
+            txtCodUNOculto.Value = CodUN.Text;
 
             EFichaProducto objResult = new EFichaProducto();
 
@@ -175,6 +177,7 @@ namespace AppAlmacen.Interfaces.Registros
                     TextBox txtPrueba = row.FindControl("txtCantidad") as TextBox;
 
                     txtPrueba.Attributes.Add("onblur", "javascript:ValidarGrilla();");
+                    txtPrueba.Attributes.Add("onkeypress", "return FP_SoloNumeros(event);");
 
 
                 }
@@ -231,6 +234,7 @@ namespace AppAlmacen.Interfaces.Registros
             {
                  List<ENotaPedidoDetalle> ltabla = ListaENotaPedidoDetalle;
                 int count = 0;
+                decimal suma = 0;
 
                 foreach (GridViewRow row in gdvDetalle.Rows)
                 {
@@ -240,6 +244,8 @@ namespace AppAlmacen.Interfaces.Registros
                     Label cantidad = row.FindControl("lblCantidad") as Label;
                     Label precioUni = row.FindControl("lblPrecio") as Label;
                     TextBox cantidadmodif = row.FindControl("txtCantidad") as TextBox;
+
+                    suma = suma + Convert.ToDecimal(precioUni.Text) * Convert.ToDecimal(cantidadmodif.Text);
 
                     ltabla.ElementAt(ltabla.FindIndex(f => f.CodItem == Convert.ToDecimal(codigo.Text))).cantModif = Convert.ToDecimal(cantidadmodif.Text);
                     //ltabla.ElementAt(ltabla.FindIndex(f => f.CodItem == Convert.ToDecimal(codigo.Text))).precioTotal = Convert.ToDecimal(precioUni.Text) * Convert.ToDecimal(cantidadmodif.Text);
@@ -263,10 +269,11 @@ namespace AppAlmacen.Interfaces.Registros
                     ENotaPedido objENota = new ENotaPedido()
                     {
                         NotaPedido = ListaENotaPedidoDetalle,
-                        almacenOrigen = 0,//Convert.ToInt32(cboUN.SelectedValue),//aqui
+                        almacenOrigen = Convert.ToInt32(txtCodUNOculto.Value),
                         almacenDestino = 0,//Convert.ToInt32(cboUN.SelectedValue),//aqui
                         fechaEmision = Convert.ToDateTime(txtFechaElabora3.Value),
                         areaSoliciante = txtAreaSolicitante.Text,
+                        precioPedido = suma,
                     };
 
                     BLNotaPedido objBLNota = new BLNotaPedido();
@@ -291,47 +298,47 @@ namespace AppAlmacen.Interfaces.Registros
         protected void btnActualiza_Click(object sender, EventArgs e)
         {
 
-        //    List<ENotaPedidoDetalle> ltabla = ListaENotaPedidoDetalle;
-        //    int count = 0;
+            List<ENotaPedidoDetalle> ltabla = ListaENotaPedidoDetalle;
+            int count = 0;
 
-        //    foreach (GridViewRow row in gdvDetalle.Rows)
-        //    {
-
-
-        //        Label codigo = row.FindControl("lblItem") as Label;
-        //        Label cantidad = row.FindControl("lblCantidad") as Label;
-        //        Label precioUni = row.FindControl("lblPrecio") as Label;
-        //        TextBox cantidadmodif = row.FindControl("txtCantidad") as TextBox;
-
-        //        ltabla.ElementAt(ltabla.FindIndex(f => f.CodItem == Convert.ToDecimal(codigo.Text))).cantModif = Convert.ToDecimal(cantidadmodif.Text);
-        //        //ltabla.ElementAt(ltabla.FindIndex(f => f.CodItem == Convert.ToDecimal(codigo.Text))).precioTotal = Convert.ToDecimal(precioUni.Text) * Convert.ToDecimal(cantidadmodif.Text);
-
-        //        if (Convert.ToDecimal(cantidad.Text) < Convert.ToDecimal(cantidadmodif.Text))
-        //        {
-        //            count = count + 1;
-        //        }
+            foreach (GridViewRow row in gdvDetalle.Rows)
+            {
 
 
-        //    }
+                Label codigo = row.FindControl("lblItem") as Label;
+                Label cantidad = row.FindControl("lblCantidad") as Label;
+                Label precioUni = row.FindControl("lblPrecio") as Label;
+                TextBox cantidadmodif = row.FindControl("txtCantidad") as TextBox;
+
+                ltabla.ElementAt(ltabla.FindIndex(f => f.CodItem == Convert.ToDecimal(codigo.Text))).cantModif = Convert.ToDecimal(cantidadmodif.Text);
+                ltabla.ElementAt(ltabla.FindIndex(f => f.CodItem == Convert.ToDecimal(codigo.Text))).precioTotal = Convert.ToDecimal(precioUni.Text) * Convert.ToDecimal(cantidadmodif.Text);
+
+                if (Convert.ToDecimal(cantidad.Text) < Convert.ToDecimal(cantidadmodif.Text))
+                {
+                    count = count + 1;
+                }
 
 
-        //    gdvDetalle.DataSource = ListaENotaPedidoDetalle;
-        //    gdvDetalle.DataBind();
-
-        //    foreach (GridViewRow row in gdvDetalle.Rows)
-        //    {
-
-        //        TextBox txtPrueba = row.FindControl("txtCantidad") as TextBox;
-
-        //        txtPrueba.Attributes.Add("onblur", "javascript:ValidarGrilla();");
+            }
 
 
-        //    }
+            gdvDetalle.DataSource = ListaENotaPedidoDetalle;
+            gdvDetalle.DataBind();
 
-        //    if (count > 0)
-        //    {
-        //        MessageBox(this.Page, "Las cantidades a pedir no pueden ser mayores a las almacenadas!");
-        //    }
+            foreach (GridViewRow row in gdvDetalle.Rows)
+            {
+
+                TextBox txtPrueba = row.FindControl("txtCantidad") as TextBox;
+
+                txtPrueba.Attributes.Add("onblur", "javascript:ValidarGrilla();");
+                txtPrueba.Attributes.Add("onkeypress", "return FP_SoloNumeros(event);");
+
+            }
+
+            if (count > 0)
+            {
+                MessageBox(this.Page, "Las cantidades a pedir no pueden ser mayores a las almacenadas!");
+            }
         }
 
        
