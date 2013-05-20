@@ -7,6 +7,7 @@ import org.ge.model.Area;
 import org.ge.model.Indicador;
 import org.ge.model.Objetivo;
 import org.ge.model.ObjetivoFuncional;
+import org.ge.model.ObjetivoGeneral;
 import org.ge.service.IndicadorManager;
 import org.ge.service.ObjetivoManager;
 import org.ge.service.OrganizacionManager;
@@ -78,11 +79,18 @@ public class GestionarIndicadores {
 			model.addAttribute("visibilidadGeneralIndicador", "block");
 			return indicadorNuevo;
 		} else {
-			String visibilidadFuncional = "block";
-			String visibilidadGeneral = "none";
+			String visibilidadFuncional;
+			String visibilidadGeneral;
+			if(indicadorManager.getIndicadorUtilPorCodigo(codigoIndicador).getObjetivo() instanceof ObjetivoGeneral){
+				visibilidadFuncional = "none";
+				visibilidadGeneral = "block";
+			} else {
+				visibilidadFuncional = "block";
+				visibilidadGeneral = "none";
+			}			
 			model.addAttribute("visibilidadFuncionalIndicador", visibilidadFuncional);
 			model.addAttribute("visibilidadGeneralIndicador", visibilidadGeneral);
-			IndicadorUtil indicadorNuevo = (IndicadorUtil) indicadorManager.getIndicadorPorCodigo(codigoIndicador);
+			IndicadorUtil indicadorNuevo = (IndicadorUtil) indicadorManager.getIndicadorUtilPorCodigo(codigoIndicador);
 			model.addAttribute("tipoOperacion","Actualizar");
 			return indicadorNuevo;
 		}
@@ -114,27 +122,25 @@ public class GestionarIndicadores {
 				}
 				model.addAttribute("mensajeConfirmacion", "PendRegistroIndicador");
 			} else {
-//				if(objetivoNuevo.getTipoObjetivo().equals("General")){
-//					objetivoNuevo.setFechaRegistro(objetivoManager.getObjetivoGeneralPorCodigo(objetivoNuevo.getCodigo()).getFechaRegistro());
-//					 ObjetivoGeneral aux = objetivoManager.getObjetivoGeneralPorCodigo(objetivoNuevo.getCodigo());
-//					 aux.setEstado("pendUpdate");
-//					 aux.setDescripcion(objetivoNuevo.getDescripcion());
-//					 aux.setComentarios(objetivoNuevo.getComentarios());
-//					objetivoManager.guardarObjetivoGeneral(aux);
-//					mailService.mandarAlerta(organizacionManager.getEmpleadoPorCodigo(4), aux);
-//				} else {
-//					ObjetivoFuncional aux = objetivoManager.getObjetivoFuncionalPorCodigo(objetivoNuevo.getCodigo());
-//					aux.setArea(objetivoNuevo.getArea());
-//					aux.setObjetivoVinculado(objetivoNuevo.getObjetivoVinculado());
-//					aux.setEstado("pendUpdate");
-//					aux.setDescripcion(objetivoNuevo.getDescripcion());
-//					aux.setComentarios(objetivoNuevo.getComentarios());
-//					aux.setFechaRegistro(objetivoManager.getObjetivoFuncionalPorCodigo(objetivoNuevo.getCodigo()).getFechaRegistro());
-//					objetivoManager.guardarObjetivoFuncional(aux);
-//					mailService.mandarAlerta(organizacionManager.getResponsableArea(aux.getArea()), aux);
-//				}
-//				model.addAttribute("mensajeConfirmacion", "PendActualizacionIndicador");
-//				
+				 indicadorNuevo.setFechaRegistro(indicadorManager.getIndicadorPorCodigo(indicadorNuevo.getCodigo()).getFechaRegistro());
+				 Indicador aux = indicadorManager.getIndicadorPorCodigo(indicadorNuevo.getCodigo());
+				 aux.setEstado("pendUpdate");
+				 aux.setDescripcion(indicadorNuevo.getDescripcion());
+				 aux.setComentarios(indicadorNuevo.getComentarios());
+				 aux.setNombre(indicadorNuevo.getNombre());
+				 aux.setFormula(indicadorNuevo.getFormula());
+				 aux.setMeta(indicadorNuevo.getMeta());
+				if(indicadorNuevo.getTipoObjetivo().equals("General")){					 
+					aux.setObjetivo(indicadorNuevo.getObjetivoGeneral());					 
+					indicadorManager.guardarIndicador(aux);
+					mailService.mandarAlerta(organizacionManager.getEmpleadoPorCodigo(4), aux);
+				} else {
+					aux.setObjetivo(indicadorNuevo.getObjetivo());	
+					indicadorManager.guardarIndicador(aux);
+					mailService.mandarAlerta(organizacionManager.getResponsableArea(indicadorNuevo.getArea()), aux);
+				}
+				model.addAttribute("mensajeConfirmacion", "PendActualizacionIndicador");
+				
 			}
 			return "consultaIndicadores";
 		} catch (Exception e) {

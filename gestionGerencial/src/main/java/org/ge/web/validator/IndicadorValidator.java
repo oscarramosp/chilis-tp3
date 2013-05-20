@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.ge.model.Indicador;
-import org.ge.service.EstrategiaManager;
+import org.ge.service.IndicadorManager;
 import org.ge.util.IndicadorUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,7 +15,7 @@ import org.springframework.validation.Validator;
 public
 class IndicadorValidator implements Validator {
 	@Autowired
-	private EstrategiaManager indicadorManager;
+	private IndicadorManager indicadorManager;
 
 	@SuppressWarnings("rawtypes")
 	public boolean supports(Class clazz) {

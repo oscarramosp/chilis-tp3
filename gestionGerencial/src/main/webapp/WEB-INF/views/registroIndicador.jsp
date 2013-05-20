@@ -31,7 +31,10 @@
 					<form:radiobutton path="tipoObjetivo" value="General" id="general" /> General <br>
 					<form:radiobutton path="tipoObjetivo" value="Funcional" id="funcional"/> Funcional <br>					
 					<br>
+					</c:if>
+					
 					<div id="formAreas" style="display: ${visibilidadFuncionalIndicador};">
+										
 					<h5>Area Responsable</h5>
 					
 					<spring:bind path="area.codigo">
@@ -42,7 +45,7 @@
 					  </c:forEach>
 					 </select>
 					</spring:bind>
-					</c:if>
+					
 					
 					<h5>Objetivo Funcional Relacionado</h5>
 					
@@ -54,14 +57,11 @@
 					 </select>
 					</spring:bind>					
 					
-					<c:if test="${tipoOperacion == 'Registrar'}">
 					 <script type="text/javascript" charset="utf-8">
 				          $(function(){
 				              $("#selectObjetivo").chained("#selectArea");
-				              $("#selectResponsable").chained("#selectArea");
 				          });
-				     </script>
-					</c:if>					
+				     </script>			
 					</div>
 										
 					<div id="formObjetivoVinculadoGeneral" style="display: ${visibilidadGeneralIndicador};">
@@ -74,16 +74,16 @@
 					</form:select>
 					</div>
 					
-					<h6>Nombre Estrategia</h6>
+					<h6>Nombre Indicador</h6>
 					<form:input path="nombre"/>
 					<form:errors path="nombre" />
 					
-					<h6>Descripcion Estrategia</h6>
+					<h6>Descripcion Indicador</h6>
 					<form:textarea path="descripcion"/>
 					<form:errors path="descripcion" />
 					 
 					<c:if test="${tipoOperacion == 'Actualizar'}">
-					<form:hidden path="objetivoEstrategia.codigo"/>
+					<form:hidden path="objetivo.codigo"/>
 					</c:if>
 					 
 					<h6>Formula</h6>
