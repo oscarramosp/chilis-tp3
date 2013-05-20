@@ -19,6 +19,10 @@ class IndicadorManagerImpl implements IndicadorManager {
 		return indicadorDao.getListaIndicadores(estado);
 	}
 
+	public List<Indicador> getListaIndicadores(Indicador indicador) {
+		return indicadorDao.getListaIndicadores(indicador);
+	}
+	
 	public Indicador getIndicadorPorCodigo(Integer codigoIndicador) {
 		return indicadorDao.getIndicadorPorCodigo(codigoIndicador);
 	}

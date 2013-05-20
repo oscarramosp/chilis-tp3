@@ -15,7 +15,6 @@ import org.springframework.stereotype.Repository;
 public class IndicadorDaoImpl implements IndicadorDao {
 	
 	private HibernateTemplate hibernateTemplate;
-	@SuppressWarnings("unused")
 	private JdbcTemplate jdbcTemplate;
 	
 	@Autowired
@@ -45,4 +44,35 @@ public class IndicadorDaoImpl implements IndicadorDao {
 		hibernateTemplate.saveOrUpdate(indicador);
 	}
 	
+	public boolean isRepeatDescription(String nombre, Integer codigoIndicador) {
+		StringBuffer query = new StringBuffer();
+		query.append("select count(*) from indicador ");
+		query.append(" where nombre_indicador = '")
+				.append(nombre.trim().toUpperCase()).append("' ");
+		if (codigoIndicador != null) {
+			query.append(" and codigo_indicador != ").append(codigoIndicador);
+		}
+		int count = jdbcTemplate.queryForInt(query.toString());
+		if (count > 0) {
+			return true;
+		}
+		System.out.println("no es repetido");
+		return false;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Indicador> getListaIndicadores(Indicador indicador) {
+		
+		StringBuffer query = new StringBuffer(" from Indicador ");
+
+		if (indicador != null) {
+			query.append(" where upper(estado) = '")
+					.append(indicador.getEstado().toUpperCase())
+					.append("' and upper(objetivo) = '")
+					.append(indicador.getObjetivo().getCodigo()).append("'");
+					
+		}
+		List<Indicador> list = (List<Indicador>) hibernateTemplate.find(query.toString());
+		return list;
+	}
 }

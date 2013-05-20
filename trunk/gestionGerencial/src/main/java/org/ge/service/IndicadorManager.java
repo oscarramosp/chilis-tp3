@@ -7,6 +7,8 @@ import org.ge.model.Indicador;
 public interface IndicadorManager {
 
 	public List<Indicador> getListaIndicadores(String estado);
+	
+	public List<Indicador> getListaIndicadores(Indicador indicador);
 
 	public Indicador getIndicadorPorCodigo(Integer codigoIndicador);
 

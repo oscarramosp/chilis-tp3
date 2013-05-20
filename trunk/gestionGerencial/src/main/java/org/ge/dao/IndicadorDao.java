@@ -11,5 +11,9 @@ public interface IndicadorDao {
 	public Indicador getIndicadorPorCodigo(Integer codigoObjetivo);
 
 	public void guardarIndicador(Indicador indicador);
+	
+	public List<Indicador> getListaIndicadores(Indicador indicador);
+	
+	public boolean isRepeatDescription(String descripcion, Integer codigoIndicador);
 
 }

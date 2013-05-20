@@ -3,7 +3,6 @@ package org.ge.dao;
 import java.util.List;
 
 import org.ge.model.Estrategia;
-import org.ge.model.ObjetivoFuncional;
 
 public interface EstrategiaDao {
 	

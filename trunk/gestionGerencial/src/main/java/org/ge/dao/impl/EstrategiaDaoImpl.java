@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.ge.dao.EstrategiaDao;
 import org.ge.model.Estrategia;
-import org.ge.model.Objetivo;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -16,7 +15,6 @@ import org.springframework.stereotype.Repository;
 public class EstrategiaDaoImpl implements EstrategiaDao {
 	
 	private HibernateTemplate hibernateTemplate;
-	@SuppressWarnings("unused")
 	private JdbcTemplate jdbcTemplate;
 	
 	@Autowired

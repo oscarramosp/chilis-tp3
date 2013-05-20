@@ -6,7 +6,6 @@ import org.ge.dao.ObjetivoDao;
 import org.ge.model.Objetivo;
 import org.ge.model.ObjetivoFuncional;
 import org.ge.model.ObjetivoGeneral;
-import org.hibernate.Hibernate;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

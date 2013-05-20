@@ -6,19 +6,10 @@ import javax.servlet.http.HttpSession;
 
 import org.ge.model.Area;
 import org.ge.model.Empleado;
-import org.ge.model.Estrategia;
-import org.ge.model.Indicador;
-import org.ge.model.MapaEstrategico;
 import org.ge.model.Objetivo;
 import org.ge.model.ObjetivoFuncional;
 import org.ge.model.ObjetivoGeneral;
-import org.ge.model.PlanAccion;
-import org.ge.service.EstrategiaManager;
-import org.ge.service.IndicadorManager;
-import org.ge.service.MapaEstrategicoManager;
 import org.ge.service.ObjetivoManager;
-import org.ge.service.OrganizacionManager;
-import org.ge.service.PlanAccionManager;
 import org.ge.util.FormUtil;
 import org.ge.web.validator.ObjetivoValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +20,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -45,6 +35,7 @@ public class AprobarObjetivos {
 			@ModelAttribute("formUtil") FormUtil formUtil) {
 	}
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/aprobacionObjetivos.htm", method = RequestMethod.POST)
 	public void BuscarPendientes(HttpSession sesion, Model model,
 			@ModelAttribute("formUtil") FormUtil formUtil,
