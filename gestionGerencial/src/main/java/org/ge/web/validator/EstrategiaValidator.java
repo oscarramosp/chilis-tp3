@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 import org.ge.model.Estrategia;
 import org.ge.service.EstrategiaManager;
-import org.ge.service.ObjetivoManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

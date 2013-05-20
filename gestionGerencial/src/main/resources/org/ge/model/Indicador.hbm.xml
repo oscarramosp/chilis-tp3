@@ -9,7 +9,7 @@
 			<generator class="identity" />
 		</id>
 		<many-to-one name="objetivo"
-			class="org.ge.model.Objetivo" fetch="select">
+			class="org.ge.model.Objetivo" fetch="select" lazy="false">
 			<column name="objetivo_indicador" not-null="true" />
 		</many-to-one>
 		<property name="nombre" type="string">

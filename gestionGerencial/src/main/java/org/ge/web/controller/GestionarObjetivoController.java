@@ -2,8 +2,6 @@ package org.ge.web.controller;
 
 import java.util.List;
 
-import javax.swing.JOptionPane;
-
 import org.ge.model.Area;
 import org.ge.model.Objetivo;
 import org.ge.model.ObjetivoFuncional;

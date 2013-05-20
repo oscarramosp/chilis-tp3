@@ -54,6 +54,7 @@ public class DefinirEstrategias {
 			@ModelAttribute("estrategiaBusqueda") EstrategiaUtil estrategiaBusqueda) {
 		if(estrategiaBusqueda.getTipoObjetivo() == null){
 			estrategiaBusqueda.setTipoObjetivo("General");
+			model.addAttribute("visibilidadGeneralEstrategia", "block");
 		}
 	}
 	
@@ -83,8 +84,8 @@ public class DefinirEstrategias {
 			EstrategiaUtil estrategiaNueva = new EstrategiaUtil();
 			estrategiaNueva.setTipoObjetivo("General");
 			model.addAttribute("tipoOperacion","Registrar");
-			String visibilidadFuncional = "none";	
-			model.addAttribute("visibilidadFuncional", visibilidadFuncional);
+			model.addAttribute("visibilidadFuncionalEstrategia", "none");
+			model.addAttribute("visibilidadGeneralEstrategia", "block");
 			return estrategiaNueva;
 		} else {
 			String visibilidadFuncional = "block";

@@ -24,7 +24,7 @@
 							<li><a href="<c:url value="/consultaObjetivos.htm"/>">Gestionar Objetivos Estrategicos</a></li>
 							<li><a href="#">Gestionar Mapas</a></li>
 							<li><a href="<c:url value="/consultaEstrategias.htm"/>">Gestionar Estrategias</a></li>
-							<li><a href="#">Gestionar Indicadores</a></li>
+							<li><a href="<c:url value="/consultaIndicadores.htm"/>">Gestionar Indicadores</a></li>
 							<li><a href="#">Gestionar Planes de Accion</a></li>
 							<li><a href="<c:url value="/aprobaciones.htm"/>">Aprobaciones</a></li>
 						</ul>
@@ -117,5 +117,23 @@
 	<script language="javascript">
  		window.onload = alert("Operación de Baja Rechazada. El elemento ha sido restaurado como Registrado");
  		self.location = "aprobacionEstrategias.htm";
+ 	</script> 
+</c:if> 
+<c:if test="${mensajeConfirmacion == 'PendBajaIndicador'}">
+	<script language="javascript">
+ 		window.onload = alert("Indicador pendiente de baja");
+ 		self.location = "consultaIndicadores.htm";
+ 	</script> 
+ </c:if> 
+ <c:if test="${mensajeConfirmacion == 'PendActualizacionIndicador'}">
+	<script language="javascript">
+ 		window.onload = alert("Indicador pendiente de actualizacion");
+ 		self.location = "consultaIndicadores.htm";
+ 	</script> 
+</c:if> 
+<c:if test="${mensajeConfirmacion == 'PendRegistroIndicador'}">
+	<script language="javascript">
+ 		window.onload = alert("Indicador pendiente de registro");
+ 		self.location = "consultaIndicadores.htm";
  	</script> 
 </c:if> 

@@ -6,7 +6,6 @@ import java.util.List;
 import org.ge.dao.EstrategiaDao;
 import org.ge.model.Area;
 import org.ge.model.Estrategia;
-import org.ge.model.Objetivo;
 import org.ge.model.ObjetivoFuncional;
 import org.ge.service.EstrategiaManager;
 import org.springframework.beans.factory.annotation.Autowired;
