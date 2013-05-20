@@ -102,19 +102,16 @@
                         <asp:TemplateField HeaderText="Cantidad">
                             <ItemTemplate>
                                 <asp:Label ID="lblCantidad" runat="server" Text='<%# Bind("cantActual") %>'></asp:Label></ItemTemplate>
-                            <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle Width="10%" />
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Medida">
                             <ItemTemplate>
                                 <asp:Label ID="lblMedida" runat="server" Text='<%# Bind("medida") %>'></asp:Label></ItemTemplate>
-                            <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle Width="10%" />
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Precio Unit.">
                             <ItemTemplate>
                                 <asp:Label ID="lblPrecioUnit" runat="server" Text='<%# Bind("precioUnitario") %>' /></ItemTemplate>
-                            <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle Width="10%" />
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Precio Total">
@@ -126,9 +123,7 @@
                                 <asp:Label ID="lblFechaElaboracion"  visible="false"  runat="server" Text='<%# Bind("fechaElaboracion") %>' />
                                 
                                 </ItemTemplate>
-
-                            <HeaderStyle HorizontalAlign="Center" />
-                            <ItemStyle Width="15%" />
+<ItemStyle Width="15%" />
                         </asp:TemplateField>
                         
                         
@@ -275,16 +270,14 @@
                                                                 Fecha Elaboración:
                                                             </td>
                                                             <td>
-                                                                <uc1:ucwFecha ID="txtFechaElabora" runat="server" ValidationGroup="GrupoNotaISDetalle" ErrorMessage="Ingrese la Fecha de Elaboración"
-                                                                    CauseValidation="true" />                                                                
+                                                                    <asp:TextBox ID="txtFechaElabora" runat="server" Width="70px" CssClass="textbox" MaxLength="10"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtFechaElabora"></cc1:CalendarExtender>                                                               
                                                             </td>
 
                                                             <td>
                                                                 Fecha Caducidad:
                                                             </td>
                                                             <td>
-                                                                <uc1:ucwFecha ID="txtFechaCaducidad" runat="server" ValidationGroup="GrupoNotaISDetalle" ErrorMessage="Ingrese la Fecha de Caducidad"
-                                                                    CauseValidation="true" />                                                             
+                                                                        <asp:TextBox ID="txtFechaCaducidad" runat="server" Width="70px" CssClass="textbox" MaxLength="10"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txtFechaCaducidad"></cc1:CalendarExtender>                                                               
                                                             </td>
                                                            
                                                         </tr>

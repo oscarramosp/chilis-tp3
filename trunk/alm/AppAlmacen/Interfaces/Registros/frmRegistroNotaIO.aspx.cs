@@ -140,7 +140,7 @@ namespace AppAlmacen.Interfaces.Registros
                     
 
                     BLNotaPedido objBNotaPedido = new BLNotaPedido();
-                    gdvListado.DataSource = objBNotaPedido.ListarPorNotaPedido(Convert.ToInt32(1));
+                    gdvListado.DataSource = objBNotaPedido.ListarPorNotaPedido(Convert.ToInt32(txtCodNumPedido.Text));
                     gdvListado.DataBind();
 
                 }
@@ -161,6 +161,7 @@ namespace AppAlmacen.Interfaces.Registros
             ToolkitScriptManager.RegisterStartupScript(pPage, pPage.GetType(), String.Empty,
                 String.Format("setTimeout(\"alert('{0}');\", 0);", strMensaje), true);
         }
-  
+
+      
     }
 }

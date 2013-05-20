@@ -30,7 +30,7 @@
 
     function MensajeRegistroExito(mensaje) {
         alert(mensaje);
-        window.location = "../../Default.aspx";
+        window.location = "frmNotaPedido.aspx";
     }
 
     </script>
@@ -205,7 +205,7 @@
                             <ItemStyle HorizontalAlign="Center" Width="20px" />
                         </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Item">
+                        <asp:TemplateField HeaderText="Cod.Ficha">
                        <ItemTemplate>
                                  <asp:Label ID="lblItem" runat="server" Text='<%# Bind("Item") %>' Visible="true"/>                                
                                 </ItemTemplate>
@@ -213,6 +213,21 @@
                             <ItemStyle HorizontalAlign="Center" Width="30px" />
                         
                         </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Descripcion">
+                        <ItemTemplate>
+                         <asp:Label ID="lblDescri" runat="server" Text='<%# Bind("Descripcion") %>' />
+                         </ItemTemplate>
+                          <HeaderStyle HorizontalAlign="Left" />
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="U.Negocio">
+                        <ItemTemplate>
+                         <asp:Label ID="lblUNI" runat="server" Text='<%# Bind("UN") %>' />
+                         </ItemTemplate>
+                          <HeaderStyle HorizontalAlign="Left" />
+                        </asp:TemplateField>
+
                         <asp:TemplateField HeaderText="Medida">
                         <ItemTemplate>
                          <asp:Label ID="lblMedida" runat="server" Text='<%# Bind("Medida") %>' />
@@ -297,7 +312,7 @@
                         
                         </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Item">
+                        <asp:TemplateField HeaderText="Cod.Ficha">
                        <ItemTemplate>
                                  <asp:Label ID="lblItem" runat="server" Text='<%# Bind("CodItem") %>' Visible="true"/>                                
                                 </ItemTemplate>
@@ -363,7 +378,8 @@
                 <br />
                 <asp:Button ID="btnGrabarTodo" runat="server" Text="Grabar" 
                           onclick="btnGrabarTodo_Click"/>
-                <asp:Button ID="btnSalirTodo" runat="server" Text="Salir"/>
+                <asp:Button ID="btnSalirTodo" runat="server" Text="Salir" 
+                          onclick="btnSalirTodo_Click"/>
                     </div>
         </div>
 

@@ -33,12 +33,16 @@ namespace AppAlmacen.Interfaces.Registros
 
             this.gdvListado.RowEditing += new GridViewEditEventHandler(gdvListado_RowEditing);
             this.gdvFichas.RowEditing += new GridViewEditEventHandler(gdvFichas_RowEditing);
-                   
+
+            this.txtPrecioFicha.Attributes.Add("onkeypress", "return FP_SoloNumerosyPuntos(event);");
+            this.txtCantidadFicha.Attributes.Add("onkeypress", "return FP_SoloNumeros(event);");
+
             if (!Page.IsPostBack)
             {
                 ucwTituloBandeja.Texto = "Ficha Registro de Producto";
                 LlenarComboMarca(cboMarca);
-                LlenarComboUN(cboUN);
+                LlenarComboUN(cboUNCab);
+                cboUNCab.SelectedValue = "2"; //por defecto san isidro
                 CodSeleccionado.Value = "";
                 btnNuevaFicha.Visible = false;
                 
@@ -79,13 +83,14 @@ namespace AppAlmacen.Interfaces.Registros
 
         }
 
-         public void LlenarComboUN(DropDownList ddl)
+        public void LlenarComboUN(DropDownList ddl)
         {
 
             BLNotaPedido objUN = new BLNotaPedido();
 
             Bind(objUN.ListarUnidadNegocio(), "Codigo", "Nombre", ddl);
-            ddl.Items.Insert(0, new ListItem("--Seleccione--", "-1"));
+            //ddl.Items.Insert(0, new ListItem("--Seleccione--", "-1"));
+
 
         }        
 
@@ -122,13 +127,16 @@ namespace AppAlmacen.Interfaces.Registros
         void gdvListado_RowEditing(object sender, GridViewEditEventArgs e)
         { 
          var codigo = gdvListado.Rows[e.NewEditIndex].FindControl("lblcodigoPr") as Label;
+         var id = gdvListado.Rows[e.NewEditIndex].FindControl("lblID") as Label;
          var nombre = gdvListado.Rows[e.NewEditIndex].FindControl("lblNombre") as Label;
 
             string strCodigo = codigo.Text;
             string strNombre = nombre.Text;
+            string strid = id.Text;
 
-            lblSeleccionado.Text = strCodigo + " " + strNombre;
+            lblSeleccionado.Text = strNombre;
             CodSeleccionado.Value = strCodigo;
+            IdSeleccionado.Value = strid;
             txtNomProducto.Text = "";
             txtCodProducto.Text = "";
             btnNuevaFicha.Visible = true;
@@ -168,6 +176,7 @@ namespace AppAlmacen.Interfaces.Registros
                 //limpiamos las txt
 
                 txtItemFicha.Text = "";
+                txtItemVerdadero.Value = "";
                 txtLoteFicha.Text = "";
                 txtSerieFicha.Text = "";
                 txtTipoFicha.Text = "";
@@ -177,6 +186,8 @@ namespace AppAlmacen.Interfaces.Registros
                 txtFechaElabora.Text ="";
                 txtFechaRecep.Text="";
                 txtFechaVenci.Text = "";
+                txtDescripcionFicha.Text = "";
+                txtCodNotaIS.Value = "";
 
                 if (gdvFichas.Rows.Count == 0)
                 {
@@ -184,16 +195,44 @@ namespace AppAlmacen.Interfaces.Registros
                     BLProductos objBL = new BLProductos();
                     EUltimoItem objBE = new EUltimoItem();
                     objBE = objBL.GetUltimo();
-                    txtItemFicha.Text = Convert.ToString(objBE.UltimoItem);
+                    txtItemVerdadero.Value = Convert.ToString(objBE.UltimoItem);
+                    txtItemFicha.Text = IdSeleccionado.Value;
+                    txtDescripcionFicha.Text = lblSeleccionado.Text;
+
+                    
                 }
                 else
                 {
                     //se obtiene el ultimo en base a la grilla
                     var ultCod = gdvFichas.Rows[gdvFichas.Rows.Count - 1].FindControl("lblItem") as Label;
-                    txtItemFicha.Text = Convert.ToString(Convert.ToInt32(ultCod.Text) + 1);
+                    txtItemVerdadero.Value = Convert.ToString(Convert.ToInt32(ultCod.Text) + 1);
+                    txtItemFicha.Text = IdSeleccionado.Value;
+                    txtDescripcionFicha.Text = lblSeleccionado.Text;
                 }
 
+                //extraemos la data de los ultimos ingreso de Notas de Ingresos segun el almacen seleccionado
+                BLNotaPedidoDetalle objBLFicha = new BLNotaPedidoDetalle();
+                ENotaIngresoSalidaDetalle objBEFicha = new ENotaIngresoSalidaDetalle();
+                objBEFicha = objBLFicha.ListarPorNotaFicha(Convert.ToInt32(IdSeleccionado.Value), Convert.ToInt32(cboUNCab.SelectedValue));
+
+                if (objBEFicha != null)
+                {
+                    txtMedidaFicha.Text = objBEFicha.medida;
+                    txtPrecioFicha.Text = Convert.ToString(objBEFicha.precioUnitario);
+                    txtCodNotaIS.Value = Convert.ToString(objBEFicha.CodigoDetIS);
+                    txtCantidadFicha.Text = Convert.ToString(objBEFicha.cantActual);
+                    txtLoteFicha.Text = Convert.ToString(objBEFicha.lote);
+                    txtSerieFicha.Text = Convert.ToString(objBEFicha.serie);
+                    txtFechaElabora.Text = objBEFicha.fechaElaboracion.ToShortDateString();
+                    txtFechaVenci.Text = objBEFicha.fechaCaducidad.ToShortDateString();
+                    
+                }
+                
+             
+
+                //mostramos el PopUp
                 mpeDatosFicha.Show();
+
             }
             
         }
@@ -230,15 +269,15 @@ namespace AppAlmacen.Interfaces.Registros
                 MessageBox(this.Page, "Ingresar Fecha de Elaboración no puede ser mayor a la fecha actual");
                 mpeDatosFicha.Show();
             }
-            else if (cboUN.SelectedValue == "-1")
-            {
-                MessageBox(this.Page, "Seleccione una Unidad de Negocio");
-                mpeDatosFicha.Show();
-            }
+            //else if (cboUN.SelectedValue == "-1")
+            //{
+            //    MessageBox(this.Page, "Seleccione una Unidad de Negocio");
+            //    mpeDatosFicha.Show();
+            //}
             else
             {
                 EFichaProducto objBE = new EFichaProducto();
-                objBE.Item = Convert.ToInt32(txtItemFicha.Text);
+                objBE.Item = Convert.ToInt32(txtItemVerdadero.Value);
                 objBE.Codigo = 0;
                 objBE.codProducto = CodSeleccionado.Value;
                 objBE.Descripcion = lblSeleccionado.Text;
@@ -251,8 +290,8 @@ namespace AppAlmacen.Interfaces.Registros
                 objBE.Fecha_Recepcion = Convert.ToDateTime(txtFechaElabora.Text);
                 objBE.Fecha_Elaboracion = Convert.ToDateTime(txtFechaRecep.Text);
                 objBE.Fecha_Vencimiento = Convert.ToDateTime(txtFechaVenci.Text);
-                objBE.CodUN = Convert.ToInt32(cboUN.SelectedValue);
-              
+                objBE.CodUN = Convert.ToInt32(cboUNCab.SelectedValue);
+                objBE.CodNotaIS = Convert.ToInt32(txtCodNotaIS.Value);
            
                 EFichaProducto objResult = new EFichaProducto();
 
@@ -284,6 +323,7 @@ namespace AppAlmacen.Interfaces.Registros
 
         protected void btnSalirTodo_Click(object sender, EventArgs e)
         {
+            ListaEFichaProducto = null;
             Response.Redirect("~/Default.aspx");
         }
 
@@ -298,10 +338,19 @@ namespace AppAlmacen.Interfaces.Registros
 
                 ListaEFichaProducto.ForEach(delegate(EFichaProducto objEFichaProducto)
                 {
+                    
+                    //inserto la ficha de producto
                     BLProductos OBJbl = new BLProductos();
                     OBJbl.Insertar(objEFichaProducto);
+
+                    //inserto la referencia entre ficha y NI
+                    OBJbl.InsertarNI(objEFichaProducto.CodNotaIS);
+
+
+
                 });
 
+                ListaEFichaProducto = null;
                 FunctionScript(this, string.Format("MensajeRegistroExito('{0}');", "Se registro Correctamente la ficha de producto."));
             }
         }

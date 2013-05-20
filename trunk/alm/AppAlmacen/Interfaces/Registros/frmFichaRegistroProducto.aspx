@@ -34,7 +34,7 @@
 
      function MensajeRegistroExito(mensaje) {
          alert(mensaje);
-         window.location = "../../Default.aspx";
+         window.location = "frmFichaRegistroProducto.aspx";
      }
 
     </script>
@@ -79,12 +79,22 @@
                 <td>
                 
                 <asp:TextBox ID="txtNomProducto" runat="server"></asp:TextBox>
-                <asp:Button ID="btnBuscar" runat="server" Text="Buscar" onclick="btnBuscar_Click" />
                     <asp:HiddenField ID="btnOculto" runat="server" />
                               <asp:HiddenField ID="btnOculto2" runat="server" />
                     </td>
                
             </tr>
+          
+                <tr>
+                    <td>
+                        Unidad Negocio:</td>
+                    <td>
+                        <asp:DropDownList ID="cboUNCab" runat="server">
+                        </asp:DropDownList>
+                        <asp:Button ID="btnBuscar3" runat="server" onclick="btnBuscar_Click" 
+                            Text="Buscar" />
+                    </td>
+                </tr>
           
         </table>
 
@@ -96,6 +106,7 @@
            <td>
                <asp:Label ID="lblSeleccionado" runat="server" Text=""></asp:Label>
                <asp:HiddenField ID="CodSeleccionado" runat="server" />
+               <asp:HiddenField ID="IdSeleccionado" runat="server" />
                 <asp:Button ID="btnNuevaFicha" runat="server" Text="Nuevo Registro" 
                    onclick="btnNuevaFicha_Click"/>
                                                 
@@ -221,6 +232,7 @@
                                 <asp:ImageButton ID="imbEditRow" runat="server" CommandName="Edit" 
                                     ImageUrl="~/Imagenes/Iconos/ico_aprobado.png" ToolTip="Seleccionar" />
                                     <asp:Label visible="false" ID="lblcodigoPr" runat="server" Text='<%# Bind("codigoPr") %>' />
+                                    <asp:Label visible="false" ID="lblID" runat="server" Text='<%# Bind("Codigo") %>' />
                                    
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" Width="20px" />
@@ -228,7 +240,7 @@
                        
                         <asp:TemplateField HeaderText="Código">
                        <ItemTemplate>
-                                 <asp:Label ID="lblCod2" runat="server" Text='<%# Bind("codigoPr") %>' Visible="true"/>                                
+                                 <asp:Label ID="lblCod2" runat="server" Text='<%# Bind("Codigo") %>' Visible="true"/>                                
                                 </ItemTemplate>
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" Width="30px" />
@@ -309,7 +321,10 @@
                                                 <td>
                                                     Item:</td>
                                                 <td>
-                                                    <asp:TextBox ID="txtItemFicha" runat="server" ReadOnly="True"></asp:TextBox></td>
+                                                    <asp:TextBox ID="txtItemFicha" runat="server" ReadOnly="True"></asp:TextBox>
+                                                    <asp:HiddenField ID="txtItemVerdadero" runat="server" />
+                                                    <asp:HiddenField ID="txtCodNotaIS" runat="server" />
+                                                </td>
                                                 <td>
                                                     Lote:</td>
                                                 <td>
@@ -323,9 +338,9 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    Tipo:</td>
+                                                    Descripción:</td>
                                                 <td>
-                                                    <asp:TextBox ID="txtTipoFicha" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtDescripcionFicha" runat="server" ReadOnly="True"></asp:TextBox>
                                                 </td>
                                                 <td>
                                                     Cantidad:</td>
@@ -345,30 +360,29 @@
                                                     <asp:TextBox ID="txtMedidaFicha" runat="server"></asp:TextBox>
                                                 </td>
                                                 <td>
-                                                    Unidad Neg.</td>
-                                                <td>
-                                                    <asp:DropDownList ID="cboUN" runat="server">
-                                                    </asp:DropDownList>
-                                                </td>
-                                                <td>
-                                                    &nbsp;</td>
-                                                <td>
-                                                    &nbsp;</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
                                                     F. Elaboración:</td>
                                                 <td>
-                                                        <asp:TextBox ID="txtFechaElabora" runat="server" Width="70px" CssClass="textbox" MaxLength="10"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txtFechaElabora"></cc1:CalendarExtender>  </td>
+                                                    <asp:TextBox ID="txtFechaElabora" runat="server" Width="70px" CssClass="textbox" MaxLength="10"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txtFechaElabora"></cc1:CalendarExtender> </td>
                                                 <td>
                                                     F.Recepción:</td>
                                                 <td>
-                                                     <asp:TextBox ID="txtFechaRecep" runat="server" Width="70px" CssClass="textbox" MaxLength="10"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtFechaRecep"></cc1:CalendarExtender>  </td>
-                                                                    </td>
+                                                    <asp:TextBox ID="txtFechaRecep" runat="server" Width="70px" CssClass="textbox" MaxLength="10"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtFechaRecep"></cc1:CalendarExtender> </td>
+                                            </tr>
+                                            <tr>
                                                 <td>
                                                     F. Vencimiento:</td>
                                                 <td>
-                                                     <asp:TextBox ID="txtFechaVenci" runat="server" Width="70px" CssClass="textbox" MaxLength="10"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender3" runat="server" TargetControlID="txtFechaVenci"></cc1:CalendarExtender> 
+                                                        <asp:TextBox ID="txtFechaVenci" runat="server" Width="70px" CssClass="textbox" MaxLength="10"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender3" runat="server" TargetControlID="txtFechaVenci"></cc1:CalendarExtender> </td>
+                                                <td>
+                                                    Tipo:</td>
+                                                <td>
+                                                      <asp:TextBox ID="txtTipoFicha" runat="server"></asp:TextBox>
+                                                      </td>
+                                                                    </td>
+                                                <td>
+                                                    &nbsp;</td>
+                                                <td>
+                                                      
                                                                     </td>
                                             </tr>
                                             <tr>
@@ -384,7 +398,9 @@
                                                         onclick="btnCancelarFicha_Click" />
                                                 </td>
                                                 <td>
-                                                    &nbsp;</td>
+                                                    <asp:DropDownList ID="cboUN" runat="server" Visible="False">
+                                                    </asp:DropDownList>
+                                                </td>
                                                 <td>
                                                     &nbsp;</td>
                                             </tr>
@@ -414,7 +430,7 @@
                             <ItemStyle HorizontalAlign="Center" Width="20px" />
                         </asp:TemplateField>
                        
-                        <asp:TemplateField HeaderText="Item">
+                        <asp:TemplateField HeaderText="Cod.Ficha">
                        <ItemTemplate>
                                  <asp:Label ID="lblItem" runat="server" Text='<%# Bind("Item") %>' Visible="true"/>                                
                                 </ItemTemplate>

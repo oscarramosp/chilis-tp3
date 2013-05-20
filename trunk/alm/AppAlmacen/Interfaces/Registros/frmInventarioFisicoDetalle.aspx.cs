@@ -108,15 +108,28 @@ namespace AppAlmacen.Interfaces.Registros
             }
             else
             {
-                
+
+                string punto;
+                punto = "0";
+                try
+                {
+                punto ="1";
                 EInventarioCabecera objBE = new EInventarioCabecera();
+                punto = "2";
                 objBE.Referencia = txtReferencia.Text;
+                punto = "3";
                 objBE.Fecha = Convert.ToDateTime(txtFecha.Text);
+                punto = "4";
                 //objBE.Fecha = Convert.ToDateTime(String.Format("{0:MM/dd/yyyy}", txtFecha.Text));
+
                 objBE.FechaRegistro = DateTime.Today;
+                punto = "5";
                 objBE.Responsable = txtResponsable.Text;
+                punto = "6";
                 objBE.Estado = (chkTerminado.Checked?2:1);
+                punto = "7";
                 objBE.ListadDetalle = cargarListaDetalle();
+                punto = "8";
                 BLInventario OBJbl = new BLInventario();
                 EInventarioCabecera objResult = new EInventarioCabecera();
                 if (txtCodigo.Text == "" || txtCodigo.Text == "0")
@@ -129,11 +142,19 @@ namespace AppAlmacen.Interfaces.Registros
                     objResult = OBJbl.Actualizar(objBE);
                 }
 
+                punto = "9";
                 if (objResult != null && objResult.Codigo > 0)
                 {
                     Response.Redirect("frmInventarioFisico.aspx");
                 }
 
+                }
+                catch (Exception arex)
+                {
+                    MessageBox(this.Page, "error:" + punto);
+                }
+
+                
             }
 
         }

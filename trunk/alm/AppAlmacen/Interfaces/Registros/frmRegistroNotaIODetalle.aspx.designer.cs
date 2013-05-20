@@ -40,6 +40,24 @@ namespace AppAlmacen.Interfaces.Registros {
         protected global::System.Web.UI.WebControls.Label lblCodigoPedido;
         
         /// <summary>
+        /// txtCodigoPedido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCodigoPedido;
+        
+        /// <summary>
+        /// btnCargarporPedido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCargarporPedido;
+        
+        /// <summary>
         /// lblCodigoNotaIS control.
         /// </summary>
         /// <remarks>
@@ -200,24 +218,6 @@ namespace AppAlmacen.Interfaces.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlRefencia;
-        
-        /// <summary>
-        /// Ucwasterisco3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ucwAsterisco Ucwasterisco3;
-        
-        /// <summary>
-        /// cvddlRefencia control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator cvddlRefencia;
         
         /// <summary>
         /// txtEmpleado control.
