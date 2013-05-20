@@ -1,3 +1,6 @@
+USE CHILIS
+GO
+
 --FORMATO DE FECHAS
 SET DATEFORMAT ymd
 GO
@@ -61,35 +64,61 @@ VALUES (7,'Av. Las Américas 291 - La Victoria','Cerca a la vía expresa','7234711
 INSERT INTO TB_DIRECCION_CLIENTE(IN_CODIGO_CLIENTE,VC_DIRECCION,VC_REFERENCIA,VC_TELEFONO,CH_TIPO_DIRECCION)
 VALUES (8,'Av. Arequipa 913 - Lince','Cruce con Risso','4724123','1')
 
--- Reclamos
-INSERT INTO TB_RECLAMO (IN_CODIGO_CLIENTE, DT_FECHA_CREACION, DT_FECHA_CIERRE, VC_DETALLE, CH_ESTADO)
-VALUES (1, '2013-04-03 15:23:00', NULL, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'P')
-
-INSERT INTO TB_RECLAMO (IN_CODIGO_CLIENTE, DT_FECHA_CREACION, DT_FECHA_CIERRE, VC_DETALLE, CH_ESTADO)
-VALUES (2, '2013-03-29 14:36:00', '2013-03-30 17:24:00', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum', 'A')
-
-INSERT INTO TB_RECLAMO (IN_CODIGO_CLIENTE, DT_FECHA_CREACION, DT_FECHA_CIERRE, VC_DETALLE, CH_ESTADO)
-VALUES (3, '2013-04-01 09:14:00', NULL, 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus', 'P')
-
-INSERT INTO TB_RECLAMO (IN_CODIGO_CLIENTE, DT_FECHA_CREACION, DT_FECHA_CIERRE, VC_DETALLE, CH_ESTADO)
-VALUES (4, '2013-04-02 21:03:00', '2013-04-03 13:24:00', 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?', 'A')
-
-INSERT INTO TB_RECLAMO (IN_CODIGO_CLIENTE, DT_FECHA_CREACION, DT_FECHA_CIERRE, VC_DETALLE, CH_ESTADO)
-VALUES (5, '2013-03-28 19:32:00', NULL, 'Ad vel epicurei convenire, ea soluta aliquid deserunt ius, pri in errem putant feugiat. Sed iusto nihil populo an, ex pro novum homero cotidieque. Te utamur civibus eleifend qui, nam ei brute doming concludaturque, modo aliquam facilisi nec no. Vidisse maiestatis constituam eu his, esse pertinacia intellegam ius cu. Eos ei odio veniam, eu sumo altera adipisci eam, mea audiam prodesset persequeris ea. Ad vitae dictas vituperata sed, eum posse labore postulant id', 'P')
-
-INSERT INTO TB_RECLAMO (IN_CODIGO_CLIENTE, DT_FECHA_CREACION, DT_FECHA_CIERRE, VC_DETALLE, CH_ESTADO)
-VALUES (6, '2013-03-31 17:10:00', '2013-04-02 12:48:00', 'Te eligendi principes dignissim sit, te vel dicant officiis repudiandae. Id vel sensibus honestatis omittantur, vel cu nobis commune patrioque. In accusata definiebas qui, id tale malorum dolorem sed, solum clita phaedrum ne his. Eos mutat ullum forensibus ex, wisi perfecto urbanitas cu eam, no vis dicunt impetus. Assum novum in pri, vix an suavitate moderatius, id has reformidans referrentur. Elit inciderint omittantur duo ut, dicit democritum signiferumque eu est, ad suscipit delectus mandamus duo. An harum equidem maiestatis nec', 'A')
-
-INSERT INTO TB_RECLAMO (IN_CODIGO_CLIENTE, DT_FECHA_CREACION, DT_FECHA_CIERRE, VC_DETALLE, CH_ESTADO)
-VALUES (7, '2013-04-03 18:26:00', NULL, 'Ei populo graeci consulatu mei, has ea stet modus phaedrum. Inani oblique ne has, duo et veritus detraxit. Tota ludus oratio ea mel, offendit persequeris ei vim. Eos dicat oratio partem ut, id cum ignota senserit intellegat. Sit inani ubique graecis ad, quando graecis liberavisse et cum, dicit option eruditi at duo', 'P')
-
-INSERT INTO TB_RECLAMO (IN_CODIGO_CLIENTE, DT_FECHA_CREACION, DT_FECHA_CIERRE, VC_DETALLE, CH_ESTADO)
-VALUES (8, '2013-03-27 15:48:00', '2013-03-29 17:32:00', ' Legere expetenda pertinacia ne pro, et pro impetus persius assueverit. Ea mei nullam facete, omnis oratio offendit ius cu. Doming takimata repudiandae usu an, mei dicant takimata id, pri eleifend inimicus euripidis at. His vero singulis ea, quem euripidis abhorreant mei ut, et populo iriure vix. Usu ludus affert voluptaria ei, vix ea error definitiones, movet fastidii signiferumque in qui', 'A')
-
 -- Local
 
 INSERT INTO TB_LOCAL (VC_NOMBRE, VC_DIRECCION, VC_TELEFONO, IN_CAPACIDAD)
 VALUES ('Chili''s Jockey Plaza', 'Centro Comercial Jockey Plaza', '015475858', 50)
+
+-- Reclamos
+INSERT INTO TB_RECLAMO (IN_CODIGO_CLIENTE, DT_FECHA_CREACION, DT_FECHA_CIERRE, VC_DETALLE, CH_TIPO_RECLAMO, IN_CODIGO_LOCAL, CH_ESTADO)
+VALUES (1, '2013-05-03 15:23:00', NULL, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'P', 1, 'P')
+
+INSERT INTO TB_RECLAMO (IN_CODIGO_CLIENTE, DT_FECHA_CREACION, DT_FECHA_CIERRE, VC_DETALLE, CH_TIPO_RECLAMO, IN_CODIGO_LOCAL, CH_ESTADO)
+VALUES (2, '2013-05-19 14:36:00', '2013-03-30 17:24:00', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum', 'S', 1, 'A')
+
+INSERT INTO TB_RECLAMO (IN_CODIGO_CLIENTE, DT_FECHA_CREACION, DT_FECHA_CIERRE, VC_DETALLE, CH_TIPO_RECLAMO, IN_CODIGO_LOCAL, CH_ESTADO)
+VALUES (3, '2013-05-01 09:14:00', NULL, 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus', 'S', 1, 'P')
+
+INSERT INTO TB_RECLAMO (IN_CODIGO_CLIENTE, DT_FECHA_CREACION, DT_FECHA_CIERRE, VC_DETALLE, CH_TIPO_RECLAMO, IN_CODIGO_LOCAL, CH_ESTADO)
+VALUES (4, '2013-05-02 21:03:00', '2013-04-03 13:24:00', 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?', 'P', 1, 'A')
+
+INSERT INTO TB_RECLAMO (IN_CODIGO_CLIENTE, DT_FECHA_CREACION, DT_FECHA_CIERRE, VC_DETALLE, CH_TIPO_RECLAMO, IN_CODIGO_LOCAL, CH_ESTADO)
+VALUES (5, '2013-05-18 19:32:00', NULL, 'Ad vel epicurei convenire, ea soluta aliquid deserunt ius, pri in errem putant feugiat. Sed iusto nihil populo an, ex pro novum homero cotidieque. Te utamur civibus eleifend qui, nam ei brute doming concludaturque, modo aliquam facilisi nec no. Vidisse maiestatis constituam eu his, esse pertinacia intellegam ius cu. Eos ei odio veniam, eu sumo altera adipisci eam, mea audiam prodesset persequeris ea. Ad vitae dictas vituperata sed, eum posse labore postulant id', 'S', 1, 'P')
+
+INSERT INTO TB_RECLAMO (IN_CODIGO_CLIENTE, DT_FECHA_CREACION, DT_FECHA_CIERRE, VC_DETALLE, CH_TIPO_RECLAMO, IN_CODIGO_LOCAL, CH_ESTADO)
+VALUES (6, '2013-05-11 17:10:00', '2013-04-02 12:48:00', 'Te eligendi principes dignissim sit, te vel dicant officiis repudiandae. Id vel sensibus honestatis omittantur, vel cu nobis commune patrioque. In accusata definiebas qui, id tale malorum dolorem sed, solum clita phaedrum ne his. Eos mutat ullum forensibus ex, wisi perfecto urbanitas cu eam, no vis dicunt impetus. Assum novum in pri, vix an suavitate moderatius, id has reformidans referrentur. Elit inciderint omittantur duo ut, dicit democritum signiferumque eu est, ad suscipit delectus mandamus duo. An harum equidem maiestatis nec', 'P', 1, 'A')
+
+INSERT INTO TB_RECLAMO (IN_CODIGO_CLIENTE, DT_FECHA_CREACION, DT_FECHA_CIERRE, VC_DETALLE, CH_TIPO_RECLAMO, IN_CODIGO_LOCAL, CH_ESTADO)
+VALUES (7, '2013-05-03 18:26:00', NULL, 'Ei populo graeci consulatu mei, has ea stet modus phaedrum. Inani oblique ne has, duo et veritus detraxit. Tota ludus oratio ea mel, offendit persequeris ei vim. Eos dicat oratio partem ut, id cum ignota senserit intellegat. Sit inani ubique graecis ad, quando graecis liberavisse et cum, dicit option eruditi at duo', 'S', 1, 'P')
+
+INSERT INTO TB_RECLAMO (IN_CODIGO_CLIENTE, DT_FECHA_CREACION, DT_FECHA_CIERRE, VC_DETALLE, CH_TIPO_RECLAMO, IN_CODIGO_LOCAL, CH_ESTADO)
+VALUES (8, '2013-05-17 15:48:00', '2013-03-29 17:32:00', ' Legere expetenda pertinacia ne pro, et pro impetus persius assueverit. Ea mei nullam facete, omnis oratio offendit ius cu. Doming takimata repudiandae usu an, mei dicant takimata id, pri eleifend inimicus euripidis at. His vero singulis ea, quem euripidis abhorreant mei ut, et populo iriure vix. Usu ludus affert voluptaria ei, vix ea error definitiones, movet fastidii signiferumque in qui', 'P', 1, 'A')
+
+-- Respuesta Reclamos
+INSERT INTO TB_RESPUESTA_RECLAMO(VC_RESPUESTA,DT_FECHA_RESPUESTA,IN_CODIGO_RECLAMO)
+VALUES ('Se entregó vale de consumo','2013-05-05 19:32:00',1)
+
+INSERT INTO TB_RESPUESTA_RECLAMO(VC_RESPUESTA,DT_FECHA_RESPUESTA,IN_CODIGO_RECLAMO)
+VALUES ('Se ofreció 10% de descuento','2013-05-20 19:32:00',2)
+
+INSERT INTO TB_RESPUESTA_RECLAMO(VC_RESPUESTA,DT_FECHA_RESPUESTA,IN_CODIGO_RECLAMO)
+VALUES ('Se exoneró del pago del monto total','2013-05-05 19:32:00',3)
+
+INSERT INTO TB_RESPUESTA_RECLAMO(VC_RESPUESTA,DT_FECHA_RESPUESTA,IN_CODIGO_RECLAMO)
+VALUES ('Se ofreció 20% de descuento','2013-05-03 19:32:00',4)
+
+INSERT INTO TB_RESPUESTA_RECLAMO(VC_RESPUESTA,DT_FECHA_RESPUESTA,IN_CODIGO_RECLAMO)
+VALUES ('Se exoneró del pago del plato en cuestión','2013-05-19 19:32:00',5)
+
+INSERT INTO TB_RESPUESTA_RECLAMO(VC_RESPUESTA,DT_FECHA_RESPUESTA,IN_CODIGO_RECLAMO)
+VALUES ('Se ofreció 20% de descuento','2013-05-12 19:32:00',6)
+
+INSERT INTO TB_RESPUESTA_RECLAMO(VC_RESPUESTA,DT_FECHA_RESPUESTA,IN_CODIGO_RECLAMO)
+VALUES ('Se entregó vale de consumo','2013-05-04 19:32:00',7)
+
+INSERT INTO TB_RESPUESTA_RECLAMO(VC_RESPUESTA,DT_FECHA_RESPUESTA,IN_CODIGO_RECLAMO)
+VALUES ('Se exoneró del pago del monto total','2013-05-18 19:32:00',8)
+
 
 -- MESAS
 INSERT INTO TB_MESA (VC_NUMERO, IN_CAPACIDAD, CH_ESTADO, IN_CODIGO_LOCAL)
@@ -128,3 +157,27 @@ VALUES ('2013-07-28','Fiestas patrias')
 
 INSERT INTO TB_FECHA_ESPECIAL (DT_FECHA,VC_MOTIVO)
 VALUES ('2013-07-29','Fiestas patrias')
+
+
+GO
+--Actualizar EMAILS
+UPDATE TB_CLIENTE
+SET VC_EMAIL ='oscarramosp@gmail.com'
+WHERE IN_CODIGO_CLIENTE in (1,3)
+
+UPDATE TB_CLIENTE
+SET VC_EMAIL ='nandorov@gmail.com'
+WHERE IN_CODIGO_CLIENTE in (4,5)
+
+UPDATE TB_CLIENTE
+SET VC_EMAIL ='alucardfrvr@gmail.com'
+WHERE IN_CODIGO_CLIENTE in (6)
+
+UPDATE TB_CLIENTE
+SET VC_EMAIL ='kvargas@gmail.com'
+WHERE IN_CODIGO_CLIENTE in (7)
+
+UPDATE TB_CLIENTE
+SET VC_EMAIL ='gramirezcuray@gmail.com'
+WHERE IN_CODIGO_CLIENTE in (8)
+  
