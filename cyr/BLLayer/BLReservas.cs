@@ -113,5 +113,49 @@ namespace BLLayer
             }
             return oResultado;
         }
+
+
+        public List<BEReserva> selectReservasEspeciales()
+        {
+            List<BEReserva> oListaReservas = new List<BEReserva>();
+
+            try
+            {
+                DAReservas oDAReservas = new DAReservas();
+                oListaReservas = oDAReservas.selectReservasEspeciales();
+            }
+            catch (Exception ex)
+            {
+                ExceptionPolicy.HandleException(ex, "Exception Policy");
+            }
+
+            return oListaReservas;
+        }
+
+
+        public int aprobarReserva(BEReserva oReserva)
+        {
+            DAReservas oDAReserva = new DAReservas();
+            oDAReserva.mIniciarTransaccion();
+            int codigoRetorno = 0;
+
+            try
+            {
+
+                oDAReserva.aprobarReserva(oReserva, oDAReserva.mtransaction);
+                    codigoRetorno = (int)BLLayer.Constantes.CodigoAprobacion.aprobado;
+
+
+                    oDAReserva.mCommitTransaccion();
+            }
+            catch (Exception ex)
+            {
+                oDAReserva.mRollbackTransaccion();
+                ExceptionPolicy.HandleException(ex, "Exception Policy");
+                codigoRetorno = (int)BLLayer.Constantes.CodigoAprobacion.Error;
+            }
+            return codigoRetorno;
+        }
+
     }
 }

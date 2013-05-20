@@ -284,6 +284,7 @@ namespace cyr
                 int rowNumber = Convert.ToInt32(e.CommandArgument);
 
                 BECliente oCliente = Util.SessionHelper.getClienteEditar();
+                
                 oCliente.Direcciones.RemoveAt(rowNumber);
                 Util.SessionHelper.setClienteEditar(oCliente);
 

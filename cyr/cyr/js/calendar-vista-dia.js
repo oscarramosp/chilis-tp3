@@ -1,5 +1,5 @@
 /*!
- * FullCalendar v1.6.1
+ * FullCalendarDia v1.6.1
  * Docs & License: http://arshaw.com/fullcalendar/
  * (c) 2013 Adam Shaw
  */
@@ -72,7 +72,7 @@
         firstDay: 0,
         monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
         dayNamesShort: ['Mesa 01', 'Mesa 02', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
         buttonText: {
             prev: "<span class='fc-text-arrow'>&lsaquo;</span>",
@@ -122,11 +122,11 @@
 
     ; ;
 
-    var fc = $.fullCalendar = { version: "1.6.1" };
+    var fc = $.fullCalendarDia = { version: "1.6.1" };
     var fcViews = fc.views = {};
 
 
-    $.fn.fullCalendar = function(options) {
+    $.fn.fullCalendarDia = function(options) {
 
 
         // method calling
@@ -134,14 +134,14 @@
             var args = Array.prototype.slice.call(arguments, 1);
             var res;
             this.each(function() {
-                var calendar = $.data(this, 'fullCalendar');
+                var calendar = $.data(this, 'fullCalendarDia');
                 if (calendar && $.isFunction(calendar[options])) {
                     var r = calendar[options].apply(calendar, args);
                     if (res === undefined) {
                         res = r;
                     }
                     if (options == 'destroy') {
-                        $.removeData(this, 'fullCalendar');
+                        $.removeData(this, 'fullCalendarDia');
                     }
                 }
             });
@@ -172,7 +172,7 @@
         this.each(function(i, _element) {
             var element = $(_element);
             var calendar = new Calendar(element, options, eventSources);
-            element.data('fullCalendar', calendar); // TODO: look into memory leak implications
+            element.data('fullCalendarDia', calendar); // TODO: look into memory leak implications
             calendar.render();
         });
 
@@ -577,8 +577,8 @@
 
         function prev() {
             renderView(-1);
+            myOwnPrev();
         }
-
 
         function next() {
             //alert('gg');

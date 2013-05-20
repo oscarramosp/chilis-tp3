@@ -88,6 +88,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AprobarReservasEspeciales.aspx.cs">
+      <DependentUpon>AprobarReservasEspeciales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AprobarReservasEspeciales.aspx.designer.cs">
+      <DependentUpon>AprobarReservasEspeciales.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BusquedaClientes.aspx.cs">
       <DependentUpon>BusquedaClientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -164,6 +171,13 @@
     <Compile Include="RegistroFechaEspecial.aspx.designer.cs">
       <DependentUpon>RegistroFechaEspecial.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RegistroReclamos.aspx.cs">
+      <DependentUpon>RegistroReclamos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroReclamos.aspx.designer.cs">
+      <DependentUpon>RegistroReclamos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RegistroReserva.aspx.cs">
       <DependentUpon>RegistroReserva.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -203,6 +217,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AprobarReservasEspeciales.aspx" />
     <Content Include="BusquedaClientes.aspx" />
     <Content Include="BusquedaReclamos.aspx" />
     <Content Include="BusquedaFechasEspeciales.aspx" />
@@ -226,6 +241,7 @@
     <Content Include="css\images\ui-icons_ffd27a_256x240.png" />
     <Content Include="css\images\ui-icons_ffffff_256x240.png" />
     <Content Include="css\jquery-ui-1.10.2.custom.min.css" />
+    <Content Include="js\fullcalendar.js" />
     <Content Include="js\fullcalendar.min.js" />
     <Content Include="js\calendar-vista-dia.js" />
     <Content Include="js\jquery.maskedinput.js" />
@@ -255,6 +271,7 @@
     <Content Include="js\moog.custom.alert.js" />
     <Content Include="js\util.js" />
     <Content Include="RegistroFechaEspecial.aspx" />
+    <Content Include="RegistroReclamos.aspx" />
     <Content Include="RegistroReserva.aspx" />
     <Content Include="UC\ucBuscarCliente.ascx" />
   </ItemGroup>
@@ -295,7 +312,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>57160</DevelopmentServerPort>
+          <DevelopmentServerPort>4519</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

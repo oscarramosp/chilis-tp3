@@ -4,6 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cphContent" runat="server">
     <link href="css/fullcalendar.css" rel="stylesheet" />
     <script type="text/javascript" src="js/calendar-vista-dia.js"></script>
+    <script type="text/javascript" src="js/fullcalendar.js"></script>
     <div class="divClubChilis">
         <div class="border-container">
             <div class="filter-row">
@@ -27,22 +28,29 @@
         <div>
             <div id="tabs">
                 <ul>
-                    <li><a href="#tabDia">Vista del Día</a></li>
-                    <li><a href="#tabMesa">Vista por Mesa</a></li>
+                    <li id="liTabDia"><a href="#tabDia">Vista del Día</a></li>
+                    <li id="liTabMesa"><a href="#tabMesa">Vista por Mesa</a></li>
                 </ul>
                 <div id="tabDia">
                     <div id="calendarDia"></div>                 
                 </div>
                 <div id="tabMesa">
-                    <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+                    <div style="margin-bottom: 8px;">
+                        Mesa:
+                        <select id="ddlMesa" class="select">
+                        </select>
+                    </div>
+                    <div id="calendarMesa"></div>                    
                 </div>
             </div>
         </div>
     </div>
     
     <script type="text/javascript">
-    
+        // 0 = Vista del día; 1 = Vista por mesa.
+        var mSelectedTab = 0;
         var mArrMesas = null;
+        var mIsVistaMesaBuilt = false;
         
         $(document).ready(function() {
 
@@ -54,16 +62,58 @@
 
             $("#tabs").tabs();
             
+            $("#liTabDia").click(function(){
+                mSelectedTab = 0;
+            });
+            
+            $("#liTabMesa").click(function(){
+                
+                mSelectedTab = 1;
+                
+                if (!mIsVistaMesaBuilt) {
+                    cargarCalendarioMesa(new Date(), null);
+                    mIsVistaMesaBuilt = true;
+                }
+                
+            });
+            
             // retrieve tables info, so we can load the calendar accordingly.
             <%= typeof(cyr.BusquedaReservas).FullName %>.obtenerMesas(function(rpta) {
+                poblarDropDownMesas(rpta);
                 buscarReservas(rpta);
+                //cargarCalendarioMesa(new Date(), null);
             });
             
             $("#btnBuscar").click(function(){
                 listarReservas();
             });
             
+            $("#ddlMesa").change(function(){
+                var codigoMesa = $(this).val();
+                
+                if (codigoMesa != '-1') {
+                    listarReservas();
+                }
+            });
         });
+        
+        function poblarDropDownMesas(rpta) {
+        
+            if (rpta == null)
+                return;
+
+            var lstMesas = rpta.value;
+            var ddlMesa = document.getElementById("ddlMesa");
+            var i = 0;
+            ddlMesa.options[i] = new Option("Seleccione", "-1");
+            for (var m in lstMesas) {
+                
+                if (typeof lstMesas[m] == 'object') {
+                    i++;
+                    ddlMesa.options[i] = new Option(lstMesas[m].NumeroMesa, lstMesas[m].CodigoMesa);
+                }
+            }
+        }
         
         function buscarReservas(rpta) {
             
@@ -133,22 +183,23 @@
                 }
             }
 
-            $('#calendarDia').fullCalendar('destroy');
+            $('#calendarDia').fullCalendarDia('destroy');
 
-            var calendar = $('#calendarDia').fullCalendar({
+            var calendar = $('#calendarDia').fullCalendarDia({
                 header: {
                     left: 'prev,next',
                     center: '',
                     right: ''
                 },
                 defaultView: 'agendaWeek',
-                selectable: true,
+                selectable: false,
                 allDaySlot: false,
                 selectHelper: true,
+                /*
                 select: function(start, end, allDay) {
                     var title = prompt('Event Title:');
                     if (title) {
-                        calendar.fullCalendar('renderEvent',
+                        calendar.fullCalendarDia('renderEvent',
 						{
 						    title: title,
 						    start: start,
@@ -158,8 +209,9 @@
 						true // make the event "stick"
 					);
                     }
-                    calendar.fullCalendar('unselect');
+                    calendar.fullCalendarDia('unselect');
                 },
+                */
                 editable: false,
                 events: arrReservas,
                 tables: mArrMesas
@@ -181,16 +233,33 @@
             var nuevaFecha = right("0" + d, 2) + '/' + right("0" + m, 2) + '/' + y;
             
             $("#<%= txtFechaBusqueda.ClientID %>").val(nuevaFecha);
+            listarReservas();
+        }
+        
+        function myOwnPrev() {
+        
+            var fecha = $.trim($("#<%= txtFechaBusqueda.ClientID %>").val());
+            var y = fecha.substring(6);
+            var m = parseInt(fecha.substring(3,5)) - 1;
+            var d = fecha.substring(0,2);
+            var dFechaActual = new Date(y, m, d, 0 ,0);
+            dFechaActual.setDate(dFechaActual.getDate() - 1);
             
-            // get dates
-            //$('#calendar').fullCalendar('next');
+            d = dFechaActual.getDate();
+            m = dFechaActual.getMonth() + 1;
+            y = dFechaActual.getFullYear();
             
+            var nuevaFecha = right("0" + d, 2) + '/' + right("0" + m, 2) + '/' + y;
+            
+            $("#<%= txtFechaBusqueda.ClientID %>").val(nuevaFecha);
+            
+            listarReservas();
         }
         
         function listarReservas() {
-            // TODO: should be done according to which view it's going to be rendered
-        
+            
             var fecha = $.trim($("#<%= txtFechaBusqueda.ClientID %>").val());
+            var idMesa = 0;
             
             if (!esFechaValida(fecha)) {
                 mensaje = '<ul><li>Ingrese una fecha válida (dd/mm/yyyy)</li></ul>';
@@ -198,14 +267,112 @@
                 return false;
             }
             
+            if (mSelectedTab == '1')
+                idMesa = $("#ddlMesa").val();
+            
             var y = fecha.substring(6);
             var m = parseInt(fecha.substring(3,5)) - 1;
             var d = fecha.substring(0,2);
             var fechaBuscar = new Date(y, m, d, 0 ,0);
             
-            <%= typeof(cyr.BusquedaReservas).FullName %>.obtenerReservas(fecha, '0', function(rpta) {
-                cargarCalendarioDia(fechaBuscar, rpta);
+            <%= typeof(cyr.BusquedaReservas).FullName %>.obtenerReservas(fecha, idMesa.toString(), function(rpta) {
+                if (mSelectedTab == '0')
+                    cargarCalendarioDia(fechaBuscar, rpta);
+                else 
+                    cargarCalendarioMesa(fechaBuscar, rpta);
             });
+        }
+        
+        function cargarCalendarioMesa(fecha, rpta) {
+        
+		    var d = fecha.getDate();
+		    var m = fecha.getMonth();
+		    var y = fecha.getFullYear();
+    	
+    		var lstReservas = rpta != null ? rpta.value : null;
+            var arrReservas = new Array();
+      
+            for (var r in lstReservas) {
+            
+                if (typeof lstReservas[r] == 'object') {
+                    
+                    var horaInicio = lstReservas[r].HoraInicio; //format HH:MM, split it
+                    var horaFin = lstReservas[r].HoraFin;
+                    
+                    var hI = horaInicio.substring(0, 2);
+                    var mI = horaInicio.substring(3);
+                    var hF = horaFin.substring(0, 2);
+                    var mF = horaFin.substring(3);
+                    
+                    var nombreCliente = lstReservas[r].Cliente.TipoCliente == 'N' ? lstReservas[r].Cliente.Nombres + ' ' +
+                                            lstReservas[r].Cliente.ApellidoPaterno + ' ' + lstReservas[r].Cliente.ApellidoMaterno :
+                                            lstReservas[r].Cliente.RazonSocial;
+
+                    var reserva = {
+                        id: lstReservas[r].CodigoReserva,
+				        title: nombreCliente,
+				        start: new Date(y, m, d, hI, mI),
+				        end: new Date(y, m, d, hF, mF),
+				        allDay: false,
+				        tableId: lstReservas[r].Mesa.CodigoMesa,
+				        url : 'RegistroReserva.aspx?m=edit&id=' + lstReservas[r].CodigoReserva
+                    }
+                    arrReservas.push(reserva);
+                }
+            }
+    		
+    		$('#calendarMesa').fullCalendar('destroy');
+    		
+		    var calendar = $('#calendarMesa').fullCalendar({
+			    header: {
+				    left: 'prev,next',
+				    center: '',
+				    right: ''
+			    },
+			    year: y,
+			    month: m,
+			    date: d,
+			    defaultView: 'agendaDay',
+			    selectable: false,
+			    allDaySlot : false,
+			    selectHelper: true,
+			    /*
+			    select: function(start, end, allDay) {
+				    var title = prompt('Event Title:');
+				    if (title) {
+					    calendar.fullCalendar('renderEvent',
+						    {
+							    title: title,
+							    start: start,
+							    end: end,
+							    allDay: allDay
+						    },
+						    true // make the event "stick"
+					    );
+				    }
+				    calendar.fullCalendar('unselect');
+			    },
+			    */
+			    editable: false,
+			    events: arrReservas
+		    });
+        }
+              
+        AjaxPro.onLoading = function(show) {
+            
+            if (show) {
+                $("BODY").append('<div id="divMensajeProcesando" class="divMensajeProcesando"></div>');
+                $("#divMensajeProcesando").html("Cargando...");
+                $("#divMensajeProcesando").css({
+                    width: '150',
+                    height: '25',
+                    top: 0,
+                    left: parseInt($(window).width() / 2 - 150 / 2)
+                });
+            } else {
+                $("#divMensajeProcesando").remove();
+            }
+            
         }
 
     </script>

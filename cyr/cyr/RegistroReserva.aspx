@@ -193,7 +193,7 @@
         }
 
         function confirmarCancelar() {
-
+            
             jcConfirm('Cancelar Reserva', '¿Desea cancelar la reserva?', function(choice) {
 
                 if (choice) {

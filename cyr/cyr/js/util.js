@@ -90,3 +90,12 @@ function evaluarAlfaEspacio(texto) {
 function right(cadena, c) {
     return cadena.substring(cadena.length - c);
 }
+
+function esFechaMayorHoy(fechaValidar) {
+    var date1 = new Date();
+    var fecha1 = fechaValidar.substring(3, 5) + '/' + fechaValidar.substring(0, 2) + '/' + fechaValidar.substring(6);
+    var fecha2 = (date1.getMonth() + 1) + '/' + date1.getDate() + '/' + date1.getFullYear();
+    date1 = new Date(fecha1);
+    var date2 = new Date(fecha2);
+    return (date2 < date1);
+}

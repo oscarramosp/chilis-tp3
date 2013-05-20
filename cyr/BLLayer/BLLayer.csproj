@@ -71,8 +71,10 @@
   <ItemGroup>
     <Compile Include="BLClientes.cs" />
     <Compile Include="BLFechasEspeciales.cs" />
+    <Compile Include="BLLocal.cs" />
     <Compile Include="BLReclamos.cs" />
     <Compile Include="BLReservas.cs" />
+    <Compile Include="BLRespuestaReclamo.cs" />
     <Compile Include="BLTiposDocumento.cs" />
     <Compile Include="Constantes.cs" />
     <Compile Include="DTOResultado.cs" />

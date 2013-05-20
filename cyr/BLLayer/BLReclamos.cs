@@ -34,7 +34,7 @@ namespace BLLayer
             try
             {
                 DAReclamos oDAReclamos = new DAReclamos();
-                oListaReclamos = oDAReclamos.selectReclamos(oReclamo,nombreRazon,fechaInicio,fechaFin);
+                oListaReclamos = oDAReclamos.selectReclamos(oReclamo, nombreRazon, fechaInicio, fechaFin);
             }
             catch (Exception ex)
             {
@@ -42,6 +42,62 @@ namespace BLLayer
             }
 
             return oListaReclamos;
+        }
+
+        public int eliminarReclamo(BEReclamo oReclamo)
+        {
+            DAReclamos oDAReclamos = new DAReclamos();
+            DARespuestaReclamo oDARespuestas = new DARespuestaReclamo();
+            oDAReclamos.mIniciarTransaccion();
+            int codigoRetorno = 0;
+
+            try
+            {
+                oDARespuestas.eliminarRespuestasReclamo(oReclamo,oDAReclamos.mtransaction);
+                oDAReclamos.eliminarReclamo(oReclamo, oDAReclamos.mtransaction);
+                codigoRetorno = (int)BLLayer.Constantes.CodigoEliminacion.Eliminado;
+
+                oDAReclamos.mCommitTransaccion();
+            }
+            catch (Exception ex)
+            {
+                oDAReclamos.mRollbackTransaccion();
+                ExceptionPolicy.HandleException(ex, "Exception Policy");
+                codigoRetorno = (int)BLLayer.Constantes.CodigoEliminacion.Error;
+            }
+            return codigoRetorno;
+        }
+
+        public BEReclamo grabarReclamo(BEReclamo oReclamo)
+        {
+            DAReclamos oDAReclamos = new DAReclamos();
+            DARespuestaReclamo oDARespuestas = new DARespuestaReclamo();
+
+            oDAReclamos.mIniciarTransaccion();
+
+            try
+            {
+                int codigoReclamo = oDAReclamos.grabarReclamo(oReclamo, oDAReclamos.mtransaction);
+                oReclamo.CodigoReclamo = codigoReclamo;
+
+                oDARespuestas.eliminarRespuestasReclamo(oReclamo, oDAReclamos.mtransaction);
+                
+                foreach (BERespuesta oRespuesta in oReclamo.Respuestas)
+                {
+                    oRespuesta.CodigoReclamo = codigoReclamo;
+                    oRespuesta.CodigoReclamo = oDARespuestas.grabarRespuestaReclamo(oRespuesta, oDAReclamos.mtransaction);
+                }                
+
+                oDAReclamos.mCommitTransaccion();
+                
+                return oReclamo;
+            }
+            catch (Exception ex)
+            {
+                oDAReclamos.mRollbackTransaccion();
+                ExceptionPolicy.HandleException(ex, "Exception Policy");
+                return null;
+            }
         }
 
     }

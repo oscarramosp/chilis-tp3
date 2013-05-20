@@ -11,96 +11,87 @@
 namespace cyr {
     
     
-    public partial class Chilis {
+    public partial class AprobarReservasEspeciales {
         
         /// <summary>
-        /// head control.
+        /// smFiltrosCliente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.ScriptManager smFiltrosCliente;
         
         /// <summary>
-        /// form1 control.
+        /// upReservaEspecial control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.UpdatePanel upReservaEspecial;
         
         /// <summary>
-        /// HyperLink2 control.
+        /// divEstado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divEstado;
         
         /// <summary>
-        /// HyperLink3 control.
+        /// btnAprobar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink3;
+        protected global::System.Web.UI.WebControls.Button btnAprobar;
         
         /// <summary>
-        /// HyperLink5 control.
+        /// btnRechazar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink5;
+        protected global::System.Web.UI.WebControls.Button btnRechazar;
         
         /// <summary>
-        /// HyperLink1 control.
+        /// lblSinResultados control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.WebControls.Label lblSinResultados;
         
         /// <summary>
-        /// HyperLink4 control.
+        /// lblResultadoCorreo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink4;
+        protected global::System.Web.UI.WebControls.Label lblResultadoCorreo;
         
         /// <summary>
-        /// HyperLink6 control.
+        /// divResultado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink6;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divResultado;
         
         /// <summary>
-        /// lblUsuario control.
+        /// dgvReservaEspecial control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUsuario;
-        
-        /// <summary>
-        /// cphContent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cphContent;
+        protected global::System.Web.UI.WebControls.GridView dgvReservaEspecial;
     }
 }

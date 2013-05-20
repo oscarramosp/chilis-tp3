@@ -484,6 +484,8 @@ h2.acc_trigger a
 .filter-row
 {
     position: relative;
+    top: 0px;
+    left: 0px;
 }
 
 .filter-label
@@ -640,4 +642,24 @@ h2.acc_trigger a
     text-align: center;
     font-size: 14px;
     font-weight: bold;
+}
+
+.divMensajeProcesando
+{
+    position: fixed;
+    z-index: 99991;
+    background-color: #F2FA5C;
+    color: #000000;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 11px;
+    text-align: center;
+    vertical-align: middle;
+    visibility: visible;
+}
+
+.divMensajeLibre
+{
+	z-index: -1;
+	visibility: hidden;
 }
