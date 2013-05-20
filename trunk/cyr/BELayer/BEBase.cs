@@ -7,5 +7,6 @@ namespace BELayer
     [Serializable]
     public class BEBase
     {
+        public String EstatusEntidad { get; set; }
     }
 }

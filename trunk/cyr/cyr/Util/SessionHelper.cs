@@ -18,8 +18,8 @@ namespace cyr.Util
 
         public static BECliente getClienteEditar()
         {
-            return HttpContext.Current.Session["clienteEditarObjeto"] != null ? 
-                (BECliente) HttpContext.Current.Session["clienteEditarObjeto"] : null;
+            return HttpContext.Current.Session["clienteEditarObjeto"] != null ?
+                (BECliente)HttpContext.Current.Session["clienteEditarObjeto"] : null;
         }
 
         public static void setConsultaClienteReferrer(string referrer)
@@ -42,6 +42,17 @@ namespace cyr.Util
         {
             return HttpContext.Current.Session["fechaEspecialEditarObjeto"] != null ?
                 (BEFechaEspecial)HttpContext.Current.Session["fechaEspecialEditarObjeto"] : null;
+        }
+
+        public static void setReclamoEditar(BEReclamo objReclamo)
+        {
+            HttpContext.Current.Session["reclamoEditarObjeto"] = objReclamo;
+        }
+
+        public static BEReclamo getReclamoEditar()
+        {
+            return HttpContext.Current.Session["reclamoEditarObjeto"] != null ?
+                (BEReclamo)HttpContext.Current.Session["reclamoEditarObjeto"] : null;
         }
     }
 }

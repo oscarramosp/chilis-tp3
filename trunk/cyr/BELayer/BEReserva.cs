@@ -14,6 +14,7 @@ namespace BELayer
         public int CantidadPersonas { get; set; }
         public string Observacion { get; set; }
         public string Estado { get; set; }
+        public int CantidadHoras { get; set; }
         public BECliente Cliente { get; set; }
         public BEMesa Mesa { get; set; }
 

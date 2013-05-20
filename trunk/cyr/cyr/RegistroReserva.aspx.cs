@@ -60,13 +60,6 @@ namespace cyr
             }
         }
 
-        protected void btnBuscarCliente_Click(object sender, EventArgs e)
-        {
-            // Incluir a buscar clientes. OH GOD WHY
-            Util.SessionHelper.setConsultaClienteReferrer("RegistroReserva.aspx");
-            Response.Redirect("BusquedaClientes.aspx?m=consulta&ref=RegistroReserva.aspx");
-        }
-
         protected void btnGrabarReserva_Click(object sender, EventArgs e)
         {
             // retrieve data

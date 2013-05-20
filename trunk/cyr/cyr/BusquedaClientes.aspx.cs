@@ -93,8 +93,9 @@ namespace cyr
             }
             else
             {
-                Session["lstBusquedaClientes"] = oListaClientes;
+                Session["lstBusquedaCliente"] = oListaClientes;
                 dgvClientes.DataSource = oListaClientes;
+         
                 dgvClientes.DataBind();
                 lblSinResultados.Visible = false;
                 lblSinResultados.Text = String.Empty;
@@ -152,9 +153,9 @@ namespace cyr
             if (e.CommandName.Equals("cmdDetalleCliente"))
             {
                 Int32 codigoCliente = Convert.ToInt32(e.CommandArgument);
-                if (!(Session["lstBusquedaClientes"] == null))
+                if (!(Session["lstBusquedaCliente"] == null))
                 {
-                    List<BECliente> lstClientes = (List<BECliente>)Session["lstBusquedaClientes"];
+                    List<BECliente> lstClientes = (List<BECliente>)Session["lstBusquedaCliente"];
                     BECliente oCliente = lstClientes.Find(ById(codigoCliente));
                     Util.SessionHelper.setClienteEditar(oCliente);
 

@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Chilis.Master" AutoEventWireup="true"
-    CodeBehind="BusquedaReclamos.aspx.cs" Inherits="cyr.BusquedaReclamos" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Chilis.Master" AutoEventWireup="true" CodeBehind="BusquedaReclamos.aspx.cs" Inherits="cyr.BusquedaReclamos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -49,8 +48,8 @@
                             <div class="filter-label" style="width: 150px;">
                                 Nombre / Razón Social:
                             </div>
-                            <div class="filter-data" style="width: 310px;">
-                                <asp:TextBox ID="txtNomRazSoc" runat="server" Width="300" CssClass="classInput" MaxLength="200"></asp:TextBox>
+                            <div class="filter-data" style="width: 250px;">
+                                <asp:TextBox ID="txtNomRazSoc" runat="server" Width="250" CssClass="classInput" MaxLength="200"></asp:TextBox>
                             </div>
                             <div class="clear">
                             </div>
@@ -60,17 +59,16 @@
                                 Fecha creación:</div>
                             <div class="filter-label" style="width: 50px;">
                                 Inicio:</div>
-                            <div class="filter-data" style="width: 210px;">
+                            <div class="filter-data" style="width: 180px;">
                                 <asp:TextBox ID="txtFechaInicio" runat="server" CssClass="classInput"></asp:TextBox>
                             </div>
-                            <div class="filter-label" style="width: 50px;">
+                            <div class="filter-label" style="width: 30px;">
                                 Fin:</div>
                             <div class="filter-data">
                                 <asp:TextBox ID="txtFechaFin" runat="server" CssClass="classInput"></asp:TextBox>
                             </div>
                             <div class="filter-data" style="text-align: right; width: 90px;">
-                                <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="button" 
-                                    onclick="btnBuscar_Click" />
+                                <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="button" OnClick="btnBuscar_Click" />
                             </div>
                             <div class="clear">
                             </div>
@@ -87,51 +85,42 @@
         </div>
         <div class="resultado-reporte" id="divResultado" runat="server" visible="true">
             <div style="overflow: auto; min-height: 180px; max-height: 400px;">
-                <asp:GridView ID="dgvReclamos" runat="server" AutoGenerateColumns="False" Width="817px"
-                    BorderColor="#ECECEC" BorderStyle="Solid" ShowHeader="true">
+                <asp:GridView ID="dgvReclamos" runat="server" AutoGenerateColumns="False" Width="817px" BorderColor="#ECECEC" BorderStyle="Solid" ShowHeader="true" onrowcommand="dgvReclamos_RowCommand" onrowdatabound="dgvReclamos_RowDataBound" >
                     <Columns>
                         <asp:TemplateField HeaderText="Nro. de reclamo">
-                            <ItemStyle Font-Underline="True" HorizontalAlign="Center" Height="23px" Width="90px" />
+                            <ItemStyle Font-Underline="True" HorizontalAlign="Center" Height="23px" Width="60px" />
                             <ItemTemplate>
-                                <asp:LinkButton ID="lbtReclamo" runat="server" Text='<%# Eval("CodigoReclamo") %>'
-                                    CommandArgument='<%# Eval("CodigoReclamo") %>' CommandName="cmdDetalleReclamo"></asp:LinkButton>
+                                <asp:LinkButton ID="lbtReclamo" runat="server" Text='<%# Eval("CodigoReclamo") %>' CommandArgument='<%# Eval("CodigoReclamo") %>' CommandName="cmdDetalleReclamo"></asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Nro. Doc. cliente">
-                            <ItemStyle HorizontalAlign="Center" Height="23px" Width="150px" />
+                            <ItemStyle HorizontalAlign="Center" Height="23px" Width="60px" />
                             <ItemTemplate>
-                                <asp:Label ID="lblTipo" runat="server" Text='<%# Eval("Cliente.CodigoCliente") %>'
-                                    Visible="false"></asp:Label>
-                                <asp:Label ID="lblTipoDes" runat="server" Text=""></asp:Label>
+                                <asp:Label ID="lblNroDocCli" runat="server" Text='<%# Eval("Cliente.NumeroDocumento") %>'></asp:Label>                                
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Nombre de cliente">
                             <ItemStyle HorizontalAlign="Center" Height="23px" Width="150px" />
                             <ItemTemplate>
-                                <asp:Label ID="lblTipo" runat="server" Text='<%# Eval("Cliente.NombreCompleto") %>'
-                                    Visible="false"></asp:Label>
-                                <asp:Label ID="lblTipoDes" runat="server" Text=""></asp:Label>
+                                <asp:Label ID="lblNomCom" runat="server" Text='<%# Eval("Cliente.NombreCompleto") %>' ></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Fec. creación">
-                            <ItemStyle HorizontalAlign="Center" Height="23px" Width="100px" />
+                            <ItemStyle HorizontalAlign="Center" Height="23px" Width="60px" />
                             <ItemTemplate>
-                                <asp:Label ID="lblTipoDoc" runat="server" Text='<%# Eval("FechaCreacion") %>'></asp:Label>
+                                <asp:Label ID="lblTipoDoc" runat="server" Text='<%# String.Format("{0:dd/MM/yyyy}",Eval("FechaCreacion")) %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Estado">
                             <ItemStyle HorizontalAlign="Center" Height="23px" Width="80px" />
                             <ItemTemplate>
-                                <asp:Label ID="lblEstado" runat="server" Text='<%# Eval("Estado") %>' Visible="false"></asp:Label>
-                                <asp:Label ID="lblEstadoDes" runat="server" Text=""></asp:Label>
+                                <asp:Label ID="lblEstado" runat="server" Text='<%# (Eval("Estado").ToString() == "A") ? "Atendido" : "Pendiente" %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Eliminar">
-                            <ItemStyle Font-Underline="True" HorizontalAlign="Center" Height="23px" ForeColor="#333333"
-                                Width="50px" />
+                            <ItemStyle Font-Underline="True" HorizontalAlign="Center" Height="23px" ForeColor="#333333" Width="50px" />
                             <ItemTemplate>
-                                <asp:LinkButton ID="lbtElimReclamo" runat="server" Text="E" CommandArgument='<%# Eval("CodigoReclamo") %>'
-                                    CommandName="cmdEliminarReclamo"></asp:LinkButton>
+                                <asp:LinkButton ID="lbtElimReclamo" runat="server" Text="E" CommandArgument='<%# Eval("CodigoReclamo") %>' CommandName="cmdEliminarReclamo"></asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
@@ -139,8 +128,7 @@
             </div>
         </div>
         <div style="text-align: center;">
-            <asp:Button ID="btnNuevo" Visible="True" runat="server" Text="Nuevo" 
-                CssClass="button" onclick="btnNuevo_Click" />
+            <asp:Button ID="btnNuevo" Visible="True" runat="server" Text="Nuevo" CssClass="button" OnClick="btnNuevo_Click" />
         </div>
     </div>
 
@@ -158,7 +146,11 @@
                 changeYear: true,
                 dateFormat: "dd/mm/yy"
             });
-            
+
+            $("#<%= btnBuscar.ClientID %>").click(function() {
+                return validar();
+            });
+
         });
 
         function confirmarEliminar(numeroReclamo, event) {
@@ -180,7 +172,7 @@
             var fechaInicio = $.trim($("#<%= txtFechaInicio.ClientID %>").val());
             var fechaFin = $.trim($("#<%= txtFechaFin.ClientID %>").val());
             var mensaje = '';
-            // ugly
+            
             var fechaCorrecta1 = false;
             var fechaCorrecta2 = false;
 

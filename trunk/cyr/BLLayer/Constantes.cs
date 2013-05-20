@@ -62,5 +62,17 @@ namespace BLLayer
 
             return htaMeses;
         }
+
+        public enum CodigoAprobacion
+        {
+            aprobado = 0,
+            rechazado = 1,
+            Error = 2
+        }
+
+        public const String OPERACION_INSERT = "I";
+        public const String OPERACION_UPDATE = "U";
+        public const String OPERACION_DELETE_LOGICAL = "L";
+        public const String OPERACION_DELETE_PHYSICAL = "D";
     }
 }
