@@ -843,6 +843,7 @@ GO
 SET IDENTITY_INSERT [dbo].[Cargo] ON
 INSERT [dbo].[Cargo] ([codigo_cargo], [nombre_cargo], [descripcion_cargo]) VALUES (1, N'responsableArea', N'Responsable de aprobaciones de un area')
 INSERT [dbo].[Cargo] ([codigo_cargo], [nombre_cargo], [descripcion_cargo]) VALUES (2, N'gerenteGeneral', N'Gerente General Chili`s Peru')
+INSERT [dbo].[Cargo] ([codigo_cargo], [nombre_cargo], [descripcion_cargo]) VALUES (3, N'empleado', N'Colaborar subordinado')
 SET IDENTITY_INSERT [dbo].[Cargo] OFF
 
 /****** Object:  Table [dbo].[Area]    Script Date: 05/08/2013 18:32:35 ******/
@@ -893,6 +894,64 @@ CREATE TABLE [dbo].[Objetivo](
 GO
 SET ANSI_PADDING OFF
 GO
+SET IDENTITY_INSERT [dbo].[Objetivo] ON
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (1, N'Incrementar Rentabilidad', CAST(0x0000A15C01635E15 AS DateTime), N'', N'registrado', N'General')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (2, N'Reducir Costos - prueba', CAST(0x0000A15C01635E15 AS DateTime), N'', N'registrado', N'General')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (3, N'Diversificar Ingresos', CAST(0x0000A15E00300A0A AS DateTime), N'', N'registrado', N'General')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (4, N'Satisfaccion de clientes', CAST(0x0000A15E009E2029 AS DateTime), N'', N'registrado', N'General')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (5, N'Obtencion de nuevos clientes', CAST(0x0000A15E00AB6475 AS DateTime), N'', N'registrado', N'General')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (6, N'Disminucion de quejas y reclamos', CAST(0x0000A15E00AB6475 AS DateTime), N'', N'registrado', N'General')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (8, N'Reduccion de costos de procesos', CAST(0x0000A15E00AD359D AS DateTime), N'', N'registrado', N'General')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (9, N'Optimizacion de servicio', CAST(0x0000A15E00AD359D AS DateTime), N'', N'registrado', N'General')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (10, N'Calidad de los procesos', CAST(0x0000A15E00B0CCAC AS DateTime), N'', N'registrado', N'General')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (11, N'Mayor Calidad en productos', CAST(0x0000A15E00B0CCAC AS DateTime), N'', N'registrado', N'General')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (12, N'Innovacion de procesos', CAST(0x0000A15E00B937CB AS DateTime), N'', N'registrado', N'General')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (13, N'Desarrollar potencial humano', CAST(0x0000A15E00BDD68F AS DateTime), N'', N'registrado', N'General')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (14, N'Incrementar destreza de empleados', CAST(0x0000A15E00BDDE17 AS DateTime), N'', N'registrado', N'General')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (15, N'Promocion profesional', CAST(0x0000A15E00BE775F AS DateTime), N'', N'registrado', N'General')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (23, N'Capacitacion de personal', CAST(0x0000A15E00BE775F AS DateTime), N'', N'registrado', N'General')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (24, N'Motivacion de personal', CAST(0x0000A15E00D1C341 AS DateTime), N'', N'registrado', N'General')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (25, N'objetivo prueba 1', CAST(0x0000A15E00D1EC59 AS DateTime), N'', N'pendUpdate', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (26, N'objetivo prueba 2', CAST(0x0000A15E00D1F6DE AS DateTime), N'', N'pendAprobacion', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (27, N'objetivo prueba 3', CAST(0x0000A15E00D1FEE9 AS DateTime), N'', N'pendBaja', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (28, N'objetivo prueba 4', CAST(0x0000A15E00D207C3 AS DateTime), N'', N'rechazado', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (29, N'objetivo prueba 5', CAST(0x0000A15E00D25B05 AS DateTime), N'', N'baja', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (30, N'objetivo prueba 6', CAST(0x0000A15E00D615F3 AS DateTime), N'', N'registrado', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (31, N'objetivo prueba 7', CAST(0x0000A15E01498751 AS DateTime), N'', N'registrado', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (32, N'objetivo prueba 8', CAST(0x0000A16100BCA31F AS DateTime), N'', N'registrado', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (33, N'objetivo prueba 9', CAST(0x0000A16100BCE0A3 AS DateTime), N'', N'registrado', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (34, N'objetivo prueba 10', CAST(0x0000A16100D93676 AS DateTime), N'', N'registrado', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (35, N'objetivo prueba 11', CAST(0x0000A16100D9A2E2 AS DateTime), N'', N'pendUpdate', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (36, N'objetivo prueba 12', CAST(0x0000A161011FF199 AS DateTime), N'', N'pendAprobacion', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (37, N'objetivo prueba 13', CAST(0x0000A161015AB2D9 AS DateTime), N'', N'pendBaja', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (38, N'objetivo prueba 14', CAST(0x0000A161015E6129 AS DateTime), N'', N'rechazado', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (39, N'objetivo prueba 15', CAST(0x0000A161015F265E AS DateTime), N'', N'baja', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (40, N'objetivo prueba 16', CAST(0x0000A16101617E57 AS DateTime), N'', N'registrado', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (41, N'objetivo prueba 17', CAST(0x0000A1620021892E AS DateTime), N'', N'registrado', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (42, N'objetivo prueba 18', CAST(0x0000A16201480F8E AS DateTime), N'', N'registrado', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (43, N'objetivo prueba 19', CAST(0x0000A16201487F34 AS DateTime), N'', N'registrado', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (44, N'objetivo prueba 20', CAST(0x0000A16500341301 AS DateTime), N'', N'registrado', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (45, N'objetivo prueba 21', CAST(0x0000A16501333100 AS DateTime), N'', N'pendUpdate', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (46, N'objetivo prueba 22', CAST(0x0000A165013346F4 AS DateTime), N'', N'pendAprobacion', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (47, N'objetivo prueba 23', CAST(0x0000A1B6010B5B62 AS DateTime), N'', N'pendBaja', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (48, N'objetivo prueba 24', CAST(0x0000A1B6010BA85B AS DateTime), N'', N'rechazado', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (49, N'objetivo prueba 25', CAST(0x0000A1B6011D7435 AS DateTime), N'', N'baja', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (50, N'objetivo prueba 26', CAST(0x0000A1B6011E44D1 AS DateTime), N'', N'registrado', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (51, N'objetivo prueba 27', CAST(0x0000A1B6011E9676 AS DateTime), N'', N'registrado', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (52, N'objetivo prueba 28', CAST(0x0000A1B601210C1C AS DateTime), N'', N'registrado', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (53, N'objetivo prueba 29', CAST(0x0000A1B70104E1E6 AS DateTime), N'', N'registrado', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (54, N'objetivo prueba 30', CAST(0x0000A1B7010680E8 AS DateTime), N'', N'registrado', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (55, N'objetivo prueba 31', CAST(0x0000A1B70106B17C AS DateTime), N'', N'pendUpdate', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (56, N'objetivo prueba 32', CAST(0x0000A1B7011817D8 AS DateTime), N'', N'pendAprobacion', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (57, N'objetivo prueba 33', CAST(0x0000A1B900FE08FA AS DateTime), N'', N'pendBaja', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (58, N'objetivo prueba 34', CAST(0x0000A1B900FF3CD3 AS DateTime), N'', N'rechazado', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (59, N'objetivo prueba 35', CAST(0x0000A1B901077D72 AS DateTime), N'', N'baja', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (60, N'objetivo prueba 36', CAST(0x0000A1B90107B23B AS DateTime), N'', N'registrado', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (61, N'objetivo prueba 37', CAST(0x0000A1B9010832CD AS DateTime), N'', N'registrado', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (62, N'objetivo prueba 38', CAST(0x0000A1B901095BCC AS DateTime), N'', N'registrado', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (63, N'objetivo prueba 39', CAST(0x0000A1B9010974BE AS DateTime), N'', N'registrado', N'Funcional')
+INSERT [dbo].[Objetivo] ([codigo_objetivo], [descripcion_objetivo], [fechaRegistro_objetivo], [comentarios_objetivo], [estado_objetivo], [tipo_objetivo]) VALUES (64, N'objetivo prueba 40', CAST(0x0000A1BE00EF823B AS DateTime), N'', N'registrado', N'Funcional')
+SET IDENTITY_INSERT [dbo].[Objetivo] OFF
 
 /****** Object:  Table [dbo].[Mapa_Estrategico]    Script Date: 05/08/2013 18:32:35 ******/
 SET ANSI_NULLS ON
@@ -945,6 +1004,18 @@ CREATE TABLE [dbo].[Indicador](
 GO
 SET ANSI_PADDING OFF
 GO
+SET IDENTITY_INSERT [dbo].[Indicador] ON
+INSERT [dbo].[Indicador] ([codigo_Indicador], [nombre_Indicador], [descripcion_Indicador], [fechaRegistro_Indicador], [formula_Indicador], [meta_Indicador], [comentarios_Indicador], [estado_Indicador], [objetivo_Indicador]) VALUES (1, N'Indicador 1', N'Indicador de Prueba 1', CAST(0x0000A1C4000E84BD AS DateTime), N'(A * B) / C', N'95', N'', N'pendUpdate', 1)
+INSERT [dbo].[Indicador] ([codigo_Indicador], [nombre_Indicador], [descripcion_Indicador], [fechaRegistro_Indicador], [formula_Indicador], [meta_Indicador], [comentarios_Indicador], [estado_Indicador], [objetivo_Indicador]) VALUES (1, N'Indicador 1', N'Indicador de Prueba 1', CAST(0x0000A1C4000E84BD AS DateTime), N'(A * B) / C', N'95', N'', N'pendAprobacion', 25)
+INSERT [dbo].[Indicador] ([codigo_Indicador], [nombre_Indicador], [descripcion_Indicador], [fechaRegistro_Indicador], [formula_Indicador], [meta_Indicador], [comentarios_Indicador], [estado_Indicador], [objetivo_Indicador]) VALUES (1, N'Indicador 1', N'Indicador de Prueba 1', CAST(0x0000A1C4000E84BD AS DateTime), N'(A * B) / C', N'95', N'', N'pendBaja', 25)
+INSERT [dbo].[Indicador] ([codigo_Indicador], [nombre_Indicador], [descripcion_Indicador], [fechaRegistro_Indicador], [formula_Indicador], [meta_Indicador], [comentarios_Indicador], [estado_Indicador], [objetivo_Indicador]) VALUES (1, N'Indicador 1', N'Indicador de Prueba 1', CAST(0x0000A1C4000E84BD AS DateTime), N'(A * B) / C', N'95', N'', N'rechazado', 1)
+INSERT [dbo].[Indicador] ([codigo_Indicador], [nombre_Indicador], [descripcion_Indicador], [fechaRegistro_Indicador], [formula_Indicador], [meta_Indicador], [comentarios_Indicador], [estado_Indicador], [objetivo_Indicador]) VALUES (1, N'Indicador 1', N'Indicador de Prueba 1', CAST(0x0000A1C4000E84BD AS DateTime), N'(A * B) / C', N'95', N'', N'baja', 25)
+INSERT [dbo].[Indicador] ([codigo_Indicador], [nombre_Indicador], [descripcion_Indicador], [fechaRegistro_Indicador], [formula_Indicador], [meta_Indicador], [comentarios_Indicador], [estado_Indicador], [objetivo_Indicador]) VALUES (1, N'Indicador 1', N'Indicador de Prueba 1', CAST(0x0000A1C4000E84BD AS DateTime), N'(A * B) / C', N'95', N'', N'registrado', 1)
+INSERT [dbo].[Indicador] ([codigo_Indicador], [nombre_Indicador], [descripcion_Indicador], [fechaRegistro_Indicador], [formula_Indicador], [meta_Indicador], [comentarios_Indicador], [estado_Indicador], [objetivo_Indicador]) VALUES (1, N'Indicador 1', N'Indicador de Prueba 1', CAST(0x0000A1C4000E84BD AS DateTime), N'(A * B) / C', N'95', N'', N'registrado', 25)
+INSERT [dbo].[Indicador] ([codigo_Indicador], [nombre_Indicador], [descripcion_Indicador], [fechaRegistro_Indicador], [formula_Indicador], [meta_Indicador], [comentarios_Indicador], [estado_Indicador], [objetivo_Indicador]) VALUES (1, N'Indicador 1', N'Indicador de Prueba 1', CAST(0x0000A1C4000E84BD AS DateTime), N'(A * B) / C', N'95', N'', N'registrado', 25)
+INSERT [dbo].[Indicador] ([codigo_Indicador], [nombre_Indicador], [descripcion_Indicador], [fechaRegistro_Indicador], [formula_Indicador], [meta_Indicador], [comentarios_Indicador], [estado_Indicador], [objetivo_Indicador]) VALUES (1, N'Indicador 1', N'Indicador de Prueba 1', CAST(0x0000A1C4000E84BD AS DateTime), N'(A * B) / C', N'95', N'', N'registrado', 25)
+INSERT [dbo].[Indicador] ([codigo_Indicador], [nombre_Indicador], [descripcion_Indicador], [fechaRegistro_Indicador], [formula_Indicador], [meta_Indicador], [comentarios_Indicador], [estado_Indicador], [objetivo_Indicador]) VALUES (1, N'Indicador 1', N'Indicador de Prueba 1', CAST(0x0000A1C4000E84BD AS DateTime), N'(A * B) / C', N'95', N'', N'registrado', 25)
+SET IDENTITY_INSERT [dbo].[Indicador] OFF
 
 /****** Object:  Table [dbo].[Empleado]    Script Date: 05/08/2013 18:32:35 ******/
 SET ANSI_NULLS ON
@@ -973,6 +1044,22 @@ INSERT [dbo].[Empleado] ([codigo_empleado], [nombre_empleado], [apellido_emplead
 INSERT [dbo].[Empleado] ([codigo_empleado], [nombre_empleado], [apellido_empleado], [email_empleado], [area_empleado], [cargo_empleado]) VALUES (4, N'Elena', N'Alva', N'elena.alva@gmail.com', 5, 2)
 INSERT [dbo].[Empleado] ([codigo_empleado], [nombre_empleado], [apellido_empleado], [email_empleado], [area_empleado], [cargo_empleado]) VALUES (5, N'Johnny', N'Rodriguez', N'jrodriguezm@gmail.com.pe', 2, 1)
 INSERT [dbo].[Empleado] ([codigo_empleado], [nombre_empleado], [apellido_empleado], [email_empleado], [area_empleado], [cargo_empleado]) VALUES (6, N'Franz', N'Westreicher', N'franzwf@gmail.com', 3, 1)
+INSERT [dbo].[Empleado] ([codigo_empleado], [nombre_empleado], [apellido_empleado], [email_empleado], [area_empleado], [cargo_empleado]) VALUES (7, N'Johnnatan', N'Macuriano', N'jmacuriano@gmail.com', 4, 1)
+INSERT [dbo].[Empleado] ([codigo_empleado], [nombre_empleado], [apellido_empleado], [email_empleado], [area_empleado], [cargo_empleado]) VALUES (8, N'Jim', N'Raynor', N'jraynor@gmail.com', 1, 3)
+INSERT [dbo].[Empleado] ([codigo_empleado], [nombre_empleado], [apellido_empleado], [email_empleado], [area_empleado], [cargo_empleado]) VALUES (9, N'Gordon', N'Freeman', N'jfreeman@gmail.com', 1, 3)
+INSERT [dbo].[Empleado] ([codigo_empleado], [nombre_empleado], [apellido_empleado], [email_empleado], [area_empleado], [cargo_empleado]) VALUES (10, N'Mario', N'Bros', N'mbross@gmail.com', 1, 3)
+INSERT [dbo].[Empleado] ([codigo_empleado], [nombre_empleado], [apellido_empleado], [email_empleado], [area_empleado], [cargo_empleado]) VALUES (11, N'Clark', N'Kent', N'franzwf@gmail.com', 2, 3)
+INSERT [dbo].[Empleado] ([codigo_empleado], [nombre_empleado], [apellido_empleado], [email_empleado], [area_empleado], [cargo_empleado]) VALUES (12, N'Bruce', N'wayne', N'franzwf@gmail.com', 2, 3)
+INSERT [dbo].[Empleado] ([codigo_empleado], [nombre_empleado], [apellido_empleado], [email_empleado], [area_empleado], [cargo_empleado]) VALUES (13, N'Hugh', N'Hefner', N'franzwf@gmail.com', 2, 3)
+INSERT [dbo].[Empleado] ([codigo_empleado], [nombre_empleado], [apellido_empleado], [email_empleado], [area_empleado], [cargo_empleado]) VALUES (14, N'Friedrich', N'Nietzsche', N'franzwf@gmail.com', 3, 3)
+INSERT [dbo].[Empleado] ([codigo_empleado], [nombre_empleado], [apellido_empleado], [email_empleado], [area_empleado], [cargo_empleado]) VALUES (15, N'Siddharta', N'Gautama', N'gautama@gmail.com', 3, 3)
+INSERT [dbo].[Empleado] ([codigo_empleado], [nombre_empleado], [apellido_empleado], [email_empleado], [area_empleado], [cargo_empleado]) VALUES (16, N'Ludwig', N'Wittgenstein', N'wittgenstein@gmail.com', 3, 3)
+INSERT [dbo].[Empleado] ([codigo_empleado], [nombre_empleado], [apellido_empleado], [email_empleado], [area_empleado], [cargo_empleado]) VALUES (17, N'G.W.F.', N'Hegel', N'hegel@gmail.com', 4, 3)
+INSERT [dbo].[Empleado] ([codigo_empleado], [nombre_empleado], [apellido_empleado], [email_empleado], [area_empleado], [cargo_empleado]) VALUES (18, N'Arthas', N'Menethil', N'menethil@gmail.com', 4, 3)
+INSERT [dbo].[Empleado] ([codigo_empleado], [nombre_empleado], [apellido_empleado], [email_empleado], [area_empleado], [cargo_empleado]) VALUES (19, N'Sarah', N'Kerrigan', N'kerrigan@gmail.com', 4, 3)
+INSERT [dbo].[Empleado] ([codigo_empleado], [nombre_empleado], [apellido_empleado], [email_empleado], [area_empleado], [cargo_empleado]) VALUES (20, N'Kim', N'Dotcom', N'dotcom@gmail.com', 5, 3)
+INSERT [dbo].[Empleado] ([codigo_empleado], [nombre_empleado], [apellido_empleado], [email_empleado], [area_empleado], [cargo_empleado]) VALUES (21, N'Nikola', N'Tesla', N'tesla@gmail.com', 5, 3)
+INSERT [dbo].[Empleado] ([codigo_empleado], [nombre_empleado], [apellido_empleado], [email_empleado], [area_empleado], [cargo_empleado]) VALUES (22, N'Charles', N'Baudelaire', N'baudelaire@gmail.com', 5, 3)
 SET IDENTITY_INSERT [dbo].[Empleado] OFF
 
 /****** Object:  Table [dbo].[Objetivo_General]    Script Date: 05/08/2013 18:32:35 ******/
@@ -989,6 +1076,22 @@ CREATE TABLE [dbo].[Objetivo_General](
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+INSERT [dbo].[Objetivo_General] ([codigo_og], [objetivo_efecto]) VALUES (1, NULL)
+INSERT [dbo].[Objetivo_General] ([codigo_og], [objetivo_efecto]) VALUES (2, NULL)
+INSERT [dbo].[Objetivo_General] ([codigo_og], [objetivo_efecto]) VALUES (3, NULL)
+INSERT [dbo].[Objetivo_General] ([codigo_og], [objetivo_efecto]) VALUES (4, NULL)
+INSERT [dbo].[Objetivo_General] ([codigo_og], [objetivo_efecto]) VALUES (5, NULL)
+INSERT [dbo].[Objetivo_General] ([codigo_og], [objetivo_efecto]) VALUES (6, NULL)
+INSERT [dbo].[Objetivo_General] ([codigo_og], [objetivo_efecto]) VALUES (8,  NULL)
+INSERT [dbo].[Objetivo_General] ([codigo_og], [objetivo_efecto]) VALUES (9,  NULL)
+INSERT [dbo].[Objetivo_General] ([codigo_og], [objetivo_efecto]) VALUES (10, NULL)
+INSERT [dbo].[Objetivo_General] ([codigo_og], [objetivo_efecto]) VALUES (11, NULL)
+INSERT [dbo].[Objetivo_General] ([codigo_og], [objetivo_efecto]) VALUES (12, NULL)
+INSERT [dbo].[Objetivo_General] ([codigo_og], [objetivo_efecto]) VALUES (13, NULL)
+INSERT [dbo].[Objetivo_General] ([codigo_og], [objetivo_efecto]) VALUES (14, NULL)
+INSERT [dbo].[Objetivo_General] ([codigo_og], [objetivo_efecto]) VALUES (15, NULL)
+INSERT [dbo].[Objetivo_General] ([codigo_og], [objetivo_efecto]) VALUES (23, NULL)
+INSERT [dbo].[Objetivo_General] ([codigo_og], [objetivo_efecto]) VALUES (24, NULL)
 
 /****** Object:  Table [dbo].[Plan_Accion]    Script Date: 05/08/2013 18:32:35 ******/
 SET ANSI_NULLS ON
@@ -1030,6 +1133,46 @@ CREATE TABLE [dbo].[Objetivo_Funcional](
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (25, 1, NULL, 1)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (26, 2, NULL, 1)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (27, 3, NULL, 1)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (28, 4, NULL, 1)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (29, 5, NULL, 1)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (30, 1, NULL, 1)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (31, 2, NULL, 1)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (32, 3, NULL, 1)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (33, 4, NULL, 1)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (34, 5, NULL, 1)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (35, 1, NULL, 2)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (36, 2, NULL, 2)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (37, 3, NULL, 2)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (38, 4, NULL, 2)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (39, 5, NULL, 2)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (40, 1, NULL, 2)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (41, 2, NULL, 2)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (42, 3, NULL, 2)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (43, 4, NULL, 2)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (44, 5, NULL, 2)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (45, 1, NULL, 3)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (46, 2, NULL, 3)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (47, 3, NULL, 3)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (48, 4, NULL, 3)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (49, 5, NULL, 3)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (50, 1, NULL, 3)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (51, 2, NULL, 3)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (52, 3, NULL, 3)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (53, 4, NULL, 3)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (54, 5, NULL, 3)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (55, 1, NULL, 4)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (56, 2, NULL, 4)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (57, 3, NULL, 4)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (58, 4, NULL, 4)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (59, 5, NULL, 4)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (60, 1, NULL, 4)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (61, 2, NULL, 4)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (62, 3, NULL, 4)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (63, 4, NULL, 4)
+INSERT [dbo].[Objetivo_Funcional] ([codigo_of], [og_vinculado], [objetivo_efecto], [area_of]) VALUES (64, 5, NULL, 4)
 
 /****** Object:  Table [dbo].[Estrategia]    Script Date: 05/08/2013 18:32:35 ******/
 SET ANSI_NULLS ON
@@ -1057,6 +1200,16 @@ CREATE TABLE [dbo].[Estrategia](
 GO
 SET ANSI_PADDING OFF
 GO
+SET IDENTITY_INSERT [dbo].[Estrategia] ON
+INSERT [dbo].[Estrategia] ([codigo_estrategia], [nombre_estrategia], [descripcion_estrategia], [fechaRegistro_estrategia], [comentarios_estrategia], [estado_estrategia], [fecha_inicio_estrategia], [fecha_fin_estrategia], [responsable_estrategia], [objetivo_estrategia]) VALUES (1, N'Estrategia 1', N'Estrategia de Prueba 1', CAST(0x0000A1C000C7DDD9 AS DateTime), N'', N'pendAprobacion', CAST(0x0000A1C000000000 AS DateTime), CAST(0x0000A1C000000000 AS DateTime), 1, 25)
+INSERT [dbo].[Estrategia] ([codigo_estrategia], [nombre_estrategia], [descripcion_estrategia], [fechaRegistro_estrategia], [comentarios_estrategia], [estado_estrategia], [fecha_inicio_estrategia], [fecha_fin_estrategia], [responsable_estrategia], [objetivo_estrategia]) VALUES (2, N'Estrategia 2', N'Estrategia de Prueba 2', CAST(0x0000A1C000C94E95 AS DateTime), N'', N'pendAprobacion', CAST(0x0000A1C000000000 AS DateTime), CAST(0x0000A1C100000000 AS DateTime), 4, 1)
+INSERT [dbo].[Estrategia] ([codigo_estrategia], [nombre_estrategia], [descripcion_estrategia], [fechaRegistro_estrategia], [comentarios_estrategia], [estado_estrategia], [fecha_inicio_estrategia], [fecha_fin_estrategia], [responsable_estrategia], [objetivo_estrategia]) VALUES (3, N'Estrategia 3', N'Estrategia de Prueba 3', CAST(0x0000A1C000C9DF3A AS DateTime), N'', N'registrado', CAST(0x0000A1C000000000 AS DateTime), CAST(0x0000A1C300000000 AS DateTime), 1, 26)
+INSERT [dbo].[Estrategia] ([codigo_estrategia], [nombre_estrategia], [descripcion_estrategia], [fechaRegistro_estrategia], [comentarios_estrategia], [estado_estrategia], [fecha_inicio_estrategia], [fecha_fin_estrategia], [responsable_estrategia], [objetivo_estrategia]) VALUES (4, N'Estrategia 4', N'Estrategia de Prueba 4', CAST(0x0000A1C000CAA887 AS DateTime), N'', N'registrado', CAST(0x0000A1BD00000000 AS DateTime), CAST(0x0000A1C300000000 AS DateTime), 1, 27)
+INSERT [dbo].[Estrategia] ([codigo_estrategia], [nombre_estrategia], [descripcion_estrategia], [fechaRegistro_estrategia], [comentarios_estrategia], [estado_estrategia], [fecha_inicio_estrategia], [fecha_fin_estrategia], [responsable_estrategia], [objetivo_estrategia]) VALUES (5, N'Estrategia 5', N'Estrategia de Prueba 5', CAST(0x0000A1C000E7F15F AS DateTime), N'', N'registrado', CAST(0x0000A1C000000000 AS DateTime), CAST(0x0000A1C000000000 AS DateTime), 1, 25)
+INSERT [dbo].[Estrategia] ([codigo_estrategia], [nombre_estrategia], [descripcion_estrategia], [fechaRegistro_estrategia], [comentarios_estrategia], [estado_estrategia], [fecha_inicio_estrategia], [fecha_fin_estrategia], [responsable_estrategia], [objetivo_estrategia]) VALUES (6, N'Estrategia 6', N'Estrategia de Prueba 6', CAST(0x0000A1C000E9C27B AS DateTime), N'', N'rechazado', CAST(0x0000A1BF00000000 AS DateTime), CAST(0x0000A1C200000000 AS DateTime), 1, 26)
+INSERT [dbo].[Estrategia] ([codigo_estrategia], [nombre_estrategia], [descripcion_estrategia], [fechaRegistro_estrategia], [comentarios_estrategia], [estado_estrategia], [fecha_inicio_estrategia], [fecha_fin_estrategia], [responsable_estrategia], [objetivo_estrategia]) VALUES (7, N'Estrategia 7', N'Estrategia de Prueba 7', CAST(0x0000A1C0010170F5 AS DateTime), N'', N'pendAprobacion', CAST(0x0000A1C000000000 AS DateTime), CAST(0x0000A1DF00000000 AS DateTime), 4, 2)
+INSERT [dbo].[Estrategia] ([codigo_estrategia], [nombre_estrategia], [descripcion_estrategia], [fechaRegistro_estrategia], [comentarios_estrategia], [estado_estrategia], [fecha_inicio_estrategia], [fecha_fin_estrategia], [responsable_estrategia], [objetivo_estrategia]) VALUES (8, N'Estrategia 8', N'Estrategia de Prueba 8', CAST(0x0000A1C00121F0B5 AS DateTime), N'', N'pendAprobacion', CAST(0x0000A1C000000000 AS DateTime), CAST(0x0000A1DC00000000 AS DateTime), 1, 27)
+SET IDENTITY_INSERT [dbo].[Estrategia] OFF
 
 /****** Object:  ForeignKey [fk_area_empleado]    Script Date: 05/08/2013 18:32:35 ******/
 ALTER TABLE [dbo].[Empleado]  WITH CHECK ADD  CONSTRAINT [fk_area_empleado] FOREIGN KEY([area_empleado])
