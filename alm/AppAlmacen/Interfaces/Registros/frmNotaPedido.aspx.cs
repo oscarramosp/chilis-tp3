@@ -120,6 +120,7 @@ namespace AppAlmacen.Interfaces.Registros
 
         void gdvFichas_RowEditing(object sender, GridViewEditEventArgs e)
         {
+            int contOtroAlmacen= 0;
             int cont = 0;
             
             var item = gdvFichas.Rows[e.NewEditIndex].FindControl("lblItem") as Label;
@@ -145,7 +146,7 @@ namespace AppAlmacen.Interfaces.Registros
             objBE.precioUnitario = Convert.ToDecimal(precioUnitario.Text);
             objBE.precioTotal = Convert.ToDecimal(precioTotal.Text);
 
-            txtCodUNOculto.Value = CodUN.Text;
+            
 
             EFichaProducto objResult = new EFichaProducto();
 
@@ -161,29 +162,61 @@ namespace AppAlmacen.Interfaces.Registros
                 {
                     cont = cont + 1;
                 }
+
+
             });
 
-            //agrego el registro a la lista
-            if (cont == 0)
+
+            contOtroAlmacen = 0;
+
+            if (txtCodUNOculto.Value != "0" && gdvDetalle.Rows.Count > 0)
             {
-                ListaENotaPedidoDetalle.Add(objBE);
-                gdvDetalle.DataSource = ListaENotaPedidoDetalle;
-                gdvDetalle.DataBind();
-
-
-                foreach (GridViewRow row in gdvDetalle.Rows)
+                if (txtCodUNOculto.Value != CodUN.Text)
                 {
-
-                    TextBox txtPrueba = row.FindControl("txtCantidad") as TextBox;
-
-                    txtPrueba.Attributes.Add("onblur", "javascript:ValidarGrilla();");
-                    txtPrueba.Attributes.Add("onkeypress", "return FP_SoloNumeros(event);");
-
-
+                    contOtroAlmacen = 1;
                 }
             }
-            else {
-                MessageBox(this.Page, "El registro seleccionado ya fue agregado a la nota de pedido");
+
+
+            if (CodUN.Text != "2")
+            {
+                if (contOtroAlmacen == 0)
+                {
+                    //agrego el registro a la lista
+                    if (cont == 0)
+                    {
+                        ListaENotaPedidoDetalle.Add(objBE);
+                        gdvDetalle.DataSource = ListaENotaPedidoDetalle;
+                        gdvDetalle.DataBind();
+
+
+                        txtCodUNOculto.Value = CodUN.Text;
+
+                        foreach (GridViewRow row in gdvDetalle.Rows)
+                        {
+
+                            TextBox txtPrueba = row.FindControl("txtCantidad") as TextBox;
+
+                            txtPrueba.Attributes.Add("onblur", "javascript:ValidarGrilla();");
+                            txtPrueba.Attributes.Add("onkeypress", "return FP_SoloNumeros(event);");
+
+
+                        }
+                    }
+                    else
+                    {
+                        MessageBox(this.Page, "El registro seleccionado ya fue agregado a la nota de pedido");
+                    }
+                }
+                else
+                {
+                    MessageBox(this.Page, "No se puede agregar Items de distintos almacenes");
+                }
+
+            }
+            else
+            {
+                MessageBox(this.Page, "No se puede realizar pedido a tu mismo almacén (San Isidro)");
             }
             
 
@@ -234,6 +267,7 @@ namespace AppAlmacen.Interfaces.Registros
             {
                  List<ENotaPedidoDetalle> ltabla = ListaENotaPedidoDetalle;
                 int count = 0;
+                int countCero = 0;
                 decimal suma = 0;
 
                 foreach (GridViewRow row in gdvDetalle.Rows)
@@ -255,37 +289,51 @@ namespace AppAlmacen.Interfaces.Registros
                         count = count + 1;
                     }
 
+                    if (Convert.ToDecimal(cantidadmodif.Text) < 1)
+                    {
+                        countCero = countCero + 1;
+                    }
+
 
                 }
 
-                if (count > 0)
+
+                if (countCero > 0)
                 {
-                    MessageBox(this.Page, "Las cantidades a pedir no pueden ser mayores a las almacenadas!");
+                    MessageBox(this.Page, "Las cantidades a pedir deben ser mayores a cero");
                 }
                 else
                 {
-                   
-
-                    ENotaPedido objENota = new ENotaPedido()
+                    if (count > 0)
                     {
-                        NotaPedido = ListaENotaPedidoDetalle,
-                        almacenOrigen = Convert.ToInt32(txtCodUNOculto.Value),
-                        almacenDestino = 0,//Convert.ToInt32(cboUN.SelectedValue),//aqui
-                        fechaEmision = Convert.ToDateTime(txtFechaElabora3.Value),
-                        areaSoliciante = txtAreaSolicitante.Text,
-                        precioPedido = suma,
-                    };
+                        MessageBox(this.Page, "Las cantidades a pedir no pueden ser mayores a las almacenadas!");
+                    }
+                    else
+                    {
 
-                    BLNotaPedido objBLNota = new BLNotaPedido();
 
-                    objBLNota.InsertarP(objENota);
+                        ENotaPedido objENota = new ENotaPedido()
+                        {
+                            NotaPedido = ListaENotaPedidoDetalle,
+                            almacenOrigen = Convert.ToInt32(txtCodUNOculto.Value),
+                            almacenDestino = 0,//Convert.ToInt32(cboUN.SelectedValue),//aqui
+                            fechaEmision = Convert.ToDateTime(txtFechaElabora3.Value),
+                            areaSoliciante = txtAreaSolicitante.Text,
+                            precioPedido = suma,
+                        };
 
-                    ListaENotaPedidoDetalle = null;
-  
-                    FunctionScript(this, string.Format("MensajeRegistroExito('{0}');", "Se registro Correctamente la nota de Pedido."));
+                        BLNotaPedido objBLNota = new BLNotaPedido();
 
-                    
+                        objBLNota.InsertarP(objENota);
+
+                        ListaENotaPedidoDetalle = null;
+
+                        FunctionScript(this, string.Format("MensajeRegistroExito('{0}');", "Se registro Correctamente la nota de Pedido."));
+
+
+                    }
                 }
+                
             }
         }
 
@@ -339,6 +387,12 @@ namespace AppAlmacen.Interfaces.Registros
             {
                 MessageBox(this.Page, "Las cantidades a pedir no pueden ser mayores a las almacenadas!");
             }
+        }
+
+        protected void btnSalirTodo_Click(object sender, EventArgs e)
+        {
+            ListaENotaPedidoDetalle = null;
+            Response.Redirect("~/Default.aspx");
         }
 
        

@@ -47,12 +47,11 @@
                         <asp:MenuItem NavigateUrl="~/Interfaces/Registros/frmRegistroNotaIO.aspx" Text="Registro Nota I/S"/>
                         <asp:MenuItem NavigateUrl="~/Interfaces/Registros/frmInventarioFisico.aspx" Text="Inventario Físico"/>
                          <asp:MenuItem NavigateUrl="~/Interfaces/Registros/frmConsultaNotaIO.aspx" Text="Consulta Nota I/S"/>
-                         <asp:MenuItem NavigateUrl="~/Interfaces/Registros/frmFichaRegistroProducto.aspx" Text="Ficha Prod."/>
+                         <asp:MenuItem NavigateUrl="~/Interfaces/Registros/frmFichaRegistroProducto.aspx" Text="Ficha Producto"/>
                          <asp:MenuItem NavigateUrl="~/Interfaces/Registros/frmConsultaProducto.aspx" Text="Productos"/>
-                         <asp:MenuItem NavigateUrl="~/Interfaces/Registros/frmNotaPedido.aspx" Text="Nota Pedido"/>
-                         <asp:MenuItem NavigateUrl="~/Interfaces/Registros/frmCosultaNotaP.aspx" Text="Listar Nota Ped."/>
-                         <asp:MenuItem NavigateUrl="~/Interfaces/Registros/frmReporteStock.aspx" Text="Reporte Stock"/>
-                    </Items>
+                         <asp:MenuItem NavigateUrl="~/Interfaces/Registros/frmNotaPedido.aspx" Text="Reg.Nota Pedido"/>
+                         <asp:MenuItem NavigateUrl="~/Interfaces/Registros/frmCosultaNotaP.aspx" Text="Act.Nota Pedido"/>
+                       </Items>
                 </asp:Menu>
             </div>
         </div>

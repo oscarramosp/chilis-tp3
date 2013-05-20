@@ -40,15 +40,6 @@ namespace AppAlmacen.Interfaces.Registros {
         protected global::System.Web.UI.WebControls.TextBox txtNomProducto;
         
         /// <summary>
-        /// btnBuscar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscar;
-        
-        /// <summary>
         /// btnOculto control.
         /// </summary>
         /// <remarks>
@@ -67,6 +58,24 @@ namespace AppAlmacen.Interfaces.Registros {
         protected global::System.Web.UI.WebControls.HiddenField btnOculto2;
         
         /// <summary>
+        /// cboUNCab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cboUNCab;
+        
+        /// <summary>
+        /// btnBuscar3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBuscar3;
+        
+        /// <summary>
         /// lblSeleccionado control.
         /// </summary>
         /// <remarks>
@@ -83,6 +92,15 @@ namespace AppAlmacen.Interfaces.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField CodSeleccionado;
+        
+        /// <summary>
+        /// IdSeleccionado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField IdSeleccionado;
         
         /// <summary>
         /// btnNuevaFicha control.
@@ -238,6 +256,24 @@ namespace AppAlmacen.Interfaces.Registros {
         protected global::System.Web.UI.WebControls.TextBox txtItemFicha;
         
         /// <summary>
+        /// txtItemVerdadero control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField txtItemVerdadero;
+        
+        /// <summary>
+        /// txtCodNotaIS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField txtCodNotaIS;
+        
+        /// <summary>
         /// txtLoteFicha control.
         /// </summary>
         /// <remarks>
@@ -256,13 +292,13 @@ namespace AppAlmacen.Interfaces.Registros {
         protected global::System.Web.UI.WebControls.TextBox txtSerieFicha;
         
         /// <summary>
-        /// txtTipoFicha control.
+        /// txtDescripcionFicha control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTipoFicha;
+        protected global::System.Web.UI.WebControls.TextBox txtDescripcionFicha;
         
         /// <summary>
         /// txtCantidadFicha control.
@@ -290,15 +326,6 @@ namespace AppAlmacen.Interfaces.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMedidaFicha;
-        
-        /// <summary>
-        /// cboUN control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cboUN;
         
         /// <summary>
         /// txtFechaElabora control.
@@ -355,6 +382,15 @@ namespace AppAlmacen.Interfaces.Registros {
         protected global::AjaxControlToolkit.CalendarExtender CalendarExtender3;
         
         /// <summary>
+        /// txtTipoFicha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTipoFicha;
+        
+        /// <summary>
         /// btnOK control.
         /// </summary>
         /// <remarks>
@@ -371,6 +407,15 @@ namespace AppAlmacen.Interfaces.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelarFicha;
+        
+        /// <summary>
+        /// cboUN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cboUN;
         
         /// <summary>
         /// divGrillaFichas control.

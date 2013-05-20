@@ -98,6 +98,28 @@ namespace ALM.BL.BusinessLogic.Almacen
              }
          }
 
+         public EFichaProducto InsertarNI(int codigo)
+         {
+             try
+             {
+                 EFichaProducto resultado = null;
+
+                 using (TransactionScope xTrans = new TransactionScope())
+                 {
+                     resultado = da.InsertarFichaProductoNI(codigo);
+                     
+                     xTrans.Complete();
+                     return resultado;
+                 }
+             }
+             catch (Exception ex)
+             {
+                 ExceptionManager.Publish(ex);
+                 throw new ALM.BusinessCommon.ALMBusinessException(ex);
+
+             }
+         }
+
 
     }
 }

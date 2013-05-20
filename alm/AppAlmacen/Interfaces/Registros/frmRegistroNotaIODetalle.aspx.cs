@@ -56,7 +56,7 @@ namespace AppAlmacen.Interfaces.Registros
             txtNumRefDoc.Text = String.Empty;
             txtPeriodo.Text = String.Empty;
 
-            ddlRefencia.SelectedIndex = 0;
+            //ddlRefencia.SelectedIndex = 0;
             ddlTipoDocumento.SelectedIndex = 0;
             ddlTransferencia.SelectedIndex = 0;
             ddlunidadDestino.SelectedIndex = 0;
@@ -95,6 +95,9 @@ namespace AppAlmacen.Interfaces.Registros
                     LimpiarFormulario();
                     ddlTipoDocumento.SelectedIndex = 1;
                     LlenarComboUnidadNegocioP(ddlUnidadOrigen);
+                    
+                    ddlunidadDestino.SelectedValue = "2"; //por defecto siempre es San Isidro 
+                    ddlUnidadOrigen.SelectedValue = "-1";
                     if (Convert.ToString(DateTime.Now.Month).Length < 2)
                     {
                         txtPeriodo.Text = Convert.ToString(DateTime.Now.Year) + '0' + Convert.ToString(DateTime.Now.Month);
@@ -103,6 +106,8 @@ namespace AppAlmacen.Interfaces.Registros
                     {
                         txtPeriodo.Text = Convert.ToString(DateTime.Now.Year) + Convert.ToString(DateTime.Now.Month);
                     }
+
+                    txtFecha.Text = DateTime.Now.ToShortDateString();
                     
                     break;
                 case Enumeraciones.TipoOperacion.Modificacion:
@@ -114,7 +119,7 @@ namespace AppAlmacen.Interfaces.Registros
                     txtFecha.SetText = fecha;
                     txtNumRefDoc.Text = CodPedido;
                     txtPeriodo.Text = periodo;
-                    ddlRefencia.SelectedValue = refTipo;
+                    //ddlRefencia.SelectedValue = refTipo;
                     ddlTransferencia.SelectedValue = transTipo;
                     ddlunidadDestino.SelectedValue = CodUniDes;
                     ddlTipoDocumento.SelectedValue = codTipDoc;
@@ -141,7 +146,8 @@ namespace AppAlmacen.Interfaces.Registros
                      lblCodigoPedido.Text = "";//codPedidoCon2;
                      txtNumRefDoc.Text = codPedidoCon2;
                      ddlTipoDocumento.SelectedIndex = 2;
-
+                     ddlUnidadOrigen.SelectedValue = "2"; //por defecto siempre es San Isidro 
+                     txtFecha.Text = DateTime.Now.ToShortDateString();
                      if (Convert.ToString(DateTime.Now.Month).Length < 2)
                      {
                          txtPeriodo.Text = Convert.ToString(DateTime.Now.Year) + '0' + Convert.ToString(DateTime.Now.Month);
@@ -297,7 +303,7 @@ namespace AppAlmacen.Interfaces.Registros
 
         private void AsignarMensajesValidacion()
         {
-            cvddlRefencia.ErrorMessage = "Seleccione el Tipo de Referencia";
+            //cvddlRefencia.ErrorMessage = "Seleccione el Tipo de Referencia";
             cvddlunidadDestino.ErrorMessage = "Seleccione la Unidad Destino";
             cvUnidadOrigen.ErrorMessage = "Seleccione la Unidad Origen";
             cvTranferencia.ErrorMessage = "Seleccione la Tranferencia Tipo";
@@ -394,6 +400,12 @@ namespace AppAlmacen.Interfaces.Registros
             ddl.Items.Insert(0, new ListItem("--Seleccione--", "-1"));
 
 
+        }
+
+        protected void btnCargarporPedido_Click(object sender, EventArgs e)
+        {
+
+            ucwDatosDetalle.CargarNotasporPedido(Convert.ToInt32(this.txtCodigoPedido.Text));
         }
     }
 }

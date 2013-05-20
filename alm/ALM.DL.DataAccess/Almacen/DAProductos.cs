@@ -261,6 +261,35 @@ namespace ALM.DL.DataAccess.Almacen
              return outputObjectFactory;
          }
 
+         //Inserta Ficha Producto Nota Ingreso
+         public EFichaProducto InsertarFichaProductoNI(int codigo)
+         {
+             EFichaProducto result = new EFichaProducto();
+             base.ExecuteNonQueryOutput<EFichaProducto>(GetInsertarFichaProductoNI(db, codigo),
+                                                         GetFichaProductoInsertadoNI(result));
+             return result;
+         }
+
+         public DbCommand GetInsertarFichaProductoNI(Database db, int codigo)
+         {
+             DbCommand dbCommand = db.GetStoredProcCommand("[ALM.NotaIS_Ficha_Insertar]");
+
+             db.AddInParameter(dbCommand, "@codigo", DbType.Int32, codigo);
+             
+             return dbCommand;
+         }
+
+         public OutputObjectFactoryBase<EFichaProducto> GetFichaProductoInsertadoNI(EFichaProducto outputObject)
+         {
+             OutputObjectFactoryBase<EFichaProducto> outputObjectFactory = new OutputObjectFactoryBase<EFichaProducto>(delegate(Database db, DbCommand command)
+             {
+                 outputObject.Codigo = 0;
+
+             });
+
+             return outputObjectFactory;
+         }
+
 
          //busqueda de ficha producto
          public DbCommand GetBuscarFicha(Database db, String codigo, int UN)
@@ -296,6 +325,8 @@ namespace ALM.DL.DataAccess.Almacen
                      Total =helper.GetValue<Decimal>("Total"),
                      CodMarca = helper.GetValue<Int32>("CodMarca"),
                      CodUN = helper.GetValue<Int32>("CodUN"),
+                     UN = helper.GetValue<String>("desUN"),
+                     Descripcion = helper.GetValue<String>("desProducto"),
                  };
 
              });

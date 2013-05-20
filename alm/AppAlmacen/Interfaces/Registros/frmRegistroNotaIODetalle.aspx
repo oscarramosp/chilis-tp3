@@ -59,10 +59,37 @@
                     <tr>
                         
                         <td style="width: 15%">
+                            &nbsp;</td>
+                        <td style="width: 25%">
+                            &nbsp;</td>
+                       
+                    </tr>
+                    <tr>
+                        
+                        <td style="width: 15%">
+                            &nbsp;</td>
+                        <td style="width: 25%">
+                            &nbsp;</td>
+                       
+                    </tr>
+                    <tr>
+                        
+                        <td style="width: 15%">
+                            &nbsp;</td>
+                        <td style="width: 25%">
+                            &nbsp;</td>
+                       
+                    </tr>
+                    <tr>
+                        
+                        <td style="width: 15%">
                             Código Nota Pedido:
                         </td>
                         <td style="width: 25%">
                             <asp:Label ID="lblCodigoPedido" runat="server"></asp:Label>
+                            <asp:TextBox ID="txtCodigoPedido" runat="server"></asp:TextBox>
+                            <asp:Button ID="btnCargarporPedido" runat="server" Text="Cargar Pedido" 
+                                onclick="btnCargarporPedido_Click" />
                         </td>
                        
                     </tr>
@@ -156,12 +183,8 @@
                                 <asp:ListItem Value="-1">--Seleccione--</asp:ListItem>
                                 <asp:ListItem Value="IP">Ingreso de Proveedor</asp:ListItem>
                                 <asp:ListItem Value="IT">Ingreso por Terceros</asp:ListItem>
-                                <asp:ListItem Value="ID">Ingreso por devolución</asp:ListItem>
-                                <asp:ListItem Value="IR">Ingreso por regularización</asp:ListItem>
                                 <asp:ListItem Value="ST">Salida a Terceros</asp:ListItem>
-                                <asp:ListItem Value="SD">Salida por devolución</asp:ListItem>
-                                <asp:ListItem Value="SR">Salida por regularizacion</asp:ListItem>
-                           
+                             
                             </asp:DropDownList>
                              <uc7:ucwasterisco ID="Ucwasterisco2" runat="server" />
                              <asp:CustomValidator ID="cvTranferencia" runat="server" ClientValidationFunction="ValidaDDL"
@@ -171,20 +194,15 @@
 
                       
                       <td style="width: 15%">
-                            Referencia Tipo:</td>
+                            &nbsp;</td>
                         <td style="width: 25%">
                             <asp:DropDownList ID="ddlRefencia" runat="server" Height="16px" Width="154px"  
-                                CauseValidation="true" AsteriscoError="False" ValidationGroup="GrupoNotaPedido">
-                                <asp:ListItem Value="-1">--Seleccione--</asp:ListItem>
+                                CauseValidation="true" AsteriscoError="False" ValidationGroup="GrupoNotaPedido" Visible ="false">
                                 <asp:ListItem Value="GR">Guia de Remisión</asp:ListItem>
                                 <asp:ListItem Value="NI">Nota de Ingreso</asp:ListItem>
                                 <asp:ListItem Value="NS">Nota de Salida</asp:ListItem>
                               
                             </asp:DropDownList>
-                             <uc7:ucwasterisco ID="Ucwasterisco3" runat="server" />
-                             <asp:CustomValidator ID="cvddlRefencia" runat="server" ClientValidationFunction="ValidaDDL"
-                                            ControlToValidate="ddlRefencia"
-                                            ValidationGroup="GrupoNotaPedido" SetFocusOnError="True" Display="None"></asp:CustomValidator>
                         </td>
                        
                     </tr>

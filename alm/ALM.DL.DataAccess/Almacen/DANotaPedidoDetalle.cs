@@ -217,6 +217,109 @@ namespace ALM.DL.DataAccess.Almacen
          
          #endregion
 
+
+         #region List Methods SI por Pedido
+
+         public DbCommand GetListarPorNotaISP(Database db, int codigopedido)
+         {
+             DbCommand dbCommand = db.GetStoredProcCommand("[ALM.NotaISDetalle_ListarPorNotaP]");
+
+             db.AddInParameter(dbCommand, "@codigopedido", DbType.Int32, codigopedido);
+
+             return dbCommand;
+         }
+
+
+         public List<ENotaIngresoSalidaDetalle> ListarPorNotaISP(int codigopedido)
+         {
+             List<ENotaIngresoSalidaDetalle> lista = base.ExecuteGetList<ENotaIngresoSalidaDetalle>(GetListarPorNotaISP(db, codigopedido),
+                                                                        GetNotaISDetalleP());
+
+
+             return lista;
+         }
+
+         public DomainObjectFactoryBase<ENotaIngresoSalidaDetalle> GetNotaISDetalleP()
+         {
+             DomainObjectFactoryBase<ENotaIngresoSalidaDetalle> domainFactory = new DomainObjectFactoryBase<ENotaIngresoSalidaDetalle>(delegate(IDataReader myReader)
+             {
+                 MapHelper helper = new MapHelper(myReader);
+                 return new ENotaIngresoSalidaDetalle()
+                 {
+                     CodigoDetIS = 0,
+                     CodigoIS = 0,
+                     descripcion = helper.GetValue<String>("descripcion").ToUpper(),
+                     cantActual = Convert.ToInt32(helper.GetValue<Int32>("cantActual")),
+                     medida = helper.GetValue<String>("medida").ToUpper(),
+                     lote = helper.GetValue<String>("lote").ToUpper(),
+                     serie = helper.GetValue<String>("serie").ToUpper(),
+                     fechaCaducidad = helper.GetValue<DateTime>("fechaCaducidad"),
+                     fechaElaboracion = helper.GetValue<DateTime>("fechaElaboracion"),
+                     precioUnitario = helper.GetValue<Decimal>("precioUnitario"),
+                     precioTotal = helper.GetValue<Decimal>("PrecioTotal"),
+                     CodItem = Convert.ToInt32(helper.GetValue<Int32>("codItem")),
+
+                 };
+             });
+
+             return domainFactory;
+         }
+
+
+         #endregion
+
+
+         #region FichaProducto_NotaIS
+
+         public DbCommand GetListarPorNotaFicha(Database db, int codigo, int CodUN)
+         {
+             DbCommand dbCommand = db.GetStoredProcCommand("[ALM.Get_Ficha_NotaIS]");
+
+             db.AddInParameter(dbCommand, "@codigo", DbType.Int32, codigo);
+             db.AddInParameter(dbCommand, "@codUN", DbType.Int32, CodUN);
+
+             return dbCommand;
+         }
+
+         public ENotaIngresoSalidaDetalle ListarPorNotaFicha(int codigo, int CodUN)
+         {
+             ENotaIngresoSalidaDetalle lista = base.ExecuteGetObject<ENotaIngresoSalidaDetalle>(GetListarPorNotaFicha(db, codigo,CodUN),
+                                                                        GetNotaFichaDetalle());
+
+
+             return lista;
+         }
+
+         public DomainObjectFactoryBase<ENotaIngresoSalidaDetalle> GetNotaFichaDetalle()
+         {
+             DomainObjectFactoryBase<ENotaIngresoSalidaDetalle> domainFactory = new DomainObjectFactoryBase<ENotaIngresoSalidaDetalle>(delegate(IDataReader myReader)
+             {
+                 MapHelper helper = new MapHelper(myReader);
+                 return new ENotaIngresoSalidaDetalle()
+                 {
+                     //CodigoDetIS = Convert.ToInt32(helper.GetValue<Int32>("codigoDetIS")),
+                     //CodigoIS = Convert.ToInt32(helper.GetValue<Int32>("codigoIS")),
+                     //descripcion = helper.GetValue<String>("descripcion").ToUpper(),
+                     cantActual = Convert.ToInt32(helper.GetValue<Int32>("cantActual")),
+                     medida = helper.GetValue<String>("medida").ToUpper(),
+                     lote = helper.GetValue<String>("lote").ToUpper(),
+                     serie = helper.GetValue<String>("serie").ToUpper(),
+                     fechaCaducidad = helper.GetValue<DateTime>("fechaCaducidad"),
+                     fechaElaboracion = helper.GetValue<DateTime>("fechaElaboracion"),
+                     precioUnitario = helper.GetValue<Decimal>("precioUnitario"),
+                     precioTotal = helper.GetValue<Decimal>("PrecioTotal"),
+                     //CodItem = Convert.ToInt32(helper.GetValue<Int32>("codItem")),
+                     CodigoDetIS = helper.GetValue<Int32>("codigoDetIS"),
+                 };
+             });
+
+             return domainFactory;
+         }
+
+
+         #endregion
+
+
          #region List Methods Nota Pedido
 
          public DbCommand GetListarPorNotaP(Database db, int codNotaP)

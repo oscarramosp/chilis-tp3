@@ -174,6 +174,21 @@ public partial class ucwDatosDetalle : System.Web.UI.UserControl
             CantidadChangedNota(new CantidadEventArgs(CantidadNotas()));
     }
 
+    public void CargarNotasporPedido(int codigopedido)
+    {
+        
+        BLNotaPedidoDetalle objNotaISDetalle = new BLNotaPedidoDetalle();
+        ListaENotaISDetalle = objNotaISDetalle.ListarPorNotaISP(Convert.ToInt32(codigopedido));
+
+        gdvListado.DataSource = ListaENotaISDetalle;
+        gdvListado.DataBind();
+        hddCorrelativoMaximo.Value = ListaENotaISDetalle.Count != 0 ? Convert.ToString(ListaENotaISDetalle.Max(o => o.CodigoDetIS)) : "0";
+        ucwTotal.TotalRegistro = ListaENotaISDetalle.Count;
+        this.Cantidad = ListaENotaISDetalle.Count;
+        if (CantidadChangedNota != null)
+            CantidadChangedNota(new CantidadEventArgs(CantidadNotas()));
+    }
+
     public void CargarNotasSeleccionadas(List<ENotaIngresoSalidaDetalle> nota)
     {
 
@@ -210,8 +225,8 @@ public partial class ucwDatosDetalle : System.Web.UI.UserControl
         txtCodItem.Text = Convert.ToString(objENotaISDetalle.CodItem);
         txtCantActual.Text = Convert.ToString(objENotaISDetalle.cantActual);
         txtDescripcion.Text = objENotaISDetalle.descripcion;
-        txtFechaCaducidad.SetText = Convert.ToString(objENotaISDetalle.fechaCaducidad);
-        txtFechaElabora.SetText = Convert.ToString(objENotaISDetalle.fechaElaboracion);
+        txtFechaCaducidad.Text = objENotaISDetalle.fechaCaducidad.ToShortDateString();
+        txtFechaElabora.Text = objENotaISDetalle.fechaElaboracion.ToShortDateString();
         txtLote.Text = objENotaISDetalle.lote;
         txtMedida.Text = objENotaISDetalle.medida;
         txtPrecioTotal.Text = Convert.ToString(objENotaISDetalle.precioTotal);
@@ -251,7 +266,7 @@ public partial class ucwDatosDetalle : System.Web.UI.UserControl
         objENotadetalle.medida = txtMedida.Text;
         objENotadetalle.lote = txtLote.Text;
         objENotadetalle.serie = txtSerie.Text;
-        objENotadetalle.precioTotal = Convert.ToDecimal(txtPrecioTotal.Text);
+        objENotadetalle.precioTotal = Math.Round(Convert.ToDecimal(txtPrecioUnit.Text) * Convert.ToInt32(txtCantActual.Text),2);
         objENotadetalle.precioUnitario = Convert.ToDecimal(txtPrecioUnit.Text); 
 
                  

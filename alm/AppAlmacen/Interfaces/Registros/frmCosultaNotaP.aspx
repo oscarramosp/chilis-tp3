@@ -129,7 +129,7 @@
                         
                         <asp:TemplateField HeaderText="Código">
                        <ItemTemplate>
-                                 <asp:Label ID="lblCorrelativo" runat="server" Text='<%# Bind("Correlativo") %>' Visible="true"/>                                
+                                 <asp:Label ID="lblCorrelativo" runat="server" Text='<%# Bind("Codigo") %>' Visible="true"/>                                
                                 </ItemTemplate>
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" Width="30px" />
@@ -149,7 +149,7 @@
                           <HeaderStyle HorizontalAlign="Left" />
                         </asp:TemplateField>
                         
-                        <asp:TemplateField HeaderText="Alm. Destino">
+                        <asp:TemplateField HeaderText="Alm. Destino (Solicitante)">
                         <ItemTemplate>
                          <asp:Label ID="lblAlmacenDestino" runat="server" Text='<%# Bind("desalmacenDestino") %>' />
                           </ItemTemplate>

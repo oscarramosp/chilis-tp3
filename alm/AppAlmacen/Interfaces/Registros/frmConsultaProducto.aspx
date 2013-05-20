@@ -102,7 +102,7 @@
                        
                         <asp:TemplateField HeaderText="Código">
                        <ItemTemplate>
-                                 <asp:Label ID="lblCod2" runat="server" Text='<%# Bind("codigoPr") %>' Visible="true"/>                                
+                                 <asp:Label ID="lblCod2" runat="server" Text='<%# Bind("codigo") %>' Visible="true"/>                                
                                 </ItemTemplate>
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" Width="30px" />
@@ -161,7 +161,7 @@
 
                       <asp:GridView ID="gdvFichas" runat="server" AutoGenerateColumns="False" >
                     <Columns>
-                        <asp:TemplateField HeaderText="Item">
+                        <asp:TemplateField HeaderText="Cod.Ficha">
                        <ItemTemplate>
                                  <asp:Label ID="lblItem" runat="server" Text='<%# Bind("Item") %>' Visible="true"/>                                
                                 </ItemTemplate>
@@ -169,6 +169,21 @@
                             <ItemStyle HorizontalAlign="Center" Width="30px" />
                         
                         </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Descripcion">
+                        <ItemTemplate>
+                         <asp:Label ID="lblDes" runat="server" Text='<%# Bind("Descripcion") %>' />
+                         </ItemTemplate>
+                          <HeaderStyle HorizontalAlign="Left" />
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="U.Negocio">
+                        <ItemTemplate>
+                         <asp:Label ID="lblUNe" runat="server" Text='<%# Bind("UN") %>' />
+                         </ItemTemplate>
+                          <HeaderStyle HorizontalAlign="Left" />
+                        </asp:TemplateField>
+
                         <asp:TemplateField HeaderText="Medida">
                         <ItemTemplate>
                          <asp:Label ID="lblMedida" runat="server" Text='<%# Bind("Medida") %>' />

@@ -124,7 +124,8 @@
 
                   <div style="text-align: right">
                  <asp:ImageButton ID="imbAgregar" runat="server" CausesValidation="false"  
-                          ImageUrl="~/Imagenes/Botones/boton_agregar_.gif" />
+                          ImageUrl="~/Imagenes/Botones/boton_agregar_.gif" 
+                         />
                   
 
                 </div>

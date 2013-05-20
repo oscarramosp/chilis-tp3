@@ -29,5 +29,7 @@ namespace AppAlmacen.Almacen
         public string UN { get; set; }
         public string Marca { get; set; }
         public decimal Total { get; set; }
+
+        public int CodNotaIS { get; set; }
     }
 }
