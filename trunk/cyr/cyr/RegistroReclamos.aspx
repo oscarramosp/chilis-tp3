@@ -198,6 +198,9 @@
                      mensaje += "<li>La fecha de cierre no puede ser mayor a la fecha actual.</li>";
             }
 
+            if (fechaCreacion != '' && fechaCierre != '')
+                if (!esFechaMayorIgual(fechaCierre, fechaCreacion)) mensaje = mensaje + "<li>La fecha de cierre debe ser mayor o igual a la fecha de creación</li>";
+
             if (local == '' || local == '0')
                 mensaje += "<li>Seleccione el local.</li>";
             if (tipoReclamo == '' || tipoReclamo == '0')
