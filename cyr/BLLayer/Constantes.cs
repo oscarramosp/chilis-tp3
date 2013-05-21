@@ -30,6 +30,13 @@ namespace BLLayer
             ExisteReservaFechaEspecial = 2
         }
 
+        public enum CodigoGrabarCliente
+        {
+            Error = -1,
+            Ok = 0,
+            DocumentoExiste = 1
+        }
+
         public enum CodigoEliminarReserva
         {
             Error = -1,

@@ -131,6 +131,43 @@ namespace DALayer
             return codigoCliente;
         }
 
+        public Int32 validarGrabarCliente(BECliente oCliente)
+        {
+            Database db = DatabaseFactory.CreateDatabase();
+            DBCommandWrapper dbCommandWrapper = db.GetStoredProcCommandWrapper("SP_VALIDAR_GRABAR_CLIENTE");
+
+            Int32 intCodigoError = 0;
+
+            IDbDataParameter myParam = dbCommandWrapper.Command.CreateParameter();
+            myParam.DbType = DbType.Int32;
+            myParam.ParameterName = "@IN_CODIGO_ERROR";
+            myParam.Direction = ParameterDirection.InputOutput;
+            myParam.Value = intCodigoError;
+            dbCommandWrapper.Command.Parameters.Add(myParam);
+
+            dbCommandWrapper.AddInParameter("@IN_CODIGO_CLIENTE", DbType.Int32, oCliente.CodigoCliente);
+            dbCommandWrapper.AddInParameter("@VC_NOMBRES", DbType.String, oCliente.Nombres);
+            dbCommandWrapper.AddInParameter("@VC_APELLIDO_PATERNO", DbType.String, oCliente.ApellidoPaterno);
+            dbCommandWrapper.AddInParameter("@VC_APELLIDO_MATERNO", DbType.String, oCliente.ApellidoMaterno);
+            dbCommandWrapper.AddInParameter("@VC_RAZON_SOCIAL", DbType.String, oCliente.RazonSocial);
+            dbCommandWrapper.AddInParameter("@VC_NUMERO_DOCUMENTO", DbType.String, oCliente.NumeroDocumento);
+            dbCommandWrapper.AddInParameter("@DT_FECHA_NACIMIENTO", DbType.DateTime, oCliente.FechaNacimiento);
+            dbCommandWrapper.AddInParameter("@IN_CODIGO_TIPO_DOCUMENTO", DbType.Int32, oCliente.TipoDocumento.CodigoTipoDocumento);
+            dbCommandWrapper.AddInParameter("@IN_CODIGO_CLASIFICACION", DbType.Int32, oCliente.CodigoClasificacion);
+            dbCommandWrapper.AddInParameter("@VC_EMAIL", DbType.String, oCliente.Email);
+            dbCommandWrapper.AddInParameter("@CH_SEXO", DbType.String, oCliente.Sexo);
+            dbCommandWrapper.AddInParameter("@VC_TELEFONO_PRINCIPAL", DbType.String, oCliente.TelefonoPrincipal);
+            dbCommandWrapper.AddInParameter("@VC_CONTACTO", DbType.String, oCliente.Contacto);
+            dbCommandWrapper.AddInParameter("@CH_ESTADO_CLIENTE", DbType.String, oCliente.Estado);
+            dbCommandWrapper.AddInParameter("@CH_TIPO_CLIENTE", DbType.String, oCliente.TipoCliente);
+
+            db.ExecuteNonQuery(dbCommandWrapper);
+
+            intCodigoError = Convert.ToInt32(myParam.Value);
+
+            return intCodigoError;
+        }
+
         public int grabarDireccionCliente(int codigoCliente, BEDireccionCliente oDireccion, IDbTransaction mTransaction)
         {
             Database db = DatabaseFactory.CreateDatabase();

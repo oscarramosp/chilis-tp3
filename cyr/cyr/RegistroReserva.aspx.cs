@@ -73,7 +73,16 @@ namespace cyr
             oReserva.HoraFin = txtHoraFin.Text;
             oReserva.Mesa = new BEMesa();
             oReserva.Mesa.CodigoMesa = Convert.ToInt32(ddlMesa.SelectedValue);
-            oReserva.Observacion = txtObservaciones.Text;
+
+            if (txtObservaciones.Text.Trim().Length > 250)
+            {
+                oReserva.Observacion = txtObservaciones.Text.Trim().Substring(0,250);
+            }
+            else
+            {
+                oReserva.Observacion = txtObservaciones.Text.Trim();
+            }
+
             oReserva.Estado = "A";
 
             DTOResultado oResultado = oBLReservas.grabarReserva(oReserva);
