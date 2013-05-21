@@ -80,9 +80,28 @@ namespace BLLayer
             return oListaDirecciones;
         }
 
-        public BECliente grabarCliente(BECliente oCliente)
+        public DTOResultado grabarCliente(BECliente oCliente)
         {
             DAClientes oDAClientes = new DAClientes();
+            DTOResultado oResultado = new DTOResultado();
+
+
+            try
+            {
+                Int32 intValidacion = oDAClientes.validarGrabarCliente(oCliente);
+                if (intValidacion != (int)Constantes.CodigoGrabarCliente.Ok)
+                {
+                    oResultado.Codigo = (int)Constantes.CodigoGrabarCliente.DocumentoExiste;
+                    oResultado.Objeto = oCliente;
+                    return oResultado;
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionPolicy.HandleException(ex, "Exception Policy");
+            }
+
+
             oDAClientes.mIniciarTransaccion();
 
             try
@@ -103,7 +122,10 @@ namespace BLLayer
                 oDAClientes.mCommitTransaccion();
 
                 oCliente.CodigoCliente = codigoCliente;
-                return oCliente;
+
+                oResultado.Codigo = (int)Constantes.CodigoGrabarCliente.Ok;
+                oResultado.Objeto = oCliente;
+                return oResultado;
             }
             catch (Exception ex)
             {

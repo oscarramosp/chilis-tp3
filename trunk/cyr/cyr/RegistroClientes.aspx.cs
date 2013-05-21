@@ -254,12 +254,22 @@ namespace cyr
             }
 
             objCliente.Direcciones = lstDireccion;
-            objCliente = oBLClientes.grabarCliente(objCliente);
+            DTOResultado oDtoResultado = oBLClientes.grabarCliente(objCliente);
 
-            if (objCliente == null)
+            objCliente = (BECliente)oDtoResultado.Objeto;
+
+            if (oDtoResultado.Codigo != (int)Constantes.CodigoGrabarCliente.Ok)
             {
-                //error it is
-                lblMensaje.Text = "Ocurrió un error al registrar al cliente.";
+                if (oDtoResultado.Codigo == (int)Constantes.CodigoGrabarCliente.DocumentoExiste)
+                {
+                    //error it is
+                    lblMensaje.Text = "El documento ingresado ya ha sido registrado para otro cliente. Por favor, valide.";
+                }
+                else
+                {
+                    //error it is
+                    lblMensaje.Text = "Ocurrió un error al registrar al cliente.";
+                }
             }
             else
             {
