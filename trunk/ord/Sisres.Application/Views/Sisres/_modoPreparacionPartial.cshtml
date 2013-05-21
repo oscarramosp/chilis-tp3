@@ -1,0 +1,11 @@
+﻿@{
+    WebGrid wgReceta= new WebGrid(ViewBag.receta, rowsPerPage: 100);
+}
+
+@wgReceta.GetHtml(tableStyle: "tables ListaDetalle", headerStyle: "webgrid-header", footerStyle: "webgrid-footer", alternatingRowStyle: "webgrid-alternating-row", selectedRowStyle: "webgrid-selected-row",
+rowStyle: "webgrid-row-style",displayHeader:false,
+            columns: wgReceta.Columns(
+            wgReceta.Column("ModoPreparacion", header: "Modo Preparacion", canSort: false)
+            ), htmlAttributes: new { @style = "width:100%;" })
+
+@{ Layout = null; }

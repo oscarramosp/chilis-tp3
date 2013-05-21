@@ -1,0 +1,169 @@
+﻿@{
+    ViewBag.Title = "Administrar Orden";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>Registrar los pedidos de los clientes en el sistema.</h2>
+            </hgroup>
+            <p>
+                Se utiliza para registrar los pedidos de los clientes en el sistema.
+            </p>
+        </div>
+    </section>
+}
+<h3>Registrar pedido.</h3>
+<table>
+    <tr>
+        <td>
+            @Html.Label("Mesa disponible:")
+        </td>
+        <td>
+            @Html.DropDownList("listaMesas", null, new { style = "height:30px" })
+        </td>
+        <td>
+            @Html.Label("Anfitrion:")
+        </td>
+        <td>
+            @Html.DropDownList("listaAnfitrion", null, new { style = "height:30px" })
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            @using Sisres.Application.Models
+            <div id="div_listaCarta">
+                @{ Html.RenderPartial("_listaCartaOrdenPartial", new PartialModels { Text = "Before Clicked" }); }
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4" style="text-align: right">
+            <input type="button" value="Ordenar" id="Ordenar" />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            @using Sisres.Application.Models
+            <div id="div_listaOrden">
+                @{ Html.RenderPartial("_listaOrdenPartial", new PartialModels { Text = "Before Clicked" }); }
+            </div>
+        </td>
+    </tr>
+</table>
+<script type="text/jscript" lang="javascript">
+    $(document).ready(function () {
+        $('.clsCantidad').attr("disabled", "disabled");
+        $(".clsCantidad").keydown(function (event) {
+            if (event.keyCode == 8) {
+            }
+            else {
+                if (event.keyCode < 48 || event.keyCode > 57) {
+                    event.preventDefault();
+                }
+            }
+        });
+
+        $('body').on('click', '.clschbReceta', function () {
+            var id = $(this).attr("id");
+            if ($(this).is(':checked')) {
+                $('#cantidad' + id).attr("disabled", false);
+            } else {
+
+                $('#cantidad' + id).attr("disabled", "disabled");
+            }
+            $('#cantidad' + id).val('');
+            $('#cantidad' + id).focus();
+        });
+
+        $('body').on('click', '.clsEliminar', function () {
+            $.post("/Sisres/EliminarOrden", {
+                pMesa:$('#listaMesas').val(),
+                pOrden: $(this).attr('id')
+            }, function (data) {
+                if (data) {
+                    $('#div_listaOrden').html(data);
+                    $.post("/Sisres/ActualizarCartaOrden", {
+                        pMesa: $('#listaMesas').val()
+                    }, function (data) {
+                        if (data) {
+                            $('#div_listaCarta').html(data);
+                        }
+                    });
+                }
+            });
+            $('.clsCantidad').val('');
+            $('.clsCantidad').attr("disabled", true);
+            $('.clschbReceta').attr("checked", false);
+            return false;
+        });
+
+        $('body').on('change', '#listaMesas', function () {
+            $.post("/Sisres/ActualizarOrdenes", {
+                pMesa: $('#listaMesas').val()
+            }, function (data) {
+                if (data) {
+                    $('#div_listaOrden').html(data);
+                    $.post("/Sisres/ActualizarCartaOrden", {
+                        pMesa: $('#listaMesas').val()
+                    }, function (data) {
+                        if (data) {
+                            $('#div_listaCarta').html(data);
+                            $.post("/Sisres/ActualizarAnfitrion", {
+                                pMesa: $('#listaMesas').val()
+                            }, function (data) {
+                                if (data) {
+                                    $('#listaAnfitrion').val(data);
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+            $('.clsCantidad').val('');
+            $('.clsCantidad').attr("disabled", true);
+            $('.clschbReceta').attr("checked", false);
+            return false;
+        });
+
+        $('body').on('click', '#Ordenar', function () {
+            var plistaRecetas = '';
+            var checkBoxes = $("input:checkbox");
+            checkBoxes.each(function () {
+                if (this.className == 'clschbReceta') {
+                    if ($(this).is(':checked')) {
+                        var id = $(this).attr("id");
+                        var cantidad = $('#cantidad' + id).val().trim();
+                        if (cantidad != '' && cantidad != '0') {
+                            plistaRecetas = plistaRecetas + $(this).attr("id") + ':' + cantidad + '|';
+                        }
+                    }
+                }
+            });
+            if (plistaRecetas.length > 0) {
+                plistaRecetas = plistaRecetas.substring(0, plistaRecetas.length - 1);
+                $.post("/Sisres/Ordenar", {
+                    pMesa: $('#listaMesas').val(),
+                    pAnfitrion: $('#listaAnfitrion').val(),
+                    plistaRecetas: plistaRecetas
+                }, function (data) {
+                    if (data) {
+                        $('#div_listaOrden').html(data);
+                        $.post("/Sisres/ActualizarCartaOrden", {
+                            pMesa: $('#listaMesas').val()
+                        }, function (data) {
+                            if (data) {
+                                $('#div_listaCarta').html(data);
+                            }
+                        });
+                    }
+                });
+            }
+            $('.clsCantidad').val('');
+            $('.clsCantidad').attr("disabled", "disabled");
+            $('.clschbReceta').attr("checked", false);
+            return false;
+        });
+    });
+</script>

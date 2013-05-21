@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.8.20.min.js"></script>
+    <script src="~/Scripts/jquery.maskedinput.js"></script>
+    <link href="~/Content/themes/base/jquery.ui.dialog.css" rel="stylesheet" />
+    <script type="text/jscript" lang="javascript">
+        //$(document).ready(function () {
+
+        //$(function () {
+        //    $('#div_receta').dialog({
+        //        autoOpen: false,
+        //        height: 180,
+        //        width: 415,
+        //        resizable: false,
+        //        //title: 'Proceso correcto...',
+        //        modal: true,
+        //        open: function (event, ui) {
+        //        },
+        //        buttons: {
+        //            "Aceptar": function () {
+        //                $(this).dialog("close");
+        //            }
+        //        }
+        //    });
+        //});
+        //});
+    </script>
+</head>
+<body>
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p class="site-title">@Html.ActionLink("Sistema de Cadena de Restautantes", "Index", "Home")</p>
+            </div>
+            <div class="float-right">
+                <section id="login">
+                    @Html.Partial("_LoginPartial")
+                </section>
+                <nav>
+                    <ul id="menu">
+                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Mesa", "Mesa", "Sisres")</li>
+                        <li>@Html.ActionLink("Insumos", "Insumos", "Sisres")</li>
+                        <li>@Html.ActionLink("Receta", "Receta", "Sisres")</li>
+                        <li>@Html.ActionLink("Carta", "Carta", "Sisres")</li>
+                        <li>@Html.ActionLink("Orden", "Orden", "Sisres")</li>
+                        <li>@Html.ActionLink("Incidencia", "Incidencia", "Sisres")</li>
+                        <li>@Html.ActionLink("Contactenos", "Contact", "Home")</li>
+                        @*@if (Session["IsEnter"] != null)
+                        {
+                            if ((bool)Session["IsEnter"])
+                            {
+                            <li>@Html.ActionLink("Mesa", "Mesa", "Sisres")</li>
+                            <li>@Html.ActionLink("Insumos", "Insumos", "Sisres")</li>
+                            <li>@Html.ActionLink("Receta", "Receta", "Sisres")</li>
+                            <li>@Html.ActionLink("Carta", "Carta", "Sisres")</li>
+                            <li>@Html.ActionLink("Orden", "Orden", "Sisres")</li>
+                            <li>@Html.ActionLink("Incidencia", "Incidencia", "Sisres")</li>
+                            }
+                            else
+                            {
+                            <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Contactenos", "Contact", "Home")</li>}
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Contactenos", "Contact", "Home")</li>
+                        }*@
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+            <section>@*class="content-wrapper main-content clear-fix"*@
+                @*<div id="div_receta" title="Receta" style="overflow: hidden;" class="ui-dialog">@Html.Partial("~/Views/Sisres/_modoPreparacionPartial.cshtml")</div>*@
+            </section>
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

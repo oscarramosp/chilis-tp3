@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SisresModelStoreContainer" CdmEntityContainer="SisresEntities">
+    <EntitySetMapping Name="Insumos">
+      <EntityTypeMapping TypeName="SisresModel.Insumos">
+        <MappingFragment StoreEntitySet="Insumos">
+          <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="StockActual" ColumnName="StockActual" />
+          <ScalarProperty Name="CantidadRequerida" ColumnName="CantidadRequerida" />
+          <ScalarProperty Name="CantidadSolicitada" ColumnName="CantidadSolicitada" />
+          <ScalarProperty Name="IdPrioridad" ColumnName="IdPrioridad" />
+          <ScalarProperty Name="StockMinimo" ColumnName="StockMinimo" />
+          <ScalarProperty Name="StockNormal" ColumnName="StockNormal" />
+          <ScalarProperty Name="NombreInsumo" ColumnName="NombreInsumo" />
+          <ScalarProperty Name="IdInsumo" ColumnName="IdInsumo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pedidos">
+      <EntityTypeMapping TypeName="SisresModel.Pedidos">
+        <MappingFragment StoreEntitySet="Pedidos">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="IdReceta" ColumnName="IdReceta" />
+          <ScalarProperty Name="IdSilla" ColumnName="IdSilla" />
+          <ScalarProperty Name="IdMesa" ColumnName="IdMesa" />
+          <ScalarProperty Name="IdPedido" ColumnName="IdPedido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prioridades">
+      <EntityTypeMapping TypeName="SisresModel.Prioridades">
+        <MappingFragment StoreEntitySet="Prioridades">
+          <ScalarProperty Name="NombrePrioridad" ColumnName="NombrePrioridad" />
+          <ScalarProperty Name="IdPrioridad" ColumnName="IdPrioridad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstadosSolicitud">
+      <EntityTypeMapping TypeName="SisresModel.EstadosSolicitud">
+        <MappingFragment StoreEntitySet="EstadosSolicitud">
+          <ScalarProperty Name="NombreEstadoSolicitud" ColumnName="NombreEstadoSolicitud" />
+          <ScalarProperty Name="IdEstadoSolicitud" ColumnName="IdEstadoSolicitud" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Solicitudes">
+      <EntityTypeMapping TypeName="SisresModel.Solicitudes">
+        <MappingFragment StoreEntitySet="Solicitudes">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="CantidadRecibida" ColumnName="CantidadRecibida" />
+          <ScalarProperty Name="CantidadSolicitada" ColumnName="CantidadSolicitada" />
+          <ScalarProperty Name="IdInsumo" ColumnName="IdInsumo" />
+          <ScalarProperty Name="IdEstadoSolicitud" ColumnName="IdEstadoSolicitud" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="IdSolicitud" ColumnName="IdSolicitud" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Anfitriones">
+      <EntityTypeMapping TypeName="SisresModel.Anfitriones">
+        <MappingFragment StoreEntitySet="Anfitriones">
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="IdAnfitrion" ColumnName="IdAnfitrion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mesas">
+      <EntityTypeMapping TypeName="SisresModel.Mesas">
+        <MappingFragment StoreEntitySet="Mesas">
+          <ScalarProperty Name="EstadoOrden" ColumnName="EstadoOrden" />
+          <ScalarProperty Name="NombreMesa" ColumnName="NombreMesa" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="IdAnfitrion" ColumnName="IdAnfitrion" />
+          <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+          <ScalarProperty Name="IdMesa" ColumnName="IdMesa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recetas">
+      <EntityTypeMapping TypeName="SisresModel.Recetas">
+        <MappingFragment StoreEntitySet="Recetas">
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="ModoPreparacion" ColumnName="ModoPreparacion" />
+          <ScalarProperty Name="ValorNutricional" ColumnName="ValorNutricional" />
+          <ScalarProperty Name="TiempoPreparacion" ColumnName="TiempoPreparacion" />
+          <ScalarProperty Name="Costo" ColumnName="Costo" />
+          <ScalarProperty Name="IdTipoReceta" ColumnName="IdTipoReceta" />
+          <ScalarProperty Name="NombreReceta" ColumnName="NombreReceta" />
+          <ScalarProperty Name="IdReceta" ColumnName="IdReceta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TiposReceta">
+      <EntityTypeMapping TypeName="SisresModel.TiposReceta">
+        <MappingFragment StoreEntitySet="TiposReceta">
+          <ScalarProperty Name="NombreTipoReceta" ColumnName="NombreTipoReceta" />
+          <ScalarProperty Name="IdTipoReceta" ColumnName="IdTipoReceta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Carta">
+      <EntityTypeMapping TypeName="SisresModel.Carta">
+        <MappingFragment StoreEntitySet="Carta">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="PrecioOferta" ColumnName="PrecioOferta" />
+          <ScalarProperty Name="IsOferta" ColumnName="IsOferta" />
+          <ScalarProperty Name="IdReceta" ColumnName="IdReceta" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="IdCarta" ColumnName="IdCarta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InsumosPorReceta">
+      <EntityTypeMapping TypeName="SisresModel.InsumosPorReceta">
+        <MappingFragment StoreEntitySet="InsumosPorReceta">
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="IdInsumo" ColumnName="IdInsumo" />
+          <ScalarProperty Name="IdReceta" ColumnName="IdReceta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_UnidadMedida">
+      <EntityTypeMapping TypeName="SisresModel.tb_UnidadMedida">
+        <MappingFragment StoreEntitySet="tb_UnidadMedida">
+          <ScalarProperty Name="desMed" ColumnName="desMed" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ordenes">
+      <EntityTypeMapping TypeName="SisresModel.Ordenes">
+        <MappingFragment StoreEntitySet="Ordenes">
+          <ScalarProperty Name="NumeroPedido" ColumnName="NumeroPedido" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="IdReceta" ColumnName="IdReceta" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="IdAnfitrion" ColumnName="IdAnfitrion" />
+          <ScalarProperty Name="IdMesa" ColumnName="IdMesa" />
+          <ScalarProperty Name="IdOrden" ColumnName="IdOrden" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstadosIncidencia">
+      <EntityTypeMapping TypeName="SisresModel.EstadosIncidencia">
+        <MappingFragment StoreEntitySet="EstadosIncidencia">
+          <ScalarProperty Name="NombreEstadoIncidencia" ColumnName="NombreEstadoIncidencia" />
+          <ScalarProperty Name="IdEstadoIncidencia" ColumnName="IdEstadoIncidencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Incidencias">
+      <EntityTypeMapping TypeName="SisresModel.Incidencias">
+        <MappingFragment StoreEntitySet="Incidencias">
+          <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="IdEstadoIncidencia" ColumnName="IdEstadoIncidencia" />
+          <ScalarProperty Name="IdTipoIncidencia" ColumnName="IdTipoIncidencia" />
+          <ScalarProperty Name="NumeroPedido" ColumnName="NumeroPedido" />
+          <ScalarProperty Name="IdIncidencia" ColumnName="IdIncidencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TiposIncidencia">
+      <EntityTypeMapping TypeName="SisresModel.TiposIncidencia">
+        <MappingFragment StoreEntitySet="TiposIncidencia">
+          <ScalarProperty Name="NombreTipoIncidencia" ColumnName="NombreTipoIncidencia" />
+          <ScalarProperty Name="IdTipoIncidencia" ColumnName="IdTipoIncidencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

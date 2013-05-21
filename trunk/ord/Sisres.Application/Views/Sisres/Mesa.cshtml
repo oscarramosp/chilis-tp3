@@ -1,0 +1,170 @@
+﻿@{
+    ViewBag.Title = "Mesa";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>Registrar la mesa asignada a los clientes que ingresen al restaurante.</h2>
+            </hgroup>
+            <p>
+                Se utiliza para registrar los datos de los clientes del restaurante, la mesa ocupada, así
+                también el anfitrion a su servicio y el registro de la cantidad de personas que ocupan la mesa.
+            </p>
+        </div>
+    </section>
+}
+<h3>Asignación de mesa.</h3>
+<table style="width: 100%">
+    <tr>
+        <td style="width: 40%">
+            @using Sisres.Application.Models
+            <div id="div_listaMesas">
+                @{ Html.RenderPartial("_listaMesasPartial", new PartialModels { Text = "Before Clicked" }); }
+            </div>
+        </td>
+        <td>
+            <table>
+                <tr>
+                    <td colspan="2" nowrap>
+                        <label id="lblMensaje" class="labelformat"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right">
+                        @Html.Label("Mesa:")
+                    </td>
+                    <td>
+                        @Html.TextBox("txtMesa", null, new { style = "width:40px", maxlength = "2" })
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right">@Html.Label("Anfitrion:")</td>
+                    <td>
+                        @Html.DropDownList("listaAnfitriones", null, new { style = "height:30px" })
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right">@Html.Label("Cliente:")</td>
+                    <td>@Html.TextBox("txtCliente", null, new { maxlength = "30" })</td>
+                </tr>
+                <tr>
+                    <td style="text-align: right">
+                        @Html.Label("Cantidad:")
+                    </td>
+                    <td>
+                        @Html.TextBox("txtCantidad", null, new { style = "width:40px", maxlength = "2" })
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: right">
+                        <input type="button" value="Reservar" id="Reservar" />
+                        <input type="button" value="Liberar" id="Liberar" />
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<script type="text/jscript" lang="javascript">
+    $(document).ready(function () {
+        $("#Liberar").hide();
+        $("#Reservar").hide();
+        $('#txtMesa').attr("disabled", "disabled");
+        $("#txtCantidad").keydown(function (event) {
+            if (event.keyCode == 8) {
+            }
+            else {
+                if (event.keyCode < 48 || event.keyCode > 57) {
+                    event.preventDefault();
+                }
+            }
+        });
+
+        $("#txtCliente").keydown(function (event) {
+            if (event.keyCode == 32 || event.keyCode == 8) {
+            }
+            else {
+                if (event.keyCode < 65 || (event.keyCode > 90 && event.keyCode > 97) || event.keyCode >92) {
+                    event.preventDefault();
+                }
+            }
+        });
+
+        $('body').on('click', '.clsMesaReservada', function () {
+            var IdMesa = $(this).attr("id");
+            $.post("/Sisres/GetDataReserva", {
+                pIdMesa: IdMesa
+            }, function (data) {
+                if (data) {
+                    $("#txtMesa").val(IdMesa);
+                    $("#listaAnfitriones").val(data.split('|')[0]);
+                    $("#txtCliente").val(data.split('|')[1]);
+                    $("#txtCantidad").val(data.split('|')[2]);
+                    $("#Liberar").show(200);
+                    $("#Reservar").hide(200);
+                }
+                return false;
+            });
+        });
+
+        $('body').on('click', '.clsMesaLibre', function () {
+            $("#txtMesa").val($(this).attr("id"));
+            $("#listaAnfitriones").val(1);
+            $("#txtCliente").val('');
+            $("#txtCantidad").val('');
+            $("#Liberar").hide(200);
+            $("#Reservar").show(200);
+        });
+
+        $('body').on('click', '#Reservar', function () {
+            var pCliente = $("#txtCliente").val().trim();
+            if (pCliente == '') {
+                $("#lblMensaje").text('El campo Nombre Cliente es obligatorio.');
+                return;
+            }
+            var pCantidad = $("#txtCantidad").val().trim();
+            if (pCantidad == '') {
+                $("#lblMensaje").text('El campo Cantidad de Usuarios es obligatorio.');
+                return;
+            }
+            $("#lblMensaje").text('');
+            $.post("/Sisres/Reservar", {
+                pIdMesa: $("#txtMesa").val(),
+                pIdAnfitrion: $("#listaAnfitriones").val(),
+                pCliente: $("#txtCliente").val(),
+                pCantidad: $("#txtCantidad").val()
+            }, function (data) {
+                if (data) {                    
+                    $("#Liberar").show(200);
+                    $("#Reservar").hide(200);
+                    $.post("/Sisres/ActualizaMesa", {
+                    }, function (data) {
+                        $('#div_listaMesas').html(data);
+                    });
+                }
+                return false;
+            });
+        });
+
+        $('body').on('click', '#Liberar', function () {
+            $.post("/Sisres/Liberar", {
+                pIdMesa: $("#txtMesa").val()
+            }, function (data) {
+                if (data) {
+                    $("#listaAnfitriones").val(1);
+                    $("#txtCliente").val('');
+                    $("#txtCantidad").val('');
+                    $("#Liberar").hide(200);
+                    $("#Reservar").show(200);
+                    $.post("/Sisres/ActualizaMesa", {
+                    }, function (data) {
+                        $('#div_listaMesas').html(data);
+                    });
+                }
+                return false;
+            });
+        });
+    });
+</script>

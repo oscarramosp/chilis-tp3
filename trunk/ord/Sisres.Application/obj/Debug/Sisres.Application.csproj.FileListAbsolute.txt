@@ -1,0 +1,338 @@
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\Sisres.Application.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\Sisres.Application.pdb
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\Antlr3.Runtime.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.AspNet.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.Core.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OAuth.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OpenId.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\EntityFramework.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\Microsoft.Web.Infrastructure.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\Newtonsoft.Json.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\Sisres.Entities.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\Sisres.Model.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\System.Net.Http.Formatting.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\System.Web.Helpers.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\System.Web.Http.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\System.Web.Http.WebHost.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\System.Web.Mvc.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\System.Web.Optimization.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\System.Web.Razor.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.Deployment.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.Razor.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\Util.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\WebGrease.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\WebMatrix.Data.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\WebMatrix.WebData.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\Sisres.Entities.pdb
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\Sisres.Model.pdb
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\Util.pdb
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\EntityFramework.xml
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\Newtonsoft.Json.xml
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\System.Net.Http.Formatting.xml
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\System.Web.Helpers.xml
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\System.Web.Http.xml
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\System.Web.Http.WebHost.xml
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\System.Web.Mvc.xml
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\System.Web.Razor.xml
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.xml
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.Deployment.xml
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.Razor.xml
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\WebMatrix.Data.xml
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\WebMatrix.WebData.xml
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.AspNet.xml
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.Core.xml
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OAuth.xml
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OpenId.xml
+D:\Sisres\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\Sisres\Sisres.Solution\Sisres.Application\obj\Debug\Sisres.Application.csprojResolveAssemblyReference.cache
+D:\Sisres\Sisres.Solution\Sisres.Application\obj\Debug\Sisres.Application.dll
+D:\Sisres\Sisres.Solution\Sisres.Application\obj\Debug\Sisres.Application.pdb
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Sisres.Application.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Sisres.Application.pdb
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Antlr3.Runtime.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.Core.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\EntityFramework.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Newtonsoft.Json.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Sisres.Entities.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Sisres.Model.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Net.Http.Formatting.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.Helpers.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.Http.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.Http.WebHost.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.Mvc.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.Optimization.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.Razor.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.Razor.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Util.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\WebGrease.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\WebMatrix.Data.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\WebMatrix.WebData.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Sisres.Entities.pdb
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Sisres.Model.pdb
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Util.pdb
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\EntityFramework.xml
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Newtonsoft.Json.xml
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Net.Http.Formatting.xml
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.Helpers.xml
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.Http.xml
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.Http.WebHost.xml
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.Mvc.xml
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.Razor.xml
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.xml
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.Razor.xml
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\WebMatrix.Data.xml
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\WebMatrix.WebData.xml
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.Core.xml
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\obj\Debug\Sisres.Application.csprojResolveAssemblyReference.cache
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\obj\Debug\Sisres.Application.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Application\obj\Debug\Sisres.Application.pdb
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Sisres.Application.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Sisres.Application.pdb
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Antlr3.Runtime.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.Core.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\EntityFramework.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Newtonsoft.Json.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Sisres.Business.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Sisres.Entities.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Sisres.Model.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Net.Http.Formatting.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.Helpers.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.Http.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.Http.WebHost.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.Mvc.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.Optimization.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.Razor.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.Deployment.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.Razor.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Util.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\WebGrease.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\WebMatrix.Data.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\WebMatrix.WebData.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Sisres.Business.pdb
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Sisres.Entities.pdb
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Sisres.Model.pdb
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Util.pdb
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\EntityFramework.xml
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Newtonsoft.Json.xml
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Net.Http.Formatting.xml
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.Helpers.xml
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.Http.xml
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.Http.WebHost.xml
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.Mvc.xml
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.Razor.xml
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.xml
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.Deployment.xml
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.Razor.xml
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\WebMatrix.Data.xml
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\WebMatrix.WebData.xml
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.Core.xml
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\obj\Debug\Sisres.Application.csprojResolveAssemblyReference.cache
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\obj\Debug\Sisres.Application.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Application\obj\Debug\Sisres.Application.pdb
+D:\Sisres.Solution\Sisres.Application\bin\Sisres.Application.dll
+D:\Sisres.Solution\Sisres.Application\bin\Sisres.Application.pdb
+D:\Sisres.Solution\Sisres.Application\bin\Antlr3.Runtime.dll
+D:\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.AspNet.dll
+D:\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.Core.dll
+D:\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OAuth.dll
+D:\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OpenId.dll
+D:\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\Sisres.Solution\Sisres.Application\bin\EntityFramework.dll
+D:\Sisres.Solution\Sisres.Application\bin\Microsoft.Web.Infrastructure.dll
+D:\Sisres.Solution\Sisres.Application\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\Sisres.Solution\Sisres.Application\bin\Newtonsoft.Json.dll
+D:\Sisres.Solution\Sisres.Application\bin\Sisres.Business.dll
+D:\Sisres.Solution\Sisres.Application\bin\Sisres.Entities.dll
+D:\Sisres.Solution\Sisres.Application\bin\Sisres.Model.dll
+D:\Sisres.Solution\Sisres.Application\bin\System.Net.Http.Formatting.dll
+D:\Sisres.Solution\Sisres.Application\bin\System.Web.Helpers.dll
+D:\Sisres.Solution\Sisres.Application\bin\System.Web.Http.dll
+D:\Sisres.Solution\Sisres.Application\bin\System.Web.Http.WebHost.dll
+D:\Sisres.Solution\Sisres.Application\bin\System.Web.Mvc.dll
+D:\Sisres.Solution\Sisres.Application\bin\System.Web.Optimization.dll
+D:\Sisres.Solution\Sisres.Application\bin\System.Web.Razor.dll
+D:\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.Deployment.dll
+D:\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.dll
+D:\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.Razor.dll
+D:\Sisres.Solution\Sisres.Application\bin\Util.dll
+D:\Sisres.Solution\Sisres.Application\bin\WebGrease.dll
+D:\Sisres.Solution\Sisres.Application\bin\WebMatrix.Data.dll
+D:\Sisres.Solution\Sisres.Application\bin\WebMatrix.WebData.dll
+D:\Sisres.Solution\Sisres.Application\bin\Sisres.Business.pdb
+D:\Sisres.Solution\Sisres.Application\bin\Sisres.Entities.pdb
+D:\Sisres.Solution\Sisres.Application\bin\Sisres.Model.pdb
+D:\Sisres.Solution\Sisres.Application\bin\Util.pdb
+D:\Sisres.Solution\Sisres.Application\bin\EntityFramework.xml
+D:\Sisres.Solution\Sisres.Application\bin\Newtonsoft.Json.xml
+D:\Sisres.Solution\Sisres.Application\bin\System.Net.Http.Formatting.xml
+D:\Sisres.Solution\Sisres.Application\bin\System.Web.Helpers.xml
+D:\Sisres.Solution\Sisres.Application\bin\System.Web.Http.xml
+D:\Sisres.Solution\Sisres.Application\bin\System.Web.Http.WebHost.xml
+D:\Sisres.Solution\Sisres.Application\bin\System.Web.Mvc.xml
+D:\Sisres.Solution\Sisres.Application\bin\System.Web.Razor.xml
+D:\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.xml
+D:\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.Deployment.xml
+D:\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.Razor.xml
+D:\Sisres.Solution\Sisres.Application\bin\WebMatrix.Data.xml
+D:\Sisres.Solution\Sisres.Application\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\Sisres.Solution\Sisres.Application\bin\WebMatrix.WebData.xml
+D:\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.AspNet.xml
+D:\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.Core.xml
+D:\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OAuth.xml
+D:\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OpenId.xml
+D:\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\Sisres.Solution\Sisres.Application\obj\Debug\Sisres.Application.csprojResolveAssemblyReference.cache
+D:\Sisres.Solution\Sisres.Application\obj\Debug\Sisres.Application.dll
+D:\Sisres.Solution\Sisres.Application\obj\Debug\Sisres.Application.pdb
+F:\Sisres.Solution\Sisres.Application\bin\Sisres.Application.dll
+F:\Sisres.Solution\Sisres.Application\bin\Sisres.Application.pdb
+F:\Sisres.Solution\Sisres.Application\bin\Antlr3.Runtime.dll
+F:\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.AspNet.dll
+F:\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.Core.dll
+F:\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OAuth.dll
+F:\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OpenId.dll
+F:\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\Sisres.Solution\Sisres.Application\bin\EntityFramework.dll
+F:\Sisres.Solution\Sisres.Application\bin\Microsoft.Web.Infrastructure.dll
+F:\Sisres.Solution\Sisres.Application\bin\Microsoft.Web.WebPages.OAuth.dll
+F:\Sisres.Solution\Sisres.Application\bin\Newtonsoft.Json.dll
+F:\Sisres.Solution\Sisres.Application\bin\Sisres.Business.dll
+F:\Sisres.Solution\Sisres.Application\bin\Sisres.Entities.dll
+F:\Sisres.Solution\Sisres.Application\bin\Sisres.Model.dll
+F:\Sisres.Solution\Sisres.Application\bin\System.Net.Http.Formatting.dll
+F:\Sisres.Solution\Sisres.Application\bin\System.Web.Helpers.dll
+F:\Sisres.Solution\Sisres.Application\bin\System.Web.Http.dll
+F:\Sisres.Solution\Sisres.Application\bin\System.Web.Http.WebHost.dll
+F:\Sisres.Solution\Sisres.Application\bin\System.Web.Mvc.dll
+F:\Sisres.Solution\Sisres.Application\bin\System.Web.Optimization.dll
+F:\Sisres.Solution\Sisres.Application\bin\System.Web.Razor.dll
+F:\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.Deployment.dll
+F:\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.dll
+F:\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.Razor.dll
+F:\Sisres.Solution\Sisres.Application\bin\Util.dll
+F:\Sisres.Solution\Sisres.Application\bin\WebGrease.dll
+F:\Sisres.Solution\Sisres.Application\bin\WebMatrix.Data.dll
+F:\Sisres.Solution\Sisres.Application\bin\WebMatrix.WebData.dll
+F:\Sisres.Solution\Sisres.Application\bin\Sisres.Business.pdb
+F:\Sisres.Solution\Sisres.Application\bin\Sisres.Entities.pdb
+F:\Sisres.Solution\Sisres.Application\bin\Sisres.Model.pdb
+F:\Sisres.Solution\Sisres.Application\bin\Util.pdb
+F:\Sisres.Solution\Sisres.Application\bin\EntityFramework.xml
+F:\Sisres.Solution\Sisres.Application\bin\Newtonsoft.Json.xml
+F:\Sisres.Solution\Sisres.Application\bin\System.Net.Http.Formatting.xml
+F:\Sisres.Solution\Sisres.Application\bin\System.Web.Helpers.xml
+F:\Sisres.Solution\Sisres.Application\bin\System.Web.Http.xml
+F:\Sisres.Solution\Sisres.Application\bin\System.Web.Http.WebHost.xml
+F:\Sisres.Solution\Sisres.Application\bin\System.Web.Mvc.xml
+F:\Sisres.Solution\Sisres.Application\bin\System.Web.Razor.xml
+F:\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.xml
+F:\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.Deployment.xml
+F:\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.Razor.xml
+F:\Sisres.Solution\Sisres.Application\bin\WebMatrix.Data.xml
+F:\Sisres.Solution\Sisres.Application\bin\Microsoft.Web.WebPages.OAuth.xml
+F:\Sisres.Solution\Sisres.Application\bin\WebMatrix.WebData.xml
+F:\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.AspNet.xml
+F:\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.Core.xml
+F:\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OAuth.xml
+F:\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OpenId.xml
+F:\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\Sisres.Solution\Sisres.Application\obj\Debug\Sisres.Application.csprojResolveAssemblyReference.cache
+F:\Sisres.Solution\Sisres.Application\obj\Debug\Sisres.Application.dll
+F:\Sisres.Solution\Sisres.Application\obj\Debug\Sisres.Application.pdb
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\Sisres.Application.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\Sisres.Application.pdb
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\Antlr3.Runtime.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.AspNet.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.Core.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OAuth.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OpenId.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\EntityFramework.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\Microsoft.Web.Infrastructure.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\Newtonsoft.Json.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\Sisres.Business.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\Sisres.Entities.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\Sisres.Model.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\System.Net.Http.Formatting.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\System.Web.Helpers.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\System.Web.Http.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\System.Web.Http.WebHost.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\System.Web.Mvc.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\System.Web.Optimization.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\System.Web.Razor.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.Deployment.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.Razor.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\Util.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\WebGrease.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\WebMatrix.Data.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\WebMatrix.WebData.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\Sisres.Business.pdb
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\Sisres.Entities.pdb
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\Sisres.Model.pdb
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\Util.pdb
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\EntityFramework.xml
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\Newtonsoft.Json.xml
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\System.Net.Http.Formatting.xml
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\System.Web.Helpers.xml
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\System.Web.Http.xml
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\System.Web.Http.WebHost.xml
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\System.Web.Mvc.xml
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\System.Web.Razor.xml
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.xml
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.Deployment.xml
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\System.Web.WebPages.Razor.xml
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\WebMatrix.Data.xml
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\WebMatrix.WebData.xml
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.AspNet.xml
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.Core.xml
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OAuth.xml
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OpenId.xml
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\obj\Debug\Sisres.Application.csprojResolveAssemblyReference.cache
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\obj\Debug\Sisres.Application.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Application\obj\Debug\Sisres.Application.pdb

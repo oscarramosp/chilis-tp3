@@ -1,0 +1,24 @@
+﻿@{
+    WebGrid wgSolicitudes= new WebGrid(ViewBag.listaSolicitudes, rowsPerPage: 100);
+}
+
+@wgSolicitudes.GetHtml(tableStyle: "tables ListaDetalle", headerStyle: "webgrid-header", footerStyle: "webgrid-footer", alternatingRowStyle: "webgrid-alternating-row", selectedRowStyle: "webgrid-selected-row",
+rowStyle: "webgrid-row-style",
+            columns: wgSolicitudes.Columns(
+            wgSolicitudes.Column("IdSolicitud", header: "Codigo", canSort: false),
+            wgSolicitudes.Column("", header: "Fecha", canSort: false,
+            format:(item)=>item.Fecha),
+            wgSolicitudes.Column("EstadosSolicitud.NombreEstadoSolicitud", header: "Estado", canSort: false),
+            wgSolicitudes.Column("Insumos.NombreInsumo", header: "Insumo", canSort: false),
+                wgSolicitudes.Column("CantidadSolicitada", header: "Solicitado", canSort: false),
+            wgSolicitudes.Column("Insumos.Prioridades.NombrePrioridad", header: "Prioridad", canSort: false),
+            wgSolicitudes.Column("", header: "Atender pedido", canSort: false,
+            format:@<text>
+@Html.CheckBox("RecibirSolicitud", false, new {@id=item.IdSolicitud,@class="clschbSolicitud" })
+</text>),
+wgSolicitudes.Column("", header: "Recibido", canSort: false,
+format: @<text>
+@Html.TextBox("txtRecibido", null, new { @id = "recibido"+item.IdSolicitud, @class = "clstxtRecibido", style = "width:20px", maxlength = "2" })
+</text>)),htmlAttributes: new { @style = "width:100%;" })
+
+@{ Layout = null; }

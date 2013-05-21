@@ -1,0 +1,37 @@
+﻿@{
+    WebGrid wgRecetas = new WebGrid(ViewBag.listaRecetas, rowsPerPage: 100);
+}
+
+@wgRecetas.GetHtml(tableStyle: "tables ListaDetalle", headerStyle: "webgrid-header", footerStyle: "webgrid-footer", alternatingRowStyle: "webgrid-alternating-row", selectedRowStyle: "webgrid-selected-row",
+rowStyle: "webgrid-row-style",
+            columns: wgRecetas.Columns(
+            wgRecetas.Column("IdReceta", header: "Codigo", canSort: false),
+            wgRecetas.Column("", header: "Nombre", canSort: true,
+            format:@<text>
+<a href="#" onclick="detalleReceta(@item.IdReceta);">@item.NombreReceta</a>
+</text>),
+                //format:(item) => Html.ActionLink((string)item.NombreReceta,new{id="link",IdReceta=item.IdReceta})),
+            wgRecetas.Column("TiposReceta.NombreTipoReceta", header: "Tipo", canSort: true),
+            wgRecetas.Column("Costo", header: "Costo", canSort: true),
+            wgRecetas.Column("Precio", header: "Precio", canSort: true),
+            wgRecetas.Column("TiempoPreparacion", header: "Tiempo prep.", canSort: true),
+            wgRecetas.Column("ValorNutricional", header: "V.N.", canSort: true),
+            wgRecetas.Column("", header: "Carta", canSort: false,
+            format: @<text>
+@Html.CheckBox("IncluirCarta", false, new { @id = item.IdReceta, @class = "clschbCarta" })
+</text>),
+wgRecetas.Column("", header: "Oferta", canSort: false,
+            format: @<text>
+@Html.CheckBox("AsignarOferta", false, new { @id = "oferta"+item.IdReceta, @class = "clschbOferta" })
+</text>),
+wgRecetas.Column("", header: "Precio Oferta", canSort: false,
+            format: @<text>
+@Html.TextBox("txtPrecioOferta", null, new { @id = "precio"+item.IdReceta, @class = "clstxtPrecioOferta", style = "width:55px", maxlength = "6" })
+</text>),
+wgRecetas.Column("", header: "", canSort: false,
+            format:@<text>
+<a href="#" onclick="VerReceta(@item.IdReceta);">ver receta</a>
+</text>)
+), htmlAttributes: new { @style = "width:100%;" })
+
+@{ Layout = null; }

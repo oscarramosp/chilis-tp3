@@ -1,0 +1,33 @@
+﻿@{
+    WebGrid wgInsumos = new WebGrid(ViewBag.listaInsumos, rowsPerPage: 100);
+}
+
+@wgInsumos.GetHtml(tableStyle: "tables ListaDetalle", headerStyle: "webgrid-header", footerStyle: "webgrid-footer", alternatingRowStyle: "webgrid-alternating-row", selectedRowStyle: "webgrid-selected-row",
+rowStyle: "webgrid-row-style",
+            columns: wgInsumos.Columns(
+            wgInsumos.Column("IdInsumo", header: "Codigo", canSort: false),
+            wgInsumos.Column("NombreInsumo", header: "Nombre", canSort: true),
+            wgInsumos.Column("tb_UnidadMedida.desMed", header: "UM", canSort: false),
+            wgInsumos.Column("StockNormal", header: "Stock normal", canSort: true),
+            wgInsumos.Column("CantidadRequerida", header: "Requerido", canSort: true),
+            wgInsumos.Column("StockActual", header: "Stock actual", canSort: true),
+            wgInsumos.Column("", header: "Saldo", canSort: true,
+            format: (item) => (int)item.StockActual - (int)item.CantidadRequerida),
+            wgInsumos.Column("StockMinimo", header: "Stock Minimo", canSort: true),
+            wgInsumos.Column("", header: "Solicitar", canSort: true,
+            format: @<text>
+@Html.CheckBox("SolicitarAlmacen", false, new { @id = item.IdInsumo, @class = "clschbInsumo" })
+</text>),
+wgInsumos.Column("", header: "Cant. solicitada", canSort: false,
+            format: @<text>
+@Html.TextBox("txtCantidadSolicitada", null, new { @id = "cantidad" + item.IdInsumo, @class = "clstxtInsumo", style = "width:20px", maxlength = "2" })
+</text>),
+            wgInsumos.Column("Prioridades.NombrePrioridad", header: "Prioridad", canSort: false),
+            wgInsumos.Column("", "Eliminar", format: @<text>
+<div style="cursor: pointer;">
+    <img id='@item.IdInsumo' src="~/Images/delete.png" title="Eliminar insumo" width="20" class="clsEliminar" />
+                               @*onmouseover="this.src='~/Images/delete_over.png'" onmouseout="this.src='~/Images/delete.png'"/>*@
+</div>
+</text>)), htmlAttributes: new { @style = "width:100%;" })
+
+@{ Layout = null; }

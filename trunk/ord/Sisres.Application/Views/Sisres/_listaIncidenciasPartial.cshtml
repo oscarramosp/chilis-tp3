@@ -1,0 +1,22 @@
+﻿@{
+    WebGrid wgIncidencia = new WebGrid(ViewBag.listaIncidencias, rowsPerPage: 100);
+}
+
+@wgIncidencia.GetHtml(tableStyle: "tables ListaDetalle", headerStyle: "webgrid-header", footerStyle: "webgrid-footer", alternatingRowStyle: "webgrid-alternating-row", selectedRowStyle: "webgrid-selected-row",
+rowStyle: "webgrid-row-style",
+            columns: wgIncidencia.Columns(
+            wgIncidencia.Column("NumeroPedido", header: "Número Orden", canSort: false),
+            wgIncidencia.Column("TiposIncidencia.NombreTipoIncidencia", header: "Tipo Incidencia", canSort: true),
+            wgIncidencia.Column("EstadosIncidencia.NombreEstadoIncidencia", header: "Estado", canSort: false),
+wgIncidencia.Column("", "Editar", format: @<text>
+<div style="cursor: pointer;">
+    <img id='@item.IdIncidencia' src="~/Images/edit.png" title="Editar incidencia" width="20" class="clsEditar"/>
+</div>
+</text>),
+            wgIncidencia.Column("", "Eliminar", format: @<text>
+<div style="cursor: pointer;">
+    <img id='@item.IdIncidencia' src="~/Images/delete.png" title="Eliminar incidencia" width="20" class="clsEliminar" />
+</div>
+</text>)), htmlAttributes: new { @style = "width:100%;" })
+
+@{ Layout = null; }

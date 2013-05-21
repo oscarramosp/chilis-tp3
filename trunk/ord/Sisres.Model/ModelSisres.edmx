@@ -1,0 +1,1004 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SisresModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="SisresModelStoreContainer">
+          <EntitySet Name="Anfitriones" EntityType="SisresModel.Store.Anfitriones" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Carta" EntityType="SisresModel.Store.Carta" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EstadosIncidencia" EntityType="SisresModel.Store.EstadosIncidencia" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EstadosSolicitud" EntityType="SisresModel.Store.EstadosSolicitud" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Incidencias" EntityType="SisresModel.Store.Incidencias" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Insumos" EntityType="SisresModel.Store.Insumos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="InsumosPorReceta" EntityType="SisresModel.Store.InsumosPorReceta" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Mesas" EntityType="SisresModel.Store.Mesas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Ordenes" EntityType="SisresModel.Store.Ordenes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Pedidos" EntityType="SisresModel.Store.Pedidos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Prioridades" EntityType="SisresModel.Store.Prioridades" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Recetas" EntityType="SisresModel.Store.Recetas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Solicitudes" EntityType="SisresModel.Store.Solicitudes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tb_UnidadMedida" EntityType="SisresModel.Store.tb_UnidadMedida" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TiposIncidencia" EntityType="SisresModel.Store.TiposIncidencia" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TiposReceta" EntityType="SisresModel.Store.TiposReceta" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Carta_Recetas" Association="SisresModel.Store.FK_Carta_Recetas">
+            <End Role="Recetas" EntitySet="Recetas" />
+            <End Role="Carta" EntitySet="Carta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Incidencias_EstadosIncidencia" Association="SisresModel.Store.FK_Incidencias_EstadosIncidencia">
+            <End Role="EstadosIncidencia" EntitySet="EstadosIncidencia" />
+            <End Role="Incidencias" EntitySet="Incidencias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Incidencias_TiposIncidencia" Association="SisresModel.Store.FK_Incidencias_TiposIncidencia">
+            <End Role="TiposIncidencia" EntitySet="TiposIncidencia" />
+            <End Role="Incidencias" EntitySet="Incidencias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Insumos_Prioridades" Association="SisresModel.Store.FK_Insumos_Prioridades">
+            <End Role="Prioridades" EntitySet="Prioridades" />
+            <End Role="Insumos" EntitySet="Insumos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Insumos_UnidadesMedida" Association="SisresModel.Store.FK_Insumos_UnidadesMedida">
+            <End Role="tb_UnidadMedida" EntitySet="tb_UnidadMedida" />
+            <End Role="Insumos" EntitySet="Insumos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InsumosPorReceta_Insumos" Association="SisresModel.Store.FK_InsumosPorReceta_Insumos">
+            <End Role="Insumos" EntitySet="Insumos" />
+            <End Role="InsumosPorReceta" EntitySet="InsumosPorReceta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InsumosPorReceta_Recetas" Association="SisresModel.Store.FK_InsumosPorReceta_Recetas">
+            <End Role="Recetas" EntitySet="Recetas" />
+            <End Role="InsumosPorReceta" EntitySet="InsumosPorReceta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ordenes_Anfitriones" Association="SisresModel.Store.FK_Ordenes_Anfitriones">
+            <End Role="Anfitriones" EntitySet="Anfitriones" />
+            <End Role="Ordenes" EntitySet="Ordenes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ordenes_Mesas" Association="SisresModel.Store.FK_Ordenes_Mesas">
+            <End Role="Mesas" EntitySet="Mesas" />
+            <End Role="Ordenes" EntitySet="Ordenes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ordenes_Recetas" Association="SisresModel.Store.FK_Ordenes_Recetas">
+            <End Role="Recetas" EntitySet="Recetas" />
+            <End Role="Ordenes" EntitySet="Ordenes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recetas_TiposReceta" Association="SisresModel.Store.FK_Recetas_TiposReceta">
+            <End Role="TiposReceta" EntitySet="TiposReceta" />
+            <End Role="Recetas" EntitySet="Recetas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solicitudes_EstadosSolicitud" Association="SisresModel.Store.FK_Solicitudes_EstadosSolicitud">
+            <End Role="EstadosSolicitud" EntitySet="EstadosSolicitud" />
+            <End Role="Solicitudes" EntitySet="Solicitudes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solicitudes_Insumos" Association="SisresModel.Store.FK_Solicitudes_Insumos">
+            <End Role="Insumos" EntitySet="Insumos" />
+            <End Role="Solicitudes" EntitySet="Solicitudes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Anfitriones">
+          <Key>
+            <PropertyRef Name="IdAnfitrion" />
+          </Key>
+          <Property Name="IdAnfitrion" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="nchar" Nullable="false" MaxLength="5" />
+          <Property Name="Nombres" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Apellidos" Type="nchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Carta">
+          <Key>
+            <PropertyRef Name="IdCarta" />
+          </Key>
+          <Property Name="IdCarta" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="IdReceta" Type="int" Nullable="false" />
+          <Property Name="IsOferta" Type="bit" Nullable="false" />
+          <Property Name="PrecioOferta" Type="numeric" Nullable="false" Scale="2" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EstadosIncidencia">
+          <Key>
+            <PropertyRef Name="IdEstadoIncidencia" />
+          </Key>
+          <Property Name="IdEstadoIncidencia" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NombreEstadoIncidencia" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EstadosSolicitud">
+          <Key>
+            <PropertyRef Name="IdEstadoSolicitud" />
+          </Key>
+          <Property Name="IdEstadoSolicitud" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NombreEstadoSolicitud" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Incidencias">
+          <Key>
+            <PropertyRef Name="IdIncidencia" />
+          </Key>
+          <Property Name="IdIncidencia" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NumeroPedido" Type="int" Nullable="false" />
+          <Property Name="IdTipoIncidencia" Type="int" Nullable="false" />
+          <Property Name="IdEstadoIncidencia" Type="int" Nullable="false" />
+          <Property Name="Detalle" Type="varchar(max)" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Insumos">
+          <Key>
+            <PropertyRef Name="IdInsumo" />
+          </Key>
+          <Property Name="IdInsumo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NombreInsumo" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CODIGO" Type="int" Nullable="false" />
+          <Property Name="StockNormal" Type="numeric" Nullable="false" Scale="2" />
+          <Property Name="CantidadRequerida" Type="numeric" Scale="2" />
+          <Property Name="StockActual" Type="numeric" Scale="2" />
+          <Property Name="StockMinimo" Type="numeric" Nullable="false" Scale="2" />
+          <Property Name="IdPrioridad" Type="int" Nullable="false" />
+          <Property Name="CantidadSolicitada" Type="numeric" Scale="2" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InsumosPorReceta">
+          <Key>
+            <PropertyRef Name="IdReceta" />
+            <PropertyRef Name="IdInsumo" />
+          </Key>
+          <Property Name="IdReceta" Type="int" Nullable="false" />
+          <Property Name="IdInsumo" Type="int" Nullable="false" />
+          <Property Name="Cantidad" Type="numeric" Nullable="false" Scale="2" />
+        </EntityType>
+        <EntityType Name="Mesas">
+          <Key>
+            <PropertyRef Name="IdMesa" />
+          </Key>
+          <Property Name="IdMesa" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NombreMesa" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Cliente" Type="varchar" MaxLength="50" />
+          <Property Name="IdAnfitrion" Type="int" />
+          <Property Name="Cantidad" Type="int" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+          <Property Name="EstadoOrden" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ordenes">
+          <Key>
+            <PropertyRef Name="IdOrden" />
+          </Key>
+          <Property Name="IdOrden" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NumeroPedido" Type="int" Nullable="false" />
+          <Property Name="IdMesa" Type="int" Nullable="false" />
+          <Property Name="IdAnfitrion" Type="int" Nullable="false" />
+          <Property Name="IdReceta" Type="int" Nullable="false" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pedidos">
+          <Key>
+            <PropertyRef Name="IdPedido" />
+          </Key>
+          <Property Name="IdPedido" Type="int" Nullable="false" />
+          <Property Name="IdMesa" Type="int" Nullable="false" />
+          <Property Name="IdSilla" Type="int" Nullable="false" />
+          <Property Name="IdReceta" Type="int" Nullable="false" />
+          <Property Name="Cantidad" Type="int" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Prioridades">
+          <Key>
+            <PropertyRef Name="IdPrioridad" />
+          </Key>
+          <Property Name="IdPrioridad" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NombrePrioridad" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Recetas">
+          <Key>
+            <PropertyRef Name="IdReceta" />
+          </Key>
+          <Property Name="IdReceta" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NombreReceta" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdTipoReceta" Type="int" Nullable="false" />
+          <Property Name="Costo" Type="numeric" Nullable="false" />
+          <Property Name="Precio" Type="numeric" Nullable="false" />
+          <Property Name="TiempoPreparacion" Type="int" Nullable="false" />
+          <Property Name="ValorNutricional" Type="int" Nullable="false" />
+          <Property Name="ModoPreparacion" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Solicitudes">
+          <Key>
+            <PropertyRef Name="IdSolicitud" />
+          </Key>
+          <Property Name="IdSolicitud" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="IdEstadoSolicitud" Type="int" Nullable="false" />
+          <Property Name="IdInsumo" Type="int" Nullable="false" />
+          <Property Name="CantidadSolicitada" Type="int" Nullable="false" />
+          <Property Name="CantidadRecibida" Type="int" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_UnidadMedida">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="desMed" Type="varchar" Nullable="false" MaxLength="600" />
+        </EntityType>
+        <EntityType Name="TiposIncidencia">
+          <Key>
+            <PropertyRef Name="IdTipoIncidencia" />
+          </Key>
+          <Property Name="IdTipoIncidencia" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NombreTipoIncidencia" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TiposReceta">
+          <Key>
+            <PropertyRef Name="IdTipoReceta" />
+          </Key>
+          <Property Name="IdTipoReceta" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NombreTipoReceta" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Carta_Recetas">
+          <End Role="Recetas" Type="SisresModel.Store.Recetas" Multiplicity="1" />
+          <End Role="Carta" Type="SisresModel.Store.Carta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recetas">
+              <PropertyRef Name="IdReceta" />
+            </Principal>
+            <Dependent Role="Carta">
+              <PropertyRef Name="IdReceta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Incidencias_EstadosIncidencia">
+          <End Role="EstadosIncidencia" Type="SisresModel.Store.EstadosIncidencia" Multiplicity="1" />
+          <End Role="Incidencias" Type="SisresModel.Store.Incidencias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadosIncidencia">
+              <PropertyRef Name="IdEstadoIncidencia" />
+            </Principal>
+            <Dependent Role="Incidencias">
+              <PropertyRef Name="IdEstadoIncidencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Incidencias_TiposIncidencia">
+          <End Role="TiposIncidencia" Type="SisresModel.Store.TiposIncidencia" Multiplicity="1" />
+          <End Role="Incidencias" Type="SisresModel.Store.Incidencias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposIncidencia">
+              <PropertyRef Name="IdTipoIncidencia" />
+            </Principal>
+            <Dependent Role="Incidencias">
+              <PropertyRef Name="IdTipoIncidencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Insumos_Prioridades">
+          <End Role="Prioridades" Type="SisresModel.Store.Prioridades" Multiplicity="1" />
+          <End Role="Insumos" Type="SisresModel.Store.Insumos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prioridades">
+              <PropertyRef Name="IdPrioridad" />
+            </Principal>
+            <Dependent Role="Insumos">
+              <PropertyRef Name="IdPrioridad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Insumos_UnidadesMedida">
+          <End Role="tb_UnidadMedida" Type="SisresModel.Store.tb_UnidadMedida" Multiplicity="1" />
+          <End Role="Insumos" Type="SisresModel.Store.Insumos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_UnidadMedida">
+              <PropertyRef Name="codigo" />
+            </Principal>
+            <Dependent Role="Insumos">
+              <PropertyRef Name="CODIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InsumosPorReceta_Insumos">
+          <End Role="Insumos" Type="SisresModel.Store.Insumos" Multiplicity="1" />
+          <End Role="InsumosPorReceta" Type="SisresModel.Store.InsumosPorReceta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Insumos">
+              <PropertyRef Name="IdInsumo" />
+            </Principal>
+            <Dependent Role="InsumosPorReceta">
+              <PropertyRef Name="IdInsumo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InsumosPorReceta_Recetas">
+          <End Role="Recetas" Type="SisresModel.Store.Recetas" Multiplicity="1" />
+          <End Role="InsumosPorReceta" Type="SisresModel.Store.InsumosPorReceta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recetas">
+              <PropertyRef Name="IdReceta" />
+            </Principal>
+            <Dependent Role="InsumosPorReceta">
+              <PropertyRef Name="IdReceta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ordenes_Anfitriones">
+          <End Role="Anfitriones" Type="SisresModel.Store.Anfitriones" Multiplicity="1" />
+          <End Role="Ordenes" Type="SisresModel.Store.Ordenes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Anfitriones">
+              <PropertyRef Name="IdAnfitrion" />
+            </Principal>
+            <Dependent Role="Ordenes">
+              <PropertyRef Name="IdAnfitrion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ordenes_Mesas">
+          <End Role="Mesas" Type="SisresModel.Store.Mesas" Multiplicity="1" />
+          <End Role="Ordenes" Type="SisresModel.Store.Ordenes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mesas">
+              <PropertyRef Name="IdMesa" />
+            </Principal>
+            <Dependent Role="Ordenes">
+              <PropertyRef Name="IdMesa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ordenes_Recetas">
+          <End Role="Recetas" Type="SisresModel.Store.Recetas" Multiplicity="1" />
+          <End Role="Ordenes" Type="SisresModel.Store.Ordenes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recetas">
+              <PropertyRef Name="IdReceta" />
+            </Principal>
+            <Dependent Role="Ordenes">
+              <PropertyRef Name="IdReceta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recetas_TiposReceta">
+          <End Role="TiposReceta" Type="SisresModel.Store.TiposReceta" Multiplicity="1" />
+          <End Role="Recetas" Type="SisresModel.Store.Recetas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposReceta">
+              <PropertyRef Name="IdTipoReceta" />
+            </Principal>
+            <Dependent Role="Recetas">
+              <PropertyRef Name="IdTipoReceta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solicitudes_EstadosSolicitud">
+          <End Role="EstadosSolicitud" Type="SisresModel.Store.EstadosSolicitud" Multiplicity="1" />
+          <End Role="Solicitudes" Type="SisresModel.Store.Solicitudes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadosSolicitud">
+              <PropertyRef Name="IdEstadoSolicitud" />
+            </Principal>
+            <Dependent Role="Solicitudes">
+              <PropertyRef Name="IdEstadoSolicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solicitudes_Insumos">
+          <End Role="Insumos" Type="SisresModel.Store.Insumos" Multiplicity="1" />
+          <End Role="Solicitudes" Type="SisresModel.Store.Solicitudes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Insumos">
+              <PropertyRef Name="IdInsumo" />
+            </Principal>
+            <Dependent Role="Solicitudes">
+              <PropertyRef Name="IdInsumo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SisresModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SisresEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Insumos" EntityType="SisresModel.Insumos" />
+          <EntitySet Name="Pedidos" EntityType="SisresModel.Pedidos" />
+          <EntitySet Name="Prioridades" EntityType="SisresModel.Prioridades" />
+          <AssociationSet Name="FK_Insumos_Prioridades" Association="SisresModel.FK_Insumos_Prioridades">
+            <End Role="Prioridades" EntitySet="Prioridades" />
+            <End Role="Insumos" EntitySet="Insumos" />
+          </AssociationSet>
+          <EntitySet Name="EstadosSolicitud" EntityType="SisresModel.EstadosSolicitud" />
+          <EntitySet Name="Solicitudes" EntityType="SisresModel.Solicitudes" />
+          <AssociationSet Name="FK_Solicitudes_EstadosSolicitud" Association="SisresModel.FK_Solicitudes_EstadosSolicitud">
+            <End Role="EstadosSolicitud" EntitySet="EstadosSolicitud" />
+            <End Role="Solicitudes" EntitySet="Solicitudes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solicitudes_Insumos" Association="SisresModel.FK_Solicitudes_Insumos">
+            <End Role="Insumos" EntitySet="Insumos" />
+            <End Role="Solicitudes" EntitySet="Solicitudes" />
+          </AssociationSet>
+          <EntitySet Name="Anfitriones" EntityType="SisresModel.Anfitriones" />
+          <EntitySet Name="Mesas" EntityType="SisresModel.Mesas" />
+          <EntitySet Name="Recetas" EntityType="SisresModel.Recetas" />
+          <EntitySet Name="TiposReceta" EntityType="SisresModel.TiposReceta" />
+          <AssociationSet Name="FK_Recetas_TiposReceta" Association="SisresModel.FK_Recetas_TiposReceta">
+            <End Role="TiposReceta" EntitySet="TiposReceta" />
+            <End Role="Recetas" EntitySet="Recetas" />
+          </AssociationSet>
+          <EntitySet Name="Carta" EntityType="SisresModel.Carta" />
+          <EntitySet Name="InsumosPorReceta" EntityType="SisresModel.InsumosPorReceta" />
+          <AssociationSet Name="FK_Carta_Recetas" Association="SisresModel.FK_Carta_Recetas">
+            <End Role="Recetas" EntitySet="Recetas" />
+            <End Role="Carta" EntitySet="Carta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InsumosPorReceta_Insumos" Association="SisresModel.FK_InsumosPorReceta_Insumos">
+            <End Role="Insumos" EntitySet="Insumos" />
+            <End Role="InsumosPorReceta" EntitySet="InsumosPorReceta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InsumosPorReceta_Recetas" Association="SisresModel.FK_InsumosPorReceta_Recetas">
+            <End Role="Recetas" EntitySet="Recetas" />
+            <End Role="InsumosPorReceta" EntitySet="InsumosPorReceta" />
+          </AssociationSet>
+          <EntitySet Name="tb_UnidadMedida" EntityType="SisresModel.tb_UnidadMedida" />
+          <AssociationSet Name="FK_Insumos_UnidadesMedida1" Association="SisresModel.FK_Insumos_UnidadesMedida1">
+            <End Role="tb_UnidadMedida" EntitySet="tb_UnidadMedida" />
+            <End Role="Insumos" EntitySet="Insumos" />
+          </AssociationSet>
+          <EntitySet Name="Ordenes" EntityType="SisresModel.Ordenes" />
+          <AssociationSet Name="FK_Ordenes_Anfitriones" Association="SisresModel.FK_Ordenes_Anfitriones">
+            <End Role="Anfitriones" EntitySet="Anfitriones" />
+            <End Role="Ordenes" EntitySet="Ordenes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ordenes_Mesas" Association="SisresModel.FK_Ordenes_Mesas">
+            <End Role="Mesas" EntitySet="Mesas" />
+            <End Role="Ordenes" EntitySet="Ordenes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ordenes_Recetas" Association="SisresModel.FK_Ordenes_Recetas">
+            <End Role="Recetas" EntitySet="Recetas" />
+            <End Role="Ordenes" EntitySet="Ordenes" />
+          </AssociationSet>
+          <EntitySet Name="EstadosIncidencia" EntityType="SisresModel.EstadosIncidencia" />
+          <EntitySet Name="Incidencias" EntityType="SisresModel.Incidencias" />
+          <EntitySet Name="TiposIncidencia" EntityType="SisresModel.TiposIncidencia" />
+          <AssociationSet Name="FK_Incidencias_EstadosIncidencia" Association="SisresModel.FK_Incidencias_EstadosIncidencia">
+            <End Role="EstadosIncidencia" EntitySet="EstadosIncidencia" />
+            <End Role="Incidencias" EntitySet="Incidencias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Incidencias_TiposIncidencia" Association="SisresModel.FK_Incidencias_TiposIncidencia">
+            <End Role="TiposIncidencia" EntitySet="TiposIncidencia" />
+            <End Role="Incidencias" EntitySet="Incidencias" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Insumos">
+          <Key>
+            <PropertyRef Name="IdInsumo" />
+          </Key>
+          <Property Type="Int32" Name="IdInsumo" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NombreInsumo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="StockNormal" Nullable="false" />
+          <Property Type="Int32" Name="StockMinimo" Nullable="false" />
+          <Property Type="Int32" Name="IdPrioridad" Nullable="false" />
+          <NavigationProperty Name="Prioridades" Relationship="SisresModel.FK_Insumos_Prioridades" FromRole="Insumos" ToRole="Prioridades" />
+          <Property Type="Int32" Name="CantidadSolicitada" />
+          <NavigationProperty Name="Solicitudes" Relationship="SisresModel.FK_Solicitudes_Insumos" FromRole="Insumos" ToRole="Solicitudes" />
+          <Property Type="Int32" Name="CantidadRequerida" />
+          <Property Type="Int32" Name="StockActual" />
+          <NavigationProperty Name="InsumosPorReceta" Relationship="SisresModel.FK_InsumosPorReceta_Insumos" FromRole="Insumos" ToRole="InsumosPorReceta" />
+          <Property Type="Boolean" Name="Estado" Nullable="false" />
+          <Property Type="Int32" Name="CODIGO" Nullable="false" />
+          <NavigationProperty Name="tb_UnidadMedida" Relationship="SisresModel.FK_Insumos_UnidadesMedida1" FromRole="Insumos" ToRole="tb_UnidadMedida" />
+        </EntityType>
+        <EntityType Name="Pedidos">
+          <Key>
+            <PropertyRef Name="IdPedido" />
+          </Key>
+          <Property Type="Int32" Name="IdPedido" Nullable="false" />
+          <Property Type="Int32" Name="IdMesa" Nullable="false" />
+          <Property Type="Int32" Name="IdSilla" Nullable="false" />
+          <Property Type="Int32" Name="IdReceta" Nullable="false" />
+          <Property Type="Int32" Name="Cantidad" />
+          <Property Type="Boolean" Name="Estado" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Prioridades">
+          <Key>
+            <PropertyRef Name="IdPrioridad" />
+          </Key>
+          <Property Type="Int32" Name="IdPrioridad" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NombrePrioridad" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Insumos" Relationship="SisresModel.FK_Insumos_Prioridades" FromRole="Prioridades" ToRole="Insumos" />
+        </EntityType>
+        <Association Name="FK_Insumos_Prioridades">
+          <End Type="SisresModel.Prioridades" Role="Prioridades" Multiplicity="1" />
+          <End Type="SisresModel.Insumos" Role="Insumos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prioridades">
+              <PropertyRef Name="IdPrioridad" />
+            </Principal>
+            <Dependent Role="Insumos">
+              <PropertyRef Name="IdPrioridad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EstadosSolicitud">
+          <Key>
+            <PropertyRef Name="IdEstadoSolicitud" />
+          </Key>
+          <Property Type="Int32" Name="IdEstadoSolicitud" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NombreEstadoSolicitud" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Solicitudes" Relationship="SisresModel.FK_Solicitudes_EstadosSolicitud" FromRole="EstadosSolicitud" ToRole="Solicitudes" />
+        </EntityType>
+        <EntityType Name="Solicitudes">
+          <Key>
+            <PropertyRef Name="IdSolicitud" />
+          </Key>
+          <Property Type="Int32" Name="IdSolicitud" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="0" />
+          <Property Type="Int32" Name="IdEstadoSolicitud" Nullable="false" />
+          <Property Type="Int32" Name="IdInsumo" Nullable="false" />
+          <Property Type="Int32" Name="CantidadSolicitada" Nullable="false" />
+          <Property Type="Int32" Name="CantidadRecibida" Nullable="false" />
+          <Property Type="Boolean" Name="Estado" Nullable="false" />
+          <NavigationProperty Name="EstadosSolicitud" Relationship="SisresModel.FK_Solicitudes_EstadosSolicitud" FromRole="Solicitudes" ToRole="EstadosSolicitud" />
+          <NavigationProperty Name="Insumos" Relationship="SisresModel.FK_Solicitudes_Insumos" FromRole="Solicitudes" ToRole="Insumos" />
+        </EntityType>
+        <Association Name="FK_Solicitudes_EstadosSolicitud">
+          <End Type="SisresModel.EstadosSolicitud" Role="EstadosSolicitud" Multiplicity="1" />
+          <End Type="SisresModel.Solicitudes" Role="Solicitudes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadosSolicitud">
+              <PropertyRef Name="IdEstadoSolicitud" />
+            </Principal>
+            <Dependent Role="Solicitudes">
+              <PropertyRef Name="IdEstadoSolicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solicitudes_Insumos">
+          <End Type="SisresModel.Insumos" Role="Insumos" Multiplicity="1" />
+          <End Type="SisresModel.Solicitudes" Role="Solicitudes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Insumos">
+              <PropertyRef Name="IdInsumo" />
+            </Principal>
+            <Dependent Role="Solicitudes">
+              <PropertyRef Name="IdInsumo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Anfitriones">
+          <Key>
+            <PropertyRef Name="IdAnfitrion" />
+          </Key>
+          <Property Type="Int32" Name="IdAnfitrion" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Codigo" Nullable="false" MaxLength="5" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Nombres" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Apellidos" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Ordenes" Relationship="SisresModel.FK_Ordenes_Anfitriones" FromRole="Anfitriones" ToRole="Ordenes" />
+        </EntityType>
+        <EntityType Name="Mesas">
+          <Key>
+            <PropertyRef Name="IdMesa" />
+          </Key>
+          <Property Type="Int32" Name="IdMesa" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Cliente" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdAnfitrion" />
+          <Property Type="Int32" Name="Cantidad" />
+          <Property Type="Boolean" Name="Estado" Nullable="false" />
+          <Property Type="String" Name="NombreMesa" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="EstadoOrden" Nullable="false" />
+          <NavigationProperty Name="Ordenes" Relationship="SisresModel.FK_Ordenes_Mesas" FromRole="Mesas" ToRole="Ordenes" />
+        </EntityType>
+        <EntityType Name="Recetas">
+          <Key>
+            <PropertyRef Name="IdReceta" />
+          </Key>
+          <Property Type="Int32" Name="IdReceta" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NombreReceta" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdTipoReceta" Nullable="false" />
+          <Property Type="Decimal" Name="Costo" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="TiempoPreparacion" Nullable="false" />
+          <Property Type="Int32" Name="ValorNutricional" Nullable="false" />
+          <Property Type="String" Name="ModoPreparacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TiposReceta" Relationship="SisresModel.FK_Recetas_TiposReceta" FromRole="Recetas" ToRole="TiposReceta" />
+          <Property Type="Decimal" Name="Precio" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Carta" Relationship="SisresModel.FK_Carta_Recetas" FromRole="Recetas" ToRole="Carta" />
+          <NavigationProperty Name="InsumosPorReceta" Relationship="SisresModel.FK_InsumosPorReceta_Recetas" FromRole="Recetas" ToRole="InsumosPorReceta" />
+          <NavigationProperty Name="Ordenes" Relationship="SisresModel.FK_Ordenes_Recetas" FromRole="Recetas" ToRole="Ordenes" />
+        </EntityType>
+        <EntityType Name="TiposReceta">
+          <Key>
+            <PropertyRef Name="IdTipoReceta" />
+          </Key>
+          <Property Type="Int32" Name="IdTipoReceta" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NombreTipoReceta" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Recetas" Relationship="SisresModel.FK_Recetas_TiposReceta" FromRole="TiposReceta" ToRole="Recetas" />
+        </EntityType>
+        <Association Name="FK_Recetas_TiposReceta">
+          <End Type="SisresModel.TiposReceta" Role="TiposReceta" Multiplicity="1" />
+          <End Type="SisresModel.Recetas" Role="Recetas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposReceta">
+              <PropertyRef Name="IdTipoReceta" />
+            </Principal>
+            <Dependent Role="Recetas">
+              <PropertyRef Name="IdTipoReceta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Carta">
+          <Key>
+            <PropertyRef Name="IdCarta" />
+          </Key>
+          <Property Type="Int32" Name="IdCarta" Nullable="false" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="0" />
+          <Property Type="Int32" Name="IdReceta" Nullable="false" />
+          <Property Type="Boolean" Name="IsOferta" Nullable="false" />
+          <Property Type="Decimal" Name="PrecioOferta" Nullable="false" Precision="18" Scale="2" />
+          <NavigationProperty Name="Recetas" Relationship="SisresModel.FK_Carta_Recetas" FromRole="Carta" ToRole="Recetas" />
+          <Property Type="Boolean" Name="Estado" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InsumosPorReceta">
+          <Key>
+            <PropertyRef Name="IdReceta" />
+            <PropertyRef Name="IdInsumo" />
+          </Key>
+          <Property Type="Int32" Name="IdReceta" Nullable="false" />
+          <Property Type="Int32" Name="IdInsumo" Nullable="false" />
+          <Property Type="Decimal" Name="Cantidad" Nullable="false" Precision="18" Scale="2" />
+          <NavigationProperty Name="Insumos" Relationship="SisresModel.FK_InsumosPorReceta_Insumos" FromRole="InsumosPorReceta" ToRole="Insumos" />
+          <NavigationProperty Name="Recetas" Relationship="SisresModel.FK_InsumosPorReceta_Recetas" FromRole="InsumosPorReceta" ToRole="Recetas" />
+        </EntityType>
+        <Association Name="FK_Carta_Recetas">
+          <End Type="SisresModel.Recetas" Role="Recetas" Multiplicity="1" />
+          <End Type="SisresModel.Carta" Role="Carta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recetas">
+              <PropertyRef Name="IdReceta" />
+            </Principal>
+            <Dependent Role="Carta">
+              <PropertyRef Name="IdReceta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InsumosPorReceta_Insumos">
+          <End Type="SisresModel.Insumos" Role="Insumos" Multiplicity="1" />
+          <End Type="SisresModel.InsumosPorReceta" Role="InsumosPorReceta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Insumos">
+              <PropertyRef Name="IdInsumo" />
+            </Principal>
+            <Dependent Role="InsumosPorReceta">
+              <PropertyRef Name="IdInsumo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InsumosPorReceta_Recetas">
+          <End Type="SisresModel.Recetas" Role="Recetas" Multiplicity="1" />
+          <End Type="SisresModel.InsumosPorReceta" Role="InsumosPorReceta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recetas">
+              <PropertyRef Name="IdReceta" />
+            </Principal>
+            <Dependent Role="InsumosPorReceta">
+              <PropertyRef Name="IdReceta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tb_UnidadMedida">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Type="Int32" Name="codigo" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="desMed" Nullable="false" MaxLength="600" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Insumos" Relationship="SisresModel.FK_Insumos_UnidadesMedida1" FromRole="tb_UnidadMedida" ToRole="Insumos" />
+        </EntityType>
+        <Association Name="FK_Insumos_UnidadesMedida1">
+          <End Type="SisresModel.tb_UnidadMedida" Role="tb_UnidadMedida" Multiplicity="1" />
+          <End Type="SisresModel.Insumos" Role="Insumos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_UnidadMedida">
+              <PropertyRef Name="codigo" />
+            </Principal>
+            <Dependent Role="Insumos">
+              <PropertyRef Name="CODIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Ordenes">
+          <Key>
+            <PropertyRef Name="IdOrden" />
+          </Key>
+          <Property Type="Int32" Name="IdOrden" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IdMesa" Nullable="false" />
+          <Property Type="Int32" Name="IdAnfitrion" Nullable="false" />
+          <Property Type="Boolean" Name="Estado" Nullable="false" />
+          <NavigationProperty Name="Anfitriones" Relationship="SisresModel.FK_Ordenes_Anfitriones" FromRole="Ordenes" ToRole="Anfitriones" />
+          <NavigationProperty Name="Mesas" Relationship="SisresModel.FK_Ordenes_Mesas" FromRole="Ordenes" ToRole="Mesas" />
+          <Property Type="Int32" Name="IdReceta" Nullable="false" />
+          <NavigationProperty Name="Recetas" Relationship="SisresModel.FK_Ordenes_Recetas" FromRole="Ordenes" ToRole="Recetas" />
+          <Property Type="Int32" Name="Cantidad" Nullable="false" />
+          <Property Type="Int32" Name="NumeroPedido" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Ordenes_Anfitriones">
+          <End Type="SisresModel.Anfitriones" Role="Anfitriones" Multiplicity="1" />
+          <End Type="SisresModel.Ordenes" Role="Ordenes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Anfitriones">
+              <PropertyRef Name="IdAnfitrion" />
+            </Principal>
+            <Dependent Role="Ordenes">
+              <PropertyRef Name="IdAnfitrion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ordenes_Mesas">
+          <End Type="SisresModel.Mesas" Role="Mesas" Multiplicity="1" />
+          <End Type="SisresModel.Ordenes" Role="Ordenes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mesas">
+              <PropertyRef Name="IdMesa" />
+            </Principal>
+            <Dependent Role="Ordenes">
+              <PropertyRef Name="IdMesa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ordenes_Recetas">
+          <End Type="SisresModel.Recetas" Role="Recetas" Multiplicity="1" />
+          <End Type="SisresModel.Ordenes" Role="Ordenes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recetas">
+              <PropertyRef Name="IdReceta" />
+            </Principal>
+            <Dependent Role="Ordenes">
+              <PropertyRef Name="IdReceta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EstadosIncidencia">
+          <Key>
+            <PropertyRef Name="IdEstadoIncidencia" />
+          </Key>
+          <Property Type="Int32" Name="IdEstadoIncidencia" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NombreEstadoIncidencia" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Incidencias" Relationship="SisresModel.FK_Incidencias_EstadosIncidencia" FromRole="EstadosIncidencia" ToRole="Incidencias" />
+        </EntityType>
+        <EntityType Name="Incidencias">
+          <Key>
+            <PropertyRef Name="IdIncidencia" />
+          </Key>
+          <Property Type="Int32" Name="IdIncidencia" Nullable="false" />
+          <Property Type="Int32" Name="NumeroPedido" Nullable="false" />
+          <Property Type="Int32" Name="IdTipoIncidencia" Nullable="false" />
+          <Property Type="Int32" Name="IdEstadoIncidencia" Nullable="false" />
+          <Property Type="Boolean" Name="Estado" Nullable="false" />
+          <NavigationProperty Name="EstadosIncidencia" Relationship="SisresModel.FK_Incidencias_EstadosIncidencia" FromRole="Incidencias" ToRole="EstadosIncidencia" />
+          <NavigationProperty Name="TiposIncidencia" Relationship="SisresModel.FK_Incidencias_TiposIncidencia" FromRole="Incidencias" ToRole="TiposIncidencia" />
+          <Property Type="String" Name="Detalle" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TiposIncidencia">
+          <Key>
+            <PropertyRef Name="IdTipoIncidencia" />
+          </Key>
+          <Property Type="Int32" Name="IdTipoIncidencia" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NombreTipoIncidencia" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Incidencias" Relationship="SisresModel.FK_Incidencias_TiposIncidencia" FromRole="TiposIncidencia" ToRole="Incidencias" />
+        </EntityType>
+        <Association Name="FK_Incidencias_EstadosIncidencia">
+          <End Type="SisresModel.EstadosIncidencia" Role="EstadosIncidencia" Multiplicity="1" />
+          <End Type="SisresModel.Incidencias" Role="Incidencias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadosIncidencia">
+              <PropertyRef Name="IdEstadoIncidencia" />
+            </Principal>
+            <Dependent Role="Incidencias">
+              <PropertyRef Name="IdEstadoIncidencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Incidencias_TiposIncidencia">
+          <End Type="SisresModel.TiposIncidencia" Role="TiposIncidencia" Multiplicity="1" />
+          <End Type="SisresModel.Incidencias" Role="Incidencias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposIncidencia">
+              <PropertyRef Name="IdTipoIncidencia" />
+            </Principal>
+            <Dependent Role="Incidencias">
+              <PropertyRef Name="IdTipoIncidencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SisresModelStoreContainer" CdmEntityContainer="SisresEntities">
+          <EntitySetMapping Name="Insumos">
+            <EntityTypeMapping TypeName="SisresModel.Insumos">
+              <MappingFragment StoreEntitySet="Insumos">
+                <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="StockActual" ColumnName="StockActual" />
+                <ScalarProperty Name="CantidadRequerida" ColumnName="CantidadRequerida" />
+                <ScalarProperty Name="CantidadSolicitada" ColumnName="CantidadSolicitada" />
+                <ScalarProperty Name="IdPrioridad" ColumnName="IdPrioridad" />
+                <ScalarProperty Name="StockMinimo" ColumnName="StockMinimo" />
+                <ScalarProperty Name="StockNormal" ColumnName="StockNormal" />
+                <ScalarProperty Name="NombreInsumo" ColumnName="NombreInsumo" />
+                <ScalarProperty Name="IdInsumo" ColumnName="IdInsumo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pedidos">
+            <EntityTypeMapping TypeName="SisresModel.Pedidos">
+              <MappingFragment StoreEntitySet="Pedidos">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="IdReceta" ColumnName="IdReceta" />
+                <ScalarProperty Name="IdSilla" ColumnName="IdSilla" />
+                <ScalarProperty Name="IdMesa" ColumnName="IdMesa" />
+                <ScalarProperty Name="IdPedido" ColumnName="IdPedido" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prioridades">
+            <EntityTypeMapping TypeName="SisresModel.Prioridades">
+              <MappingFragment StoreEntitySet="Prioridades">
+                <ScalarProperty Name="NombrePrioridad" ColumnName="NombrePrioridad" />
+                <ScalarProperty Name="IdPrioridad" ColumnName="IdPrioridad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstadosSolicitud">
+            <EntityTypeMapping TypeName="SisresModel.EstadosSolicitud">
+              <MappingFragment StoreEntitySet="EstadosSolicitud">
+                <ScalarProperty Name="NombreEstadoSolicitud" ColumnName="NombreEstadoSolicitud" />
+                <ScalarProperty Name="IdEstadoSolicitud" ColumnName="IdEstadoSolicitud" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Solicitudes">
+            <EntityTypeMapping TypeName="SisresModel.Solicitudes">
+              <MappingFragment StoreEntitySet="Solicitudes">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="CantidadRecibida" ColumnName="CantidadRecibida" />
+                <ScalarProperty Name="CantidadSolicitada" ColumnName="CantidadSolicitada" />
+                <ScalarProperty Name="IdInsumo" ColumnName="IdInsumo" />
+                <ScalarProperty Name="IdEstadoSolicitud" ColumnName="IdEstadoSolicitud" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdSolicitud" ColumnName="IdSolicitud" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Anfitriones">
+            <EntityTypeMapping TypeName="SisresModel.Anfitriones">
+              <MappingFragment StoreEntitySet="Anfitriones">
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="IdAnfitrion" ColumnName="IdAnfitrion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mesas">
+            <EntityTypeMapping TypeName="SisresModel.Mesas">
+              <MappingFragment StoreEntitySet="Mesas">
+                <ScalarProperty Name="EstadoOrden" ColumnName="EstadoOrden" />
+                <ScalarProperty Name="NombreMesa" ColumnName="NombreMesa" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="IdAnfitrion" ColumnName="IdAnfitrion" />
+                <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+                <ScalarProperty Name="IdMesa" ColumnName="IdMesa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recetas">
+            <EntityTypeMapping TypeName="SisresModel.Recetas">
+              <MappingFragment StoreEntitySet="Recetas">
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="ModoPreparacion" ColumnName="ModoPreparacion" />
+                <ScalarProperty Name="ValorNutricional" ColumnName="ValorNutricional" />
+                <ScalarProperty Name="TiempoPreparacion" ColumnName="TiempoPreparacion" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="IdTipoReceta" ColumnName="IdTipoReceta" />
+                <ScalarProperty Name="NombreReceta" ColumnName="NombreReceta" />
+                <ScalarProperty Name="IdReceta" ColumnName="IdReceta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TiposReceta">
+            <EntityTypeMapping TypeName="SisresModel.TiposReceta">
+              <MappingFragment StoreEntitySet="TiposReceta">
+                <ScalarProperty Name="NombreTipoReceta" ColumnName="NombreTipoReceta" />
+                <ScalarProperty Name="IdTipoReceta" ColumnName="IdTipoReceta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Carta">
+            <EntityTypeMapping TypeName="SisresModel.Carta">
+              <MappingFragment StoreEntitySet="Carta">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="PrecioOferta" ColumnName="PrecioOferta" />
+                <ScalarProperty Name="IsOferta" ColumnName="IsOferta" />
+                <ScalarProperty Name="IdReceta" ColumnName="IdReceta" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdCarta" ColumnName="IdCarta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InsumosPorReceta">
+            <EntityTypeMapping TypeName="SisresModel.InsumosPorReceta">
+              <MappingFragment StoreEntitySet="InsumosPorReceta">
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="IdInsumo" ColumnName="IdInsumo" />
+                <ScalarProperty Name="IdReceta" ColumnName="IdReceta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_UnidadMedida">
+            <EntityTypeMapping TypeName="SisresModel.tb_UnidadMedida">
+              <MappingFragment StoreEntitySet="tb_UnidadMedida">
+                <ScalarProperty Name="desMed" ColumnName="desMed" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ordenes">
+            <EntityTypeMapping TypeName="SisresModel.Ordenes">
+              <MappingFragment StoreEntitySet="Ordenes">
+                <ScalarProperty Name="NumeroPedido" ColumnName="NumeroPedido" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="IdReceta" ColumnName="IdReceta" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdAnfitrion" ColumnName="IdAnfitrion" />
+                <ScalarProperty Name="IdMesa" ColumnName="IdMesa" />
+                <ScalarProperty Name="IdOrden" ColumnName="IdOrden" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstadosIncidencia">
+            <EntityTypeMapping TypeName="SisresModel.EstadosIncidencia">
+              <MappingFragment StoreEntitySet="EstadosIncidencia">
+                <ScalarProperty Name="NombreEstadoIncidencia" ColumnName="NombreEstadoIncidencia" />
+                <ScalarProperty Name="IdEstadoIncidencia" ColumnName="IdEstadoIncidencia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Incidencias">
+            <EntityTypeMapping TypeName="SisresModel.Incidencias">
+              <MappingFragment StoreEntitySet="Incidencias">
+                <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdEstadoIncidencia" ColumnName="IdEstadoIncidencia" />
+                <ScalarProperty Name="IdTipoIncidencia" ColumnName="IdTipoIncidencia" />
+                <ScalarProperty Name="NumeroPedido" ColumnName="NumeroPedido" />
+                <ScalarProperty Name="IdIncidencia" ColumnName="IdIncidencia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TiposIncidencia">
+            <EntityTypeMapping TypeName="SisresModel.TiposIncidencia">
+              <MappingFragment StoreEntitySet="TiposIncidencia">
+                <ScalarProperty Name="NombreTipoIncidencia" ColumnName="NombreTipoIncidencia" />
+                <ScalarProperty Name="IdTipoIncidencia" ColumnName="IdTipoIncidencia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

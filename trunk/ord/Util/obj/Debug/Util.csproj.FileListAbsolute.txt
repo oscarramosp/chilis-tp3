@@ -1,0 +1,26 @@
+D:\Sisres\Sisres.Solution\Util\bin\Debug\Util.dll
+D:\Sisres\Sisres.Solution\Util\bin\Debug\Util.pdb
+D:\Sisres\Sisres.Solution\Util\obj\Debug\Util.dll
+D:\Sisres\Sisres.Solution\Util\obj\Debug\Util.pdb
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Util\bin\Debug\Util.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Util\bin\Debug\Util.pdb
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Util\obj\Debug\Util.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Util\obj\Debug\Util.pdb
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Util\bin\Debug\Util.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Util\bin\Debug\Util.pdb
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Util\obj\Debug\Util.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Util\obj\Debug\Util.pdb
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Util\obj\Debug\Util.csprojResolveAssemblyReference.cache
+D:\Sisres.Solution\Util\bin\Debug\Util.dll
+D:\Sisres.Solution\Util\bin\Debug\Util.pdb
+D:\Sisres.Solution\Util\obj\Debug\Util.dll
+D:\Sisres.Solution\Util\obj\Debug\Util.pdb
+F:\Sisres.Solution\Util\bin\Debug\Util.dll
+F:\Sisres.Solution\Util\bin\Debug\Util.pdb
+F:\Sisres.Solution\Util\obj\Debug\Util.dll
+F:\Sisres.Solution\Util\obj\Debug\Util.pdb
+D:\Proyecto\Fuentes\Sisres.Solution\Util\bin\Debug\Util.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Util\bin\Debug\Util.pdb
+D:\Proyecto\Fuentes\Sisres.Solution\Util\obj\Debug\Util.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Util\obj\Debug\Util.pdb
+D:\Proyecto\Fuentes\Sisres.Solution\Util\obj\Debug\Util.csprojResolveAssemblyReference.cache

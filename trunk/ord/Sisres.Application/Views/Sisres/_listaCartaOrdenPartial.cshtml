@@ -1,0 +1,20 @@
+﻿@{
+    WebGrid wgCarta = new WebGrid(ViewBag.listaCarta, rowsPerPage: 100);
+}
+
+@wgCarta.GetHtml(tableStyle: "tables ListaDetalle", headerStyle: "webgrid-header", footerStyle: "webgrid-footer", alternatingRowStyle: "webgrid-alternating-row", selectedRowStyle: "webgrid-selected-row",
+rowStyle: "webgrid-row-style",
+            columns: wgCarta.Columns(
+            wgCarta.Column("Recetas.NombreReceta", header: "Plato", canSort: false),
+            wgCarta.Column("Recetas.TiposReceta.NombreTipoReceta", header: "Tipo Plato", canSort: true),
+            wgCarta.Column("PrecioOferta", header: "Precio", canSort: false),
+            wgCarta.Column("","Seleccionar",canSort:false,
+            format:@<text>
+@Html.CheckBox("chbReceta",false,new{id=@item.IdReceta,@class="clschbReceta"})
+</text>),
+wgCarta.Column("","Cantidad",canSort:false,
+            format:@<text>
+@Html.TextBox("txtCantidad", null, new {id="cantidad"+@item.IdReceta, @class = "clsCantidad", maxlength = "2", style = "width:20px" })
+</text>)), htmlAttributes: new { @style = "width:100%;" })
+
+@{ Layout = null; }

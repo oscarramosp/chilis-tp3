@@ -1,0 +1,17 @@
+﻿@{
+    WebGrid wgOrden = new WebGrid(ViewBag.listaOrdenes, rowsPerPage: 100);
+}
+
+@wgOrden.GetHtml(tableStyle: "tables ListaDetalle", headerStyle: "webgrid-header", footerStyle: "webgrid-footer", alternatingRowStyle: "webgrid-alternating-row", selectedRowStyle: "webgrid-selected-row",
+rowStyle: "webgrid-row-style",
+            columns: wgOrden.Columns(
+            wgOrden.Column("NumeroPedido", header: "Numero Orden", canSort: false),
+            wgOrden.Column("Recetas.NombreReceta", header: "Receta", canSort: false),
+            wgOrden.Column("Cantidad", header: "Cantidad", canSort: false),
+            wgOrden.Column("", "Eliminar", format: @<text>
+<div style="cursor: pointer;">
+    <img id='@item.IdOrden' src="~/Images/delete.png" title="Eliminar pedido" width="20" class="clsEliminar" />
+</div>
+</text>)), htmlAttributes: new { @style = "width:100%;" })
+
+@{ Layout = null; }

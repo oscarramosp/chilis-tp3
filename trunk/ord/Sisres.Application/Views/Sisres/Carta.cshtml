@@ -1,0 +1,234 @@
+﻿@{
+    ViewBag.Title = "Carta";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>Mantener información de los platos a servir en el día y sus precios.</h2>
+            </hgroup>
+            <p>
+                Se utiliza en el ingreso de lista de platos a servir en el día y asignación del precio de venta 
+                a cada uno. Permite además, retirar un determinado plato de la carta en caso el stock de insumos 
+                sea insuficiente.
+            </p>
+        </div>
+    </section>
+}
+<table style="width: 100%">
+    <tr>
+        <td style="text-align: right">
+            <h3>Fecha:&nbsp;@(DateTime.Now.Day.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Year.ToString())</h3>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h3>Administrar carta.</h3>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table>
+                <tr><td colspan="4" nowrap>
+                    <label id="lblMensaje" class="labelformat"></label>
+                    </td></tr>
+                <tr>
+                    <td>
+                        @Html.Label("Tipo Plato:")
+                    </td>
+                    <td>
+                        @Html.DropDownList("listaTiposReceta", null, new { style = "width:100px;height:30px" })
+                    </td>
+                    <td>@Html.Label("Precio:")</td>
+                    <td>
+                        @Html.TextBox("txtPrecio", null, new { style = "width:55px", maxlength = "6" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.Label("Plato:")
+                    </td>
+                    <td>
+                        <div id="div_listaReceta">
+                            @Html.DropDownList("listaReceta", null, new { style = "width:100px;height:30px" })
+                            </div>
+                            </td>
+                    <td>
+                    </td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>@Html.CheckBox("chbEstado", false)</td>
+                                <td>@Html.Label("activo")</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align:right">
+                        <input type="button" value="Agregar" id="AgregarReceta" />
+                        <input type="button" value="Grabar" id="GuardarReceta"/>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr><td colspan="4">
+        @using Sisres.Application.Models
+            <div id="div_listaCarta">
+                @{ Html.RenderPartial("_listaCartaPartial", new PartialModels { Text = "Before Clicked" }); }
+            </div>
+        </td></tr>
+</table>
+<script type="text/jscript" lang="javascript">
+    $(document).ready(function () {
+        $('#GuardarReceta').hide();
+        $("#txtPrecio").keydown(function (event) {
+            if (event.keyCode == 46 || event.keyCode == 8) {
+            }
+            else {
+                if (event.keyCode < 48 || event.keyCode > 57) {
+                    event.preventDefault();
+                }
+            }
+        });
+
+        $('body').on('change', '#listaTiposReceta', function () {
+            $.post("/Sisres/ListarRecetaPorTipo", {
+                pTipoReceta: $('#listaTiposReceta').val()
+            }, function (data) {
+                if (data) {
+                    $('#div_listaReceta').html(data);
+                }
+                return false;
+            });
+        });
+
+        $('body').on('click', '.clsActivar', function () {
+            limpiarControles();
+            $.post("/Sisres/EditarCarta", {
+                pCarta: $(this).attr('id').split('|')[0],
+                pEstado: true,
+                pPrecio: $(this).attr('id').split('|')[1]
+            }, function (data) {
+                if (data) {
+                    $('#div_listaCarta').html(data);
+                }
+                return false;
+            });
+        });
+
+        $('body').on('click', '.clsDesactivar', function () {
+            limpiarControles();
+            $.post("/Sisres/EditarCarta", {
+                pCarta: $(this).attr('id').split('|')[0],
+                pEstado: false,
+                pPrecio: $(this).attr('id').split('|')[1]
+            }, function (data) {
+                if (data) {
+                    $('#div_listaCarta').html(data);
+                }
+                return false;
+            });
+        });
+
+        $('body').on('click', '.clsEditar', function () {
+            $('#listaTiposReceta').attr("disabled", "disabled");
+            $('#listaReceta').attr("disabled", "disabled");
+            $('#AgregarReceta').hide();
+            $('#GuardarReceta').show();
+            $('#txtPrecio').val($(this).attr('id').split('|')[1]);
+            if ($(this).attr('id').split('|')[2] != '') {
+                $('#chbEstado').attr('checked', true);
+            }
+            else {
+                $('#chbEstado').attr('checked', false);
+            }
+            $.post("/Sisres/GuardarSesionCarta", {
+                pCarta: $(this).attr('id').split('|')[0]
+            }, function (data) {
+                return false;
+            });
+        });
+
+        $('body').on('click', '#AgregarReceta', function () {
+            var precio = $('#txtPrecio').val();
+            if (precio.length == 0) {
+                $("#lblMensaje").text('El campo precio es obligatorio.');
+                return;
+            } else {
+                $("#lblMensaje").text('');
+            }
+            $.post("/Sisres/AsignarCarta", {
+                pReceta: $('#listaReceta').val(),
+                pPrecio:$('#txtPrecio').val(),
+                pActivo: $('#chbEstado').attr('checked')
+            }, function (data) {
+                if (data) {
+                    $('#div_listaCarta').html(data);
+                    $('#txtPrecio').val('');
+                    $('#chbEstado').attr('checked', false);
+                    $('#listaTiposReceta').val('1');
+                    $.post("/Sisres/ListarRecetaPorTipo", {
+                        pTipoReceta:$('#listaTiposReceta').val()
+                    }, function (data) {
+                        if (data) {
+                            $('#div_listaReceta').html(data);
+                        }
+                    });
+                }
+                return false;
+            });
+        });
+
+        $('body').on('click', '#GuardarReceta', function () {
+            var precio = $('#txtPrecio').val().trim();
+            if (precio.length == 0) {
+                $("#lblMensaje").text('El campo precio es obligatorio.');
+                return;
+            } else {
+                $("#lblMensaje").text('');
+            }
+            var estado;
+            if ($('#chbEstado').attr('checked') != 'checked') {
+                estado = false;
+            } else {
+                estado = true;
+            }
+            $.post("/Sisres/EditarCarta", {
+                pCarta: 0,
+                pEstado: estado,
+                pPrecio: precio
+            }, function (data) {
+                if (data) {
+                    limpiarControles();
+                    $('#div_listaCarta').html(data);
+                }
+                return false;
+            });
+        });
+
+        $('body').on('click', '.clsEliminar', function () {
+            limpiarControles();
+            $("#lblMensaje").text('');
+            $.post("/Sisres/EliminarCarta", {
+                pCarta: $(this).attr('id')
+            }, function (data) {
+                if (data) {                    
+                    $('#div_listaCarta').html(data);
+                }
+                return false;
+            });
+        });
+    });
+
+    function limpiarControles() {
+        $('#listaTiposReceta').attr("disabled", false);
+        $('#listaReceta').attr("disabled",false);
+        $('#AgregarReceta').show();
+        $('#GuardarReceta').hide();
+        $('#txtPrecio').val('');
+        $('#chbEstado').attr('checked', false);
+    }
+    </script>

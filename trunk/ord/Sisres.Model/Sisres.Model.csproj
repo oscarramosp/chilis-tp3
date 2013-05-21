@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0255A0A2-415F-413A-86F5-CB875E4C7423}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sisres.Model</RootNamespace>
+    <AssemblyName>Sisres.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Anfitriones.cs">
+      <DependentUpon>ModelSisres.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Carta.cs">
+      <DependentUpon>ModelSisres.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EstadosIncidencia.cs">
+      <DependentUpon>ModelSisres.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EstadosSolicitud.cs">
+      <DependentUpon>ModelSisres.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Incidencias.cs">
+      <DependentUpon>ModelSisres.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Insumos.cs">
+      <DependentUpon>ModelSisres.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InsumosPorReceta.cs">
+      <DependentUpon>ModelSisres.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mesas.cs">
+      <DependentUpon>ModelSisres.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSisres.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelSisres.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSisres.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelSisres.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSisres.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelSisres.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Ordenes.cs">
+      <DependentUpon>ModelSisres.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pedidos.cs">
+      <DependentUpon>ModelSisres.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Prioridades.cs">
+      <DependentUpon>ModelSisres.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recetas.cs">
+      <DependentUpon>ModelSisres.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Solicitudes.cs">
+      <DependentUpon>ModelSisres.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_UnidadMedida.cs">
+      <DependentUpon>ModelSisres.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TiposIncidencia.cs">
+      <DependentUpon>ModelSisres.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TiposReceta.cs">
+      <DependentUpon>ModelSisres.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="ModelSisres.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelSisres.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="ModelSisres.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelSisres.edmx</DependentUpon>
+      <LastGenOutput>ModelSisres.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ModelSisres.edmx.diagram">
+      <DependentUpon>ModelSisres.edmx</DependentUpon>
+    </None>
+    <None Include="ModelSisres.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelSisres.edmx</DependentUpon>
+      <LastGenOutput>ModelSisres.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
