@@ -2752,7 +2752,321 @@ end
 go
 
 
+ALTER proc [dbo].[ALM.NotaPedido_Insertar](
+@fechaEmision Date,
+@almacenOrigen int,
+@almacenDestino int,
+@areaSolicitante varchar(100),
+@PrecioPedido decimal(18,2),
+@codigoPedido int output
+  )
+as
+begin
+  declare @correlativo varchar(20);
+  declare @var int;
+  select @var= COUNT(*) from  tb_NotaPedido;
+  set @var=@var+1;
+  set @correlativo=RIGHT('MI_NP_00' +CONVERT(VARCHAR(10),@var),10);
+  
+insert tb_NotaPedido
+(fechaEmision,almacenOrigen, almacenDestino,areaSolicitante,TipoOperacion,registrador,
+autorizador,estadoNota,fechaEstadoNota,PrecioPedido,correlativo)
+values (@fechaEmision,@almacenOrigen,2,@areaSolicitante,'0','','','0',getdate(),@PrecioPedido,@correlativo)
 
+set @codigoPedido= @@IDENTITY
+
+
+select @codigoPedido as ultimo
+
+
+end
+
+go
+
+
+delete from tb_notapedidodetalle where codigopedido in (select codigopedido from tb_notapedido where  correlativo = '')
+go
+delete from tb_notapedido where  correlativo = ''
+
+go
+
+ALTER procedure [dbo].[ALM.Buscar_FichaProducto]
+@codigoPr varchar(100),
+@UN int
+as
+select f.item, f.medida, k.descripcion as Marca, f.fecha_vencimiento, 
+case when (f.cantidad - (select isnull(sum(d.cantActual),0) from tb_notapedidodetalle d where d.coditem = f.item)) < 0 
+then 0 else (f.cantidad - (select isnull(sum(d.cantActual),0) from tb_notapedidodetalle d where d.coditem = f.item)) end as cantidad, 
+f.precio,  
+convert(decimal(18,2),
+case when (f.cantidad - (select isnull(sum(d.cantActual),0) from tb_notapedidodetalle d where d.coditem = f.item)) < 0 
+then 0 else (f.cantidad - (select isnull(sum(d.cantActual),0) from tb_notapedidodetalle d where d.coditem = f.item)) end
+ * f.precio) as total, k.codMarca, f.CodUN
+from  
+tb_FichaProducto f
+inner join tb_Producto p
+on f.codProducto = p.codigoPr
+inner join tb_Marca k
+on k.codmarca = p.marca
+where p.codigoPr like '%'+ @codigoPr +'%'
+and f.codUN = case when @UN = -1 then f.codUN else @UN end
+
+
+go
+
+
+ALTER procedure [dbo].[ALM.NotaPedido_Buscar]
+@CodUN int
+as
+select Codigopedido,correlativo, fechaemision, 
+areasolicitante, u1.desUN as AlmacenOrigen, u2.desUN as AlmacenDestino, PrecioPedido
+from tb_notapedido p
+inner join tb_unidadnegocio u1
+on u1.codigo = p.almacenOrigen
+inner join tb_unidadnegocio u2
+on u2.codigo = p.almacenDestino
+where almacenOrigen = @CodUN
+and estadoNota = '0'
+order by codigopedido desc
+
+go
+
+
+
+create procedure [ALM.NotaPedido_Actualizar]
+@codigoPedido int,
+@estado varchar(10)
+as
+update tb_NotaPedido set estadoNota = @estado
+where codigoPedido = @codigoPedido
+
+go
+
+
+
+--- por la tarde
+
+insert tb_unidadnegocio values ('Proveedor','Proveedor')
+
+go
+
+ALTER PROCEDURE [dbo].[ALM.Cargar_Unidad]
+AS    
+BEGIN  
+Select  codigo as codigo,
+	desUn as descripcion
+	from dbo.tb_UnidadNegocio
+	where desUN <> 'proveedor'
+	order by desUN asc
+END
+
+
+go
+
+CREATE PROCEDURE [dbo].[ALM.Cargar_Unidad_Prov]
+AS    
+BEGIN  
+Select  codigo as codigo,
+	desUn as descripcion
+	from dbo.tb_UnidadNegocio
+	order by desUN asc
+END
+
+go
+
+
+
+--tarde
+
+update tb_producto set codigoPr ='PR000' + convert(varchar,codigo)
+go
+
+CREATE TABLE [dbo].[tb_NotaIS_Ficha](
+	[Codigo] [int] NOT NULL
+) ON [PRIMARY]
+
+GO
+
+
+
+create procedure [ALM.Get_Ficha_NotaIS]
+@Codigo int
+as
+select top 1 codigoDetIS, medida, precioUnitario 
+from tb_notaingresosalidadetalle
+where codigoIS in (select codigoIS from tb_notaingresosalida 
+where codUnidadDestino = 2 and tipoDocumento ='NI')
+and codItem = @Codigo
+and codigoDetIS not in (select codigo from tb_NotaIS_Ficha)
+order by codigoDetIS desc
+
+
+
+go
+
+create procedure [ALM.NotaIS_Ficha_Insertar] 
+@Codigo int
+as
+insert tb_NotaIS_Ficha values (@Codigo)
+
+go
+go
+
+ALTER procedure [dbo].[ALM.ListarNotaPedido] 
+@NotaPedido int
+AS    
+BEGIN    
+ SET NOCOUNT ON;   
+   
+ Select 
+ dt.codigoPedido,
+ RIGHT('000' +CONVERT(VARCHAR(3),dt.codigoPedido),3) as 'codPedido2', 
+convert(int, (select tp.codigo from tb_producto tp where tp.codigoPr in (select fp.codProducto from tb_fichaproducto fp where fp.item = dt.Coditem))) as Coditem,
+ convert(varchar,RIGHT('000' +CONVERT(VARCHAR(3),(select tp.codigo from tb_producto tp where tp.codigoPr in (select fp.codProducto from tb_fichaproducto fp where fp.item = dt.Coditem))),3)) as 'codItem2',
+ dt.medida,
+ marca.descripcion as 'marca',
+ dt.fechaCaducidad,
+ dt.cantActual,
+ cast(dt.precioUnitario as decimal(18,2)) precioUnitario,
+ cast(dt.PrecioTotal as decimal(18,2))PrecioTotal,
+  convert(varchar(50),@NotaPedido) as correlativo
+ from tb_NotaPedidoDetalle dt
+ left join tb_Producto pro on pro.codigo=dt.Coditem
+ left join tb_marca marca on marca.codMarca=dt.marca
+ where dt.codigoPedido=@NotaPedido
+ 
+ 
+ SET NOCOUNT OFF;    
+ END   
+ 
+
+
+go
+
+ALTER proc [dbo].[ALM.Inventario_Insertar](
+@referencia VarChar(150),
+@fecha Date,
+@responsable VarChar(150),
+@aprobado VarChar( 250),
+@estado int,
+@usuCre Int,
+@FecCre Date,
+@Codigo int output
+  )
+as
+begin
+
+declare @correlativo varchar(15)
+Select @correlativo= isnull(MAX(ISNULL(SUBSTRING(isnull(correlativo,0),3,4),0)),0)+1 FROM tb_InventarioCabecera                        
+Select @correlativo = cast('IN' + REPLICATE('0',4 - LEN(ISNULL(@correlativo,1)))as varchar(10))+@correlativo                      
+Select @correlativo =@correlativo + 
+right('00' + convert(varchar,month(getdate())),2) + substring(convert(varchar,year(getdate())) ,3,2)
+
+
+insert tb_InventarioCabecera(correlativo,referencia,fecha,estado,responsable) values(@correlativo,@referencia,@fecha,@estado,@responsable)
+
+set @codigo= @@IDENTITY
+
+
+select @codigo
+
+
+end
+
+go
+
+
+create procedure [ALM.NotaISDetalle_ListarPorNotaP]
+@codigoPedido int
+as
+select p.descripcion,
+p.cantActual,p.medida,
+(select f1.lote from tb_fichaproducto f1 where f1.item = p.codItem)as Lote,
+(select f2.serie from tb_fichaproducto f2 where f2.item = p.codItem)as Serie,
+p.fechaCaducidad,
+(select f3.fecha_elaboracion from tb_fichaproducto f3 where f3.item = p.codItem)as FechaElaboracion,
+preciounitario, precioTotal,
+(select codigo from tb_producto where codigoPr in (select codProducto from tb_fichaproducto f3 where f3.item = p.codItem)) as codItem
+from tb_notapedidodetalle p
+where p.codigopedido = @codigoPedido
+and codigoPedido in (select codigoPedido from tb_notapedido where estadoNota = '1')
+
+go
+
+
+ALTER procedure [dbo].[ALM.Get_Ficha_NotaIS]
+@Codigo int,
+@CodUN int
+as
+select top 1 codigoDetIS, medida, precioUnitario ,
+cantActual,lote, serie,fechaElaboracion,fechaCaducidad, preciototal
+from tb_notaingresosalidadetalle
+where codigoIS in (select codigoIS from tb_notaingresosalida 
+where codUnidadDestino = @CodUN and tipoDocumento ='NI')
+and codItem = @Codigo
+and codigoDetIS not in (select codigo from tb_NotaIS_Ficha)
+order by codigoDetIS desc
+
+go
+
+
+ALTER procedure [dbo].[ALM.ListarNotaPedido] 
+@NotaPedido int
+AS    
+BEGIN    
+ SET NOCOUNT ON;   
+   
+ Select 
+ dt.codigoPedido,
+ RIGHT('000' +CONVERT(VARCHAR(3),dt.codigoPedido),3) as 'codPedido2', 
+convert(int, (select tp.codigo from tb_producto tp where tp.codigoPr in (select fp.codProducto from tb_fichaproducto fp where fp.item = dt.Coditem))) as Coditem,
+ convert(varchar,RIGHT('000' +CONVERT(VARCHAR(3),(select tp.codigo from tb_producto tp where tp.codigoPr in (select fp.codProducto from tb_fichaproducto fp where fp.item = dt.Coditem))),3)) as 'codItem2',
+ dt.medida,
+ marca.descripcion as 'marca',
+ dt.fechaCaducidad,
+ dt.cantActual,
+ cast(dt.precioUnitario as decimal(18,2)) precioUnitario,
+ cast(dt.PrecioTotal as decimal(18,2))PrecioTotal,
+  convert(varchar(50),@NotaPedido) as correlativo
+ from tb_NotaPedidoDetalle dt
+ left join tb_Producto pro on pro.codigo=dt.Coditem
+ left join tb_marca marca on marca.codMarca=dt.marca
+ where dt.codigoPedido=@NotaPedido
+ and dt.codigoPedido in (select codigoPedido from tb_notapedido where estadoNota = '1')
+ 
+ 
+ SET NOCOUNT OFF;    
+ END   
+ 
+
+
+
+go
+
+
+ALTER procedure [dbo].[ALM.Buscar_FichaProducto]
+@codigoPr varchar(100),
+@UN int
+as
+select f.item, f.medida, k.descripcion as Marca, f.fecha_vencimiento, 
+f.cantidad as cantidad, 
+f.precio,  
+convert(decimal(18,2), f.cantidad* f.precio) as total, 
+k.codMarca, f.CodUN, u.desUN, p.descripcion as desProducto
+from  
+tb_FichaProducto f
+inner join tb_Producto p
+on f.codProducto = p.codigoPr
+inner join tb_Marca k
+on k.codmarca = p.marca
+inner join tb_unidadnegocio u
+on u.codigo = f.codUN
+where p.codigoPr like '%'+ @codigoPr +'%'
+and f.codUN = case when @UN = -1 then f.codUN else @UN end
+
+
+
+go
 
 --===============================FIN MODULO ALMACEN ========================================================
 
