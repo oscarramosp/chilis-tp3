@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="22778cb7bece43c199d0d861ae7d7698" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="SisresModel.Insumos" Width="1.5" PointX="9.7962414388527357" PointY="1.2912937557749886" />
+        <EntityTypeShape EntityType="SisresModel.Pedidos" Width="1.5" PointX="8.125" PointY="19.625" />
+        <EntityTypeShape EntityType="SisresModel.Prioridades" Width="1.5" PointX="2.801403685846088" PointY="25.343893018245648" />
+        <AssociationConnector Association="SisresModel.FK_Insumos_Prioridades" />
+        <EntityTypeShape EntityType="SisresModel.EstadosSolicitud" Width="1.5" PointX="7.2418153748110941" PointY="8.3825622240000222" />
+        <EntityTypeShape EntityType="SisresModel.Solicitudes" Width="1.5" PointX="11.389211710258021" PointY="30.934477403263784" />
+        <AssociationConnector Association="SisresModel.FK_Solicitudes_EstadosSolicitud" />
+        <AssociationConnector Association="SisresModel.FK_Solicitudes_Insumos" />
+        <EntityTypeShape EntityType="SisresModel.Anfitriones" Width="1.5" PointX="8.8496557235949" PointY="31.606693848784406" />
+        <EntityTypeShape EntityType="SisresModel.Mesas" Width="1.5" PointX="3.4534749386149808" PointY="15.041153035611451" />
+        <EntityTypeShape EntityType="SisresModel.Recetas" Width="1.5" PointX="6.3382472909699414" PointY="19.175836467731667" />
+        <EntityTypeShape EntityType="SisresModel.TiposReceta" Width="1.5" PointX="4.25" PointY="0.75" />
+        <AssociationConnector Association="SisresModel.FK_Recetas_TiposReceta" />
+        <EntityTypeShape EntityType="SisresModel.Carta" Width="1.5" PointX="0.49140711710388174" PointY="8.3534998187578751" />
+        <EntityTypeShape EntityType="SisresModel.InsumosPorReceta" Width="1.5" PointX="4.6081451441199262" PointY="18.759831273350787" />
+        <AssociationConnector Association="SisresModel.FK_Carta_Recetas" />
+        <AssociationConnector Association="SisresModel.FK_InsumosPorReceta_Insumos" />
+        <AssociationConnector Association="SisresModel.FK_InsumosPorReceta_Recetas" />
+        <EntityTypeShape EntityType="SisresModel.tb_UnidadMedida" Width="1.5" PointX="10.752421331942278" PointY="6.6153711558391208" />
+        <AssociationConnector Association="SisresModel.FK_Insumos_UnidadesMedida1" />
+        <EntityTypeShape EntityType="SisresModel.Ordenes" Width="1.5" PointX="7.29030172307524" PointY="27.251291436725896" />
+        <AssociationConnector Association="SisresModel.FK_Ordenes_Anfitriones" />
+        <AssociationConnector Association="SisresModel.FK_Ordenes_Mesas" />
+        <AssociationConnector Association="SisresModel.FK_Ordenes_Recetas" />
+        <EntityTypeShape EntityType="SisresModel.EstadosIncidencia" Width="1.5" PointX="3.6232942191992392" PointY="6.3386183410597123" />
+        <EntityTypeShape EntityType="SisresModel.Incidencias" Width="1.5" PointX="4.507066706431595" PointY="29.946186765072024" />
+        <EntityTypeShape EntityType="SisresModel.TiposIncidencia" Width="1.5" PointX="10.359223437662806" PointY="2.37786379567248" />
+        <AssociationConnector Association="SisresModel.FK_Incidencias_EstadosIncidencia" />
+        <AssociationConnector Association="SisresModel.FK_Incidencias_TiposIncidencia" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

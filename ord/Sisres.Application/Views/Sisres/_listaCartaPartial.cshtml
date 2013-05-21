@@ -1,0 +1,40 @@
+﻿@{
+    WebGrid wgCarta = new WebGrid(ViewBag.listaCarta, rowsPerPage: 100);
+}
+
+@wgCarta.GetHtml(tableStyle: "tables ListaDetalle", headerStyle: "webgrid-header", footerStyle: "webgrid-footer", alternatingRowStyle: "webgrid-alternating-row", selectedRowStyle: "webgrid-selected-row",
+rowStyle: "webgrid-row-style",
+            columns: wgCarta.Columns(
+            wgCarta.Column("", header: "Fecha", canSort: false,
+            format: (item) => ((DateTime)item.Fecha).Day + "-" + ((DateTime)item.Fecha).Month + "-" + ((DateTime)item.Fecha).Year
+            ),
+            wgCarta.Column("Recetas.NombreReceta", header: "Plato", canSort: false),
+            wgCarta.Column("Recetas.TiposReceta.NombreTipoReceta", header: "Tipo Plato", canSort: true),
+            wgCarta.Column("PrecioOferta", header: "Precio", canSort: false),
+            wgCarta.Column("", header: "Estado", canSort: true,
+            format: @<text>
+@if (!(bool)item.Estado)
+{
+    <div style="cursor: pointer;">
+        <img id='@item.IdCarta|@item.PrecioOferta|@item.Estado' src="~/Images/cancel.png" title="No activo" width="20" class="clsActivar" />
+    </div>
+}
+else
+{
+    <div style="cursor: pointer;">
+        <img id='@item.IdCarta|@item.PrecioOferta|@item.Estado' src="~/Images/accept.png" title="Activo" width="20" class="clsDesactivar" />
+    </div>
+}
+</text>),
+wgCarta.Column("", "Editar", format: @<text>
+<div style="cursor: pointer;">
+    <img id='@item.IdCarta|@item.PrecioOferta|@item.Estado' src="~/Images/edit.png" title="Editar plato" width="20" class="clsEditar"/>
+</div>
+</text>),
+            wgCarta.Column("", "Eliminar", format: @<text>
+<div style="cursor: pointer;">
+    <img id='@item.IdCarta' src="~/Images/delete.png" title="Eliminar plato" width="20" class="clsEliminar" />
+</div>
+</text>)), htmlAttributes: new { @style = "width:100%;" })
+
+@{ Layout = null; }

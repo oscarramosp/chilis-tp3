@@ -1,0 +1,218 @@
+﻿@{
+    ViewBag.Title = "Agregar Insumo";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>Permite al creación de nuevos insumos requeridos en la cocina o en la sección bebidas del restaurante.</h2>
+            </hgroup>
+            <p>
+                Se utiliza para crear insumos en la cocina o en la sección bebidas, 
+                a fin de registrar  en el módulo de Insumos los faltantes para su solicitud al almacén o actualizar la disponibilidad del 
+                plato o bebida en la carta u oferta del día.
+            </p>
+        </div>
+    </section>
+}
+<h3>Datos para la creación de nuevo insumo.</h3>
+<table>
+    <tr>
+        <td colspan="2" nowrap>
+            <label id="lblMensaje" class="labelformat"></label>
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: right">
+            @Html.Label("Nombre:")
+        </td>
+        <td>
+            @Html.TextBox("txtNombre", null, new {maxlength="30" })
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: right">
+            @Html.Label("Unidad Medida:")
+        </td>
+        <td>
+            @Html.DropDownList("listaUnidadMedida", null, new { style = "height:30px" })
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: right">
+            @Html.Label("Stock Normal:")
+        </td>
+        <td>
+            @Html.TextBox("txtStockNormal", null, new { style = "width:55px",@class="clsDecimal",maxlength="6" })
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: right">
+            @Html.Label("Cantidad Requerida:")
+        </td>
+        <td>
+            @Html.TextBox("txtRequerido", null, new { style = "width:55px",@class="clsDecimal",maxlength="6" })
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: right">
+            @Html.Label("Stock Actual:")
+        </td>
+        <td>
+            @Html.TextBox("txtStockActual", null, new { style = "width:55px",@class="clsDecimal",maxlength="6" })
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: right">
+            @Html.Label("Stock Mínimo:")
+        </td>
+        <td>
+            @Html.TextBox("txtStockMinimo", null, new { style = "width:55px",@class="clsDecimal" ,maxlength="6"})
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: right">
+            @Html.Label("Prioridad:")
+        </td>
+        <td>
+            @Html.DropDownList("listaPrioridades", null, new { style = "height:30px" })
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: right">
+            <input type="button" value="Guardar" id="GuardarInsumo" /><input type="button" value="Cancelar" id="SalirInsumo" onclick="window.location='@Url.Action("Insumos", "Sisres")    '"/>
+        </td>
+    </tr>
+
+</table>
+<script type="text/jscript" lang="javascript">
+    $(document).ready(function () {
+        $(".clsDecimal").keydown(function (event) {
+            if (event.keyCode == 46 || event.keyCode == 8) {
+            }
+            else {
+                if (event.keyCode < 48 || event.keyCode > 57) {
+                    event.preventDefault();
+                }
+            }
+        });
+
+        $("#txtNombre").keydown(function (event) {
+            if (event.keyCode == 32 || event.keyCode == 8) {
+            }
+            else {
+                if (event.keyCode < 65 || (event.keyCode > 90 && event.keyCode > 97) || event.keyCode >92) {
+                    event.preventDefault();
+                }
+            }
+        });
+
+        $('body').on('click', '#GuardarInsumo', function () {
+            var pNombre='', pStockNormal='0', pRequerido='0', pStockActual='0',pStockMinimo='0';
+            pNombre=$('#txtNombre').val().trim();
+            if (pNombre == '') {
+                $("#lblMensaje").text('El campo Nombre de Insumo es obligatorio.');
+                return;
+            }
+            pStockNormal=$('#txtStockNormal').val().trim();
+            if (pStockNormal == '') {
+                $("#lblMensaje").text('El valor Stock Normal es obligatorio.');
+                return;
+            }            
+            pRequerido=$('#txtRequerido').val().trim();
+            if (pRequerido == '') {
+                $("#lblMensaje").text('El valor Cantidad Requerida es obligatorio.');
+                return;
+            }
+            pStockActual=$('#txtStockActual').val().trim();
+            if (pStockActual == '') {
+                $("#lblMensaje").text('El valor Stock Actual es obligatorio.');
+                return;
+            }
+            pStockMinimo=$('#txtStockMinimo').val().trim();
+            if (pStockMinimo == '') {
+                $("#lblMensaje").text('El valor Stock Minimo es obligatorio.');
+                return;
+            }
+            $("#lblMensaje").text('');
+            $.post("/Sisres/GuardarInsumo", {
+                pNombre:pNombre,
+                pUM:$('#listaUnidadMedida').val(),
+                pStockNormal:pStockNormal,
+                pRequerido:pRequerido,
+                pStockActual:pStockActual,
+                pStockMinimo:pStockMinimo,
+                pPrioridad:$('#listaPrioridades').val()
+            }, function (data) {
+                if (data) {
+                    window.location='@Url.Action("Insumos", "Sisres")'
+                }
+                return false;
+            });
+        });
+
+        $('body').on('click', '.clsEliminar', function () {
+            return false;
+            $.post("/Sisres/EliminarInsumo", {
+                pIdInsumo: $(this).attr("id")
+            }, function (data) {
+                if (data) {
+                    $('#div_listaSolicitudes').html(data);
+                    $('.clstxtRecibido').val('');
+                    $('.clstxtRecibido').attr("disabled", "disabled");
+                    $('.clschbSolicitud').attr("checked", false);
+                    $.post("/Sisres/ActualizarInsumo", {
+                    }, function (data) {
+                        if (data) {
+                            $('#div_listaInsumos').html(data);
+                            $('.clstxtInsumo').val('');
+                            $('.clstxtInsumo').attr("disabled", "disabled");
+                            $('.clschbInsumo').attr("checked", false);
+                        }
+                    });
+                }
+                return false;
+            });
+        });
+
+        $('body').on('click', '#AtenderSolicitud', function () {
+            var plistaInsumos = '';
+            var checkBoxes = $("input:checkbox");
+            checkBoxes.each(function () {
+                if (this.className == 'clschbSolicitud') {
+                    if ($(this).is(':checked')) {
+                        var id = $(this).attr("id");
+                        var cantidad = $('#recibido' + id).val().trim();
+                        if (cantidad != '' && cantidad != '0') {
+                            plistaInsumos = plistaInsumos + id + ':' + cantidad + '|';
+                        }
+                    }
+                }
+            });
+            if (plistaInsumos.length > 0) {
+                plistaInsumos = plistaInsumos.substring(0, plistaInsumos.length - 1);
+                $.post("/Sisres/AtenderSolicitud", {
+                    plistaInsumos: plistaInsumos
+                }, function (data) {
+                    if (data) {
+                        $('#div_listaSolicitudes').html(data);
+                        $('.clstxtRecibido').val('');
+                        $('.clstxtRecibido').attr("disabled", "disabled");
+                        $('.clschbSolicitud').attr("checked", false);
+                        $.post("/Sisres/ActualizarInsumo", {
+                        }, function (data) {
+                            if (data) {
+                                $('#div_listaInsumos').html(data);
+                                $('.clstxtInsumo').val('');
+                                $('.clstxtInsumo').attr("disabled", "disabled");
+                                $('.clschbInsumo').attr("checked", false);
+                            }
+                        });
+                    }
+                    return false;
+                });
+            }
+        });
+    });
+</script>

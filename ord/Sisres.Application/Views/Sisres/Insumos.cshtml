@@ -1,0 +1,195 @@
+﻿@{
+    ViewBag.Title = "Administrar Insumos";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>Administrar los insumos requeridos en la cocina o en la sección bebidas del restaurante.</h2>
+            </hgroup>
+            <p>
+                Se utiliza para verificar la disponibilidad de los insumos en la cocina o en la sección bebidas, 
+                a fin de registrar los faltantes para su solicitud al almacén o actualizar la disponibilidad del 
+                plato o bebida en la carta u oferta del día.
+            </p>
+        </div>
+    </section>
+}
+<h3>Stock de insumos de cocina o bar.</h3>
+<table style="width: 100%">
+    <tr>
+        <td style="width: 100%">
+            @using Sisres.Application.Models
+            <div id="div_listaInsumos">
+                @{ Html.RenderPartial("_listaInsumosPartial", new PartialModels { Text = "Before Clicked" }); }
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: right">
+            <input type="button" value="Crear Insumo" id="CrearInsumo" onclick="window.location='@Url.Action("InsumoMaestro", "Sisres")'"/><input type="button" value="Solicitar Insumos" id="SolicitarInsumo" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @using Sisres.Application.Models
+            <div id="div_listaSolicitudes">
+                @{ Html.RenderPartial("_listaSolicitudesPartial", new PartialModels { Text = "Before Clicked" }); }
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: right">
+            <input type="button" value="Atender Solicitud" id="AtenderSolicitud" />
+        </td>
+    </tr>
+</table>
+<script type="text/jscript" lang="javascript">
+    $(document).ready(function () {
+        $('.clstxtInsumo').attr("disabled", "disabled");
+        $('.clstxtRecibido').attr("disabled", "disabled");
+
+        $(".clstxtInsumo").keydown(function (event) {
+            if (event.keyCode == 46 || event.keyCode == 8) {
+            }
+            else {
+                if (event.keyCode < 48 || event.keyCode > 57) {
+                    event.preventDefault();
+                }
+            }
+        });
+
+        $(".clstxtRecibido").keydown(function (event) {
+            if (event.keyCode == 46 || event.keyCode == 8) {
+            }
+            else {
+                if (event.keyCode < 48 || event.keyCode > 57) {
+                    event.preventDefault();
+                }
+            }
+        });
+        
+
+
+        $('body').on('click', '.clschbInsumo', function () {
+            var id = $(this).attr("id");
+            if ($(this).is(':checked')) {
+                $('#cantidad' + id).attr("disabled", false);
+            } else {
+
+                $('#cantidad' + id).attr("disabled", "disabled");
+            }
+            $('#cantidad' + id).val('');
+            $('#cantidad' + id).focus();
+        });
+
+        $('body').on('click', '.clschbSolicitud', function () {
+            var id = $(this).attr("id");
+            if ($(this).is(':checked')) {
+                $('#recibido' + id).attr("disabled", false);
+            } else {
+
+                $('#recibido' + id).attr("disabled", "disabled");
+            }
+            $('#recibido' + id).val('');
+            $('#recibido' + id).focus();
+        });
+
+        $('body').on('click', '#SolicitarInsumo', function () {
+            var plistaInsumos = '';
+            var checkBoxes = $("input:checkbox");
+            checkBoxes.each(function () {
+                if (this.className == 'clschbInsumo') {
+                    if ($(this).is(':checked')) {
+                        var id = $(this).attr("id");
+                        var cantidad = $('#cantidad' + id).val().trim();
+                        if (cantidad != '' && cantidad!='0') {
+                            plistaInsumos = plistaInsumos + $(this).attr("id") + ':' + cantidad + '|';
+                        }
+                    }
+                }
+            });
+            if (plistaInsumos.length > 0) {
+                plistaInsumos = plistaInsumos.substring(0, plistaInsumos.length - 1);
+                $.post("/Sisres/SolicitarInsumo", {
+                    plistaInsumos: plistaInsumos
+                }, function (data) {
+                    if (data) {
+                        $('.clstxtInsumo').val('');
+                        $('.clstxtInsumo').attr("disabled", "disabled");
+                        $('.clschbInsumo').attr("checked", false);
+
+                        $('#div_listaSolicitudes').html(data);
+                        $('.clstxtRecibido').val('');
+                        $('.clstxtRecibido').attr("disabled", "disabled");
+                        $('.clschbSolicitud').attr("checked", false);
+                    }
+                    return false;
+                });
+            }
+        });
+
+        $('body').on('click', '.clsEliminar', function () {
+            $.post("/Sisres/EliminarInsumo", {
+                pIdInsumo: $(this).attr("id")
+            }, function (data) {
+                if (data) {
+                    $('#div_listaSolicitudes').html(data);
+                    $('.clstxtRecibido').val('');
+                    $('.clstxtRecibido').attr("disabled", "disabled");
+                    $('.clschbSolicitud').attr("checked", false);
+                    $.post("/Sisres/ActualizarInsumo", {
+                    }, function (data) {
+                        if (data) {
+                            $('#div_listaInsumos').html(data);
+                            $('.clstxtInsumo').val('');
+                            $('.clstxtInsumo').attr("disabled", "disabled");
+                            $('.clschbInsumo').attr("checked", false);
+                        }
+                    });
+                }
+                return false;
+            });
+        });
+
+        $('body').on('click', '#AtenderSolicitud', function () {
+            var plistaInsumos = '';
+            var checkBoxes = $("input:checkbox");
+            checkBoxes.each(function () {
+                if (this.className == 'clschbSolicitud') {
+                    if ($(this).is(':checked')) {
+                        var id = $(this).attr("id");
+                        var cantidad = $('#recibido' + id).val().trim();
+                        if (cantidad != '' && cantidad!='0') {
+                            plistaInsumos = plistaInsumos + id + ':' + cantidad + '|';
+                        }
+                    }
+                }
+            });
+            if (plistaInsumos.length > 0) {
+                plistaInsumos = plistaInsumos.substring(0, plistaInsumos.length - 1);
+                $.post("/Sisres/AtenderSolicitud", {
+                    plistaInsumos: plistaInsumos
+                }, function (data) {
+                    if (data) {
+                        $('#div_listaSolicitudes').html(data);
+                        $('.clstxtRecibido').val('');
+                        $('.clstxtRecibido').attr("disabled", "disabled");
+                        $('.clschbSolicitud').attr("checked", false);
+                        $.post("/Sisres/ActualizarInsumo", {
+                        }, function (data) {
+                            if (data) {
+                                $('#div_listaInsumos').html(data);
+                                $('.clstxtInsumo').val('');
+                                $('.clstxtInsumo').attr("disabled", "disabled");
+                                $('.clschbInsumo').attr("checked", false);
+                            }
+                        });
+                    }
+                    return false;
+                });
+            }
+        });
+    });
+</script>

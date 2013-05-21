@@ -1,0 +1,44 @@
+D:\Sisres\Sisres.Solution\Sisres.Model\bin\Debug\Sisres.Model.dll.config
+D:\Sisres\Sisres.Solution\Sisres.Model\bin\Debug\Sisres.Model.dll
+D:\Sisres\Sisres.Solution\Sisres.Model\bin\Debug\Sisres.Model.pdb
+D:\Sisres\Sisres.Solution\Sisres.Model\bin\Debug\EntityFramework.dll
+D:\Sisres\Sisres.Solution\Sisres.Model\bin\Debug\EntityFramework.xml
+D:\Sisres\Sisres.Solution\Sisres.Model\obj\Debug\Sisres.Model.dll
+D:\Sisres\Sisres.Solution\Sisres.Model\obj\Debug\Sisres.Model.pdb
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Model\bin\Debug\Sisres.Model.dll.config
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Model\bin\Debug\Sisres.Model.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Model\bin\Debug\Sisres.Model.pdb
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Model\bin\Debug\EntityFramework.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Model\bin\Debug\EntityFramework.xml
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Model\obj\Debug\Sisres.Model.dll
+C:\Users\Dieguito\documents\visual studio 2012\Projects\Sisres.Solution\Sisres.Model\obj\Debug\Sisres.Model.pdb
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Model\bin\Debug\Sisres.Model.dll.config
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Model\bin\Debug\Sisres.Model.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Model\bin\Debug\Sisres.Model.pdb
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Model\bin\Debug\EntityFramework.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Model\bin\Debug\EntityFramework.xml
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Model\obj\Debug\Sisres.Model.dll
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Model\obj\Debug\Sisres.Model.pdb
+C:\Users\gys\Documents\Visual Studio 2012\Projects\Sisres.Solution\Sisres.Model\obj\Debug\Sisres.Model.csprojResolveAssemblyReference.cache
+D:\Sisres.Solution\Sisres.Model\bin\Debug\Sisres.Model.dll.config
+D:\Sisres.Solution\Sisres.Model\bin\Debug\Sisres.Model.dll
+D:\Sisres.Solution\Sisres.Model\bin\Debug\Sisres.Model.pdb
+D:\Sisres.Solution\Sisres.Model\bin\Debug\EntityFramework.dll
+D:\Sisres.Solution\Sisres.Model\bin\Debug\EntityFramework.xml
+D:\Sisres.Solution\Sisres.Model\obj\Debug\Sisres.Model.dll
+D:\Sisres.Solution\Sisres.Model\obj\Debug\Sisres.Model.pdb
+F:\Sisres.Solution\Sisres.Model\bin\Debug\Sisres.Model.dll.config
+F:\Sisres.Solution\Sisres.Model\bin\Debug\Sisres.Model.dll
+F:\Sisres.Solution\Sisres.Model\bin\Debug\Sisres.Model.pdb
+F:\Sisres.Solution\Sisres.Model\bin\Debug\EntityFramework.dll
+F:\Sisres.Solution\Sisres.Model\bin\Debug\EntityFramework.xml
+F:\Sisres.Solution\Sisres.Model\obj\Debug\Sisres.Model.dll
+F:\Sisres.Solution\Sisres.Model\obj\Debug\Sisres.Model.pdb
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Model\bin\Debug\Sisres.Model.dll.config
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Model\bin\Debug\Sisres.Model.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Model\bin\Debug\Sisres.Model.pdb
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Model\bin\Debug\EntityFramework.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Model\bin\Debug\EntityFramework.xml
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Model\obj\Debug\Sisres.Model.dll
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Model\obj\Debug\Sisres.Model.pdb
+D:\Proyecto\Fuentes\Sisres.Solution\Sisres.Model\obj\Debug\Sisres.Model.csprojResolveAssemblyReference.cache

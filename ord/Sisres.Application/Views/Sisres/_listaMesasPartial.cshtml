@@ -1,0 +1,71 @@
+﻿@{
+    WebGrid wgMesas = new WebGrid(ViewBag.listaMesas, rowsPerPage: 100);
+}
+
+@wgMesas.GetHtml(tableStyle: "tables ListaDetalle", headerStyle: "webgrid-header", footerStyle: "webgrid-footer", alternatingRowStyle: "webgrid-alternating-row", selectedRowStyle: "webgrid-selected-row",
+rowStyle: "webgrid-row-style",displayHeader:false,
+            columns: wgMesas.Columns(
+            wgMesas.Column("", header: "", canSort: false,
+            format: @<text>
+@if ((bool)item.Col1.Estado)
+{
+    <div style="cursor: pointer;">
+        <img id="@item.Col1.IdMesa" src="~/Images/reservada.png" title="Ocupada" width="60" class="clsMesaReservada" />
+    </div>
+}
+else
+{
+    <div style="cursor: pointer;">
+        <img id="@item.Col1.IdMesa" src="~/Images/libre.png" title="Libre" width="60" class="clsMesaLibre"/>
+    </div>
+}
+</text>),
+wgMesas.Column("", header: "", canSort: false,
+            format: @<text>
+@if ((bool)item.Col2.Estado)
+{
+    <div style="cursor: pointer;">
+        <img id="@item.Col2.IdMesa" src="~/Images/reservada.png" title="Ocupada" width="60" class="clsMesaReservada"/>
+    </div>
+}
+else
+{
+    <div style="cursor: pointer;">
+        <img id="@item.Col2.IdMesa" src="~/Images/libre.png" title="Libre" width="60" class="clsMesaLibre"/>
+    </div>
+}
+</text>),
+wgMesas.Column("", header: "", canSort: false,
+            format: @<text>
+@if ((bool)item.Col3.Estado)
+{
+    <div style="cursor: pointer;">
+        <img id="@item.Col3.IdMesa" src="~/Images/reservada.png" title="Ocupada" width="60" class="clsMesaReservada"/>
+    </div>
+}
+else
+{
+    <div style="cursor: pointer;">
+        <img id="@item.Col3.IdMesa" src="~/Images/libre.png" title="Libre" width="60" class="clsMesaLibre"/>
+    </div>
+}
+</text>),
+wgMesas.Column("", header: "", canSort: false,
+            format: @<text>
+@if ((bool)item.Col4.Estado)
+{
+    <div style="cursor: pointer;">
+        <img id="@item.Col4.IdMesa" src="~/Images/reservada.png" title="Ocupada" width="60" class="clsMesaReservada"/>
+    </div>
+}
+else
+{
+    <div style="cursor: pointer;">
+        <img id="@item.Col4.IdMesa" src="~/Images/libre.png" title="Libre" width="60" class="clsMesaLibre"/>
+    </div>
+}
+</text>)
+))
+@*, htmlAttributes: new { @style = "width:100%;" })*@
+
+@{ Layout = null; }

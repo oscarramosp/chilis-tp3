@@ -1,0 +1,165 @@
+﻿@{
+    ViewBag.Title = "Administrar Incidencia";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>Registrar y administrar las incidencias hechas a una determinada orden.</h2>
+            </hgroup>
+            <p>
+                Se utiliza para registrar una o varias incidencias hechas por un cliente a una determinada orden.
+                La incidencia puede ser considerada como leve, moderada o grave.
+            </p>
+        </div>
+    </section>
+}
+<h3>Administración de incidencias.</h3>
+<table>
+    <tr><td colspan="4" nowrap>
+                    <label id="lblMensaje" class="labelformat"></label>
+                    </td></tr>
+    <tr>
+        <td>
+            @Html.Label("Numero de Orden:")
+        </td>
+        <td>
+            @Html.TextBox("txtNumeroPedido", null, new { style = "width:30px",maxlength="3" })
+        </td>
+        <td>
+            @Html.Label("Tipo Incedencia:")
+        </td>
+        <td>
+            @Html.DropDownList("listaTiposIncidencia", null, new { style = "height:30px" })
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            @Html.TextArea("txtDetalleIncidencia", new { rows = 3, cols = 50,style="width:98%" })
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4" style="text-align: right">
+            <input type="button" value="Registrar" id="RegistrarIncidencia" />
+            <input type="button" value="Grabar" id="GuardarIncidencia" />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            @using Sisres.Application.Models
+            <div id="div_listaIncidencias">
+                @{ Html.RenderPartial("_listaIncidenciasPartial", new PartialModels { Text = "Before Clicked" }); }
+            </div>
+        </td>
+    </tr>
+</table>
+<script type="text/jscript" lang="javascript">
+    $(document).ready(function () {
+        $('#GuardarIncidencia').hide();
+        $("#txtNumeroPedido").keydown(function (event) {
+            if (event.keyCode == 8) {
+            }
+            else {
+                if (event.keyCode < 48 || event.keyCode > 57) {
+                    event.preventDefault();
+                }
+            }
+        });
+
+        $('body').on('click', '#RegistrarIncidencia', function () {
+            var pedido = $('#txtNumeroPedido').val().trim();
+            if (pedido == '') {
+                $("#lblMensaje").text('El campo Número de Pedido es obligatorio.');
+                return;
+            }
+            var detalle = $('#txtDetalleIncidencia').val().trim();
+            if (detalle == '') {
+                $("#lblMensaje").text('El campo Detalle de Incidencia es obligatorio.');
+                return;
+            }
+            $.post("/Sisres/RegistrarIncidencia", {
+                pNumeroPedido: pedido,
+                pTipoIncidencia: $('#listaTiposIncidencia').val(),
+                pDetalle: $('#txtDetalleIncidencia').val()
+            }, function (data) {
+                if (data != '0') {
+                    if (data == '1') {
+                        $("#lblMensaje").text('El Número de Pedido ingresado no existe.');
+                    }
+                    //if (data == '2') {
+                    //    $("#lblMensaje").text('Ya se ha registrado una incidencia con el Número de Pedido.');
+                    //}
+                    $('#txtNumeroPedido').val('');
+                    $('#txtNumeroPedido').focus();
+                    return;
+                }
+                limpiarControles();                
+                $.post("/Sisres/ActualizarIncidencias", {
+                }, function (data) {
+                    $('#div_listaIncidencias').html(data);
+                });
+                return false;
+            });
+        });
+
+        $('body').on('click', '.clsEliminar', function () {
+            limpiarControles();
+            $.post("/Sisres/EliminarIncidencia", {
+                pIncidencia: $(this).attr('id')
+            }, function (data) {
+                if (data) {
+                    $('#div_listaIncidencias').html(data);
+                }
+                return false;
+            });
+        });
+
+        $('body').on('click', '.clsEditar', function () {
+            limpiarControles();
+            $.post("/Sisres/EditarIncidencia", {
+                pIncidencia: $(this).attr('id')
+            }, function (data) {
+                if (data) {
+                    $('#txtNumeroPedido').val(data.split('|')[0]);
+                    $('#txtNumeroPedido').attr("disabled", "disabled");
+                    $('#listaTiposIncidencia').val(data.split('|')[1]);
+                    $('#txtDetalleIncidencia').val(data.split('|')[2]);
+                    $('#RegistrarIncidencia').hide();
+                    $('#GuardarIncidencia').show();
+                }
+                return false;
+            });
+        });
+
+        $('body').on('click', '#GuardarIncidencia', function () {
+            var detalle = $('#txtDetalleIncidencia').val().trim();
+            if (detalle == '') {
+                $("#lblMensaje").text('El campo Detalle de Incidencia es obligatorio.');
+                return;
+            }
+            $.post("/Sisres/GuardarIncidencia", {
+                pNumeroPedido: $('#txtNumeroPedido').val(),
+                pTipoIncidencia: $('#listaTiposIncidencia').val(),
+                pDetalle: $('#txtDetalleIncidencia').val()
+            }, function (data) {
+                if (data) {
+                    $('#txtNumeroPedido').attr("disabled", false);
+                    limpiarControles();
+                    $('#div_listaIncidencias').html(data);
+                }
+                return false;
+            });
+        });
+    });
+
+    function limpiarControles() {
+        $("#lblMensaje").text('');
+        $('#txtNumeroPedido').attr("disabled", false);
+        $('#RegistrarIncidencia').show();
+        $('#GuardarIncidencia').hide();
+        $('#txtNumeroPedido').val('');
+        $('#listaTiposIncidencia').val(1);
+        $('#txtDetalleIncidencia').val('');
+    }
+</script>

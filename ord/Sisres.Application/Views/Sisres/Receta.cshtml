@@ -1,0 +1,138 @@
+﻿@using Sisres.Application.Models
+@{
+    ViewBag.Title = "Administrar Receta";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>Administrar las recetas que se utilizan en el restaurante.</h2>
+            </hgroup>
+            <p>
+                Se utiliza para administrar las recetas e insumos utlizados en un plato o bebida y el modo de preparación.
+            </p>
+        </div>
+    </section>
+}
+<h3>Detalle de recetas.</h3>
+<table style="width: 100%">
+    <tr>
+        <td style="width: 100%" colspan="2">
+            @*@using Sisres.Application.Models*@
+            <div id="div_listaRecetas">
+                @{ Html.RenderPartial("_listaRecetasPartial", new PartialModels { Text = "Before Clicked" }); }
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: right" colspan="2">
+            <input type="button" value="Asignar a Carta" id="AsignarCarta" />
+        </td>
+    </tr>
+    <tr>
+        <td style="width:50%">
+            <div id="div_listaInsumosReceta" style="width:90%">
+                @{ Html.RenderPartial("_listaInsumosRecetaPartial", new PartialModels { Text = "Before Clicked" }); }
+            </div>
+        </td>
+        <td>
+            <div id="div_modoPreparacion" style="width:100%">
+                @{ Html.RenderPartial("_modoPreparacionPartial", new PartialModels { Text = "Before Clicked" }); }
+            </div>
+        </td>
+    </tr>
+</table>
+<script type="text/jscript" lang="javascript">
+    $(document).ready(function () {
+        $('.clstxtPrecioOferta').attr("disabled", "disabled");
+        $('.clschbOferta').attr("disabled", "disabled");
+        $(".clstxtPrecioOferta").keydown(function (event) {
+            if (event.keyCode == 46 || event.keyCode == 8) {
+            }
+            else {
+                if (event.keyCode < 48 || event.keyCode > 57) {
+                    event.preventDefault();
+                }
+            }
+        });
+        
+        $('body').on('click', '.clschbCarta', function () {
+            var id = $(this).attr("id");
+            if ($(this).is(':checked')) {
+                $('#oferta' + id).attr("disabled", false);
+            } else {
+                $('#oferta' + id).attr("disabled", "disabled");
+            }
+            $('#oferta' + id).attr("checked", false);
+            $('#precio' + id).attr("disabled", "disabled");
+            $('#precio' + id).val('');
+        });
+
+        $('body').on('click', '.clschbOferta', function () {
+            var id = $(this).attr("id").substring(6);
+            if ($(this).is(':checked')) {
+                $('#precio' + id).attr("disabled", false);
+            } else {                
+                $('#precio' + id).attr("disabled", "disabled");
+            }
+            $('#precio' + id).val('');
+            $('#precio' + id).focus();
+        });
+
+        $('body').on('click', '#AsignarCarta', function () {
+            var pListaRecetas = '';
+            var checkBoxes = $("input:checkbox");
+            checkBoxes.each(function () {
+                if (this.className == 'clschbCarta') {
+                    if ($(this).is(':checked')) {
+                        var id = $(this).attr("id");
+                        if ($('#oferta' + id).is(':checked')) {
+                            var precio = $('#precio' + id).val().trim();
+                            if (precio == '') precio = '0';
+                            pListaRecetas = pListaRecetas + $(this).attr("id") + ':1:'+precio+'|';
+                        } else {
+                            pListaRecetas = pListaRecetas + $(this).attr("id") + ':0:0|';
+                        }
+                    }
+                }
+            });
+            if (pListaRecetas.length > 0) {
+                pListaRecetas = pListaRecetas.substring(0, pListaRecetas.length - 1);
+                $.post("/Sisres/AsignarCartaVarios", {
+                    pListaRecetas: pListaRecetas
+                }, function (data) {
+                    if (data) {
+                        $('.clstxtPrecioOferta').val('');
+                        $('.clstxtPrecioOferta').attr("disabled", "disabled");
+                        $('.clschbCarta').attr("checked", false);
+                        $('.clschbOferta').attr("checked", false);
+                    }
+                });
+            }
+        });
+    });
+
+    function detalleReceta(pIdReceta) {
+        $.post("/Sisres/DetalleReceta", {
+            pIdReceta: pIdReceta
+        }, function (data) {
+            if (data) {
+                $('#div_listaInsumosReceta').html(data);
+            }
+            return false;
+        });
+    }
+
+    function VerReceta(pIdReceta)
+    {
+        $.post("/Sisres/VerReceta", {
+            pIdReceta: pIdReceta
+        }, function (data) {
+            if (data) {
+                $('#div_modoPreparacion').html(data);
+            }
+            return false;
+        });
+    }
+    </script>
