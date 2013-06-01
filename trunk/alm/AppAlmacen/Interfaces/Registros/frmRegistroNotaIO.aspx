@@ -84,6 +84,7 @@
                                     <asp:CheckBox id="chckSeleccionar" runat="server" />
                                     <asp:Label visible="false" ID="lblCodEdit" runat="server" Text='<%# Bind("CodigoDetalle") %>' />
                                    <asp:Label visible="false" ID="lblcodigo2" runat="server" Text='<%# Bind("CodigoDetalle2") %>' />
+                                   <asp:Label visible="false" ID="lblDescripcion" runat="server" Text='<%# Bind("descripcion") %>' />
                                    <asp:Label visible="false" ID="lblItem" runat="server" Text='<%# Bind("CodItem2") %>' />
                                    <asp:Label visible="false" ID="lblMedida" runat="server" Text='<%# Bind("medida") %>' />
                                    <asp:Label visible="false" ID="lblCantActual" runat="server" Text='<%# Bind("cantActual") %>' />
@@ -96,27 +97,24 @@
                         </asp:TemplateField>
 
                        
-                        <asp:BoundField DataField="serie" HeaderText="Código" Visible="true">
-                            <HeaderStyle HorizontalAlign="Center" />
+                        <asp:BoundField DataField="serie" HeaderText="Cod.NP" Visible="true">
                         </asp:BoundField>
-                        <asp:BoundField DataField="CodItem2" HeaderText="Item">
-                            <HeaderStyle HorizontalAlign="Center" />
+                        <asp:BoundField DataField="CodItem" HeaderText="Item">
+                        </asp:BoundField>
+                        <asp:BoundField DataField="descripcion" HeaderText="Descripcion">
                         </asp:BoundField>
                         <asp:BoundField DataField="medida" HeaderText="Medida">
-                            <HeaderStyle HorizontalAlign="Center" />
                         </asp:BoundField>
                         <asp:BoundField DataField="DesMarca" HeaderText="Marca">
                         </asp:BoundField>                      
-                        <asp:BoundField DataField="fechaCaducidad" HeaderText="Fecha Caducidad">
+                        <asp:BoundField DataField="fechaCaducidad" HeaderText="Fecha Caducidad" 
+                             DataFormatString="{0:d}">
                         </asp:BoundField>
                         <asp:BoundField DataField="cantActual" HeaderText="Cantidad">
-                            <HeaderStyle HorizontalAlign="Center" />
                         </asp:BoundField>
                         <asp:BoundField DataField="precioUnitario" HeaderText="Precio Unitario">
-                            <HeaderStyle HorizontalAlign="Center" />
                         </asp:BoundField>
                         <asp:BoundField DataField="precioTotal" HeaderText="Precio Total">
-                            <HeaderStyle HorizontalAlign="Center" />
                         </asp:BoundField>
                       
                     </Columns>

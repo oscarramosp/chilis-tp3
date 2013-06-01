@@ -82,6 +82,7 @@ namespace AppAlmacen.Interfaces.Registros
         void gdvListado_RowEditing(object sender, GridViewEditEventArgs e)
         {
             var codigo = gdvListado.Rows[e.NewEditIndex].FindControl("lblcodigoPr") as Label;
+            var nom = gdvListado.Rows[e.NewEditIndex].FindControl("lblNombre") as Label;
             var CodUN = gdvListado.Rows[e.NewEditIndex].FindControl("lblCodUN") as Label;
             string strCodigo = codigo.Text;
 
@@ -98,7 +99,7 @@ namespace AppAlmacen.Interfaces.Registros
                 
             }
             else {
-                lblProductoSel.Text = "Producto seleccionado : " + strCodigo;
+                lblProductoSel.Text = "Producto seleccionado : " + nom.Text;
             }
 
 

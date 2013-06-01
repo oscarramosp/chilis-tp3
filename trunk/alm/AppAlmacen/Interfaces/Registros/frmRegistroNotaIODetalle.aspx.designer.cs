@@ -31,33 +31,6 @@ namespace AppAlmacen.Interfaces.Registros {
         protected global::ucwGrabarCerrar ucwGrabarCerrar;
         
         /// <summary>
-        /// lblCodigoPedido control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCodigoPedido;
-        
-        /// <summary>
-        /// txtCodigoPedido control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodigoPedido;
-        
-        /// <summary>
-        /// btnCargarporPedido control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCargarporPedido;
-        
-        /// <summary>
         /// lblCodigoNotaIS control.
         /// </summary>
         /// <remarks>
@@ -92,6 +65,51 @@ namespace AppAlmacen.Interfaces.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CustomValidator cvTipoDocumento;
+        
+        /// <summary>
+        /// ddlTransferencia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTransferencia;
+        
+        /// <summary>
+        /// Ucwasterisco2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ucwAsterisco Ucwasterisco2;
+        
+        /// <summary>
+        /// cvTranferencia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvTranferencia;
+        
+        /// <summary>
+        /// txtCodigoPedido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCodigoPedido;
+        
+        /// <summary>
+        /// btnCargarporPedido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCargarporPedido;
         
         /// <summary>
         /// ddlUnidadOrigen control.
@@ -154,7 +172,16 @@ namespace AppAlmacen.Interfaces.Registros {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ucwFecha txtFecha;
+        protected global::System.Web.UI.WebControls.TextBox txtFecha;
+        
+        /// <summary>
+        /// CalendarExtender2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender2;
         
         /// <summary>
         /// txtPeriodo control.
@@ -182,42 +209,6 @@ namespace AppAlmacen.Interfaces.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ucwAsterisco ucwAstPeriodo;
-        
-        /// <summary>
-        /// ddlTransferencia control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTransferencia;
-        
-        /// <summary>
-        /// Ucwasterisco2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ucwAsterisco Ucwasterisco2;
-        
-        /// <summary>
-        /// cvTranferencia control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator cvTranferencia;
-        
-        /// <summary>
-        /// ddlRefencia control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlRefencia;
         
         /// <summary>
         /// txtEmpleado control.

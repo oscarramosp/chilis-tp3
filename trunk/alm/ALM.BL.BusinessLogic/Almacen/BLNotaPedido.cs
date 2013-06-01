@@ -22,6 +22,12 @@ namespace ALM.BL.BusinessLogic.Almacen
             return da.ListarPorNotaPedido(codigo);
         }
 
+        public ENotaPedido GetNP(int codigo)
+        {
+            DANotaPedido da = new DANotaPedido();
+            return da.NP(codigo);
+        }
+
         public List<ENotaPedido> ListarPorNotaPedidoP(int CodUN)
         {
             DANotaPedido da = new DANotaPedido();

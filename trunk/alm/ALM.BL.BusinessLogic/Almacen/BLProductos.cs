@@ -29,6 +29,12 @@ namespace ALM.BL.BusinessLogic.Almacen
             return da.BuscarProductos(codigo, descripcion, familia,SubFamilia,Marca);
         }
 
+        public List<EProductos> BuscarProductos2(Int32 codigo)
+        {
+            DAProductos da = new DAProductos();
+            return da.BuscarProductos2(codigo);
+        }
+
         public List<EProductos> BuscarProductosUN(String codigo, String nombre, int UN)
         {
             DAProductos da = new DAProductos();

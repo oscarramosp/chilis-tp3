@@ -83,19 +83,6 @@
                     <tr>
                         
                         <td style="width: 15%">
-                            Código Nota Pedido:
-                        </td>
-                        <td style="width: 25%">
-                            <asp:Label ID="lblCodigoPedido" runat="server"></asp:Label>
-                            <asp:TextBox ID="txtCodigoPedido" runat="server"></asp:TextBox>
-                            <asp:Button ID="btnCargarporPedido" runat="server" Text="Cargar Pedido" 
-                                onclick="btnCargarporPedido_Click" />
-                        </td>
-                       
-                    </tr>
-                    <tr>
-                        
-                        <td style="width: 15%">
                             Codigo de Nota I/S :</td>
                         <td style="width: 25%">
                             <asp:Label ID="lblCodigoNotaIS" runat="server"></asp:Label></td>
@@ -108,7 +95,9 @@
                         <td style="width: 25%">
                             <asp:DropDownList ID="ddlTipoDocumento" runat="server" Height="16px" 
                                 Width="202px"  CauseValidation="true" AsteriscoError="False" 
-                                ValidationGroup="GrupoNotaPedido">
+                                ValidationGroup="GrupoNotaPedido" AutoPostBack="True" 
+                                onselectedindexchanged="ddlTipoDocumento_SelectedIndexChanged" 
+                                Enabled="False">
                                 <asp:ListItem Value="-1">--Seleccione--</asp:ListItem>
                                 <asp:ListItem Value="NI">Nota de Ingreso</asp:ListItem>
                                 <asp:ListItem Value="NS">Nota de Salida</asp:ListItem>
@@ -121,6 +110,41 @@
 
                       
                        
+                    </tr>
+
+                    <tr>                                      
+                         <td style="width: 8%">
+                            Transferencia Tipo:</td>
+                        <td style="width: 5%" >
+                            <asp:DropDownList ID="ddlTransferencia" runat="server" Height="16px" 
+                                Width="147px"  CauseValidation="true" AsteriscoError="False" 
+                                ValidationGroup="GrupoNotaPedido" AutoPostBack="True" 
+                                onselectedindexchanged="ddlTransferencia_SelectedIndexChanged">
+                               </asp:DropDownList>
+                             <uc7:ucwasterisco ID="Ucwasterisco2" runat="server" />
+                             <asp:CustomValidator ID="cvTranferencia" runat="server" ClientValidationFunction="ValidaDDL"
+                                            ControlToValidate="ddlTransferencia"
+                                            ValidationGroup="GrupoNotaPedido" SetFocusOnError="True" Display="None"></asp:CustomValidator></td>
+                       <td style="width: 8%">
+                            &nbsp;</td>
+                        <td style="width: 5%" >
+                            &nbsp;</td>
+                    
+                    </tr>
+
+                    <tr>                                      
+                         <td style="width: 8%">
+                            Código Nota Pedido:
+                        </td>
+                        <td style="width: 5%" >
+                            <asp:TextBox ID="txtCodigoPedido" runat="server"></asp:TextBox>
+                            <asp:Button ID="btnCargarporPedido" runat="server" Text="Cargar Pedido" 
+                                onclick="btnCargarporPedido_Click" /></td>
+                       <td style="width: 8%">
+                            &nbsp;</td>
+                        <td style="width: 5%" >
+                            &nbsp;</td>
+                    
                     </tr>
 
                     <tr>                                      
@@ -155,8 +179,7 @@
                                                                 Fecha:
                                                             </td>
                                                             <td>
-                                                                <uc6:ucwFecha ID="txtFecha" runat="server" ValidationGroup="GrupoNotaPedido" ErrorMessage="Ingrese la Fecha de la Nota de I/S"
-                                                                    CauseValidation="true" />                                                                
+                                                                <asp:TextBox ID="txtFecha" runat="server" Width="70px" CssClass="textbox" MaxLength="10"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txtFecha"></cc1:CalendarExtender>                                                              
                                                             </td>
 <td>
                                                                 Periodo:
@@ -172,41 +195,6 @@
                     </tr>
                   
                    
-                    <tr>
-
-                     <td style="width: 15%">
-                            Transferencia Tipo:</td>
-                        <td style="width: 25%">
-                            <asp:DropDownList ID="ddlTransferencia" runat="server" Height="16px" 
-                                Width="147px"  CauseValidation="true" AsteriscoError="False" 
-                                ValidationGroup="GrupoNotaPedido">
-                                <asp:ListItem Value="-1">--Seleccione--</asp:ListItem>
-                                <asp:ListItem Value="IP">Ingreso de Proveedor</asp:ListItem>
-                                <asp:ListItem Value="IT">Ingreso por Terceros</asp:ListItem>
-                                <asp:ListItem Value="ST">Salida a Terceros</asp:ListItem>
-                             
-                            </asp:DropDownList>
-                             <uc7:ucwasterisco ID="Ucwasterisco2" runat="server" />
-                             <asp:CustomValidator ID="cvTranferencia" runat="server" ClientValidationFunction="ValidaDDL"
-                                            ControlToValidate="ddlTransferencia"
-                                            ValidationGroup="GrupoNotaPedido" SetFocusOnError="True" Display="None"></asp:CustomValidator>
-                        </td>
-
-                      
-                      <td style="width: 15%">
-                            &nbsp;</td>
-                        <td style="width: 25%">
-                            <asp:DropDownList ID="ddlRefencia" runat="server" Height="16px" Width="154px"  
-                                CauseValidation="true" AsteriscoError="False" ValidationGroup="GrupoNotaPedido" Visible ="false">
-                                <asp:ListItem Value="GR">Guia de Remisión</asp:ListItem>
-                                <asp:ListItem Value="NI">Nota de Ingreso</asp:ListItem>
-                                <asp:ListItem Value="NS">Nota de Salida</asp:ListItem>
-                              
-                            </asp:DropDownList>
-                        </td>
-                       
-                    </tr>
-
                      <tr>
                     
                                 <td>Empleado:</td>

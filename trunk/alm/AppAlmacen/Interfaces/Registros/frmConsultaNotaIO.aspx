@@ -93,30 +93,28 @@
                                  <asp:Label ID="lblcod" runat="server" Text='<%# Bind("CodigoIS") %>' Visible="false"/>
                                  <asp:Label ID="lblCod2" runat="server" Text='<%# Bind("correlativo") %>' Visible="true"/>                                
                                 </ItemTemplate>
-                            <HeaderStyle HorizontalAlign="Center" />
-                            <ItemStyle HorizontalAlign="Center" Width="20px" />
-                        
+                          
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Tipo Documento">
                         <ItemTemplate>
                          <asp:Label ID="lblTipDoc" runat="server" Text='<%# Bind("tipoDocumento") %>' Visible="false"/>
                          <asp:Label ID="lblTipDocDes" runat="server" Text='<%# Bind("DestipoDocumento") %>' />
                          </ItemTemplate>
-                          <HeaderStyle HorizontalAlign="Center" />
+                          
                         </asp:TemplateField>
 
                         <asp:TemplateField HeaderText="Fecha">
                         <ItemTemplate>
-                         <asp:Label ID="lblFecha" runat="server" Text='<%# Bind("fecha") %>' />
+                         <asp:Label ID="lblFecha" runat="server" Text='<%# Bind("fecha","{0:d}") %>' />
                           </ItemTemplate>
-                          <HeaderStyle HorizontalAlign="Center" />
+                          
                         </asp:TemplateField>
 
                         <asp:TemplateField HeaderText="Periodo">
                         <ItemTemplate>
                          <asp:Label ID="lblPeriodo" runat="server" Text='<%# Bind("periodo") %>' />
                           </ItemTemplate>
-                          <HeaderStyle HorizontalAlign="Center" />                        
+                          
                         </asp:TemplateField>
 
 
@@ -126,31 +124,16 @@
                          <asp:Label ID="lblTransDes" runat="server" Text='<%# Bind("DestransTipo") %>' />
 
                           </ItemTemplate>
-                          <HeaderStyle HorizontalAlign="Center" />
+                          
                         </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Referencia">
-                         <ItemTemplate>
-                         <asp:Label ID="lblrefCod" runat="server" Text='<%# Bind("referTipo") %>' Visible="false"/>
-                         <asp:Label ID="lblrefDes" runat="server" Text='<%# Bind("DesreferTipo") %>' />
-
-                          </ItemTemplate>
-                          <HeaderStyle HorizontalAlign="Center" />
-                        </asp:TemplateField>
-
-                        <asp:TemplateField HeaderText="Ref. Num Doc">
-                        <ItemTemplate>
-                         <asp:Label ID="lblrefnumDoc" runat="server" Text='<%# Bind("referNumDoc") %>' />
-                        </ItemTemplate>
-                          <HeaderStyle HorizontalAlign="Center" />
-                        </asp:TemplateField>
-
+                        
                         <asp:TemplateField HeaderText="U. Origen">
                         <ItemTemplate>
                            <asp:Label ID="lblUOriCod" runat="server" Text='<%# Bind("CodunidOrigen") %>' Visible="false"/>
                          <asp:Label ID="lblUOriDes" runat="server" Text='<%# Bind("unidOrigen") %>' />
                       </ItemTemplate>
-                          <HeaderStyle HorizontalAlign="Center" />
+                          
                         
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="U. Destino">
@@ -163,7 +146,7 @@
                          <asp:Label ID="lblUDestDes" runat="server" Text='<%# Bind("unidDestino") %>' />
 
                       </ItemTemplate>
-                          <HeaderStyle HorizontalAlign="Center" />
+                          
                         
                         </asp:TemplateField>
                       

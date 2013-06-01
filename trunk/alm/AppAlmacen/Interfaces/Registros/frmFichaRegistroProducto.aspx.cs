@@ -45,6 +45,7 @@ namespace AppAlmacen.Interfaces.Registros
                 cboUNCab.SelectedValue = "2"; //por defecto san isidro
                 CodSeleccionado.Value = "";
                 btnNuevaFicha.Visible = false;
+                ListaEFichaProducto = null;
                 
             }
 
@@ -259,6 +260,11 @@ namespace AppAlmacen.Interfaces.Registros
                 MessageBox(this.Page, "Ingresar Fecha de Elaboración");
                 mpeDatosFicha.Show();
             }
+            else if (txtFechaRecep.Text == "")
+            {
+                MessageBox(this.Page, "Ingresar Fecha de Recepción");
+                mpeDatosFicha.Show();
+            }
             else if (txtFechaVenci.Text == "")
             {
                 MessageBox(this.Page, "Ingresar Fecha Vencimiento");
@@ -287,12 +293,14 @@ namespace AppAlmacen.Interfaces.Registros
                 objBE.Cantidad = Convert.ToDecimal(txtCantidadFicha.Text);
                 objBE.Precio = Convert.ToDecimal(txtPrecioFicha.Text);
                 objBE.Medida = txtMedidaFicha.Text;
-                objBE.Fecha_Recepcion = Convert.ToDateTime(txtFechaElabora.Text);
-                objBE.Fecha_Elaboracion = Convert.ToDateTime(txtFechaRecep.Text);
+                objBE.Fecha_Recepcion = Convert.ToDateTime(txtFechaRecep.Text);
+                objBE.Fecha_Elaboracion = Convert.ToDateTime(txtFechaElabora.Text);
                 objBE.Fecha_Vencimiento = Convert.ToDateTime(txtFechaVenci.Text);
                 objBE.CodUN = Convert.ToInt32(cboUNCab.SelectedValue);
                 objBE.CodNotaIS = Convert.ToInt32(txtCodNotaIS.Value);
-           
+                objBE.codigoP = Convert.ToInt32(IdSeleccionado.Value);
+                objBE.UN = this.cboUNCab.SelectedItem.Text;
+
                 EFichaProducto objResult = new EFichaProducto();
 
                 if (ListaEFichaProducto == null)

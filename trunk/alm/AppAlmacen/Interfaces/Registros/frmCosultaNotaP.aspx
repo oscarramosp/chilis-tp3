@@ -127,12 +127,12 @@
                         </asp:TemplateField>
 
                         
-                        <asp:TemplateField HeaderText="Código">
+                        <asp:TemplateField HeaderText="Cod.Nota">
                        <ItemTemplate>
                                  <asp:Label ID="lblCorrelativo" runat="server" Text='<%# Bind("Codigo") %>' Visible="true"/>                                
                                 </ItemTemplate>
                             <HeaderStyle HorizontalAlign="Center" />
-                            <ItemStyle HorizontalAlign="Center" Width="30px" />
+                            <ItemStyle HorizontalAlign="Center"/>
                         </asp:TemplateField>
 
                         <asp:TemplateField HeaderText="Fecha Emisión">
@@ -203,14 +203,29 @@
 
                       <asp:GridView ID="gdvDetalle" runat="server" AutoGenerateColumns="False" >
                     <Columns>
-                        <asp:TemplateField HeaderText="Item">
+                        <asp:TemplateField HeaderText="Cod.Ficha">
                        <ItemTemplate>
                                  <asp:Label ID="lblItem" runat="server" Text='<%# Bind("CodItem") %>' Visible="true"/>                                
                                 </ItemTemplate>
-                            <HeaderStyle HorizontalAlign="Center" />
-                            <ItemStyle HorizontalAlign="Center" Width="30px" />
+                            <HeaderStyle HorizontalAlign="Left" />
+                            <ItemStyle HorizontalAlign="Left" />
                         
                         </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Codigo">
+                        <ItemTemplate>
+                         <asp:Label ID="lblCodProdCorto" runat="server" Text='<%# Bind("CodigoProducto") %>' />
+                         </ItemTemplate>
+                          <HeaderStyle HorizontalAlign="Left" />
+                        </asp:TemplateField>
+
+                        
+                        <asp:TemplateField HeaderText="Descripcion">
+                        <ItemTemplate>
+                         <asp:Label ID="lblMarca" runat="server" Text='<%# Bind("descripcion") %>' />
+                          </ItemTemplate>
+                          <HeaderStyle HorizontalAlign="Left" />
+                        </asp:TemplateField>
+
                         <asp:TemplateField HeaderText="Medida">
                         <ItemTemplate>
                          <asp:Label ID="lblMedida" runat="server" Text='<%# Bind("medida") %>' />
@@ -218,12 +233,6 @@
                           <HeaderStyle HorizontalAlign="Left" />
                         </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Descripcion">
-                        <ItemTemplate>
-                         <asp:Label ID="lblMarca" runat="server" Text='<%# Bind("descripcion") %>' />
-                          </ItemTemplate>
-                          <HeaderStyle HorizontalAlign="Left" />
-                        </asp:TemplateField>
 
                         <asp:TemplateField HeaderText="Marca">
                         <ItemTemplate>
@@ -270,7 +279,7 @@
                               <td>
                                   &nbsp;</td>
                               <td style="text-align: right">
-                                  Precio Pedido : 
+                                  <asp:Label ID="lblPrecioTotal" runat="server" Text="Precio Pedido"></asp:Label>
                                   <asp:TextBox ID="txtPrecioPedido" runat="server" 
                                       ReadOnly="True" Width="60px" ></asp:TextBox> </td>
                           </tr>

@@ -357,7 +357,8 @@ namespace ALM.DL.DataAccess.Almacen
                      cantActual = Convert.ToInt32(helper.GetValue<Int32>("cantActual")),
                      precioUnitario = helper.GetValue<Decimal>("precioUnitario"),
                      precioTotal = helper.GetValue<Decimal>("PrecioTotal"),
-                     
+                     CodigoProducto = helper.GetValue<Int32>("codigo"),
+                     DesUN = helper.GetValue<String>("descripcion"),                    
 
                  };
              });

@@ -17,6 +17,7 @@ namespace AppAlmacen.Almacen
         public string CodigoDetalle2 { get; set; }
 
         public string CodProducto { get; set; }
+        public int CodigoProducto { get; set; }
         public int CodItem { get; set; }
         public string CodItem2 { get; set; }
 
@@ -34,8 +35,8 @@ namespace AppAlmacen.Almacen
 
         public Decimal precioUnitario { get; set; }
         public Decimal precioTotal { get; set; }
-        
 
+        public string DesUN { get; set; }
         
     }
 }

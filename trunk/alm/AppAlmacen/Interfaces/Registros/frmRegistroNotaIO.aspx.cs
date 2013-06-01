@@ -36,65 +36,75 @@ namespace AppAlmacen.Interfaces.Registros
 
         protected void imbAgregar_Click(object sender, ImageClickEventArgs e)
         {
-            //Response.Redirect(String.Format("~/Interfaces/Registros/frmRegistroNotaIODetalle.aspx?Operacion={0}&Codigo={1}&codigo2={2}&item={3}&medida={4}&cantActual={5}&precioUnit={6}&PrecioTotal={7}",
-            //     Enumeraciones.TipoOperacion.Consulta.ToString(), strCodigo, strCodigo2, strItem, strMedida, strCantActual, strPrecioUnit, strPrecioTotal), false);
 
-           // List<ENotaIngresoSalidaDetalle> Lista_ENotaDetalle = new List<ENotaIngresoSalidaDetalle>();
-            ListaENotaISDetalle = new List<ENotaIngresoSalidaDetalle>(); 
 
-            int count=0; 
+            if (gdvListado.Rows.Count == 0)
+            {
+                MessageBox(this, "No hay items para agregar");
+            }
+            else
+            {
 
-            foreach (GridViewRow row in gdvListado.Rows) {
-                ENotaIngresoSalidaDetalle objENotaDetalle = new ENotaIngresoSalidaDetalle();
-        
-                count = count + 1;
-                CheckBox check = row.FindControl("chckSeleccionar") as CheckBox;
+                ListaENotaISDetalle = new List<ENotaIngresoSalidaDetalle>();
 
-                if (check.Checked)
+                int count = 0;
+
+                foreach (GridViewRow row in gdvListado.Rows)
                 {
-                var codigo = row.FindControl("lblCodEdit") as Label;
-                var codigo2 = row.FindControl("lblcodigo2") as Label;
-                var item = row.FindControl("lblItem") as Label;
-                var lblMedida = row.FindControl("lblMedida") as Label;
-                var lblCantActual = row.FindControl("lblCantActual") as Label;
-                var lblPrecioUnit = row.FindControl("lblPrecioUnit") as Label;
-                var lblPrecioTotal = row.FindControl("lblPrecioTotal") as Label;
+                    ENotaIngresoSalidaDetalle objENotaDetalle = new ENotaIngresoSalidaDetalle();
 
-            
-                string strCodigo = codigo.Text;
-                string strCodigo2 = codigo2.Text;
-                codDetalle.Value = strCodigo;
-                codDetalle2.Value = strCodigo2;
-                string strItem = item.Text;
-                string strMedida = lblMedida.Text;
-                string strCantActual = lblCantActual.Text;
-                string strPrecioUnit = lblPrecioUnit.Text;
-                string strPrecioTotal = lblPrecioTotal.Text;
+                    count = count + 1;
+                    CheckBox check = row.FindControl("chckSeleccionar") as CheckBox;
 
-               
+                    if (check.Checked)
+                    {
+                        var codigo = row.FindControl("lblCodEdit") as Label;
+                        var codigo2 = row.FindControl("lblcodigo2") as Label;
+                        var item = row.FindControl("lblItem") as Label;
+                        var lblMedida = row.FindControl("lblMedida") as Label;
+                        var lblCantActual = row.FindControl("lblCantActual") as Label;
+                        var lblPrecioUnit = row.FindControl("lblPrecioUnit") as Label;
+                        var lblPrecioTotal = row.FindControl("lblPrecioTotal") as Label;
+                        var lblDescripcion = row.FindControl("lblDescripcion") as Label;
 
-                    objENotaDetalle.CodItem = Convert.ToInt32(strItem);
-                    objENotaDetalle.medida = strMedida;
-                    objENotaDetalle.cantActual = Convert.ToInt32(strCantActual);
-                    objENotaDetalle.precioUnitario = Convert.ToDecimal(strPrecioUnit);
-                    objENotaDetalle.precioTotal = Convert.ToDecimal(strPrecioTotal);
-                    objENotaDetalle.CodigoDetIS = count;
-                    objENotaDetalle.fechaElaboracion = Convert.ToDateTime("12/12/2012");
-                    objENotaDetalle.fechaCaducidad = Convert.ToDateTime("12/04/2013");
- 
 
-                    ListaENotaISDetalle.Add(objENotaDetalle);
+                        string strCodigo = codigo.Text;
+                        string strCodigo2 = codigo2.Text;
+                        codDetalle.Value = strCodigo;
+                        codDetalle2.Value = strCodigo2;
+                        string strItem = item.Text;
+                        string strMedida = lblMedida.Text;
+                        string strCantActual = lblCantActual.Text;
+                        string strPrecioUnit = lblPrecioUnit.Text;
+                        string strPrecioTotal = lblPrecioTotal.Text;
+
+
+
+                        objENotaDetalle.CodItem = Convert.ToInt32(strItem);
+                        objENotaDetalle.medida = strMedida;
+                        objENotaDetalle.cantActual = Convert.ToInt32(strCantActual);
+                        objENotaDetalle.precioUnitario = Convert.ToDecimal(strPrecioUnit);
+                        objENotaDetalle.precioTotal = Convert.ToDecimal(strPrecioTotal);
+                        objENotaDetalle.CodigoDetIS = count;
+                        objENotaDetalle.fechaElaboracion = Convert.ToDateTime("12/12/2012");
+                        objENotaDetalle.fechaCaducidad = Convert.ToDateTime("12/04/2013");
+                        objENotaDetalle.descripcion = lblDescripcion.Text;
+
+                        ListaENotaISDetalle.Add(objENotaDetalle);
+
+                    }
+
 
                 }
 
-               
+                // ListaENotaISDetalle = Lista_ENotaDetalle;
+
+                Response.Redirect(String.Format("~/Interfaces/Registros/frmRegistroNotaIODetalle.aspx?Operacion={0}&Codigo={1}&codigo3={2}",
+                Enumeraciones.TipoOperacion.Consulta.ToString(), codDetalle.Value, codDetalle2.Value), false);
+
             }
 
-           // ListaENotaISDetalle = Lista_ENotaDetalle;
-
-            Response.Redirect(String.Format("~/Interfaces/Registros/frmRegistroNotaIODetalle.aspx?Operacion={0}&Codigo={1}&codigo2={2}",
-            Enumeraciones.TipoOperacion.Consulta.ToString(), codDetalle.Value, codDetalle2.Value), false);
-      
+                  
         
         }
 
