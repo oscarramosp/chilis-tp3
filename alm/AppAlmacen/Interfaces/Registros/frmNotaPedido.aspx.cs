@@ -88,6 +88,7 @@ namespace AppAlmacen.Interfaces.Registros
         void gdvListado_RowEditing(object sender, GridViewEditEventArgs e)
         {
             var codigo = gdvListado.Rows[e.NewEditIndex].FindControl("lblcodigoPr") as Label;
+            var codigoCorto = gdvListado.Rows[e.NewEditIndex].FindControl("lblCod2") as Label;
             var UN = gdvListado.Rows[e.NewEditIndex].FindControl("lblCodUN") as Label;
             var descripcion = gdvListado.Rows[e.NewEditIndex].FindControl("lblDescripcion") as Label;
             
@@ -103,14 +104,16 @@ namespace AppAlmacen.Interfaces.Registros
             {
                 lblProductoSel.Text = "";
                 txtProductoSel.Value = "";
+                txtProductoSelCorto.Value = "";
                 txtProductoSelDes.Value = "";
                 MessageBox(this.Page, "No hay coincidencias de fichas para el producto seleccionado");
 
             }
             else
             {
-                lblProductoSel.Text = "Producto seleccionado : " + strCodigo;
+                lblProductoSel.Text = "Producto seleccionado : " + descripcion.Text;
                 txtProductoSel.Value = strCodigo;
+                txtProductoSelCorto.Value = codigoCorto.Text;
                 txtProductoSelDes.Value = descripcion.Text;
             }
 
@@ -132,6 +135,7 @@ namespace AppAlmacen.Interfaces.Registros
             var precioUnitario = gdvFichas.Rows[e.NewEditIndex].FindControl("lblPrecio") as Label;
             var precioTotal = gdvFichas.Rows[e.NewEditIndex].FindControl("lblTotal") as Label;
             var CodUN = gdvFichas.Rows[e.NewEditIndex].FindControl("lblCodUN") as Label;
+            var DesUN = gdvFichas.Rows[e.NewEditIndex].FindControl("lblUNI") as Label;
 
             ENotaPedidoDetalle objBE = new ENotaPedidoDetalle();
             objBE.CodProducto = txtProductoSel.Value;
@@ -145,8 +149,8 @@ namespace AppAlmacen.Interfaces.Registros
             objBE.cantModif = Convert.ToDecimal(cantActual.Text);
             objBE.precioUnitario = Convert.ToDecimal(precioUnitario.Text);
             objBE.precioTotal = Convert.ToDecimal(precioTotal.Text);
-
-            
+            objBE.CodigoProducto = Convert.ToInt32(txtProductoSelCorto.Value);
+            objBE.DesUN = DesUN.Text;    
 
             EFichaProducto objResult = new EFichaProducto();
 
@@ -383,10 +387,10 @@ namespace AppAlmacen.Interfaces.Registros
 
             }
 
-            if (count > 0)
-            {
-                MessageBox(this.Page, "Las cantidades a pedir no pueden ser mayores a las almacenadas!");
-            }
+            //if (count > 0)
+            //{
+            //    //MessageBox(this.Page, "Las cantidades a pedir no pueden ser mayores a las almacenadas!");
+            //}
         }
 
         protected void btnSalirTodo_Click(object sender, EventArgs e)

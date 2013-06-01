@@ -12,6 +12,7 @@ namespace AppAlmacen.Almacen
     {
         public int Codigo { get; set; }
         public string codProducto { get; set; }
+        public int codigoP { get; set; }
         public string Descripcion { get; set; }
         public int Item { get; set; }
         public string Lote { get; set; }

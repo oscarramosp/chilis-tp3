@@ -52,9 +52,9 @@ namespace AppAlmacen.Interfaces.Registros
                 var fecha = gdvListado.Rows[e.NewEditIndex].FindControl("lblFecha") as Label;
                 var periodo = gdvListado.Rows[e.NewEditIndex].FindControl("lblPeriodo") as Label;
                 var tranTipo = gdvListado.Rows[e.NewEditIndex].FindControl("lblTransCod") as Label;
-                var RefTipo = gdvListado.Rows[e.NewEditIndex].FindControl("lblrefCod") as Label;
+                //var RefTipo = gdvListado.Rows[e.NewEditIndex].FindControl("lblrefCod") as Label;
                 var empleado = gdvListado.Rows[e.NewEditIndex].FindControl("lblEmpleado") as Label;
-                var codPedido = gdvListado.Rows[e.NewEditIndex].FindControl("lblCodPedido2") as Label;
+                var codPedido = gdvListado.Rows[e.NewEditIndex].FindControl("lblCodPedido") as Label;
                
                 
                string strCodigo = codigo.Text;
@@ -65,7 +65,7 @@ namespace AppAlmacen.Interfaces.Registros
                string strfecha = fecha.Text;
                string strperiodo = periodo.Text;
                string strtranTipo = tranTipo.Text;
-               string strRefTipo = RefTipo.Text;
+               //string strRefTipo = RefTipo.Text;
                string strempleado = empleado.Text;
                string strcodPedido = codPedido.Text;
 
@@ -73,7 +73,7 @@ namespace AppAlmacen.Interfaces.Registros
 
 
                Response.Redirect(String.Format("~/Interfaces/Registros/frmRegistroNotaIODetalle.aspx?Operacion={0}&Correlativo={1}&codTipDoc={2}&codUniOri={3}&CodUniDes={4}&fecha={5}&periodo={6}&transTipo={7}&refTipo={8}&empleado={9}&CodPedido={10}&Codigo2={11}",
-                    Enumeraciones.TipoOperacion.Modificacion.ToString(), strCodigo, strtipodoc, strUniOri, strUniDes, strfecha, strperiodo, strtranTipo, strRefTipo, strempleado,strcodPedido,strCodigo2), false);
+                    Enumeraciones.TipoOperacion.Modificacion.ToString(), strCodigo, strtipodoc, strUniOri, strUniDes, strfecha, strperiodo, strtranTipo, "", strempleado,strcodPedido,strCodigo2), false);
             }
             catch (ApplicationRulesException arex)
             {
@@ -108,7 +108,7 @@ namespace AppAlmacen.Interfaces.Registros
                         if (txtCodNumPedido.Text != "")
                         {
                             BLNotaPedido objBNotaPedido = new BLNotaPedido();
-                            gdvListado.DataSource = objBNotaPedido.ListarPorNotaPedido_IS(Convert.ToInt32(1));
+                            gdvListado.DataSource = objBNotaPedido.ListarPorNotaPedido_IS(Convert.ToInt32(txtCodNumPedido.Text));
                             gdvListado.DataBind();
                         }
                         else {

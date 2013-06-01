@@ -25,6 +25,9 @@ namespace AppAlmacen.Interfaces.Registros
                 ucwTituloBandeja.Texto = "Actualizar Nota de Pedido";
 
                 LlenarComboUN(cboUN);
+
+                txtPrecioPedido.Visible = false;
+                lblPrecioTotal.Visible = false;
                 
             }
         }
@@ -59,6 +62,9 @@ namespace AppAlmacen.Interfaces.Registros
                 gdvPedidos.DataSource = objProducto.ListarPorNotaPedidoP(Convert.ToInt32(cboUN.SelectedValue));
                 gdvPedidos.DataBind();
 
+
+                txtPrecioPedido.Visible = false;
+                lblPrecioTotal.Visible = false;
 
                 this.lblPedidoSel.Text = "";
                 txtPrecioPedido.Text = "";
@@ -116,11 +122,15 @@ namespace AppAlmacen.Interfaces.Registros
             {
                 lblPedidoSel.Text = "";
                 txtPrecioPedido.Text = "";
+                txtPrecioPedido.Visible = false;
+                lblPrecioTotal.Visible = false;
                 MessageBox(this.Page, "No hay detalle para el pedido seleccionado");
 
             }
             else
             {
+                txtPrecioPedido.Visible = true;
+                lblPrecioTotal.Visible = true;
                 lblPedidoSel.Text = "Nota de Pedido seleccionada : " + correlativo.Text;
                 txtPrecioPedido.Text = preciopedido.Text;
             }

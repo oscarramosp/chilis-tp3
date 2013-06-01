@@ -73,6 +73,8 @@ namespace AppAlmacen.Interfaces.Registros
             String operacion = Request.QueryString["Operacion"];
             Enumeraciones.TipoOperacion tipoOperacion = (Enumeraciones.TipoOperacion)Enum.Parse(typeof(Enumeraciones.TipoOperacion), operacion, true);
 
+            txtCodigoPedido.ReadOnly = true;
+            btnCargarporPedido.Visible = false;
 
             string codTipDoc = Request.QueryString["codTipDoc"];
             string codUniOri = Request.QueryString["codUniOri"];
@@ -94,6 +96,13 @@ namespace AppAlmacen.Interfaces.Registros
                     hddCodigo.Value = "0";
                     LimpiarFormulario();
                     ddlTipoDocumento.SelectedIndex = 1;
+
+                    ddlTransferencia.Items.Clear();
+                    ddlTransferencia.Items.Insert(0, new ListItem("Ingreso de Proveedor", "IP"));
+                    ddlTransferencia.Items.Insert(0, new ListItem("Ingreso por Terceros", "IT"));
+                    ddlTransferencia.Items.Insert(0, new ListItem("--Seleccione--", "-1"));
+                    ddlTransferencia.SelectedValue = "-1";
+
                     LlenarComboUnidadNegocioP(ddlUnidadOrigen);
                     
                     ddlunidadDestino.SelectedValue = "2"; //por defecto siempre es San Isidro 
@@ -113,16 +122,22 @@ namespace AppAlmacen.Interfaces.Registros
                 case Enumeraciones.TipoOperacion.Modificacion:
                     ucwGrabarCerrar.HabilitarGrabar = true;
                     ucwGrabarCerrar.VisibleGrabar = true;
-                    lblCodigoPedido.Text = "";//CodPedido;
+                    txtCodigoPedido.Text = CodPedido;
                     //lblCodigoNotaIS.Text = "";
                     txtEmpleado.Text = empleado;
-                    txtFecha.SetText = fecha;
+                    txtFecha.Text = fecha;
                     txtNumRefDoc.Text = CodPedido;
                     txtPeriodo.Text = periodo;
                     //ddlRefencia.SelectedValue = refTipo;
-                    ddlTransferencia.SelectedValue = transTipo;
+                    
                     ddlunidadDestino.SelectedValue = CodUniDes;
                     ddlTipoDocumento.SelectedValue = codTipDoc;
+
+                    cargar_tipotransferencia();
+
+                    ddlTransferencia.SelectedValue = transTipo;
+
+                    
 
                     if (codTipDoc == "NI")
                     {
@@ -143,10 +158,18 @@ namespace AppAlmacen.Interfaces.Registros
                     ucwGrabarCerrar.VisibleGrabar = true;
                     hddCodigo.Value = "0";
                     LimpiarFormulario();
-                     lblCodigoPedido.Text = "";//codPedidoCon2;
+                     txtCodigoPedido.Text = codPedidoCon;
                      txtNumRefDoc.Text = codPedidoCon2;
                      ddlTipoDocumento.SelectedIndex = 2;
+
+
+                    ddlTransferencia.Items.Clear();
+                    ddlTransferencia.Items.Insert(0, new ListItem("Salida a Terceros", "ST"));
+                    ddlTransferencia.SelectedValue = "ST";
+                    //ddlTransferencia.Enabled = false;
+
                      ddlUnidadOrigen.SelectedValue = "2"; //por defecto siempre es San Isidro 
+
                      txtFecha.Text = DateTime.Now.ToShortDateString();
                      if (Convert.ToString(DateTime.Now.Month).Length < 2)
                      {
@@ -157,6 +180,25 @@ namespace AppAlmacen.Interfaces.Registros
                          txtPeriodo.Text = Convert.ToString(DateTime.Now.Year) + Convert.ToString(DateTime.Now.Month);
                      }
 
+
+                    //se cargan los datos de la NP seleccionada
+                     if (codPedidoCon != ""){
+                         try
+                         {
+                             BLNotaPedido objBL = new BLNotaPedido();
+                             ENotaPedido objBE = new ENotaPedido();
+                             objBE = objBL.GetNP(Convert.ToInt32(codPedidoCon));
+                             ddlUnidadOrigen.SelectedValue = objBE.almacenOrigen.ToString();
+                             this.ddlunidadDestino.SelectedValue = objBE.almacenDestino.ToString();
+                             ddlUnidadOrigen.Enabled = false;
+                             this.ddlunidadDestino.Enabled = false;
+                         }
+                         catch { 
+                         
+                         }
+                     }
+
+                    
                     break;
                 default:
                     break;
@@ -195,7 +237,7 @@ namespace AppAlmacen.Interfaces.Registros
                       //Lista_ENotaDetalle= (List<ENotaIngresoSalidaDetalle>)Session["listado"];
                     //  var list = (List<ENotaIngresoSalidaDetalle>)Request.QueryString["listado"];
 
-                      ucwDatosDetalle.CargarNotasSeleccionadas(frm.ListaENotaISDetalle);
+                      ucwDatosDetalle.CargarNotasSeleccionadas(frm.ListaENotaISDetalle, Enumeraciones.TipoOperacion.Consulta);
                     
                     break;
 
@@ -216,13 +258,13 @@ namespace AppAlmacen.Interfaces.Registros
 
             int codPedido;
 
-            if (lblCodigoPedido.Text == "")
+            if (txtCodigoPedido.Text == "")
             {
                 codPedido = 0;
             }
             else {
                 string codPedidoCon = Request.QueryString["Codigo"];
-                codPedido = Convert.ToInt32(codPedidoCon); 
+                codPedido = Convert.ToInt32(txtCodigoPedido.Text); 
             }
 
             ENotaIngresoSalida objENota = new ENotaIngresoSalida()
@@ -230,16 +272,15 @@ namespace AppAlmacen.Interfaces.Registros
                 NotaISDetalle= objENotaDetalle,
                 CodunidDestino=Convert.ToInt32(ddlunidadDestino.SelectedValue),
                 CodunidOrigen= Convert.ToInt32(ddlUnidadOrigen.SelectedValue),
-                 empleado=txtEmpleado.Text,
-                  periodo= txtPeriodo.Text,
-                   tipoDocumento= ddlTipoDocumento.SelectedValue,
-                    transTipo= ddlTransferencia.SelectedValue,
-                     referNumDoc= txtNumRefDoc.Text,
-                      referTipo= ddlRefencia.SelectedValue,
-                       fecha= Convert.ToDateTime(txtFecha.Text),
+                empleado=txtEmpleado.Text,
+                periodo= txtPeriodo.Text,
+                tipoDocumento= ddlTipoDocumento.SelectedValue,
+                transTipo= ddlTransferencia.SelectedValue,
+                referNumDoc= txtNumRefDoc.Text,
+                //referTipo= ddlRefencia.SelectedValue,
+                fecha= Convert.ToDateTime(txtFecha.Text),
                 CodPedido = codPedido,
                 
-
             };
 
             BLNotaPedido objBLNota = new BLNotaPedido(); 
@@ -404,8 +445,90 @@ namespace AppAlmacen.Interfaces.Registros
 
         protected void btnCargarporPedido_Click(object sender, EventArgs e)
         {
+            if (this.txtCodigoPedido.Text.Trim() == "")
+            {
+                MessageBox(this, "Ingrese el numero de pedido");
+            }
+            else 
+            {
+                try
+                {
+                    ucwDatosDetalle.CargarNotasporPedido(Convert.ToInt32(this.txtCodigoPedido.Text));
 
-            ucwDatosDetalle.CargarNotasporPedido(Convert.ToInt32(this.txtCodigoPedido.Text));
+                    //verifico si hay datos
+
+                            BLNotaPedido objBL = new BLNotaPedido();
+                            ENotaPedido objBE = new ENotaPedido();
+                            objBE = objBL.GetNP(Convert.ToInt32(this.txtCodigoPedido.Text));
+                            ddlUnidadOrigen.SelectedValue = objBE.almacenOrigen.ToString();
+                            this.ddlunidadDestino.SelectedValue = objBE.almacenDestino.ToString();
+                            ddlUnidadOrigen.Enabled = false;
+                            this.ddlunidadDestino.Enabled = false;
+                        
+
+                }
+                catch
+                {
+                    MessageBox(this, "No se puede cargar el pedido");
+                }
+
+            }
+
+            
+        }
+
+        protected void ddlTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+            cargar_tipotransferencia();
+        }
+
+        private void cargar_tipotransferencia()
+        {
+            ddlTransferencia.Items.Clear();
+
+            if (ddlTipoDocumento.SelectedValue == "NI")
+            {
+                ddlTransferencia.Items.Insert(0, new ListItem("Ingreso de Proveedor", "IP"));
+                ddlTransferencia.Items.Insert(0, new ListItem("Ingreso por Terceros", "IT"));
+                ddlTransferencia.Items.Insert(0, new ListItem("--Seleccione--", "-1"));
+                ddlTransferencia.SelectedValue = "-1";
+            }
+
+            if (ddlTipoDocumento.SelectedValue == "NS")
+            {
+                ddlTransferencia.Items.Insert(0, new ListItem("Salida a Terceros", "ST"));
+                ddlTransferencia.SelectedValue = "ST";
+            }
+        }
+
+        protected void ddlTransferencia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlTransferencia.SelectedValue == "ST" || ddlTransferencia.SelectedValue == "IT")
+            {
+                txtCodigoPedido.ReadOnly = false;
+                btnCargarporPedido.Visible = true;
+            }
+            else
+            {
+                txtCodigoPedido.ReadOnly = true;
+                btnCargarporPedido.Visible = false;
+            }
+
+            if (ddlTransferencia.SelectedValue == "IP")
+            {
+                if (ddlUnidadOrigen.SelectedIndex >= 0)
+                    ddlUnidadOrigen.Items[ddlUnidadOrigen.SelectedIndex].Selected = false;
+                ddlUnidadOrigen.Items.FindByText("Proveedor").Selected = true;
+                ddlUnidadOrigen.Enabled = false;
+            }
+            else
+            {
+                ddlUnidadOrigen.SelectedValue = "-1";
+                ddlUnidadOrigen.Enabled = true;
+            }
+
         }
     }
 }

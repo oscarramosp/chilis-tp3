@@ -130,6 +130,8 @@ public partial class ucwDatosDetalle : System.Web.UI.UserControl
     {
        this.txtLote.Attributes.Add("onkeypress", "return FP_SoloLetrasyNumeros(event);");
        this.txtCodItem.Attributes.Add("onkeypress", "return FP_SoloNumeros(event);");
+       this.txtCodItem.Attributes.Add("onblur", "javascript:ObtenerProducto();");
+       
        //this.txtPrecioTotal.Attributes.Add("onkeypress", "return FP_SoloLetrasyNumerosLimitadoConGuionyPunto(event);");
        this.txtPrecioUnit.Attributes.Add("onkeypress", "return FP_SoloNumerosyPuntos(event);");
        this.txtCantActual.Attributes.Add("onkeypress", "return FP_SoloNumeros(event);");
@@ -150,7 +152,8 @@ public partial class ucwDatosDetalle : System.Web.UI.UserControl
        
     }
 
- 
+    
+
     public void CargarNotasInicial(int codigoNota, Enumeraciones.TipoOperacion tipoOperacion)
     {
         hddCodigo.Value = codigoNota.ToString();
@@ -176,7 +179,10 @@ public partial class ucwDatosDetalle : System.Web.UI.UserControl
 
     public void CargarNotasporPedido(int codigopedido)
     {
-        
+
+        ModoLectura = true;
+        imbAgregar.Enabled = !ModoLectura;
+
         BLNotaPedidoDetalle objNotaISDetalle = new BLNotaPedidoDetalle();
         ListaENotaISDetalle = objNotaISDetalle.ListarPorNotaISP(Convert.ToInt32(codigopedido));
 
@@ -189,8 +195,16 @@ public partial class ucwDatosDetalle : System.Web.UI.UserControl
             CantidadChangedNota(new CantidadEventArgs(CantidadNotas()));
     }
 
-    public void CargarNotasSeleccionadas(List<ENotaIngresoSalidaDetalle> nota)
+    public void CargarNotasSeleccionadas(List<ENotaIngresoSalidaDetalle> nota, Enumeraciones.TipoOperacion tipoOperacion2)
     {
+
+        if (tipoOperacion2 == Enumeraciones.TipoOperacion.Creacion)
+            ModoLectura = false;
+        else
+            ModoLectura = true;
+
+        imbAgregar.Enabled = !ModoLectura;
+
 
         BLNotaPedidoDetalle objNotaISDetalle = new BLNotaPedidoDetalle();
         ListaENotaISDetalle = nota;
@@ -461,4 +475,44 @@ public partial class ucwDatosDetalle : System.Web.UI.UserControl
     
        
     #endregion
+
+    protected void btnActualiza_Click(object sender, ImageClickEventArgs e)
+    {
+        try
+        {
+            if (txtCodItem.Text != "")
+            {
+                BLProductos objProducto = new BLProductos();
+                List<EProductos> Prod = new List<EProductos>();
+
+                Prod = objProducto.BuscarProductos2(Convert.ToInt32(this.txtCodItem.Text));
+
+
+
+                Prod.ForEach(delegate(EProductos objProd)
+                {
+                    txtDescripcion.Text = objProd.Descripcion;
+                    mpeActualizarNotaIS.Show();
+                });
+
+                if (Prod.Count == 0)
+                {
+                    MessageBox(this.Page, "No se encontró el producto");
+                    txtDescripcion.Text = "";
+                    mpeActualizarNotaIS.Show();
+                }
+            }
+            else
+            {
+                //MessageBox(this.Page, "Ingrese un codigo");
+                txtDescripcion.Text = "";
+                mpeActualizarNotaIS.Show();
+            }
+        }
+        catch
+        {
+            txtDescripcion.Text = "";
+            mpeActualizarNotaIS.Show();
+        }
+    }
 }

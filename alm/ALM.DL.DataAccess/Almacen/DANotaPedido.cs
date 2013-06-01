@@ -63,6 +63,7 @@ namespace ALM.DL.DataAccess.Almacen
                      precioUnitario = helper.GetValue<Decimal>("precioUnitario"),
                      precioTotal = helper.GetValue<Decimal>("PrecioTotal"),
                      serie = helper.GetValue<String>("correlativo"),
+                     descripcion = helper.GetValue<String>("descripcion"),
                    
                                      };
              });
@@ -164,7 +165,7 @@ namespace ALM.DL.DataAccess.Almacen
          public DbCommand GetListarPorNotaPedido_IS(Database db, int codNotaPedido)
          {
              DbCommand dbCommand = db.GetStoredProcCommand("[ALM.ListarNotaIngresoSalida]");
-             db.AddInParameter(dbCommand, "@NotaPedido", DbType.String, codNotaPedido);
+             db.AddInParameter(dbCommand, "@NotaPedido", DbType.Int32, codNotaPedido);
              return dbCommand;
          }
          public DomainObjectFactoryBase<ENotaIngresoSalida> GetNotaPedido_IS()
@@ -370,6 +371,38 @@ namespace ALM.DL.DataAccess.Almacen
 
 
          #endregion 
+
+
+         //obtiene datos de la nota de pedido
+         public DbCommand GetNP(Database db, int codigo)
+         {
+             DbCommand dbCommand = db.GetStoredProcCommand("[ALM.NotaPedido_Buscar2]");
+             db.AddInParameter(dbCommand, "@codigo", DbType.Int32, codigo);
+             return dbCommand;
+         }
+
+         public ENotaPedido NP(int codigo)
+         {
+             ENotaPedido obj = base.ExecuteGetObject<ENotaPedido>(GetNP(db, codigo),
+                                                                            GETNP1());
+             return obj;
+         }
+
+         public DomainObjectFactoryBase<ENotaPedido> GETNP1()
+         {
+             DomainObjectFactoryBase<ENotaPedido> domainFactory = new DomainObjectFactoryBase<ENotaPedido>(delegate(IDataReader myReader)
+             {
+                 MapHelper helper = new MapHelper(myReader);
+                 return new ENotaPedido()
+                 {
+
+                     almacenOrigen = helper.GetValue<Int32>("almacenorigen"),
+                     almacenDestino = helper.GetValue<Int32>("almacendestino"),
+                 };
+             });
+
+             return domainFactory;
+         }
 
         #region Update cabecera
 

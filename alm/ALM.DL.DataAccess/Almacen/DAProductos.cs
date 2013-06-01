@@ -67,6 +67,7 @@ namespace ALM.DL.DataAccess.Almacen
          }
 
 
+         
 
         //busqueda de productos por UN
         public DbCommand GetBuscarProductosUN(Database db, String codigo, String nombre,int UN)
@@ -155,6 +156,43 @@ namespace ALM.DL.DataAccess.Almacen
 
              return domainFactory;
          }
+
+
+
+         //busqueda de productos2
+         public DbCommand GetBuscarProductos2(Database db, Int32 codigo)
+         {
+             DbCommand dbCommand = db.GetStoredProcCommand("[ALM.Buscar_Productos2]");
+             db.AddInParameter(dbCommand, "@codigo", DbType.Int32, codigo);
+         
+             return dbCommand;
+         }
+
+         public List<EProductos> BuscarProductos2(Int32 codigo)
+         {
+             List<EProductos> lista = base.ExecuteGetList<EProductos>(GetBuscarProductos2(db, codigo),
+                                                                            GetBuscar2());
+             return lista;
+         }
+
+         public DomainObjectFactoryBase<EProductos> GetBuscar2()
+         {
+             DomainObjectFactoryBase<EProductos> domainFactory = new DomainObjectFactoryBase<EProductos>(delegate(IDataReader myReader)
+             {
+                 MapHelper helper = new MapHelper(myReader);
+                 return new EProductos()
+                 {
+
+                     Nombre = helper.GetValue<String>("nombre"),
+                     Descripcion = helper.GetValue<String>("descripcion"),
+                     
+                 };
+
+             });
+
+             return domainFactory;
+         }
+
 
          //busqueda de marcas
          public DbCommand GetListarMarcas(Database db)
@@ -327,6 +365,7 @@ namespace ALM.DL.DataAccess.Almacen
                      CodUN = helper.GetValue<Int32>("CodUN"),
                      UN = helper.GetValue<String>("desUN"),
                      Descripcion = helper.GetValue<String>("desProducto"),
+                     codigoP = helper.GetValue<Int32>("codigo"),
                  };
 
              });

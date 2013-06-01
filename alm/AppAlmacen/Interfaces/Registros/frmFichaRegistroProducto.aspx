@@ -434,10 +434,24 @@
                        <ItemTemplate>
                                  <asp:Label ID="lblItem" runat="server" Text='<%# Bind("Item") %>' Visible="true"/>                                
                                 </ItemTemplate>
-                            <HeaderStyle HorizontalAlign="Center" />
-                            <ItemStyle HorizontalAlign="Center" Width="30px" />
+                            <HeaderStyle HorizontalAlign="Left" />
+                            <ItemStyle HorizontalAlign="Left"/>
                         
                         </asp:TemplateField>
+                             <asp:TemplateField HeaderText="U.Negocio">
+                        <ItemTemplate>
+                         <asp:Label ID="lblUNDes" runat="server" Text='<%# Bind("UN") %>' />
+                         </ItemTemplate>
+                          <HeaderStyle HorizontalAlign="Left" />
+                        </asp:TemplateField>
+                        
+                        <asp:TemplateField HeaderText="Codigo">
+                        <ItemTemplate>
+                         <asp:Label ID="lblCodigoCorto" runat="server" Text='<%# Bind("codigoP") %>' />
+                         </ItemTemplate>
+                          <HeaderStyle HorizontalAlign="Left" />
+                        </asp:TemplateField>
+
                         <asp:TemplateField HeaderText="Descripcion">
                         <ItemTemplate>
                          <asp:Label ID="lblDescripcion" runat="server" Text='<%# Bind("Descripcion") %>' />

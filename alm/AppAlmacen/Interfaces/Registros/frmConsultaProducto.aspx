@@ -165,9 +165,24 @@
                        <ItemTemplate>
                                  <asp:Label ID="lblItem" runat="server" Text='<%# Bind("Item") %>' Visible="true"/>                                
                                 </ItemTemplate>
-                            <HeaderStyle HorizontalAlign="Center" />
-                            <ItemStyle HorizontalAlign="Center" Width="30px" />
+                            <HeaderStyle HorizontalAlign="Left" />
+                            <ItemStyle HorizontalAlign="Left" />
                         
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="U.Negocio">
+                        <ItemTemplate>
+                         <asp:Label ID="lblUNe" runat="server" Text='<%# Bind("UN") %>' />
+                         </ItemTemplate>
+                          <HeaderStyle HorizontalAlign="Left" />
+                        </asp:TemplateField>
+                        
+
+                        <asp:TemplateField HeaderText="Codigo">
+                        <ItemTemplate>
+                         <asp:Label ID="lblCodProdCorto" runat="server" Text='<%# Bind("codigoP") %>' />
+                         </ItemTemplate>
+                          <HeaderStyle HorizontalAlign="Left" />
                         </asp:TemplateField>
 
                         <asp:TemplateField HeaderText="Descripcion">
@@ -177,12 +192,7 @@
                           <HeaderStyle HorizontalAlign="Left" />
                         </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="U.Negocio">
-                        <ItemTemplate>
-                         <asp:Label ID="lblUNe" runat="server" Text='<%# Bind("UN") %>' />
-                         </ItemTemplate>
-                          <HeaderStyle HorizontalAlign="Left" />
-                        </asp:TemplateField>
+                        
 
                         <asp:TemplateField HeaderText="Medida">
                         <ItemTemplate>

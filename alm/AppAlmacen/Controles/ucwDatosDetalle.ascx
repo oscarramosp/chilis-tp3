@@ -6,6 +6,10 @@
 <%@ Register Src="ucwRegistros.ascx" TagName="ucwRegistros" TagPrefix="uc3" %>
 <%@ Register Src="ucwAsterisco.ascx" TagName="ucwAsterisco" TagPrefix="uc4" %>
 <script language="javascript" type="text/javascript">
+    function ObtenerProducto() {
+        eval($("#<%=btnActualiza.ClientID %>").trigger('click'))
+    }
+
     function MostrarModalNotaIS() {
         $find('<%= mpeActualizarNotaIS.ClientID %>').show();
     }
@@ -200,6 +204,9 @@
                                                                 Codigo Item:</td>
                                                             <td>                                                                
                                                              <asp:TextBox ID="txtCodItem" runat="server" MaxLength="20"  ValidationGroup="GrupoNotaISDetalle"></asp:TextBox>
+                                                                <asp:ImageButton ID="btnActualiza" runat="server" 
+                                                                    ImageUrl="~/Imagenes/Botones/transparente.gif" 
+                                                                    onclick="btnActualiza_Click" />
                                                              <asp:RequiredFieldValidator ID="rfvCodItem" runat="server" Display="None" ValidationGroup="GrupoNotaISDetalle"
                                             ControlToValidate="txtCodItem" SetFocusOnError="True" />
                                                             <uc4:ucwAsterisco ID="UcwAsterisco5" runat="server" />
