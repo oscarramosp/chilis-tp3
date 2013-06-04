@@ -168,13 +168,9 @@ namespace cyr
             objReclamo.TipoReclamo = ddlTipoReclamo.SelectedValue;
 
             if (txtReclamo.Text.Trim().Length > 2000)
-            {
                 objReclamo.Detalle = txtReclamo.Text.Trim().Substring(0, 2000);
-            }
             else
-            {
                 objReclamo.Detalle = txtReclamo.Text.Trim();
-            }
 
             objReclamo.Cliente = new BECliente();
             objReclamo.Cliente.CodigoCliente = ucBuscarCliente.CodigoCliente;
