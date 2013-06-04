@@ -67,7 +67,7 @@
                         Reclamo:
                     </div>
                     <div class="filter-data" style="width: 250px;">
-                        <asp:TextBox ID="txtReclamo" runat="server" Width="200" CssClass="classInput" MaxLength="200"></asp:TextBox>
+                        <asp:TextBox ID="txtReclamo" runat="server" Width="400" Rows="5" TextMode="MultiLine" MaxLength="400"></asp:TextBox>
                     </div>
                     <div class="clear">
                     </div>
