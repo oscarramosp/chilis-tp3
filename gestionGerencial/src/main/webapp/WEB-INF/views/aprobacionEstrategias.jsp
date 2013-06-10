@@ -89,7 +89,7 @@
 				<input type="submit" name="action" value="Rechazar"
 					onclick="return confirm('¿Está seguro de querer Rechazar solicitud?');" />
 			</c:if>
-			<input name="button" type="button" onclick="window.close();"
+			<input name="button" type="button" onclick=" window.open('','_self','');window.close();;"
 				value="Cancelar" />
 		</form:form>
 	</div>

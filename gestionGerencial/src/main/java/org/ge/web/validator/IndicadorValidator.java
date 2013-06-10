@@ -30,18 +30,46 @@ class IndicadorValidator implements Validator {
 		if (StringUtils.isEmpty(indicador.getNombre())) {
 			errors.rejectValue("nombre", "indicador.nombre.requerido");
 		}
-		
-		boolean isRepeatDescription = indicadorManager.isRepeatNombre(
-				indicador.getNombre(), indicador.getCodigo());
-		if (isRepeatDescription) {
-			errors.rejectValue("descripcion", "indicador.nombre.repetido");
+		if (StringUtils.isEmpty(indicador.getFormula())) {
+			errors.rejectValue("formula", "indicador.formula.requerida");
 		}
+		if (StringUtils.isEmpty(indicador.getMeta())) {
+			errors.rejectValue("meta", "indicador.meta.requerida");
+		}
+		
+		boolean isRepeatNombre = indicadorManager.isRepeatNombre(
+				indicador.getNombre(), indicador.getCodigo());
+		if (isRepeatNombre) {
+			errors.rejectValue("nombre", "indicador.nombre.repetido");
+		}
+		
+		boolean isRepeatDescription = indicadorManager.isRepeatDescripcion(
+				indicador.getDescripcion(), indicador.getCodigo());
+		if (isRepeatDescription) {
+			errors.rejectValue("descripcion", "indicador.descripcion.repetida");
+		}
+		
+		IndicadorUtil aux = (IndicadorUtil) object;
+		if(aux.getTipoObjetivo().equals("Funcional")){
+			if (aux.getArea().getCodigo() == null) {
+				errors.rejectValue("area.codigo", "indicador.area.requerida");
+			}
+			
+			if (aux.getObjetivo() == null || aux.getObjetivo().getCodigo() == null) {
+				errors.rejectValue("objetivo.codigo", "indicador.objetivo.requerido");
+			}
+		} else {
+			if (aux.getObjetivoGeneral().getCodigo() == null) {
+				errors.rejectValue("objetivoGeneral.codigo", "indicador.objetivo.requerido");
+			}
+		}
+		
 	}
 	
 	public void validarBusqueda(Object object, Errors errors) {
 		IndicadorUtil indicador = (IndicadorUtil) object;
 		if (indicador.getTipoObjetivo().equals("Funcional") && (indicador.getObjetivo()== null || indicador.getObjetivo().getCodigo()== null)) {
-			errors.rejectValue("objetivo.codigo", "indicador.objetivoFuncional.requerido");
+			errors.rejectValue("objetivo.codigo", "indicador.objetivo.requerido");
 		}
 	}
 	

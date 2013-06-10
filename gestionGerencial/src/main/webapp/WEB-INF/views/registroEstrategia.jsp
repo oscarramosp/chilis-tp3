@@ -43,6 +43,7 @@
 					 </select>
 					</spring:bind>		
 					</c:if>
+					<form:errors path="area.codigo" />
 					
 					<h5>Objetivo Funcional Relacionado</h5>
 					
@@ -53,6 +54,7 @@
 					  </c:forEach>
 					 </select>
 					</spring:bind>					
+					<form:errors path="objetivoEstrategia.codigo" />
 					
 					<h5>Persona responsable</h5>
 					
@@ -63,6 +65,7 @@
 					  </c:forEach>
 					 </select>
 					</spring:bind>
+					<form:errors path="responsableEstrategia.codigo" />
 					
 					<c:if test="${tipoOperacion == 'Registrar'}">
 					 <script type="text/javascript" charset="utf-8">
@@ -82,6 +85,7 @@
 						<form:options items="${listaObjetivosGenerales}" itemLabel="descripcion"
 							itemValue="codigo" id="selectObjetivo" />
 					</form:select>
+					<form:errors path="objetivoGeneral.codigo" />
 					
 					<h5>Persona responsable</h5>
 					
@@ -93,6 +97,7 @@
 					 </select>
 					</spring:bind>
 					</div>
+					<form:errors path="empleadoGeneral.codigo" />
 							
 					<div id="formAreas" style="display: ${visibilidadFuncionalEstrategia};">
 											
@@ -114,7 +119,7 @@
 					
 					<h5>Vigencia Estrategia</h5>				
 					<br>
-					<h6>Desde:</h6><form:input path="fechaInicio" id="f_rangeStart" /><form:errors path="fechaInicio" />	
+					<h6>Desde:</h6><form:input path="fechaInicio" id="f_rangeStart" readonly="true"/><form:errors path="fechaInicio" />	
 					<button id="f_rangeStart_trigger">...</button>
 					<script type="text/javascript">
 	                  RANGE_CAL_1 = new Calendar({
@@ -136,7 +141,7 @@
 	                  };
 	                </script>
 	                <br>
-					<h6>Hasta:</h6><form:input path="fechaFin" id="f_rangeEnd" /><form:errors path="fechaFin" />
+					<h6>Hasta:</h6><form:input path="fechaFin" id="f_rangeEnd" readonly="true"/><form:errors path="fechaFin" />
 	                <button id="f_rangeEnd_trigger">...</button>
 	                <script type="text/javascript">
 	                  RANGE_CAL_2 = new Calendar({
@@ -166,7 +171,8 @@
 					
 					<input type="submit" id="<c:out value="tipoOperacion"></c:out>" name='<c:out value="tipoOperacion"></c:out>' value="${tipoOperacion}"/>
 							
-					<input name="button" type="button" onclick="window.close();" value="Cancelar" />		
+					<input name="button" type="button" onclick=" window.open('','_self','');window.close();;"
+				value="Cancelar" />	
 				</fieldset>
 		</div>
 	</div>

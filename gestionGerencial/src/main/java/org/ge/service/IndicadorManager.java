@@ -19,5 +19,7 @@ public interface IndicadorManager {
 	
 	public List<Indicador> getListaIndicadoresPendientes();
 	
-	public boolean isRepeatNombre(String descripcion,Integer codigoIndicador);
+	public boolean isRepeatNombre(String nombre,Integer codigoIndicador);
+	
+	public boolean isRepeatDescripcion(String descripcion,Integer codigoIndicador);
 }

@@ -56,7 +56,12 @@ class EstrategiaManagerImpl implements EstrategiaManager {
 	
 	public boolean isRepeatNombre(String nombre,
 			Integer codigoEstrategia) {
-		return estrategiaDao.isRepeatDescription(nombre, codigoEstrategia);
+		return estrategiaDao.isRepeatNombre(nombre, codigoEstrategia);
+	}
+	
+	public boolean isRepeatDescription(String descripcion,
+			Integer codigoEstrategia) {
+		return estrategiaDao.isRepeatDescription(descripcion, codigoEstrategia);
 	}
 	
 	public List<Estrategia> getListaEstrategiasPendientesPorArea(Area area) {

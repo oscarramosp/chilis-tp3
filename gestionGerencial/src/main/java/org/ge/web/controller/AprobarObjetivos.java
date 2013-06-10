@@ -37,7 +37,7 @@ public class AprobarObjetivos {
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/aprobacionObjetivos.htm", method = RequestMethod.POST)
-	public void BuscarPendientes(HttpSession sesion, Model model,
+	public String BuscarPendientes(HttpSession sesion, Model model,
 			@ModelAttribute("formUtil") FormUtil formUtil,
 			BindingResult result, @RequestParam String action) {
 		Area area = ((Empleado) sesion.getAttribute("usuario")).getArea();
@@ -86,8 +86,13 @@ public class AprobarObjetivos {
 			}
 		}
 		if (action.equals("Aprobar")) {
+				objetivoValidator.validarSeleccionAprobacion(formUtil, result);
+				if (result.hasErrors()) {
+					return "aprobacionObjetivos";
+					
+				}
 				Objetivo objetivo = objetivoManager.getObjetivoPorCodigo(formUtil.getCodigo());
-				objetivo.setComentarios(formUtil.getComentarios());
+				objetivo.setComentarios(formUtil.getComentarios());				
 				if (objetivo.getEstado().equals("pendBaja")) {
 					//TODO: validación pendiente
 					objetivo.setEstado("baja");
@@ -104,8 +109,13 @@ public class AprobarObjetivos {
 				
 		} else {
 			if (action.equals("Rechazar")) {
+					objetivoValidator.validarSeleccionAprobacion(formUtil, result);
+					if (result.hasErrors()) {
+						return "aprobacionObjetivos";
+						
+					}
 					Objetivo objetivo = objetivoManager.getObjetivoPorCodigo(formUtil.getCodigo());
-					objetivo.setComentarios(formUtil.getComentarios());
+					objetivo.setComentarios(formUtil.getComentarios());					
 					if (objetivo.getEstado().equals("pendBaja")) {
 						objetivo.setEstado("registrado");
 						model.addAttribute("mensajeConfirmacion", "Restaurado");
@@ -123,6 +133,7 @@ public class AprobarObjetivos {
 					
 			}
 		}
+		return "aprobacionObjetivos";
 	}
 
 	@RequestMapping(value = "/visualizarElemento.htm")

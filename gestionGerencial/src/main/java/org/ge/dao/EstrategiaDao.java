@@ -15,4 +15,6 @@ public interface EstrategiaDao {
 	public void guardarEstrategia(Estrategia estrategia);
 
 	public boolean isRepeatDescription(String descripcion, Integer codigoEstrategia);
+	
+	public boolean isRepeatNombre(String nombre, Integer codigoEstrategia);
 }

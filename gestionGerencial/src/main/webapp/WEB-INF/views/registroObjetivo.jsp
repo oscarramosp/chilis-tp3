@@ -75,7 +75,8 @@
 					
 					<input type="submit" id="<c:out value="tipoOperacion"></c:out>" name='<c:out value="tipoOperacion"></c:out>' value="${tipoOperacion}"/>
 							
-					<input name="button" type="button" onclick="window.close();" value="Cancelar" />		
+					<input name="button" type="button" onclick=" window.open('','_self','');window.close();;"
+				value="Cancelar" />
 				</fieldset>
 		</div>
 	</div>

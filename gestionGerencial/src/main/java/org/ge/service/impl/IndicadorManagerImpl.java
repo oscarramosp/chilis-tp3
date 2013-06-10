@@ -60,7 +60,12 @@ class IndicadorManagerImpl implements IndicadorManager {
 	
 	public boolean isRepeatNombre(String nombre,
 			Integer codigoIndicador) {
-		return indicadorDao.isRepeatDescription(nombre, codigoIndicador);
+		return indicadorDao.isRepeatNombre(nombre, codigoIndicador);
+	}
+	
+	public boolean isRepeatDescripcion(String descripcion,
+			Integer codigoIndicador) {
+		return indicadorDao.isRepeatDescription(descripcion, codigoIndicador);
 	}
 
 }

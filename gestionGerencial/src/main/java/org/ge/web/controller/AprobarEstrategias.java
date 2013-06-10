@@ -34,7 +34,7 @@ public class AprobarEstrategias {
 	}
 
 	@RequestMapping(value = "/aprobacionEstrategias.htm", method = RequestMethod.POST)
-	public void BuscarEstrategiasPendientes(HttpSession sesion, Model model,
+	public String BuscarEstrategiasPendientes(HttpSession sesion, Model model,
 			@ModelAttribute("formUtil") FormUtil formUtil,
 			BindingResult result, @RequestParam String action) {
 		Area area = ((Empleado) sesion.getAttribute("usuario")).getArea();
@@ -62,6 +62,11 @@ public class AprobarEstrategias {
 			}
 		}
 		if (action.equals("Aprobar")) {
+				estrategiaValidator.validarSeleccionAprobacion(formUtil, result);
+				if (result.hasErrors()) {
+					return "aprobacionEstrategias";
+					
+				}
 				Estrategia estrategia = estrategiaManager.getEstrategiaPorCodigo(formUtil.getCodigo());
 				estrategia.setComentarios(formUtil.getComentarios());
 				if (estrategia.getEstado().equals("pendBaja")) {
@@ -77,6 +82,11 @@ public class AprobarEstrategias {
 				
 		} else {
 			if (action.equals("Rechazar")) {
+					estrategiaValidator.validarSeleccionAprobacion(formUtil, result);
+					if (result.hasErrors()) {
+						return "aprobacionEstrategias";
+						
+					}
 					Estrategia estrategia = estrategiaManager.getEstrategiaPorCodigo(formUtil.getCodigo());
 					estrategia.setComentarios(formUtil.getComentarios());
 					if (estrategia.getEstado().equals("pendBaja")) {
@@ -89,6 +99,7 @@ public class AprobarEstrategias {
 					estrategiaManager.guardarEstrategia(estrategia);					
 			}
 		}
+		return "aprobacionEstrategias";
 	}
 
 	@RequestMapping(value = "/visualizarElementoEstrategia.htm")
