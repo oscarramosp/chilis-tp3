@@ -60,11 +60,27 @@ public class EstrategiaDaoImpl implements EstrategiaDao {
 		hibernateTemplate.saveOrUpdate(estrategia);
 	}
 	
-	public boolean isRepeatDescription(String nombre, Integer codigoEstrategia) {
+	public boolean isRepeatNombre(String nombre, Integer codigoEstrategia) {
 		StringBuffer query = new StringBuffer();
 		query.append("select count(*) from estrategia ");
 		query.append(" where nombre_estrategia = '")
 				.append(nombre.trim().toUpperCase()).append("' ");
+		if (codigoEstrategia != null) {
+			query.append(" and codigo_estrategia != ").append(codigoEstrategia);
+		}
+		int count = jdbcTemplate.queryForInt(query.toString());
+		if (count > 0) {
+			return true;
+		}
+		System.out.println("no es repetido ");
+		return false;
+	}
+	
+	public boolean isRepeatDescription(String descripcion, Integer codigoEstrategia) {
+		StringBuffer query = new StringBuffer();
+		query.append("select count(*) from estrategia ");
+		query.append(" where descripcion_estrategia = '")
+				.append(descripcion.trim().toUpperCase()).append("' ");
 		if (codigoEstrategia != null) {
 			query.append(" and codigo_estrategia != ").append(codigoEstrategia);
 		}

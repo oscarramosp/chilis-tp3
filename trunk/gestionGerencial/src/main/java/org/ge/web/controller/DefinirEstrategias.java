@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.ge.model.Area;
 import org.ge.model.Empleado;
 import org.ge.model.Estrategia;
@@ -45,8 +47,8 @@ public class DefinirEstrategias {
 	@InitBinder
 	protected void initBinder(WebDataBinder binder) {
 	    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-	    binder.registerCustomEditor(Date.class, new CustomDateEditor(
-	            dateFormat, false));
+	    dateFormat.setLenient(true);
+	    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 	}
 	
 	@RequestMapping(value = "/consultaEstrategias.htm", method = RequestMethod.GET)
@@ -60,7 +62,7 @@ public class DefinirEstrategias {
 	
 	@RequestMapping(value = "/consultaEstrategias.htm", method = RequestMethod.POST)
 	public String verListaConsulta(Model model,
-			@ModelAttribute("estrategiaBusqueda") EstrategiaUtil estrategiaBusqueda,
+			@ModelAttribute("estrategiaBusqueda") @Valid EstrategiaUtil estrategiaBusqueda,
 			BindingResult result) {
 		estrategiaValidator.validarBusqueda(estrategiaBusqueda, result);
 		if (result.hasErrors()) {
@@ -105,6 +107,13 @@ public class DefinirEstrategias {
 		try {
 			estrategiaValidator.validate(estrategiaNueva, result);
 			if (result.hasErrors()) {
+				if(estrategiaNueva.getCodigo()==null){
+					System.out.println("Validacion en Registro");
+					model.addAttribute("tipoOperacion","Registrar");
+				} else {
+					System.out.println("Validacion en Update");
+					model.addAttribute("tipoOperacion","Actualizar");
+				}
 				return "registroEstrategia";
 			}
 			if(estrategiaNueva.getCodigo()==null){
@@ -154,6 +163,7 @@ public class DefinirEstrategias {
 			return "consultaEstrategias";
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
+			System.out.println("Error en DefinirEstrategias");
 			return "registroEstrategia";
 		}
 	}
@@ -209,7 +219,7 @@ public class DefinirEstrategias {
 		}
 		Area area = organizacionManager.getAreaPorCodigo(searchId);
 		List<Objetivo> listaObjetivos = objetivoManager.getListaObjetivosHabilesPorArea(area);
-		System.out.println(listaObjetivos.size());
+		System.out.println("TamañoLista:"+ listaObjetivos.size());
 		return listaObjetivos;
 	}
 	

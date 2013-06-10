@@ -14,6 +14,8 @@ public interface IndicadorDao {
 	
 	public List<Indicador> getListaIndicadores(Indicador indicador);
 	
+	public boolean isRepeatNombre(String nombre, Integer codigoIndicador);
+	
 	public boolean isRepeatDescription(String descripcion, Integer codigoIndicador);
 
 }

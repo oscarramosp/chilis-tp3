@@ -102,6 +102,12 @@ public class GestionarIndicadores {
 		try {
 			indicadorValidator.validate(indicadorNuevo, result);
 			if (result.hasErrors()) {
+				if(indicadorNuevo.getCodigo()==null){
+					model.addAttribute("tipoOperacion","Registrar");
+					
+				} else {
+					model.addAttribute("tipoOperacion","Actualizar");
+				}
 				return "registroIndicador";
 			}
 			if(indicadorNuevo.getCodigo()==null){

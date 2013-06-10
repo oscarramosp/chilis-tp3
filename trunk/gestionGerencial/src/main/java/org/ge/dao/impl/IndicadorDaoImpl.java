@@ -44,22 +44,6 @@ public class IndicadorDaoImpl implements IndicadorDao {
 		hibernateTemplate.saveOrUpdate(indicador);
 	}
 	
-	public boolean isRepeatDescription(String nombre, Integer codigoIndicador) {
-		StringBuffer query = new StringBuffer();
-		query.append("select count(*) from indicador ");
-		query.append(" where nombre_indicador = '")
-				.append(nombre.trim().toUpperCase()).append("' ");
-		if (codigoIndicador != null) {
-			query.append(" and codigo_indicador != ").append(codigoIndicador);
-		}
-		int count = jdbcTemplate.queryForInt(query.toString());
-		if (count > 0) {
-			return true;
-		}
-		System.out.println("no es repetido");
-		return false;
-	}
-	
 	@SuppressWarnings("unchecked")
 	public List<Indicador> getListaIndicadores(Indicador indicador) {
 		
@@ -74,5 +58,37 @@ public class IndicadorDaoImpl implements IndicadorDao {
 		}
 		List<Indicador> list = (List<Indicador>) hibernateTemplate.find(query.toString());
 		return list;
+	}
+
+	public boolean isRepeatDescription(String descripcion, Integer codigoIndicador) {
+		StringBuffer query = new StringBuffer();
+		query.append("select count(*) from indicador ");
+		query.append(" where descripcion_indicador = '")
+				.append(descripcion.trim().toUpperCase()).append("' ");
+		if (codigoIndicador != null) {
+			query.append(" and codigo_indicador != ").append(codigoIndicador);
+		}
+		int count = jdbcTemplate.queryForInt(query.toString());
+		if (count > 0) {
+			return true;
+		}
+		System.out.println("no es repetido");
+		return false;
+	}
+	
+	public boolean isRepeatNombre(String nombre, Integer codigoIndicador) {
+		StringBuffer query = new StringBuffer();
+		query.append("select count(*) from indicador ");
+		query.append(" where nombre_indicador = '")
+				.append(nombre.trim().toUpperCase()).append("' ");
+		if (codigoIndicador != null) {
+			query.append(" and codigo_indicador != ").append(codigoIndicador);
+		}
+		int count = jdbcTemplate.queryForInt(query.toString());
+		if (count > 0) {
+			return true;
+		}
+		System.out.println("no es repetido");
+		return false;
 	}
 }

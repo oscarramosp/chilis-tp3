@@ -46,8 +46,8 @@
 					   <option value="${area.codigo}">${area.nombre}</option>
 					  </c:forEach>
 					 </select>
-					</spring:bind>								
-								
+					</spring:bind>
+					
 					<h5>Objetivo Funcional Relacionado</h5>
 					
 					<spring:bind path="objetivoEstrategia.codigo">
@@ -56,7 +56,8 @@
 					   <option value="${objetivo.codigo}" class="${objetivo.area.codigo}">${objetivo.descripcion}</option>
 					  </c:forEach>
 					 </select>
-					</spring:bind>	
+					</spring:bind>
+					<form:errors path="objetivoEstrategia.codigo" />	
 					
 					 <script type="text/javascript" charset="utf-8">
 				          $(function(){
@@ -86,7 +87,7 @@
 				</form:select>
 
 				
-				<h6>Desde:</h6><form:input path="fechaInicio" id="f_rangeStart" /><form:errors path="fechaInicio" />
+				<h6>Desde:</h6><form:input path="fechaInicio" id="f_rangeStart" readonly="true"/><form:errors path="fechaInicio" />
 				<button id="f_rangeStart_trigger">...</button>
 				<script type="text/javascript">
                   RANGE_CAL_1 = new Calendar({
@@ -108,7 +109,7 @@
                   };
                 </script>
                 <br>
-				<h6>Hasta:</h6><form:input path="fechaFin" id="f_rangeEnd" /><form:errors path="fechaFin" />
+				<h6>Hasta:</h6><form:input path="fechaFin" id="f_rangeEnd" readonly="true"/><form:errors path="fechaFin" />
                 <button id="f_rangeEnd_trigger">...</button>
                 <script type="text/javascript">
                   RANGE_CAL_2 = new Calendar({
@@ -188,7 +189,7 @@
 				onclick="location.href='<c:url value="consultaEstrategias.htm" />'"
 				value="Limpiar" />
 
-			<input name="button" type="button" onclick="window.close();"
+			<input name="button" type="button" onclick=" window.open('','_self','');window.close();;"
 				value="Cancelar" />
 		</form:form>
 	</div>

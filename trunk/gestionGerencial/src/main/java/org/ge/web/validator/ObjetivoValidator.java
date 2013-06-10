@@ -7,6 +7,7 @@ import org.ge.model.Objetivo;
 import org.ge.model.ObjetivoFuncional;
 import org.ge.model.ObjetivoGeneral;
 import org.ge.service.ObjetivoManager;
+import org.ge.util.FormUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -58,5 +59,10 @@ class ObjetivoValidator implements Validator {
 			System.out.println("aaa");
 			errors.rejectValue("codigo", "objetivo.codigo.vacio");
 		}		
+	}
+	public void validarSeleccionAprobacion(FormUtil objetivo, Errors errors) {	
+		if (objetivo.getCodigo() == null) {
+			errors.rejectValue("codigo", "objetivo.codigo.select");
+		}
 	}
 }

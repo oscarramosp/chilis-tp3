@@ -88,7 +88,14 @@ public class GestionarObjetivoController {
 		try {
 			objetivoValidator.validate(objetivoNuevo, result);
 			if (result.hasErrors()) {
+				if(objetivoNuevo.getCodigo()==null){
+					model.addAttribute("tipoOperacion","Registrar");
+					
+				} else {
+					model.addAttribute("tipoOperacion","Actualizar");
+				}
 				return "registroObjetivo";
+				
 			}
 			if(objetivoNuevo.getCodigo()==null){
 				if(objetivoNuevo.getTipoObjetivo().equals("General")){			
@@ -151,6 +158,7 @@ public class GestionarObjetivoController {
 	@ModelAttribute("listaAreas")
 	public List<Area> listarAreas() {
 		List<Area> listaAreas = organizacionManager.getListaAreas();
+		listaAreas.remove(4);
 		return listaAreas;
 	}
 	

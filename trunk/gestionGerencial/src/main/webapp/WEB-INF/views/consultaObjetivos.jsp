@@ -84,7 +84,7 @@
 				onclick="location.href='<c:url value="consultaObjetivos.htm" />'"
 				value="Limpiar" />
 
-			<input name="button" type="button" onclick="window.close();"
+			<input name="button" type="button" onclick=" window.open('','_self','');window.close();;"
 				value="Cancelar" />
 		</form:form>
 	</div>

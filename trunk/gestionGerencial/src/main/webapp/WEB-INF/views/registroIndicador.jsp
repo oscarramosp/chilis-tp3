@@ -45,6 +45,7 @@
 					  </c:forEach>
 					 </select>
 					</spring:bind>
+					<form:errors path="area.codigo" />
 					
 					
 					<h5>Objetivo Funcional Relacionado</h5>
@@ -63,6 +64,7 @@
 				          });
 				     </script>			
 					</div>
+					<form:errors path="objetivo.codigo" />
 										
 					<div id="formObjetivoVinculadoGeneral" style="display: ${visibilidadGeneralIndicador};">
 					
@@ -73,6 +75,7 @@
 							itemValue="codigo" id="selectObjetivo" />
 					</form:select>
 					</div>
+					<form:errors path="objetivoGeneral.codigo" />
 					
 					<h6>Nombre Indicador</h6>
 					<form:input path="nombre"/>
@@ -101,7 +104,8 @@
 					
 					<input type="submit" id="<c:out value="tipoOperacion"></c:out>" name='<c:out value="tipoOperacion"></c:out>' value="${tipoOperacion}"/>
 							
-					<input name="button" type="button" onclick="window.close();" value="Cancelar" />		
+					<input name="button" type="button" onclick=" window.open('','_self','');window.close();;"
+				value="Cancelar" />
 				</fieldset>
 		</div>
 	</div>

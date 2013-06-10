@@ -27,5 +27,7 @@ public interface EstrategiaManager {
 	
 	public List<Estrategia> getListaEstrategiasPendientesBajaPorArea(Area area);
 	
-	public boolean isRepeatNombre(String descripcion,Integer codigoEstrategia);
+	public boolean isRepeatNombre(String nombre,Integer codigoEstrategia);
+	
+	public boolean isRepeatDescription(String descripcion,Integer codigoEstrategia);
 }
