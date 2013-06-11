@@ -3103,6 +3103,366 @@ and f.codUN = case when @UN = -1 then f.codUN else @UN end
 
 go
 
+GO
+ALTER PROCEDURE [dbo].[ALM.NotaISDetalle_ListarPorNotaIS]  
+ @CodNotaIS  int 
+AS  
+BEGIN   
+ SET NOCOUNT ON;     
+
+ SELECT  
+ codigoDetIS,
+ codigoIS,
+ isnull(descripcion,'') descripcion,
+ cantActual,
+ medida,
+ isnull(lote,'') lote,
+ isnull(serie,'') serie,
+ fechaElaboracion,
+ fechaCaducidad,
+ cast(precioUnitario as decimal(18,2)) precioUnitario,
+ cast(PrecioTotal as decimal(18,2))PrecioTotal,
+  codItem     
+FROM dbo.tb_NotaIngresoSalidaDetalle
+
+ WHERE  codigoIS = @CodNotaIS  
+   
+      
+ SET NOCOUNT OFF;     
+END  
+
+go
+
+ALTER procedure [dbo].[ALM.Buscar_FichaProducto]
+@codigoPr varchar(100),
+@UN int
+as
+select f.item, f.medida, k.descripcion as Marca, f.fecha_vencimiento, 
+f.cantidad as cantidad, 
+f.precio,  
+convert(decimal(18,2), f.cantidad* f.precio) as total, 
+k.codMarca, f.CodUN, u.desUN, p.descripcion as desProducto, p.codigo
+from  
+tb_FichaProducto f
+inner join tb_Producto p
+on f.codProducto = p.codigoPr
+inner join tb_Marca k
+on k.codmarca = p.marca
+inner join tb_unidadnegocio u
+on u.codigo = f.codUN
+where p.codigoPr like '%'+ @codigoPr +'%'
+and f.codUN = case when @UN = -1 then f.codUN else @UN end
+
+
+go
+
+ALTER procedure [dbo].[ALM.NotaPedidoDetalle_Buscar]
+@codigoPedido int
+as
+select codItem, medida,p.descripcion, m.descripcion as marca,fechacaducidad, cantactual,
+preciounitario, preciototal,
+isnull((select pr.codigo from tb_producto pr where pr.codigoPr in (select f.codProducto from tb_fichaproducto f where f.item = p.codItem)),'') as Codigo
+from tb_notapedidodetalle p
+inner join tb_marca m
+on m.codMarca = p.marca
+where codigopedido =@codigopedido
+order by codigopedidodet asc 
+
+go
+
+
+create procedure [dbo].[ALM.Buscar_Productos2]
+@codigo int
+as
+select descripcion, nombre
+from tb_producto 
+where codigo = @codigo
+ 
+go
+
+ALTER procedure [dbo].[ALM.ListarNotaPedido] 
+@NotaPedido int
+AS    
+BEGIN    
+ SET NOCOUNT ON;   
+   
+ Select 
+ dt.codigoPedido,
+ RIGHT('000' +CONVERT(VARCHAR(3),dt.codigoPedido),3) as 'codPedido2', 
+convert(int, (select tp.codigo from tb_producto tp where tp.codigoPr in (select fp.codProducto from tb_fichaproducto fp where fp.item = dt.Coditem))) as Coditem,
+(select tp.descripcion from tb_producto tp where tp.codigoPr in (select fp.codProducto from tb_fichaproducto fp where fp.item = dt.Coditem)) as Descripcion,
+ convert(varchar,RIGHT('000' +CONVERT(VARCHAR(3),(select tp.codigo from tb_producto tp where tp.codigoPr in (select fp.codProducto from tb_fichaproducto fp where fp.item = dt.Coditem))),3)) as 'codItem2',
+ dt.medida,
+ marca.descripcion as 'marca',
+ dt.fechaCaducidad,
+ dt.cantActual,
+ cast(dt.precioUnitario as decimal(18,2)) precioUnitario,
+ cast(dt.PrecioTotal as decimal(18,2))PrecioTotal,
+  convert(varchar(50),@NotaPedido) as correlativo
+ from tb_NotaPedidoDetalle dt
+ left join tb_Producto pro on pro.codigo=dt.Coditem
+ left join tb_marca marca on marca.codMarca=dt.marca
+ where dt.codigoPedido=@NotaPedido
+ and dt.codigoPedido in (select codigoPedido from tb_notapedido where estadoNota = '1')
+ 
+ 
+ SET NOCOUNT OFF;    
+ END   
+ 
+
+go
+
+create procedure [dbo].[ALM.NotaPedido_Buscar2]
+@codigo int
+as
+select Codigopedido,AlmacenOrigen, AlmacenDestino
+from tb_notapedido p
+where codigoPedido = @codigo
+
+go
+
+
+ALTER procedure [dbo].[ALM.ListarNotaIngresoSalida]
+@NotaPedido int
+AS    
+BEGIN    
+ SET NOCOUNT ON;   
+   
+ Select 
+ n.codigoIS,
+ RIGHT('000' +CONVERT(VARCHAR(3),n.codigoIS),3) as 'codnotaIS2', 
+ case when n.tipoDocumento='NI' then 'Nota Ingreso' else 'Nota Salida' END as 'desTipoDoc',
+ n.tipoDocumento as 'codTipodoc',
+ n.fecha,
+ n.periodo,
+ n.transfTipo as 'codTransTipo',
+ case when transfTipo='IP' then 'Ingreso de proveedor'
+		 when transfTipo='IT' then 'Ingreso por terceros'
+		  when transfTipo='ID' then 'Ingreso por devolución'
+		   when transfTipo='IR' then 'Ingreso por regularización'
+		    when transfTipo='ST' then 'Salida a terceros'
+		    when transfTipo='SD' then 'Salida por devolución'
+			when transfTipo='SR' then 'Salida por regularización' END AS 'destransTipo',
+isnull(n.referTipo,'') as 'codRefTipo',
+isnull((case when referTipo='GR' then 'Guía de remisión'
+when referTipo='NI' then 'Nota de Ingreso'
+when referTipo='NS' then 'Nota de Salida'
+end),'') as 'desrefTipo',
+n.referNumDoc,
+n.codUnidadOrigen,
+n.codUnidadDestino,
+uDestino.desUn as 'UniDes',
+uOrigen.desUn as 'UniOrig',
+n.empleado,
+n.codNotaPedido,
+RIGHT('000' +CONVERT(VARCHAR(3),n.codNotaPedido),3) as 'codnotapedido2' ,
+n.correlativo
+
+ from  tb_NotaIngresoSalida n
+ left join tb_UnidadNegocio uOrigen on uOrigen.codigo=n.codUnidadOrigen
+ left join tb_UnidadNegocio uDestino on uDestino.codigo=n.codUnidadDestino
+ 
+ where n.codNotaPedido=@NotaPedido 
+ 
+ SET NOCOUNT OFF;    
+    
+ END   
+ 
+
+go
+
+--insertar cabecera---
+ALTER PROC [dbo].[ALM.NotaIS_Insertar]   
+
+@codNotaPedido int,
+@tipoDocumento varchar(50),
+@fecha date,
+@periodo varchar(20),
+@transfTipo varchar(50),
+@referTipo varchar(50),
+@referNumDoc varchar(20),
+@codUnidadOrigen int,
+@codUnidadDestino int,
+@empleado varchar(200),
+@Codigo   VARCHAR(14) OUTPUT  
+  
+AS      
+BEGIN      
+      
+ SET NOCOUNT ON ;   
+  declare @correlativo varchar(20);
+  declare @var int;
+  select @var= COUNT(*) from  tb_NotaIngresoSalida;
+  set @var=@var+1;
+  set @correlativo=RIGHT('MI_NIS_00' +CONVERT(VARCHAR(10),@var),10);
+ 
+  
+ BEGIN    
+ if(@tipoDocumento='NI')
+ Begin 
+ INSERT INTO    
+     dbo.tb_NotaIngresoSalida
+   (codNotaPedido,
+	tipoDocumento,
+	fecha,
+	periodo,
+	transfTipo,
+	referTipo,
+	referNumDoc,
+	codUnidadOrigen,
+	codUnidadDestino,
+	empleado,correlativo 
+   )    
+
+  VALUES    
+  (@codNotaPedido,
+	@tipoDocumento,
+	@fecha,
+	@periodo,
+	@transfTipo,
+	@referTipo,
+	'0',
+	@codUnidadOrigen,
+	@codUnidadDestino,
+	@empleado,@correlativo)    
+end
+   else
+  begin
+  INSERT INTO    
+     dbo.tb_NotaIngresoSalida
+   (codNotaPedido,
+	tipoDocumento,
+	fecha,
+	periodo,
+	transfTipo,
+	referTipo,
+	referNumDoc,
+	codUnidadOrigen,
+	codUnidadDestino,
+	empleado,correlativo
+   )    
+
+  VALUES    
+  (@codNotaPedido,
+	@tipoDocumento,
+	@fecha,
+	@periodo,
+	@transfTipo,
+	@referTipo,
+	@referNumDoc,
+	@codUnidadOrigen,
+	@codUnidadDestino,
+	@empleado,@correlativo)    
+   
+ end
+
+   
+ END     
+   SET @Codigo = SCOPE_IDENTITY();
+      
+ SET NOCOUNT OFF ;    
+       
+END
+
+
+
+
+go
+
+
+
+ALTER procedure [dbo].[ALM.ListarNotaIngresoSalida]
+@NotaPedido int
+AS    
+BEGIN    
+ SET NOCOUNT ON;   
+   
+ if (@NotaPedido = 0)
+ begin
+ Select 
+ n.codigoIS,
+ RIGHT('000' +CONVERT(VARCHAR(3),n.codigoIS),3) as 'codnotaIS2', 
+ case when n.tipoDocumento='NI' then 'Nota Ingreso' else 'Nota Salida' END as 'desTipoDoc',
+ n.tipoDocumento as 'codTipodoc',
+ n.fecha,
+ n.periodo,
+ n.transfTipo as 'codTransTipo',
+ case when transfTipo='IP' then 'Ingreso de proveedor'
+		 when transfTipo='IT' then 'Ingreso por terceros'
+		  when transfTipo='ID' then 'Ingreso por devolución'
+		   when transfTipo='IR' then 'Ingreso por regularización'
+		    when transfTipo='ST' then 'Salida a terceros'
+		    when transfTipo='SD' then 'Salida por devolución'
+			when transfTipo='SR' then 'Salida por regularización' END AS 'destransTipo',
+isnull(n.referTipo,'') as 'codRefTipo',
+isnull((case when referTipo='GR' then 'Guía de remisión'
+when referTipo='NI' then 'Nota de Ingreso'
+when referTipo='NS' then 'Nota de Salida'
+end),'') as 'desrefTipo',
+n.referNumDoc,
+n.codUnidadOrigen,
+n.codUnidadDestino,
+uDestino.desUn as 'UniDes',
+uOrigen.desUn as 'UniOrig',
+n.empleado,
+n.codNotaPedido,
+RIGHT('000' +CONVERT(VARCHAR(3),n.codNotaPedido),3) as 'codnotapedido2' ,
+n.correlativo
+
+ from  tb_NotaIngresoSalida n
+ left join tb_UnidadNegocio uOrigen on uOrigen.codigo=n.codUnidadOrigen
+ left join tb_UnidadNegocio uDestino on uDestino.codigo=n.codUnidadDestino
+  where tipoDocumento = 'NI'
+
+end 
+else
+begin
+
+ Select 
+ n.codigoIS,
+ RIGHT('000' +CONVERT(VARCHAR(3),n.codigoIS),3) as 'codnotaIS2', 
+ case when n.tipoDocumento='NI' then 'Nota Ingreso' else 'Nota Salida' END as 'desTipoDoc',
+ n.tipoDocumento as 'codTipodoc',
+ n.fecha,
+ n.periodo,
+ n.transfTipo as 'codTransTipo',
+ case when transfTipo='IP' then 'Ingreso de proveedor'
+		 when transfTipo='IT' then 'Ingreso por terceros'
+		  when transfTipo='ID' then 'Ingreso por devolución'
+		   when transfTipo='IR' then 'Ingreso por regularización'
+		    when transfTipo='ST' then 'Salida a terceros'
+		    when transfTipo='SD' then 'Salida por devolución'
+			when transfTipo='SR' then 'Salida por regularización' END AS 'destransTipo',
+isnull(n.referTipo,'') as 'codRefTipo',
+isnull((case when referTipo='GR' then 'Guía de remisión'
+when referTipo='NI' then 'Nota de Ingreso'
+when referTipo='NS' then 'Nota de Salida'
+end),'') as 'desrefTipo',
+n.referNumDoc,
+n.codUnidadOrigen,
+n.codUnidadDestino,
+uDestino.desUn as 'UniDes',
+uOrigen.desUn as 'UniOrig',
+n.empleado,
+n.codNotaPedido,
+RIGHT('000' +CONVERT(VARCHAR(3),n.codNotaPedido),3) as 'codnotapedido2' ,
+n.correlativo
+
+ from  tb_NotaIngresoSalida n
+ left join tb_UnidadNegocio uOrigen on uOrigen.codigo=n.codUnidadOrigen
+ left join tb_UnidadNegocio uDestino on uDestino.codigo=n.codUnidadDestino
+  where n.codNotaPedido= @NotaPedido 
+
+end 
+ SET NOCOUNT OFF;    
+    
+ END   
+ 
+
+
+go
+
+
 --===============================FIN MODULO ALMACEN ========================================================
 
 --============== INICIO  MODULO TRABAJADORES =============================================================================
