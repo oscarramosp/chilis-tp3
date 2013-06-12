@@ -150,13 +150,17 @@ namespace cyr
         private void habilitarCamposTipoDoc(Boolean blnHabilitar)
         {
             divSexo.Visible = blnHabilitar;
+            ddlTipoDoc.Enabled = blnHabilitar;
+
             if (blnHabilitar)
             {
                 divCampoNombre.InnerText = "Nombre:";
+                ddlTipoDoc.SelectedIndex = 0;
             }
             else
             {
                 divCampoNombre.InnerText = "Razón Social:";
+                ddlTipoDoc.SelectedValue = "2"; // they mad
             }
             divApePaterno.Visible = blnHabilitar;
             divApeMaterno.Visible = blnHabilitar;
