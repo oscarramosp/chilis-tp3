@@ -296,7 +296,7 @@
                         errorEnGrilla = true;
                         mensaje += "<li>[Dirección] Ingrese la referencia.</li>";
                     }
-                    if (telefono == '' && !esEnteroValido(telefono)) {
+                    if (telefono == '' || !esEnteroValido(telefono)) {
                         errorEnGrilla = true;
                         mensaje += "<li>[Dirección] Ingrese un teléfono válido.</li>";
                     }
